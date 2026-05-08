@@ -1,0 +1,18 @@
+{
+  "company": "Entreprise",
+  "product": "Produit",
+  "resources": "Ressources",
+  "legal": "Légal",
+  "developers": "Développeurs",
+  "followUs": "Suivez-nous",
+  "solutions": "Solutions",
+  "pricing": "Tarification",
+  "security": "Sécurité",
+  "about": "À propos",
+  "contact": "Contact",
+  "documentation": "Documentation",
+  "apiReference": "Référence API",
+  "privacy": "Confidentialité",
+  "terms": "Conditions",
+  "copyright": "© {{year}} ZitoPay. Tous droits réservés."
+}

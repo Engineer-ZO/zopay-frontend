@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "titleStart": "Paiements transparents",
+    "titleEnd": "pour les entreprises africaines",
+    "subtitle": "Acceptez Mobile Money et les cartes instantanément. Alimentez vos collectes et décaissements avec des outils sécurisés et conviviaux pour développeurs conçus pour le marché africain.",
+    "ctaPrimary": "Commencer",
+    "ctaSecondary": "Contacter les ventes",
+    "trustedBy": "Fait confiance par plus de 500 entreprises"
+  },
+  "features": {
+    "title": "Tout ce dont vous avez besoin pour grandir",
+    "subtitle": "Solutions de paiement complètes adaptées à l'infrastructure unique et aux habitudes des utilisateurs du marché africain.",
+    "easyCollections": {
+      "title": "Collectes faciles",
+      "description": "Acceptez les paiements via Mobile Money (MTN, Orange) et les cartes bancaires avec une intégration unique et unifiée. Aucun matériel requis."
+    },
+    "instantDisbursements": {
+      "title": "Décaissements instantanés",
+      "description": "Envoyez des paiements en masse aux fournisseurs, employés et partenaires directement sur leurs portefeuilles mobiles ou comptes bancaires en quelques secondes."
+    },
+    "bankGradeSecurity": {
+      "title": "Sécurité bancaire",
+      "description": "Vos transactions sont protégées par un cryptage avancé, une détection de fraude en temps réel et une infrastructure conforme PCI-DSS."
+    }
+  },
+  "developers": {
+    "tag": "Développeur d'abord",
+    "title": "Conçu par les développeurs, pour les développeurs",
+    "description": "Intégrez les paiements dans votre application en quelques minutes, pas en semaines. Notre API robuste et nos SDK bien documentés rendent l'implémentation facile.",
+    "features": {
+      "restfulApi": "API RESTful",
+      "webhooks": "Webhooks",
+      "sandbox": "Environnement sandbox"
+    },
+    "cta": "Lire la documentation"
+  },
+  "cta": {
+    "title": "Prêt à développer votre entreprise ?",
+    "subtitle": "Rejoignez des milliers de marchands utilisant ZitoPay pour simplifier leurs opérations financières à travers l'Afrique.",
+    "primary": "Créer un compte gratuit",
+    "secondary": "Parler aux ventes"
+  }
+}

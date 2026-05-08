@@ -1,0 +1,45 @@
+/* Dashboard Global Styles - Reduced Sizes */
+
+/* Reduce all dashboard page padding (since layout now has p-8) */
+[class*="dashboard"] > div:first-child {
+  padding: 0 !important;
+}
+
+/* Reduce card padding globally */
+.dashboard-card {
+  padding: 1rem !important;
+}
+
+/* Reduce stats card sizes */
+.stats-card {
+  padding: 1rem !important;
+}
+
+.stats-card h3, .stats-card .text-2xl {
+  font-size: 1.25rem !important;
+}
+
+.stats-card .text-xl {
+  font-size: 1.125rem !important;
+}
+
+/* Reduce button padding */
+button {
+  padding-top: 0.375rem !important;
+  padding-bottom: 0.375rem !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
+
+/* Reduce heading sizes */
+h1 {
+  font-size: 1.125rem !important;
+}
+
+h2 {
+  font-size: 1rem !important;
+}
+
+h3 {
+  font-size: 0.875rem !important;
+}

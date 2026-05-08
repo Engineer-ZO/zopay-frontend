@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "titleStart": "Seamless Payments",
+    "titleEnd": "for African Business",
+    "subtitle": "Accept Mobile Money and cards instantly. Power your collections and disbursements with secure, developer-friendly tools built for the African market.",
+    "ctaPrimary": "Get Started",
+    "ctaSecondary": "Contact Sales",
+    "trustedBy": "Trusted by 500+ businesses"
+  },
+  "features": {
+    "title": "Everything you need to scale",
+    "subtitle": "Comprehensive payment solutions tailored for the unique infrastructure and user habits of the African market.",
+    "easyCollections": {
+      "title": "Easy Collections",
+      "description": "Accept payments via Mobile Money (MTN, Orange) and Bank Cards with a single, unified integration. No hardware required."
+    },
+    "instantDisbursements": {
+      "title": "Instant Disbursements",
+      "description": "Send bulk payouts to suppliers, employees, and partners directly to their mobile wallets or bank accounts in seconds."
+    },
+    "bankGradeSecurity": {
+      "title": "Bank-Grade Security",
+      "description": "Your transactions are protected by advanced encryption, real-time fraud detection, and PCI-DSS compliant infrastructure."
+    }
+  },
+  "developers": {
+    "tag": "Developer First",
+    "title": "Built for Developers, by Developers",
+    "description": "Integrate payments into your app in minutes, not weeks. Our robust API and well-documented SDKs make implementation a breeze.",
+    "features": {
+      "restfulApi": "Restful API",
+      "webhooks": "Webhooks",
+      "sandbox": "Sandboxed Environment"
+    },
+    "cta": "Read Documentation"
+  },
+  "cta": {
+    "title": "Ready to grow your business?",
+    "subtitle": "Join thousands of merchants using ZitoPay to simplify their financial operations across Africa.",
+    "primary": "Create Free Account",
+    "secondary": "Talk to Sales"
+  }
+}
