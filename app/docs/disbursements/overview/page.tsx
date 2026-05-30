@@ -63,10 +63,10 @@ export default function DisbursementsOverviewPage() {
                 Always include an <code>idempotency_key</code> when executing disbursements. This ensures that if a request is retried due to network issues, the same payout won&apos;t be processed twice.
             </p>
             
-            <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4 my-6">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-orange-700 dark:text-orange-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-orange-900 dark:text-orange-100">
+                    <span className="text-crimson-red-700 dark:text-crimson-red-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-crimson-red-900 dark:text-crimson-red-100">
                         <p className="leading-relaxed">
                             <strong>Quote Expiry:</strong> Quotes are valid for 15 minutes. After expiry, you must create a new quote as fees may have changed. Always use the quote ID from the most recent quote when executing a disbursement.
                         </p>

@@ -11,7 +11,7 @@ import {
 import type { AdminBankTopupRequest } from "@/features/admin/types";
 
 const statusTone: Record<AdminBankTopupRequest["status"], string> = {
-    PENDING: "bg-orange-100 text-orange-700",
+    PENDING: "bg-crimson-red-100 text-crimson-red-700",
     APPROVED: "bg-green-100 text-green-700",
     REJECTED: "bg-red-100 text-red-700",
 };
@@ -106,7 +106,7 @@ export default function AdminBankTopupsPage() {
                                         setAdminNote(request.adminNote || "");
                                     }}
                                     className={`w-full text-left rounded-xl border p-4 transition ${
-                                        selectedRequest?.id === request.id ? "border-blue-400 bg-blue-50" : "border-gray-200 hover:border-blue-200"
+                                        selectedRequest?.id === request.id ? "border-deep-blue-violet-400 bg-deep-blue-violet-50" : "border-gray-200 hover:border-deep-blue-violet-200"
                                     }`}
                                 >
                                     <div className="flex items-start justify-between gap-4">
@@ -161,7 +161,7 @@ export default function AdminBankTopupsPage() {
                             </div>
 
                             {selectedRequest.receiptUrl && (
-                                <a href={selectedRequest.receiptUrl} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700">
+                                <a href={selectedRequest.receiptUrl} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm text-deep-blue-violet-600 hover:text-deep-blue-violet-700">
                                     View uploaded receipt
                                 </a>
                             )}

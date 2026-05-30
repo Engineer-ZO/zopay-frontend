@@ -125,10 +125,10 @@ export default function HelpSupportPage() {
 
     const getStatusColor = (status: string) => {
         switch (status) {
-            case 'OPEN': return 'bg-blue-100 text-blue-700';
+            case 'OPEN': return 'bg-deep-blue-violet-100 text-deep-blue-violet-700';
             case 'IN_PROGRESS': return 'bg-yellow-100 text-yellow-700';
-            case 'WAITING_FOR_CUSTOMER': return 'bg-orange-100 text-orange-700';
-            case 'RESOLVED': return 'bg-blue-100 text-blue-700';
+            case 'WAITING_FOR_CUSTOMER': return 'bg-crimson-red-100 text-crimson-red-700';
+            case 'RESOLVED': return 'bg-deep-blue-violet-100 text-deep-blue-violet-700';
             case 'CLOSED': return 'bg-gray-100 text-gray-700';
             default: return 'bg-gray-100 text-gray-700';
         }
@@ -146,7 +146,7 @@ export default function HelpSupportPage() {
                 </div>
                 <button
                     onClick={() => setShowContactModal(true)}
-                    className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2"
+                    className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-2"
                 >
                     <Plus className="w-4 h-4" />
                     Open New Ticket
@@ -165,7 +165,7 @@ export default function HelpSupportPage() {
 
                         {ticketsLoading ? (
                             <div className="p-8 flex justify-center">
-                                <Loader2 className="w-6 h-6 animate-spin text-orange-500" />
+                                <Loader2 className="w-6 h-6 animate-spin text-crimson-red-500" />
                             </div>
                         ) : ticketsData?.tickets && ticketsData.tickets.length > 0 ? (
                             <div className="divide-y divide-border">
@@ -176,7 +176,7 @@ export default function HelpSupportPage() {
                                         className="p-4 hover:bg-muted/50 cursor-pointer transition-colors group"
                                     >
                                         <div className="flex justify-between items-start mb-2">
-                                            <h4 className="font-semibold text-foreground group-hover:text-orange-600 transition-colors">
+                                            <h4 className="font-semibold text-foreground group-hover:text-crimson-red-600 transition-colors">
                                                 {ticket.subject}
                                             </h4>
                                             <span className={cn("px-2 py-0.5 rounded-full text-xs font-bold whitespace-nowrap", getStatusColor(ticket.status))}>
@@ -199,7 +199,7 @@ export default function HelpSupportPage() {
                                 <p>No support tickets found.</p>
                                 <button
                                     onClick={() => setShowContactModal(true)}
-                                    className="mt-2 text-sm text-orange-500 font-medium hover:underline"
+                                    className="mt-2 text-sm text-crimson-red-500 font-medium hover:underline"
                                 >
                                     Create your first ticket
                                 </button>
@@ -218,7 +218,7 @@ export default function HelpSupportPage() {
                                         {category.items.map((item, itemIndex) => (
                                             <button
                                                 key={itemIndex}
-                                                className="w-full text-left text-sm text-foreground hover:text-orange-600 transition-colors py-1 flex items-start gap-2"
+                                                className="w-full text-left text-sm text-foreground hover:text-crimson-red-600 transition-colors py-1 flex items-start gap-2"
                                             >
                                                 <ChevronRight className="w-4 h-4 shrink-0 mt-0.5 text-muted-foreground" />
                                                 {item}
@@ -241,7 +241,7 @@ export default function HelpSupportPage() {
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             placeholder="Search help articles..."
-                            className="w-full pl-10 pr-4 py-3 bg-background border border-border rounded-xl text-sm focus:ring-2 focus:ring-orange-500 outline-none"
+                            className="w-full pl-10 pr-4 py-3 bg-background border border-border rounded-xl text-sm focus:ring-2 focus:ring-crimson-red-500 outline-none"
                         />
                     </div>
 
@@ -249,7 +249,7 @@ export default function HelpSupportPage() {
                         <h3 className="font-semibold text-foreground mb-4">Contact Info</h3>
                         <div className="space-y-4">
                             <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center">
+                                <div className="w-8 h-8 rounded-full bg-crimson-red-100 text-crimson-red-600 flex items-center justify-center">
                                     <Mail className="w-4 h-4" />
                                 </div>
                                 <div>
@@ -258,7 +258,7 @@ export default function HelpSupportPage() {
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
+                                <div className="w-8 h-8 rounded-full bg-deep-blue-violet-100 text-deep-blue-violet-600 flex items-center justify-center">
                                     <Phone className="w-4 h-4" />
                                 </div>
                                 <div>
@@ -307,7 +307,7 @@ export default function HelpSupportPage() {
                                     value={subject}
                                     onChange={(e) => setSubject(e.target.value)}
                                     placeholder="Brief summary of the issue"
-                                    className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-sm focus:ring-2 focus:ring-orange-500 outline-none"
+                                    className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-sm focus:ring-2 focus:ring-crimson-red-500 outline-none"
                                 />
                             </div>
 
@@ -319,7 +319,7 @@ export default function HelpSupportPage() {
                                     <select
                                         value={category}
                                         onChange={(e) => setCategory(e.target.value as TicketCategory)}
-                                        className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-sm focus:ring-2 focus:ring-orange-500 outline-none"
+                                        className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-sm focus:ring-2 focus:ring-crimson-red-500 outline-none"
                                     >
                                         <option value="TECHNICAL">Technical Issue</option>
                                         <option value="BILLING">Billing & Payments</option>
@@ -335,7 +335,7 @@ export default function HelpSupportPage() {
                                     <select
                                         value={priority}
                                         onChange={(e) => setPriority(e.target.value as TicketPriority)}
-                                        className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-sm focus:ring-2 focus:ring-orange-500 outline-none"
+                                        className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-sm focus:ring-2 focus:ring-crimson-red-500 outline-none"
                                     >
                                         <option value="LOW">Low</option>
                                         <option value="MEDIUM">Medium</option>
@@ -354,7 +354,7 @@ export default function HelpSupportPage() {
                                     onChange={(e) => setMessage(e.target.value)}
                                     rows={5}
                                     placeholder="Please describe the issue in detail..."
-                                    className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-sm resize-none focus:ring-2 focus:ring-orange-500 outline-none"
+                                    className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-sm resize-none focus:ring-2 focus:ring-crimson-red-500 outline-none"
                                 />
                                 <div className="mt-1 flex items-center justify-between text-xs">
                                     <span className={cn("text-muted-foreground", message.trim().length > 0 && message.trim().length < MIN_MESSAGE_LENGTH && "text-red-500")}>
@@ -369,7 +369,7 @@ export default function HelpSupportPage() {
                                 <label className="text-xs font-medium text-foreground mb-2 block">
                                     Attachments
                                 </label>
-                                <label className="flex items-center justify-center gap-2 w-full px-3 py-3 border border-dashed border-border rounded-lg text-sm text-muted-foreground hover:text-foreground hover:border-orange-300 cursor-pointer transition-colors">
+                                <label className="flex items-center justify-center gap-2 w-full px-3 py-3 border border-dashed border-border rounded-lg text-sm text-muted-foreground hover:text-foreground hover:border-crimson-red-300 cursor-pointer transition-colors">
                                     <Paperclip className="w-4 h-4" />
                                     Add files
                                     <input
@@ -422,7 +422,7 @@ export default function HelpSupportPage() {
                                         !message.trim() ||
                                         message.trim().length < MIN_MESSAGE_LENGTH
                                     }
-                                    className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                                    className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
                                 >
                                     {createTicketMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                                     Submit Ticket

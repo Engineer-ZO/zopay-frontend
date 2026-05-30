@@ -118,7 +118,7 @@ export default function RefundsPage() {
             Export
           </button>
           <button
-            className="px-3 py-1.5 bg-orange-500 text-white rounded-md text-xs font-semibold hover:bg-orange-600 transition-colors flex items-center gap-1.5 opacity-50 cursor-not-allowed"
+            className="px-3 py-1.5 bg-crimson-red-500 text-white rounded-md text-xs font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-1.5 opacity-50 cursor-not-allowed"
             disabled
           >
             <Plus className="w-3.5 h-3.5" />

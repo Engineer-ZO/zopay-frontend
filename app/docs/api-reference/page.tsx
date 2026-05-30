@@ -100,9 +100,9 @@ export default function ApiReferencePage() {
     const getMethodColor = (method: string) => {
         switch (method) {
             case "GET":
-                return "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20";
+                return "bg-deep-blue-violet-500/10 text-deep-blue-violet-600 dark:text-deep-blue-violet-400 border-deep-blue-violet-500/20";
             case "POST":
-                return "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20";
+                return "bg-crimson-red-500/10 text-crimson-red-600 dark:text-crimson-red-400 border-crimson-red-500/20";
             case "PUT":
                 return "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20";
             case "DELETE":
@@ -119,12 +119,12 @@ export default function ApiReferencePage() {
                 Complete reference documentation for all ZitoPay API endpoints. All endpoints require authentication using API keys and HMAC signatures.
             </p>
 
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-blue-700 dark:text-blue-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-blue-900 dark:text-blue-100">
+                    <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
-                            <strong>Base URLs:</strong> Sandbox: <code>http://localhost:9000</code> | Production: <code>https://api.zitopay.com</code>. All <code>/api/v1/*</code> endpoints require the 6 authentication headers. See <Link href="/docs/getting-started/using-the-api" className="text-blue-700 dark:text-blue-400 hover:underline font-medium">Using the API</Link> for details.
+                            <strong>Base URLs:</strong> Sandbox: <code>http://localhost:9000</code> | Production: <code>https://api.zitopay.com</code>. All <code>/api/v1/*</code> endpoints require the 6 authentication headers. See <Link href="/docs/getting-started/using-the-api" className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 hover:underline font-medium">Using the API</Link> for details.
                         </p>
                     </div>
                 </div>
@@ -251,10 +251,10 @@ export default function ApiReferencePage() {
                 The default rate limit is 100 requests per minute per merchant. When exceeded, you&apos;ll receive a <code>429 Too Many Requests</code> response with a <code>retry_after</code> header indicating how many seconds to wait.
             </p>
 
-            <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4 my-6">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-orange-700 dark:text-orange-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-orange-900 dark:text-orange-100">
+                    <span className="text-crimson-red-700 dark:text-crimson-red-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-crimson-red-900 dark:text-crimson-red-100">
                         <p className="leading-relaxed">
                             <strong>Rate Limit Best Practice:</strong> Implement exponential backoff when handling 429 responses. Wait for the duration specified in the <code>retry_after</code> header before retrying your request.
                         </p>

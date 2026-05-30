@@ -39,6 +39,8 @@ apiClient.interceptors.request.use(
             '/public/v1/auth/resend-reset-code',
             '/public/v1/auth/refresh',
             '/public/v1/config/merchant-registration',
+
+            '/public/v1/auth/turnstile-config',
         ];
 
         const isPublicEndpoint = publicEndpoints.some(endpoint => config.url?.includes(endpoint));
@@ -152,6 +154,8 @@ apiClient.interceptors.response.use(
             '/public/v1/auth/resend-reset-code',
             '/public/v1/auth/refresh',
             '/public/v1/config/merchant-registration',
+
+            '/public/v1/auth/turnstile-config',
         ];
 
         const isPublicEndpoint = publicEndpoints.some(endpoint => originalRequest.url?.includes(endpoint));

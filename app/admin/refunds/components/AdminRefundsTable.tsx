@@ -25,9 +25,9 @@ export function AdminRefundsTable({
       case "SUCCESS":
         return "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400";
       case "PENDING":
-        return "bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400";
+        return "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400";
       case "PROCESSING":
-        return "bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400";
+        return "bg-deep-blue-violet-100 dark:bg-deep-blue-violet-900/20 text-deep-blue-violet-700 dark:text-deep-blue-violet-400";
       case "FAILED":
         return "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400";
       default:
@@ -229,7 +229,7 @@ export function AdminRefundsTable({
                   onClick={() => onPageChange(pageNum)}
                   className={`px-3 py-1 rounded text-xs font-medium ${
                     currentPage === pageNum
-                      ? "bg-orange-500 text-white"
+                      ? "bg-crimson-red-500 text-white"
                       : "hover:bg-muted"
                   }`}
                 >

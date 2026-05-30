@@ -52,7 +52,7 @@ function transactionStatusClass(status: string): string {
     case "VERIFYING":
     case "PENDING":
     case "PROCESSING":
-      return "bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400";
+      return "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400";
     default:
       return "bg-muted text-muted-foreground";
   }
@@ -70,7 +70,7 @@ function statusClass(status: PaymentLinkStatus): string {
     case "ACTIVE":
       return "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400";
     case "INACTIVE":
-      return "bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400";
+      return "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400";
     case "ARCHIVED":
       return "bg-muted text-muted-foreground";
     default:
@@ -440,7 +440,7 @@ export default function PaymentLinksPage() {
         <button
           type="button"
           onClick={() => setShowCreateModal(true)}
-          className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2"
+          className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-2"
         >
           <Plus className="w-4 h-4" />
           Create Link
@@ -473,7 +473,7 @@ export default function PaymentLinksPage() {
               }}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
                 pageTab === "links"
-                  ? "bg-orange-500 text-white shadow-sm"
+                  ? "bg-crimson-red-500 text-white shadow-sm"
                   : "text-muted-foreground hover:text-foreground hover:bg-background/80"
               }`}
             >
@@ -488,7 +488,7 @@ export default function PaymentLinksPage() {
               }}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
                 pageTab === "transactions"
-                  ? "bg-orange-500 text-white shadow-sm"
+                  ? "bg-crimson-red-500 text-white shadow-sm"
                   : "text-muted-foreground hover:text-foreground hover:bg-background/80"
               }`}
             >
@@ -1007,7 +1007,7 @@ export default function PaymentLinksPage() {
               <button
                 type="button"
                 onClick={handleCreate}
-                className="flex-1 px-4 py-2 bg-orange-500 text-white rounded text-sm font-semibold hover:bg-orange-600 disabled:opacity-60 inline-flex justify-center items-center gap-2"
+                className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded text-sm font-semibold hover:bg-crimson-red-600 disabled:opacity-60 inline-flex justify-center items-center gap-2"
                 disabled={createMutation.isPending}
               >
                 {createMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <LinkIcon className="w-4 h-4" />}
@@ -1222,7 +1222,7 @@ export default function PaymentLinksPage() {
                 <button
                   type="button"
                   onClick={() => void savePartialManage()}
-                  className="flex-1 px-4 py-2 bg-orange-500 text-white rounded text-sm font-semibold hover:bg-orange-600 disabled:opacity-60 inline-flex justify-center items-center gap-2"
+                  className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded text-sm font-semibold hover:bg-crimson-red-600 disabled:opacity-60 inline-flex justify-center items-center gap-2"
                   disabled={updateMutation.isPending}
                 >
                   {updateMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : null}

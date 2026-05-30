@@ -37,8 +37,8 @@ export function AdminSettlementStatsCards({
     <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
       <div className="bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
         <div className="flex items-center gap-2 mb-1.5">
-          <div className="p-1.5 rounded-lg bg-orange-50">
-            <Clock className="w-4 h-4 text-orange-600" />
+          <div className="p-1.5 rounded-lg bg-crimson-red-50">
+            <Clock className="w-4 h-4 text-crimson-red-600" />
           </div>
           <span className="text-xs font-medium text-gray-500">Pending</span>
         </div>
@@ -48,8 +48,8 @@ export function AdminSettlementStatsCards({
       </div>
       <div className="bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
         <div className="flex items-center gap-2 mb-1.5">
-          <div className="p-1.5 rounded-lg bg-blue-50">
-            <AlertCircle className="w-4 h-4 text-blue-600" />
+          <div className="p-1.5 rounded-lg bg-deep-blue-violet-50">
+            <AlertCircle className="w-4 h-4 text-deep-blue-violet-600" />
           </div>
           <span className="text-xs font-medium text-gray-500">Processing</span>
         </div>
@@ -71,8 +71,8 @@ export function AdminSettlementStatsCards({
       {totalNet !== undefined && (
         <div className="bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
           <div className="flex items-center gap-2 mb-1.5">
-            <div className="p-1.5 rounded-lg bg-blue-50">
-              <Wallet className="w-4 h-4 text-blue-600" />
+            <div className="p-1.5 rounded-lg bg-deep-blue-violet-50">
+              <Wallet className="w-4 h-4 text-deep-blue-violet-600" />
             </div>
             <span className="text-xs font-medium text-gray-500">Total Net</span>
           </div>

@@ -307,11 +307,11 @@ app/dashboard/page.tsx
 - **Border:** `border-green-200`
 
 #### **2. Payouts Card**
-- **Color:** Orange (`bg-orange-50`, `text-orange-600`)
+- **Color:** Orange (`bg-crimson-red-50`, `text-crimson-red-600`)
 - **Icon:** `ArrowUpFromLine`
 - **Value:** FCFA 850,000
 - **Trend:** -5.2% ↘
-- **Border:** `border-orange-200`
+- **Border:** `border-crimson-red-200`
 
 #### **3. Net Revenue Card**
 - **Color:** Purple (`bg-purple-50`, `text-purple-600`)
@@ -321,12 +321,12 @@ app/dashboard/page.tsx
 - **Border:** `border-purple-200`
 
 #### **4. Balance Card**
-- **Color:** Blue (`bg-blue-50`, `text-blue-600`)
+- **Color:** Blue (`bg-deep-blue-violet-50`, `text-deep-blue-violet-600`)
 - **Icon:** `Wallet`
 - **Value:** FCFA 450,000
 - **Status:** Available (green dot)
 - **Action:** Withdraw button
-- **Border:** `border-blue-200`
+- **Border:** `border-deep-blue-violet-200`
 
 #### **5. Success Rate Card**
 - **Color:** Emerald (`bg-emerald-50`, `text-emerald-600`)
@@ -450,16 +450,16 @@ app/dashboard/page.tsx
 - **Title:** "KYB Status: Pending Review"
 - **Message:** "Your KYB documents are under review. Estimated: 2-3 days"
 - **Action:** "View Status →"
-- **Background:** `bg-orange-50`
-- **Border:** `border-orange-200`
+- **Background:** `bg-crimson-red-50`
+- **Border:** `border-crimson-red-200`
 
 #### **Alert 2: Info (Blue)**
 - **Icon:** `AlertCircle` (blue)
 - **Title:** "Production Access Available"
 - **Message:** "Your KYB is approved! Request production access now"
 - **Action:** "Request Access →"
-- **Background:** `bg-blue-50`
-- **Border:** `border-blue-200`
+- **Background:** `bg-deep-blue-violet-50`
+- **Border:** `border-deep-blue-violet-200`
 
 **Features:**
 - Icon + title on same line
@@ -497,8 +497,8 @@ app/dashboard/page.tsx
 | Purpose | Light Mode | Dark Mode | Usage |
 |---------|-----------|-----------|-------|
 | **Success/Collections** | `bg-green-50` | `bg-green-900/10` | Positive metrics |
-| **Warning/Payouts** | `bg-orange-50` | `bg-orange-900/10` | Alerts, actions |
-| **Info/Balance** | `bg-blue-50` | `bg-blue-900/10` | Information |
+| **Warning/Payouts** | `bg-crimson-red-50` | `bg-crimson-red-900/10` | Alerts, actions |
+| **Info/Balance** | `bg-deep-blue-violet-50` | `bg-deep-blue-violet-900/10` | Information |
 | **Error/Failed** | `bg-red-50` | `bg-red-900/10` | Failed states |
 | **Revenue** | `bg-purple-50` | `bg-purple-900/10` | Net revenue |
 | **Success Rate** | `bg-emerald-50` | `bg-emerald-900/10` | Success metrics |

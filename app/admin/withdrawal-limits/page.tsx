@@ -83,7 +83,7 @@ export default function AdminWithdrawalLimitsPage() {
                 </div>
                 <button
                     onClick={handleAddNew}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2"
+                    className="px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg text-sm font-semibold hover:bg-deep-blue-violet-700 transition-colors flex items-center gap-2"
                 >
                     <Plus className="w-4 h-4" />
                     Add Limit
@@ -130,7 +130,7 @@ export default function AdminWithdrawalLimitsPage() {
                                             <div className="flex items-center justify-end gap-2">
                                                 <button
                                                     onClick={() => handleEdit(limit)}
-                                                    className="p-1 text-slate-400 hover:text-blue-600 rounded transition-colors"
+                                                    className="p-1 text-slate-400 hover:text-deep-blue-violet-600 rounded transition-colors"
                                                 >
                                                     <Edit2 className="w-4 h-4" />
                                                 </button>
@@ -175,7 +175,7 @@ export default function AdminWithdrawalLimitsPage() {
                                 <select
                                     value={form.methodType}
                                     onChange={(e) => setForm((p) => ({ ...p, methodType: e.target.value }))}
-                                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500"
                                 >
                                     <option value="MOBILE_MONEY">Mobile Money</option>
                                     <option value="LOCAL_BANK">Local Bank</option>
@@ -190,7 +190,7 @@ export default function AdminWithdrawalLimitsPage() {
                                     <select
                                         value={form.gateway}
                                         onChange={(e) => setForm((p) => ({ ...p, gateway: e.target.value }))}
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500"
                                     >
                                         <option value="">Apply to all Mobile Money</option>
                                         <option value="MTN_MOMO">MTN MoMo</option>
@@ -207,7 +207,7 @@ export default function AdminWithdrawalLimitsPage() {
                                         type="text"
                                         value={form.currency}
                                         onChange={(e) => setForm((p) => ({ ...p, currency: e.target.value.toUpperCase() }))}
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500"
                                         placeholder="XAF"
                                         required
                                     />
@@ -225,7 +225,7 @@ export default function AdminWithdrawalLimitsPage() {
                                         onChange={(e) => setForm((p) => ({ ...p, minAmount: e.target.value }))}
                                         placeholder="500"
                                         required
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500"
                                     />
                                 </div>
                                 <div>
@@ -237,7 +237,7 @@ export default function AdminWithdrawalLimitsPage() {
                                         value={form.maxAmount}
                                         onChange={(e) => setForm((p) => ({ ...p, maxAmount: e.target.value }))}
                                         placeholder="No limit"
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500"
                                     />
                                 </div>
                             </div>
@@ -259,7 +259,7 @@ export default function AdminWithdrawalLimitsPage() {
                                 <button
                                     type="submit"
                                     disabled={saving}
-                                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                                    className="flex-1 px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg font-medium hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                                 >
                                     {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save Limit"}
                                 </button>

@@ -164,7 +164,7 @@ const getDocumentStatusColor = (status: KYBDocument['status']) => {
         case 'error':
             return 'text-red-600 bg-red-50';
         case 'warning':
-            return 'text-orange-600 bg-orange-50';
+            return 'text-crimson-red-600 bg-crimson-red-50';
         default:
             return 'text-gray-600 bg-gray-50';
     }
@@ -189,9 +189,9 @@ const getPriorityColor = (priority: KYBSubmission['priority']) => {
         case 'urgent':
             return 'bg-red-50 text-red-600 border-red-100';
         case 'attention':
-            return 'bg-orange-50 text-orange-600 border-orange-100';
+            return 'bg-crimson-red-50 text-crimson-red-600 border-crimson-red-100';
         case 'recent':
-            return 'bg-blue-50 text-blue-600 border-blue-100';
+            return 'bg-deep-blue-violet-50 text-deep-blue-violet-600 border-deep-blue-violet-100';
     }
 };
 ```

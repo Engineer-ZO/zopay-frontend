@@ -29,13 +29,13 @@ export function RefundFilters({
             placeholder="Search ID..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-9 pr-4 py-1.5 bg-background border border-border rounded-md text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500 transition-shadow"
+            className="w-full pl-9 pr-4 py-1.5 bg-background border border-border rounded-md text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500 transition-shadow"
           />
         </div>
         <select
           value={environment}
           onChange={(e) => onEnvironmentChange(e.target.value)}
-          className="px-3 py-1.5 bg-background border border-border rounded-md text-xs font-medium focus:outline-none focus:ring-2 focus:ring-orange-500 transition-shadow"
+          className="px-3 py-1.5 bg-background border border-border rounded-md text-xs font-medium focus:outline-none focus:ring-2 focus:ring-crimson-red-500 transition-shadow"
         >
           <option value="">All Environments</option>
           <option value="sandbox">Sandbox</option>
@@ -44,7 +44,7 @@ export function RefundFilters({
         <select
           value={status}
           onChange={(e) => onStatusChange(e.target.value)}
-          className="px-3 py-1.5 bg-background border border-border rounded-md text-xs font-medium focus:outline-none focus:ring-2 focus:ring-orange-500 transition-shadow"
+          className="px-3 py-1.5 bg-background border border-border rounded-md text-xs font-medium focus:outline-none focus:ring-2 focus:ring-crimson-red-500 transition-shadow"
         >
           <option value="">All Status</option>
           <option value="PENDING">Pending</option>

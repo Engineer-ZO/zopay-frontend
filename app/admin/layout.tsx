@@ -85,7 +85,7 @@ export default function AdminLayout({
 
           {/* Loading Spinner */}
           <motion.div
-            className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full"
+            className="w-10 h-10 border-4 border-deep-blue-violet-500 border-t-transparent rounded-full"
             animate={{ rotate: 360 }}
             transition={{
               duration: 1,
@@ -95,7 +95,7 @@ export default function AdminLayout({
           />
 
           <motion.p
-            className="text-sm font-medium text-blue-200"
+            className="text-sm font-medium text-deep-blue-violet-200"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{
               duration: 1.5,

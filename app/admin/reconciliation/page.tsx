@@ -107,7 +107,7 @@ export default function ReconciliationPage() {
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <FileSearch className="w-6 h-6 text-blue-600" />
+            <FileSearch className="w-6 h-6 text-deep-blue-violet-600" />
             Reconciliation Management
           </h1>
           <p className="text-xs text-gray-500 mt-1">
@@ -117,14 +117,14 @@ export default function ReconciliationPage() {
       </div>
 
       {/* Stats */}
-      <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+      <div className="bg-crimson-red-50 border border-crimson-red-200 rounded-lg p-4">
         <div className="flex items-center gap-2">
-          <AlertCircle className="w-5 h-5 text-orange-600" />
+          <AlertCircle className="w-5 h-5 text-crimson-red-600" />
           <div>
-            <p className="text-sm font-semibold text-orange-900">
+            <p className="text-sm font-semibold text-crimson-red-900">
               {unresolvedCount} Unresolved Items
             </p>
-            <p className="text-xs text-orange-700">
+            <p className="text-xs text-crimson-red-700">
               Requiring manual review and resolution
             </p>
           </div>
@@ -139,7 +139,7 @@ export default function ReconciliationPage() {
             <input
               type="text"
               placeholder="Search by reference..."
-              className="pl-9 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-48"
+              className="pl-9 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 w-48"
             />
           </div>
 
@@ -148,7 +148,7 @@ export default function ReconciliationPage() {
             onChange={(e) =>
               setFilters({ ...filters, gateway: e.target.value, page: 1 })
             }
-            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
           >
             <option value="">All Gateways</option>
             <option value="MTN_MOMO">MTN MoMo</option>
@@ -160,7 +160,7 @@ export default function ReconciliationPage() {
             onChange={(e) =>
               setFilters({ ...filters, matchStatus: e.target.value, page: 1 })
             }
-            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
           >
             <option value="">All Status</option>
             <option value="MISSING_IN_ZITOPAY">Missing in Zitopay</option>
@@ -173,7 +173,7 @@ export default function ReconciliationPage() {
             onChange={(e) =>
               setFilters({ ...filters, resolved: e.target.value, page: 1 })
             }
-            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
           >
             <option value="">All Items</option>
             <option value="false">Unresolved Only</option>

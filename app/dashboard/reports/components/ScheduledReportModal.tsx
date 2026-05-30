@@ -218,7 +218,7 @@ export default function ScheduledReportModal({
             <button
               onClick={handleSubmit}
               disabled={createMutation.isPending || updateMutation.isPending}
-              className="flex-1 px-4 py-2 bg-orange-600 text-white rounded-lg text-sm font-semibold hover:bg-orange-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-4 py-2 bg-crimson-red-600 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {createMutation.isPending || updateMutation.isPending
                 ? "Saving..."

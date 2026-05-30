@@ -53,7 +53,7 @@ export default function NotificationsPage() {
             {/* EMAIL NOTIFICATIONS */}
             <div className="bg-background rounded-xl p-6 border border-border">
                 <div className="flex items-center gap-2 mb-6">
-                    <Bell className="w-5 h-5 text-orange-600" />
+                    <Bell className="w-5 h-5 text-crimson-red-600" />
                     <h3 className="text-sm font-semibold text-foreground">EMAIL NOTIFICATIONS</h3>
                 </div>
 
@@ -63,7 +63,7 @@ export default function NotificationsPage() {
                         <h4 className="text-sm font-semibold text-foreground mb-3">Transaction Notifications</h4>
                         <div className="space-y-3">
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Successful payments
                                 </span>
                                 <input
@@ -74,7 +74,7 @@ export default function NotificationsPage() {
                                 />
                             </label>
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Failed payments
                                 </span>
                                 <input
@@ -85,7 +85,7 @@ export default function NotificationsPage() {
                                 />
                             </label>
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Large transactions (&gt; 100,000 FCFA)
                                 </span>
                                 <input
@@ -96,7 +96,7 @@ export default function NotificationsPage() {
                                 />
                             </label>
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     All transactions
                                 </span>
                                 <input
@@ -114,7 +114,7 @@ export default function NotificationsPage() {
                         <h4 className="text-sm font-semibold text-foreground mb-3">Payout Notifications</h4>
                         <div className="space-y-3">
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Payout completed
                                 </span>
                                 <input
@@ -125,7 +125,7 @@ export default function NotificationsPage() {
                                 />
                             </label>
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Payout failed
                                 </span>
                                 <input
@@ -136,7 +136,7 @@ export default function NotificationsPage() {
                                 />
                             </label>
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     All payouts
                                 </span>
                                 <input
@@ -154,7 +154,7 @@ export default function NotificationsPage() {
                         <h4 className="text-sm font-semibold text-foreground mb-3">Account Notifications</h4>
                         <div className="space-y-3">
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Low balance alerts (&lt; 50,000 FCFA)
                                 </span>
                                 <input
@@ -165,7 +165,7 @@ export default function NotificationsPage() {
                                 />
                             </label>
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     KYB status updates
                                 </span>
                                 <input
@@ -176,7 +176,7 @@ export default function NotificationsPage() {
                                 />
                             </label>
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Production access updates
                                 </span>
                                 <input
@@ -187,7 +187,7 @@ export default function NotificationsPage() {
                                 />
                             </label>
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Security alerts
                                 </span>
                                 <input
@@ -205,7 +205,7 @@ export default function NotificationsPage() {
                         <h4 className="text-sm font-semibold text-foreground mb-3">Settlement Notifications</h4>
                         <div className="space-y-3">
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Settlement completed
                                 </span>
                                 <input
@@ -216,7 +216,7 @@ export default function NotificationsPage() {
                                 />
                             </label>
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Settlement failed
                                 </span>
                                 <input
@@ -227,7 +227,7 @@ export default function NotificationsPage() {
                                 />
                             </label>
                             <label className="flex items-center justify-between cursor-pointer group">
-                                <span className="text-xs text-foreground group-hover:text-orange-600 transition-colors">
+                                <span className="text-xs text-foreground group-hover:text-crimson-red-600 transition-colors">
                                     Weekly settlement summary
                                 </span>
                                 <input
@@ -244,7 +244,7 @@ export default function NotificationsPage() {
                 <div className="mt-6 pt-6 border-t border-border">
                     <button
                         onClick={handleSave}
-                        className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2"
+                        className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-2"
                     >
                         {saved ? (
                             <>
@@ -261,7 +261,7 @@ export default function NotificationsPage() {
             {/* NOTIFICATION RECIPIENTS */}
             <div className="bg-background rounded-xl p-6 border border-border">
                 <div className="flex items-center gap-2 mb-6">
-                    <Mail className="w-5 h-5 text-blue-600" />
+                    <Mail className="w-5 h-5 text-deep-blue-violet-600" />
                     <h3 className="text-sm font-semibold text-foreground">NOTIFICATION RECIPIENTS</h3>
                 </div>
 
@@ -291,7 +291,7 @@ export default function NotificationsPage() {
                 <div className="mt-6 pt-6 border-t border-border">
                     <button
                         onClick={handleSave}
-                        className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2"
+                        className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-2"
                     >
                         {saved ? (
                             <>

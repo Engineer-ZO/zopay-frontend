@@ -232,7 +232,7 @@ export function DashboardSidebar() {
                             </button>
                             <button
                                 onClick={handleLogoutConfirm}
-                                className="px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition-colors"
+                                className="px-4 py-2 rounded-lg bg-crimson-red-500 text-white hover:bg-crimson-red-600 transition-colors"
                             >
                                 Logout
                             </button>
@@ -245,7 +245,7 @@ export function DashboardSidebar() {
             {isLoggingOut && (
                 <div className="fixed inset-0 bg-black/50 z-100 flex items-center justify-center">
                     <div className="bg-background rounded-2xl p-8 shadow-2xl border border-border flex flex-col items-center gap-4">
-                        <div className="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
+                        <div className="w-12 h-12 border-4 border-crimson-red-500 border-t-transparent rounded-full animate-spin" />
                         <p className="text-lg font-semibold text-foreground">Logging out...</p>
                     </div>
                 </div>
@@ -301,8 +301,8 @@ export function DashboardSidebar() {
 
                 {/* Merchant Badge */}
                 <div className="px-4 py-4 border-b border-border">
-                    <div className="flex items-center gap-3 px-3 py-2 bg-orange-500/10 rounded-lg">
-                        <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
+                    <div className="flex items-center gap-3 px-3 py-2 bg-crimson-red-500/10 rounded-lg">
+                        <div className="w-8 h-8 bg-crimson-red-500 rounded flex items-center justify-center">
                             <Store className="w-4 h-4 text-white" />
                         </div>
                         <span className="text-sm font-medium text-foreground">Merchants</span>
@@ -348,7 +348,7 @@ export function DashboardSidebar() {
                                                     href={item.href}
                                                     onClick={closeMobileMenu}
                                                     className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive
-                                                        ? "bg-orange-500/10 text-orange-600 dark:text-orange-400"
+                                                        ? "bg-crimson-red-500/10 text-crimson-red-600 dark:text-crimson-red-400"
                                                         : "text-muted-foreground hover:bg-muted hover:text-foreground"
                                                         }`}
                                                 >

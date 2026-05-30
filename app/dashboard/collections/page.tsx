@@ -83,7 +83,7 @@ export default function CollectionsPage() {
             case "SUCCESS":
                 return "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400";
             case "PENDING_GATEWAY":
-                return "bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400";
+                return "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400";
             case "FAILED":
                 return "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400";
             default:
@@ -124,7 +124,7 @@ export default function CollectionsPage() {
                     </button>
                     <button
                         onClick={() => setShowNewPaymentModal(true)}
-                        className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2"
+                        className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-2"
                     >
                         <Plus className="w-4 h-4" />
                         New Payment
@@ -134,7 +134,7 @@ export default function CollectionsPage() {
 
             {/* STATS CARDS */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                <div className="bg-blue-50 dark:bg-blue-900/10 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
+                <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 rounded-xl p-4 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800">
                     <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">TOTAL</p>
                     <p className="text-xl font-bold text-foreground">
                         {isLoading ? "—" : `${currency} ${stats.total.toLocaleString()}`}
@@ -146,7 +146,7 @@ export default function CollectionsPage() {
                         {isLoading ? "—" : stats.successful}
                     </p>
                 </div>
-                <div className="bg-orange-50 dark:bg-orange-900/10 rounded-xl p-4 border border-orange-200 dark:border-orange-800">
+                <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 rounded-xl p-4 border border-crimson-red-200 dark:border-crimson-red-800">
                     <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">PENDING</p>
                     <p className="text-xl font-bold text-foreground">
                         {isLoading ? "—" : stats.pending}
@@ -170,13 +170,13 @@ export default function CollectionsPage() {
                             placeholder="Search ID or customer..."
                             value={searchQuery}
                             onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-                            className="w-full pl-9 pr-4 py-1.5 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500 transition-shadow"
+                            className="w-full pl-9 pr-4 py-1.5 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500 transition-shadow"
                         />
                     </div>
                     <select
                         value={statusFilter}
                         onChange={(e) => { setStatusFilter(e.target.value); setCurrentPage(1); }}
-                        className="px-3 py-1.5 bg-background border border-border rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-orange-500 transition-shadow"
+                        className="px-3 py-1.5 bg-background border border-border rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-crimson-red-500 transition-shadow"
                     >
                         <option value="">All Status</option>
                         <option value="SUCCESS">Success</option>
@@ -288,7 +288,7 @@ export default function CollectionsPage() {
                                     <button
                                         key={pageNum}
                                         onClick={() => setCurrentPage(pageNum)}
-                                        className={`px-3 py-1 rounded text-xs font-medium transition-colors ${currentPage === pageNum ? "bg-orange-500 text-white" : "hover:bg-muted text-foreground"}`}
+                                        className={`px-3 py-1 rounded text-xs font-medium transition-colors ${currentPage === pageNum ? "bg-crimson-red-500 text-white" : "hover:bg-muted text-foreground"}`}
                                     >
                                         {pageNum}
                                     </button>
@@ -341,7 +341,7 @@ export default function CollectionsPage() {
                                 />
                             </div>
                             <div className="flex gap-3">
-                                <button className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center justify-center gap-2">
+                                <button className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center justify-center gap-2">
                                     <LinkIcon className="w-4 h-4" />
                                     Generate Link
                                 </button>

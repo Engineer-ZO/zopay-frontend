@@ -150,7 +150,7 @@ export default function AdminSettlementsPage() {
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <Landmark className="w-6 h-6 text-blue-600" />
+            <Landmark className="w-6 h-6 text-deep-blue-violet-600" />
             Settlements Management
           </h1>
           <p className="text-xs text-gray-500 mt-1">

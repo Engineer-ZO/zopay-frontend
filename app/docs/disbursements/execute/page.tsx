@@ -144,10 +144,10 @@ console.log('Status:', payout.status);`}
                 The <code>idempotency_key</code> ensures that if you retry a request with the same key, the payout won&apos;t be processed twice. Use a unique identifier for each payout (e.g., UUID, timestamp + merchant reference).
             </p>
 
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-blue-700 dark:text-blue-400 text-lg mt-0.5">ℹ️</span>
-                    <div className="flex-1 text-sm text-blue-900 dark:text-blue-100">
+                    <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">ℹ️</span>
+                    <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
                             <strong>Important:</strong> Payouts are processed asynchronously. The initial response may show a status of &quot;PROCESSING&quot;. Use the payout ID to check the status later, or set up webhooks to receive notifications when the payout completes.
                         </p>

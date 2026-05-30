@@ -62,7 +62,7 @@ function CheckoutStateCard({ title, message }: { title: string; message: string 
 function LoadingScreen() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/20">
-      <Loader2 className="w-8 h-8 animate-spin text-orange-600" />
+      <Loader2 className="w-8 h-8 animate-spin text-crimson-red-600" />
     </div>
   );
 }
@@ -208,7 +208,7 @@ export function PartialPaymentLinkCheckout({ slug }: { slug: string }) {
         ) : null}
 
         {!link.payable || link.status !== "ACTIVE" ? (
-          <div className="rounded-lg border border-orange-200 bg-orange-50 dark:bg-orange-900/10 p-4 text-sm text-orange-800 dark:text-orange-200">
+          <div className="rounded-lg border border-crimson-red-200 bg-crimson-red-50 dark:bg-crimson-red-900/10 p-4 text-sm text-crimson-red-800 dark:text-crimson-red-200">
             This link is not accepting payments right now.
           </div>
         ) : null}
@@ -300,7 +300,7 @@ export function PartialPaymentLinkCheckout({ slug }: { slug: string }) {
             type="button"
             onClick={() => void handlePay()}
             disabled={!canSubmitPay}
-            className="w-full py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 disabled:opacity-60 inline-flex justify-center items-center gap-2"
+            className="w-full py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 disabled:opacity-60 inline-flex justify-center items-center gap-2"
           >
             {payMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
             Pay instalment
@@ -334,12 +334,12 @@ export function PartialPaymentLinkCheckout({ slug }: { slug: string }) {
               <p className="text-xs text-red-600">{statusQuery.data.transaction.failureReason}</p>
             ) : null}
             {done && statusQuery.data?.paymentLink?.successUrl && currentStatus === "SUCCESS" ? (
-              <a href={statusQuery.data.paymentLink.successUrl} className="text-xs text-orange-600 hover:underline">
+              <a href={statusQuery.data.paymentLink.successUrl} className="text-xs text-crimson-red-600 hover:underline">
                 Continue
               </a>
             ) : null}
             {done && statusQuery.data?.paymentLink?.cancelUrl && currentStatus === "FAILED" ? (
-              <a href={statusQuery.data.paymentLink.cancelUrl} className="text-xs text-orange-600 hover:underline">
+              <a href={statusQuery.data.paymentLink.cancelUrl} className="text-xs text-crimson-red-600 hover:underline">
                 Return
               </a>
             ) : null}
@@ -360,7 +360,7 @@ function MerchantHeader({ link }: { link: PublicPaymentLink }) {
           className="w-14 h-14 rounded-xl object-cover border border-border shrink-0"
         />
       ) : (
-        <div className="w-14 h-14 rounded-xl bg-orange-500 flex items-center justify-center text-white font-bold text-xl shrink-0">
+        <div className="w-14 h-14 rounded-xl bg-crimson-red-500 flex items-center justify-center text-white font-bold text-xl shrink-0">
           {link.merchantName ? link.merchantName.substring(0, 2).toUpperCase() : "M"}
         </div>
       )}

@@ -8,7 +8,7 @@ export default function AdminResetPasswordPage() {
             <label className="block mb-2">Email</label>
             <input type="email" className="w-full border rounded-lg px-4 py-2" required />
           </div>
-          <button type="submit" className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          <button type="submit" className="w-full px-6 py-3 bg-deep-blue-violet-600 text-white rounded-lg hover:bg-deep-blue-violet-700">
             Send Reset Link
           </button>
         </form>

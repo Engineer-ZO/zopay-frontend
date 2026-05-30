@@ -143,20 +143,20 @@ export default function TopupFeesAdminPage() {
                 </div>
                 <button
                     onClick={handleAddNew}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                    className="flex items-center gap-2 px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg hover:bg-deep-blue-violet-700 transition-colors font-semibold"
                 >
                     <Plus className="w-4 h-4" />
                     New Rule
                 </button>
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-900">
+            <div className="bg-deep-blue-violet-50 border border-deep-blue-violet-200 rounded-xl p-4 text-sm text-deep-blue-violet-900">
                 If no rule exists for a gateway and currency, the backend defaults the top-up fee to <strong>0</strong>.
             </div>
 
             {loadingRules ? (
                 <div className="flex flex-col items-center justify-center py-20 gap-4">
-                    <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                    <Loader2 className="w-8 h-8 animate-spin text-deep-blue-violet-600" />
                     <p className="text-gray-500 italic">Loading top-up fee rules...</p>
                 </div>
             ) : rules.length === 0 ? (
@@ -164,7 +164,7 @@ export default function TopupFeesAdminPage() {
                     <AlertTriangle className="w-12 h-12 text-gray-300 mx-auto mb-4" />
                     <p className="text-gray-500 font-medium">No top-up fee rules configured yet</p>
                     <p className="text-xs text-gray-400 mt-1">Top-up fee currently defaults to 0.</p>
-                    <button onClick={handleAddNew} className="mt-4 text-blue-600 hover:underline font-semibold">
+                    <button onClick={handleAddNew} className="mt-4 text-deep-blue-violet-600 hover:underline font-semibold">
                         Add your first rule
                     </button>
                 </div>
@@ -186,7 +186,7 @@ export default function TopupFeesAdminPage() {
                                 <tr key={rule.id} className="hover:bg-gray-50 transition-colors">
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded flex items-center justify-center">
+                                            <div className="w-8 h-8 bg-deep-blue-violet-100 text-deep-blue-violet-600 rounded flex items-center justify-center">
                                                 <DollarSign className="w-4 h-4" />
                                             </div>
                                             <span className="font-semibold text-gray-900">{rule.gateway.replace(/_/g, " ")}</span>
@@ -224,7 +224,7 @@ export default function TopupFeesAdminPage() {
                                         <div className="flex items-center justify-end gap-2">
                                             <button
                                                 onClick={() => handleEdit(rule)}
-                                                className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                                                className="p-2 text-gray-400 hover:text-deep-blue-violet-600 hover:bg-deep-blue-violet-50 rounded-lg transition-colors"
                                             >
                                                 <Edit2 className="w-4 h-4" />
                                             </button>
@@ -262,7 +262,7 @@ export default function TopupFeesAdminPage() {
                                     <select
                                         value={editingRule.gateway}
                                         onChange={(e) => setEditingRule({ ...editingRule, gateway: e.target.value as GatewayCode })}
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none"
                                         required
                                     >
                                         <option value="MTN_MOMO">MTN Mobile Money</option>
@@ -276,7 +276,7 @@ export default function TopupFeesAdminPage() {
                                         value={editingRule.currency}
                                         onChange={(e) => setEditingRule({ ...editingRule, currency: e.target.value.toUpperCase() })}
                                         placeholder="XAF"
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none"
                                         required
                                     />
                                 </div>
@@ -292,7 +292,7 @@ export default function TopupFeesAdminPage() {
                                             onClick={() => setEditingRule({ ...editingRule, feeType: type })}
                                             className={`px-2 py-2 text-[10px] font-bold rounded-lg border transition-all ${
                                                 editingRule.feeType === type
-                                                    ? "bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-200"
+                                                    ? "bg-deep-blue-violet-600 border-deep-blue-violet-600 text-white shadow-md shadow-blue-200"
                                                     : "bg-white border-gray-200 text-gray-600 hover:border-gray-300"
                                             }`}
                                         >
@@ -311,7 +311,7 @@ export default function TopupFeesAdminPage() {
                                         type="number"
                                         value={editingRule.flatFee}
                                         onChange={(e) => setEditingRule({ ...editingRule, flatFee: e.target.value })}
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                         required
                                     />
                                 </div>
@@ -327,7 +327,7 @@ export default function TopupFeesAdminPage() {
                                         step="0.01"
                                         value={editingRule.percentageFee}
                                         onChange={(e) => setEditingRule({ ...editingRule, percentageFee: e.target.value })}
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                         required
                                     />
                                 </div>
@@ -341,7 +341,7 @@ export default function TopupFeesAdminPage() {
                                         value={editingRule.minFee}
                                         onChange={(e) => setEditingRule({ ...editingRule, minFee: e.target.value })}
                                         placeholder="Optional"
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                     />
                                 </div>
                                 <div>
@@ -351,7 +351,7 @@ export default function TopupFeesAdminPage() {
                                         value={editingRule.maxFee}
                                         onChange={(e) => setEditingRule({ ...editingRule, maxFee: e.target.value })}
                                         placeholder="Optional"
-                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                     />
                                 </div>
                             </div>
@@ -367,7 +367,7 @@ export default function TopupFeesAdminPage() {
                                 <button
                                     type="submit"
                                     disabled={upsertMutation.isPending}
-                                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-bold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                                    className="flex-1 px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg text-sm font-bold hover:bg-deep-blue-violet-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
                                 >
                                     {upsertMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                                     {editingRule.id ? "Update Rule" : "Create Rule"}

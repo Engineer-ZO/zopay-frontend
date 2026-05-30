@@ -5,10 +5,10 @@ import { useTranslation } from "@/core/i18n/useTranslation";
 
 export function IndustryLeaders() {
     const logos = [
-        { name: "Orange", bg: "bg-primary-orange" },
+        { name: "Orange", bg: "bg-primary-crimson-red-" },
         { name: "MTN", bg: "bg-yellow-500" },
         { name: "UBA", bg: "bg-green-600" },
-        { name: "Ecobank", bg: "bg-primary-blue" },
+        { name: "Ecobank", bg: "bg-primary-deep-blue-violet" },
     ];
 
     return (

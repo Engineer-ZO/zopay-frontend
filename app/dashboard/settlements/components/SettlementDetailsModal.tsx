@@ -37,9 +37,9 @@ export function SettlementDetailsModal({
       case "COMPLETED":
         return "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400";
       case "PENDING":
-        return "bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400";
+        return "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400";
       case "PROCESSING":
-        return "bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400";
+        return "bg-deep-blue-violet-100 dark:bg-deep-blue-violet-900/20 text-deep-blue-violet-700 dark:text-deep-blue-violet-400";
       case "FAILED":
         return "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400";
       default:
@@ -74,7 +74,7 @@ export function SettlementDetailsModal({
       <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
         <div className="bg-background rounded-2xl shadow-2xl border border-border max-w-2xl w-full p-6">
           <div className="flex items-center justify-center h-64">
-            <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-4 border-crimson-red-500 border-t-transparent rounded-full animate-spin" />
           </div>
         </div>
       </div>
@@ -143,11 +143,11 @@ export function SettlementDetailsModal({
                 {parseFloat(settlement.totalPayouts).toLocaleString()} {currency}
               </p>
             </div>
-            <div className="bg-orange-50 dark:bg-orange-900/10 rounded-lg p-4 border border-orange-200 dark:border-orange-800">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 rounded-lg p-4 border border-crimson-red-200 dark:border-crimson-red-800">
               <p className="text-xs font-medium text-muted-foreground mb-1">
                 Total Refunds
               </p>
-              <p className="text-lg font-bold text-orange-600 dark:text-orange-400">
+              <p className="text-lg font-bold text-crimson-red-600 dark:text-crimson-red-400">
                 {parseFloat(settlement.totalRefunds).toLocaleString()} {currency}
               </p>
             </div>
@@ -162,11 +162,11 @@ export function SettlementDetailsModal({
           </div>
 
           {/* Net Amount - Highlighted */}
-          <div className="bg-orange-50 dark:bg-orange-900/10 rounded-lg p-4 border-2 border-orange-500">
+          <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 rounded-lg p-4 border-2 border-crimson-red-500">
             <p className="text-xs font-medium text-muted-foreground mb-1">
               Net Settlement Amount
             </p>
-            <p className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+            <p className="text-2xl font-bold text-crimson-red-600 dark:text-crimson-red-400">
               {parseFloat(settlement.netAmount).toLocaleString()} {currency}
             </p>
           </div>
@@ -205,7 +205,7 @@ export function SettlementDetailsModal({
                                 ? "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400"
                                 : item.type === "PAYOUT"
                                 ? "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400"
-                                : "bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400"
+                                : "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400"
                             }`}
                           >
                             {item.type}
@@ -256,7 +256,7 @@ export function SettlementDetailsModal({
             {settlement.status === "COMPLETED" && onDownloadStatement && (
               <button
                 onClick={onDownloadStatement}
-                className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-xs font-semibold hover:bg-orange-600 transition-colors flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-xs font-semibold hover:bg-crimson-red-600 transition-colors flex items-center justify-center gap-2"
               >
                 <Download className="w-4 h-4" />
                 Download Statement

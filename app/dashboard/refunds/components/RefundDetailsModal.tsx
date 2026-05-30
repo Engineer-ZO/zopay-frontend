@@ -32,7 +32,7 @@ export function RefundDetailsModal({
       case "SUCCESS":
         return "text-green-600 dark:text-green-400";
       case "PENDING":
-        return "text-orange-600 dark:text-orange-400";
+        return "text-crimson-red-600 dark:text-crimson-red-400";
       case "PROCESSING":
         return "text-muted-foreground";
       case "FAILED":
@@ -88,7 +88,7 @@ export function RefundDetailsModal({
                       refund.status === "SUCCESS"
                         ? "bg-green-500"
                         : refund.status === "PENDING"
-                        ? "bg-orange-500"
+                        ? "bg-crimson-red-500"
                         : refund.status === "PROCESSING"
                         ? "bg-muted-foreground"
                         : "bg-red-500"

@@ -35,10 +35,10 @@ export default function RegisterWebhookPage() {
                 <li><strong>Save your webhook secret</strong> - it&apos;s only shown once!</li>
             </ol>
 
-            <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4 my-6">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-orange-700 dark:text-orange-400 text-lg mt-0.5">⚠️</span>
-                    <div className="flex-1 text-sm text-orange-900 dark:text-orange-100">
+                    <span className="text-crimson-red-700 dark:text-crimson-red-400 text-lg mt-0.5">⚠️</span>
+                    <div className="flex-1 text-sm text-crimson-red-900 dark:text-crimson-red-100">
                         <p className="leading-relaxed">
                             <strong>Important:</strong> The webhook secret is only returned once during registration. Make sure to save it securely - you&apos;ll need it to verify webhook signatures. If you lose it, you&apos;ll need to create a new endpoint.
                         </p>
@@ -95,10 +95,10 @@ export default function RegisterWebhookPage() {
                 language="json"
             />
 
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-blue-700 dark:text-blue-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-blue-900 dark:text-blue-100">
+                    <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
                             <strong>Save the Secret:</strong> The <code>secret</code> field in the response is your webhook signing secret. Store it securely in your environment variables or secret management system. You&apos;ll use this to verify that webhook requests are actually from ZitoPay.
                         </p>
@@ -299,10 +299,10 @@ curl -X POST https://your-domain.com/api/webhooks/zitopay \\
                 language="bash"
             />
 
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-blue-700 dark:text-blue-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-blue-900 dark:text-blue-100">
+                    <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
                             <strong>Note:</strong> Real webhooks must come from ZitoPay with proper HMAC-SHA256 signatures. Manual testing with curl will fail signature verification, but you can verify that your endpoint is accessible and returns appropriate error messages.
                         </p>
@@ -322,10 +322,10 @@ curl -X POST https://your-domain.com/api/webhooks/zitopay \\
                 <li>✅ All 6 event types are handled</li>
             </ul>
 
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-blue-700 dark:text-blue-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-blue-900 dark:text-blue-100">
+                    <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
                             <strong>Local Testing:</strong> Use a tool like <strong>ngrok</strong> to expose your local server for testing. Run <code>ngrok http 3000</code> and use the provided HTTPS URL for your webhook endpoint. This allows you to test webhook signature verification locally before deploying to production.
                         </p>

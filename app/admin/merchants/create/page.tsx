@@ -278,7 +278,7 @@ export default function CreateMerchantPage() {
       <div className="flex items-start justify-between gap-4">
         <div>
           <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <Plus className="w-5 h-5 text-blue-600" />
+            <Plus className="w-5 h-5 text-deep-blue-violet-600" />
             Create Merchant
           </h1>
           <p className="text-xs text-gray-500 mt-1">
@@ -293,7 +293,7 @@ export default function CreateMerchantPage() {
           <select
             value={merchantType}
             onChange={(e) => onChangeMerchantType(e.target.value as MerchantType)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none"
           >
             <option value="individual">Individual</option>
             <option value="company">Company</option>
@@ -314,7 +314,7 @@ export default function CreateMerchantPage() {
                 }
               }}
               type="email"
-              className={`w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none ${
+              className={`w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none ${
                 emailError ? "border-red-300" : "border-gray-300"
               }`}
               placeholder="merchant@example.com"
@@ -328,7 +328,7 @@ export default function CreateMerchantPage() {
               value={country}
               onChange={(e) => setCountry(e.target.value)}
               type="text"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none"
               placeholder="CM"
             />
           </div>
@@ -541,7 +541,7 @@ export default function CreateMerchantPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 text-sm font-medium text-white bg-deep-blue-violet-600 rounded-lg hover:bg-deep-blue-violet-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
               <>
@@ -590,7 +590,7 @@ export default function CreateMerchantPage() {
                   setCreatedMerchant(null);
                   router.push("/admin/merchants");
                 }}
-                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 text-sm font-medium text-white bg-deep-blue-violet-600 rounded-lg hover:bg-deep-blue-violet-700 transition-colors"
               >
                 Back to Merchants
               </button>

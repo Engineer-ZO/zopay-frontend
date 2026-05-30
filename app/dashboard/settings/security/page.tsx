@@ -129,7 +129,7 @@ export default function SecuritySettingsPage() {
       {/* Header */}
       <div>
         <h1 className="text-xl font-bold text-foreground flex items-center gap-2">
-          <Shield className="w-5 h-5 text-orange-500" />
+          <Shield className="w-5 h-5 text-crimson-red-500" />
           Security Settings
         </h1>
         <p className="text-xs text-muted-foreground mt-1">
@@ -177,7 +177,7 @@ export default function SecuritySettingsPage() {
               <button
                 onClick={handleStartSetup}
                 disabled={initiating}
-                className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50"
               >
                 {initiating ? <Loader2 className="w-4 h-4 animate-spin" /> : <QrCode className="w-4 h-4" />}
                 Enable 2FA
@@ -234,7 +234,7 @@ export default function SecuritySettingsPage() {
                     placeholder="000000"
                     maxLength={6}
                     inputMode="numeric"
-                    className="w-full px-3 py-2.5 bg-background border border-border rounded-lg text-sm text-center font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full px-3 py-2.5 bg-background border border-border rounded-lg text-sm text-center font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                     required
                   />
                 </div>
@@ -249,7 +249,7 @@ export default function SecuritySettingsPage() {
                   <button
                     type="submit"
                     disabled={confirming || totpCode.length !== 6}
-                    className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50"
+                    className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50"
                   >
                     {confirming ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : "Confirm & Enable"}
                   </button>
@@ -421,7 +421,7 @@ function BackupCodesDisplay({
         </button>
         <button
           onClick={onDone}
-          className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors"
+          className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors"
         >
           Done
         </button>

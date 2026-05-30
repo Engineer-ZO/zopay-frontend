@@ -23,8 +23,8 @@ export default function MetricCard({
   trend,
   subtitle,
   icon,
-  bgColor = "bg-blue-50",
-  iconColor = "text-blue-600",
+  bgColor = "bg-deep-blue-violet-50",
+  iconColor = "text-deep-blue-violet-600",
   isLoading = false,
 }: MetricCardProps) {
   if (isLoading) {

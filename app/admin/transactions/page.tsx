@@ -190,8 +190,8 @@ export default function TransactionsPage() {
     const styles: Record<string, string> = {
       SUCCESS: "bg-green-100 text-green-700",
       FAILED: "bg-red-100 text-red-700",
-      PENDING: "bg-orange-100 text-orange-700",
-      PROCESSING: "bg-blue-100 text-blue-700",
+      PENDING: "bg-crimson-red-100 text-crimson-red-700",
+      PROCESSING: "bg-deep-blue-violet-100 text-deep-blue-violet-700",
       VERIFYING: "bg-yellow-100 text-yellow-700",
     };
     return (
@@ -261,7 +261,7 @@ export default function TransactionsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <CreditCard className="w-6 h-6 text-blue-600" />
+            <CreditCard className="w-6 h-6 text-deep-blue-violet-600" />
             Transactions
           </h1>
           <p className="text-xs text-gray-500 mt-1">Real-time monitoring of all payment flows</p>
@@ -273,7 +273,7 @@ export default function TransactionsPage() {
             <input
               type="text"
               placeholder="Search ID, Ref, Merchant..."
-              className="pl-9 pr-3 py-1.5 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs w-64"
+              className="pl-9 pr-3 py-1.5 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs w-64"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -289,7 +289,7 @@ export default function TransactionsPage() {
               <Filter className="w-3.5 h-3.5" />
               Filter
               {(statusFilter !== "all" || typeFilter !== "all" || environmentFilter !== "all") && (
-                <span className="absolute -top-1 -right-1 w-2 h-2 bg-blue-600 rounded-full" />
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-deep-blue-violet-600 rounded-full" />
               )}
               <ChevronDown className={`w-3 h-3 transition-transform ${showFilterDropdown ? 'rotate-180' : ''}`} />
             </button>
@@ -326,7 +326,7 @@ export default function TransactionsPage() {
                               setStatusFilter(e.target.value);
                               handleFilterChange();
                             }}
-                            className="w-3.5 h-3.5 text-blue-600 focus:ring-blue-500"
+                            className="w-3.5 h-3.5 text-deep-blue-violet-600 focus:ring-deep-blue-violet-500"
                           />
                           <span className="text-xs text-gray-700">{option.label}</span>
                         </label>
@@ -358,7 +358,7 @@ export default function TransactionsPage() {
                               setTypeFilter(e.target.value);
                               handleFilterChange();
                             }}
-                            className="w-3.5 h-3.5 text-blue-600 focus:ring-blue-500"
+                            className="w-3.5 h-3.5 text-deep-blue-violet-600 focus:ring-deep-blue-violet-500"
                           />
                           <span className="text-xs text-gray-700">{option.label}</span>
                         </label>
@@ -390,7 +390,7 @@ export default function TransactionsPage() {
                               setEnvironmentFilter(e.target.value);
                               handleFilterChange();
                             }}
-                            className="w-3.5 h-3.5 text-blue-600 focus:ring-blue-500"
+                            className="w-3.5 h-3.5 text-deep-blue-violet-600 focus:ring-deep-blue-violet-500"
                           />
                           <span className="text-xs text-gray-700">{option.label}</span>
                         </label>
@@ -409,7 +409,7 @@ export default function TransactionsPage() {
                           setEnvironmentFilter("all");
                           handleFilterChange();
                         }}
-                        className="w-full text-xs text-blue-600 hover:text-blue-700 font-medium py-1.5"
+                        className="w-full text-xs text-deep-blue-violet-600 hover:text-deep-blue-violet-700 font-medium py-1.5"
                       >
                         Clear All Filters
                       </button>
@@ -498,8 +498,8 @@ export default function TransactionsPage() {
 
         <div className="bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
           <div className="flex items-center gap-2 mb-2">
-            <div className="p-2 bg-blue-50 rounded-lg">
-              <Activity className="w-4 h-4 text-blue-600" />
+            <div className="p-2 bg-deep-blue-violet-50 rounded-lg">
+              <Activity className="w-4 h-4 text-deep-blue-violet-600" />
             </div>
             <span className="text-xs font-medium text-gray-500">Platform Health</span>
           </div>
@@ -517,7 +517,7 @@ export default function TransactionsPage() {
                 </span>
               </div>
               <div className="h-1 w-full bg-gray-50 rounded-full mt-3 overflow-hidden">
-                <div className="h-full bg-blue-500 rounded-full" style={{ width: stats.health.value }} />
+                <div className="h-full bg-deep-blue-violet-500 rounded-full" style={{ width: stats.health.value }} />
               </div>
             </>
           )}
@@ -576,7 +576,7 @@ export default function TransactionsPage() {
                           </span>
                           <button
                             onClick={() => navigator.clipboard.writeText(txn.transactionId)}
-                            className="opacity-0 group-hover:opacity-100 p-1 hover:bg-white hover:shadow-sm rounded transition-all text-gray-400 hover:text-blue-500"
+                            className="opacity-0 group-hover:opacity-100 p-1 hover:bg-white hover:shadow-sm rounded transition-all text-gray-400 hover:text-deep-blue-violet-500"
                           >
                             <Copy className="w-3 h-3" />
                           </button>
@@ -584,11 +584,11 @@ export default function TransactionsPage() {
                       </td>
                       <td className="p-3">
                         <div className="flex items-center gap-2.5">
-                          <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                          <div className="w-8 h-8 rounded-lg bg-deep-blue-violet-100 flex items-center justify-center text-deep-blue-violet-600 shrink-0">
                             <Building2 className="w-4 h-4" />
                           </div>
                           <div className="flex flex-col">
-                            <span className="text-xs font-medium text-gray-900 group-hover:text-blue-600 transition-colors">{txn.merchantBusinessName}</span>
+                            <span className="text-xs font-medium text-gray-900 group-hover:text-deep-blue-violet-600 transition-colors">{txn.merchantBusinessName}</span>
                             <span className="text-[10px] text-gray-500">{txn.merchantId.slice(0, 8)}...</span>
                           </div>
                         </div>
@@ -611,7 +611,7 @@ export default function TransactionsPage() {
                       <td className="p-3">
                         <div className="flex items-center gap-2">
                           <div className="w-6 h-6 rounded bg-gray-50 flex items-center justify-center">
-                            <GatewayIcon className="w-3.5 h-3.5 text-blue-600" />
+                            <GatewayIcon className="w-3.5 h-3.5 text-deep-blue-violet-600" />
                           </div>
                           <span className="text-xs font-medium text-gray-600">{getGatewayName(txn.gateway)}</span>
                         </div>
@@ -623,7 +623,7 @@ export default function TransactionsPage() {
                         <div className="flex items-center justify-end gap-2">
                           <button
                             onClick={() => openDetailModal(txn)}
-                            className="p-1.5 hover:bg-gray-100 hover:text-blue-600 rounded-lg transition-all text-gray-400"
+                            className="p-1.5 hover:bg-gray-100 hover:text-deep-blue-violet-600 rounded-lg transition-all text-gray-400"
                             title="View Details"
                           >
                             <Eye className="w-4 h-4" />
@@ -631,7 +631,7 @@ export default function TransactionsPage() {
                           {canReconcile(txn.status) && (
                             <button
                               onClick={() => openReconcileModal(txn)}
-                              className="p-1.5 hover:bg-gray-100 rounded-lg transition-all text-gray-400 hover:text-orange-600"
+                              className="p-1.5 hover:bg-gray-100 rounded-lg transition-all text-gray-400 hover:text-crimson-red-600"
                               title="Reconcile Transaction"
                             >
                               <RefreshCcw className="w-4 h-4" />
@@ -674,7 +674,7 @@ export default function TransactionsPage() {
                   return (
                     <button
                       key={page}
-                      className={`px-2.5 py-1 rounded-md text-xs font-medium ${currentPage === page ? 'bg-blue-600 text-white' : 'hover:bg-gray-100 text-gray-600'}`}
+                      className={`px-2.5 py-1 rounded-md text-xs font-medium ${currentPage === page ? 'bg-deep-blue-violet-600 text-white' : 'hover:bg-gray-100 text-gray-600'}`}
                       onClick={() => setCurrentPage(page)}
                     >
                       {page}
@@ -685,7 +685,7 @@ export default function TransactionsPage() {
                   <>
                     <span className="text-gray-400 px-1 text-xs">...</span>
                     <button
-                      className={`px-2.5 py-1 rounded-md text-xs font-medium ${currentPage === Math.ceil(transactionsData.total / itemsPerPage) ? 'bg-blue-600 text-white' : 'hover:bg-gray-100 text-gray-600'}`}
+                      className={`px-2.5 py-1 rounded-md text-xs font-medium ${currentPage === Math.ceil(transactionsData.total / itemsPerPage) ? 'bg-deep-blue-violet-600 text-white' : 'hover:bg-gray-100 text-gray-600'}`}
                       onClick={() => setCurrentPage(Math.ceil(transactionsData.total / itemsPerPage))}
                     >
                       {Math.ceil(transactionsData.total / itemsPerPage)}
@@ -732,7 +732,7 @@ export default function TransactionsPage() {
                         ? "bg-green-100 text-green-600"
                         : selectedTxn.status === "FAILED"
                           ? "bg-red-100 text-red-600"
-                          : "bg-orange-100 text-orange-600"
+                          : "bg-crimson-red-100 text-crimson-red-600"
                     }`}
                   >
                     <CreditCard className="w-6 h-6" />
@@ -841,7 +841,7 @@ export default function TransactionsPage() {
                         <div className="flex items-center gap-2">
                           {(() => {
                             const GatewayIcon = getGatewayIcon(selectedTxn.gateway);
-                            return <GatewayIcon className="w-4 h-4 text-blue-600" />;
+                            return <GatewayIcon className="w-4 h-4 text-deep-blue-violet-600" />;
                           })()}
                           <span className="text-sm font-semibold text-gray-900">{getGatewayName(selectedTxn.gateway)}</span>
                         </div>
@@ -878,12 +878,12 @@ export default function TransactionsPage() {
                         <div className="pt-2 border-t border-gray-100">
                           <div className="flex justify-between items-center py-1">
                             <span className="text-sm text-gray-500 font-medium">Refunded</span>
-                            <span className="text-sm font-semibold text-blue-600">
+                            <span className="text-sm font-semibold text-deep-blue-violet-600">
                               {formatAmount(selectedTxn.refundedAmount, selectedTxn.currency)}
                             </span>
                           </div>
                           {selectedTxn.fullyRefunded && (
-                            <span className="text-xs text-blue-600 font-medium">Fully Refunded</span>
+                            <span className="text-xs text-deep-blue-violet-600 font-medium">Fully Refunded</span>
                           )}
                         </div>
                       )}
@@ -946,7 +946,7 @@ export default function TransactionsPage() {
                       {selectedTxn.refundAmount && (
                         <div className="flex justify-between items-center py-1 border-b border-gray-50">
                           <span className="text-sm text-gray-500 font-medium">Refund Amount</span>
-                          <span className="text-sm font-bold text-blue-600">
+                          <span className="text-sm font-bold text-deep-blue-violet-600">
                             {formatAmount(selectedTxn.refundAmount, selectedTxn.currency)}
                           </span>
                         </div>
@@ -1044,7 +1044,7 @@ export default function TransactionsPage() {
                           setIsDetailModalOpen(false);
                           openReconcileModal(selectedTxn);
                         }}
-                        className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all shadow-sm flex items-center gap-2 text-sm"
+                        className="px-6 py-2.5 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white font-bold rounded-lg transition-all shadow-sm flex items-center gap-2 text-sm"
                       >
                         <RefreshCcw className="w-4 h-4" />
                         Reconcile Transaction

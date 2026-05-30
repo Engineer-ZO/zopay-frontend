@@ -59,7 +59,7 @@ export function CompleteSettlementModal({
               value={bankRef}
               onChange={(e) => setBankRef(e.target.value)}
               placeholder="MTN_MOMO_TX_123456789"
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
             />
             <p className="text-xs text-gray-500 mt-1">
               Optional: Enter the mobile money transaction reference

@@ -100,7 +100,7 @@ export default function FeeTiersModal({ isOpen, onClose, feeRuleId }: FeeTiersMo
             <div className="flex items-center gap-2">
               <button
                 onClick={handleAdd}
-                className="flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors"
+                className="flex items-center gap-2 px-3 py-1.5 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-xs font-medium rounded-lg transition-colors"
               >
                 <Plus className="w-3.5 h-3.5" />
                 Add Tier
@@ -153,7 +153,7 @@ export default function FeeTiersModal({ isOpen, onClose, feeRuleId }: FeeTiersMo
                         <td className="p-3 text-right">
                           <button
                             onClick={() => handleEdit(tier)}
-                            className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-400 hover:text-blue-600"
+                            className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-400 hover:text-deep-blue-violet-600"
                             title="Edit"
                           >
                             <Edit className="w-4 h-4" />
@@ -198,7 +198,7 @@ export default function FeeTiersModal({ isOpen, onClose, feeRuleId }: FeeTiersMo
                     type="text"
                     value={formData.minAmount}
                     onChange={(e) => setFormData(prev => ({ ...prev, minAmount: e.target.value }))}
-                    className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs"
+                    className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs"
                   />
                 </div>
 
@@ -210,7 +210,7 @@ export default function FeeTiersModal({ isOpen, onClose, feeRuleId }: FeeTiersMo
                     type="text"
                     value={formData.maxAmount}
                     onChange={(e) => setFormData(prev => ({ ...prev, maxAmount: e.target.value }))}
-                    className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs"
+                    className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs"
                   />
                 </div>
               </div>
@@ -224,7 +224,7 @@ export default function FeeTiersModal({ isOpen, onClose, feeRuleId }: FeeTiersMo
                   value={formData.gatewayFeeValue}
                   onChange={(e) => setFormData(prev => ({ ...prev, gatewayFeeValue: e.target.value }))}
                   placeholder="e.g., 1.50"
-                  className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs"
+                  className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs"
                 />
               </div>
 
@@ -237,7 +237,7 @@ export default function FeeTiersModal({ isOpen, onClose, feeRuleId }: FeeTiersMo
                   value={formData.platformFeeValue}
                   onChange={(e) => setFormData(prev => ({ ...prev, platformFeeValue: e.target.value }))}
                   placeholder="e.g., 0.50"
-                  className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs"
+                  className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs"
                 />
               </div>
 
@@ -254,7 +254,7 @@ export default function FeeTiersModal({ isOpen, onClose, feeRuleId }: FeeTiersMo
                 <button
                   onClick={handleSubmit}
                   disabled={createMutation.isPending || updateMutation.isPending}
-                  className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
+                  className="flex-1 px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
                 >
                   {createMutation.isPending || updateMutation.isPending
                     ? "Saving..."

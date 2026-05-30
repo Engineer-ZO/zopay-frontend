@@ -121,7 +121,7 @@ export default function AdminMsisdnLookupPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                        <Phone className="w-6 h-6 text-blue-600" />
+                        <Phone className="w-6 h-6 text-deep-blue-violet-600" />
                         MSISDN Lookup
                     </h1>
                     <p className="text-xs text-gray-500 mt-1">
@@ -145,11 +145,11 @@ export default function AdminMsisdnLookupPage() {
                 </div>
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start gap-3">
-                <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+            <div className="bg-deep-blue-violet-50 border border-deep-blue-violet-200 rounded-xl p-4 flex items-start gap-3">
+                <Info className="w-5 h-5 text-deep-blue-violet-600 flex-shrink-0 mt-0.5" />
                 <div>
-                    <p className="text-sm font-semibold text-blue-900">What this does</p>
-                    <p className="text-xs text-blue-700 mt-0.5">
+                    <p className="text-sm font-semibold text-deep-blue-violet-900">What this does</p>
+                    <p className="text-xs text-deep-blue-violet-700 mt-0.5">
                         Calls the {environment} operator API to confirm a phone number exists on the selected network and retrieve the subscriber name when available.
                     </p>
                 </div>
@@ -180,7 +180,7 @@ export default function AdminMsisdnLookupPage() {
                                 <select
                                     value={singleGateway}
                                     onChange={(e) => setSingleGateway(e.target.value as "MTN_MOMO" | "ORANGE_MONEY")}
-                                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                 >
                                     <option value="MTN_MOMO">MTN MoMo</option>
                                     <option value="ORANGE_MONEY">Orange Money</option>
@@ -195,7 +195,7 @@ export default function AdminMsisdnLookupPage() {
                                         value={singleMsisdn}
                                         onChange={(e) => setSingleMsisdn(e.target.value)}
                                         placeholder="237688508539"
-                                        className="w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                        className="w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                         required
                                     />
                                 </div>
@@ -204,7 +204,7 @@ export default function AdminMsisdnLookupPage() {
                         <button
                             type="submit"
                             disabled={verifyingSingle}
-                            className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50"
+                            className="flex items-center gap-2 px-5 py-2.5 bg-deep-blue-violet-600 text-white rounded-lg text-sm font-semibold hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50"
                         >
                             {verifyingSingle ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
                             Lookup Subscriber
@@ -217,7 +217,7 @@ export default function AdminMsisdnLookupPage() {
                                 singleIsUsable
                                     ? "bg-green-50 border-green-200"
                                     : singleResult.found
-                                        ? "bg-orange-50 border-orange-200"
+                                        ? "bg-crimson-red-50 border-crimson-red-200"
                                         : "bg-red-50 border-red-200"
                             }`}
                         >
@@ -225,7 +225,7 @@ export default function AdminMsisdnLookupPage() {
                                 {singleIsUsable ? (
                                     <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
                                 ) : singleResult.found ? (
-                                    <AlertTriangle className="w-6 h-6 text-orange-500 flex-shrink-0 mt-0.5" />
+                                    <AlertTriangle className="w-6 h-6 text-crimson-red-500 flex-shrink-0 mt-0.5" />
                                 ) : (
                                     <XCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
                                 )}
@@ -235,7 +235,7 @@ export default function AdminMsisdnLookupPage() {
                                             singleIsUsable
                                                 ? "text-green-900"
                                                 : singleResult.found
-                                                    ? "text-orange-900"
+                                                    ? "text-crimson-red-900"
                                                     : "text-red-900"
                                         }`}
                                     >
@@ -293,7 +293,7 @@ export default function AdminMsisdnLookupPage() {
                                 <button
                                     type="button"
                                     onClick={addRow}
-                                    className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 font-semibold"
+                                    className="flex items-center gap-1 text-xs text-deep-blue-violet-600 hover:text-deep-blue-violet-800 font-semibold"
                                 >
                                     <Plus className="w-3.5 h-3.5" />
                                     Add row
@@ -314,12 +314,12 @@ export default function AdminMsisdnLookupPage() {
                                             value={row.msisdn}
                                             onChange={(e) => updateRow(index, "msisdn", e.target.value)}
                                             placeholder="237688508539"
-                                            className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                            className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                         />
                                         <select
                                             value={row.gateway}
                                             onChange={(e) => updateRow(index, "gateway", e.target.value)}
-                                            className="px-2 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                            className="px-2 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                         >
                                             <option value="MTN_MOMO">MTN MoMo</option>
                                             <option value="ORANGE_MONEY">Orange Money</option>
@@ -339,7 +339,7 @@ export default function AdminMsisdnLookupPage() {
                             <button
                                 type="submit"
                                 disabled={verifyingBulk}
-                                className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50"
+                                className="flex items-center gap-2 px-5 py-2.5 bg-deep-blue-violet-600 text-white rounded-lg text-sm font-semibold hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50"
                             >
                                 {verifyingBulk ? <Loader2 className="w-4 h-4 animate-spin" /> : <Users className="w-4 h-4" />}
                                 Verify All ({bulkRows.filter((row) => row.msisdn.trim()).length})

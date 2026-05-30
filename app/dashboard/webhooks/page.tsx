@@ -243,7 +243,7 @@ export default function WebhooksPage() {
       case "FAILED":
         return "text-red-600 dark:text-red-400";
       case "RETRYING":
-        return "text-orange-600 dark:text-orange-400";
+        return "text-crimson-red-600 dark:text-crimson-red-400";
       case "PENDING":
         return "text-gray-600 dark:text-gray-400";
       default:
@@ -296,7 +296,7 @@ export default function WebhooksPage() {
             setEnabled(true);
             setShowAddModal(true);
           }}
-          className="px-3 py-1.5 bg-orange-500 text-white rounded-md text-xs font-semibold hover:bg-orange-600 transition-colors flex items-center gap-1.5"
+          className="px-3 py-1.5 bg-crimson-red-500 text-white rounded-md text-xs font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-1.5"
         >
           <Plus className="w-3.5 h-3.5" />
           Add Endpoint
@@ -321,11 +321,11 @@ export default function WebhooksPage() {
             {isLoadingDeliveries ? "..." : stats.totalSent.toLocaleString()}
           </p>
         </div>
-        <div className="bg-background rounded-lg p-3 border border-border border-l-2 border-l-orange-500 hover:shadow-sm transition-shadow">
+        <div className="bg-background rounded-lg p-3 border border-border border-l-2 border-l-crimson-red-500 hover:shadow-sm transition-shadow">
           <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide mb-1">
             Success Rate
           </p>
-          <p className="text-base font-semibold text-orange-500">
+          <p className="text-base font-semibold text-crimson-red-500">
             {isLoadingDeliveries ? "..." : `${stats.successRate}%`}
           </p>
         </div>
@@ -354,7 +354,7 @@ export default function WebhooksPage() {
             <p className="text-sm text-muted-foreground">No webhook endpoints configured</p>
             <button
               onClick={() => setShowAddModal(true)}
-              className="mt-4 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors"
+              className="mt-4 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors"
             >
               Add Your First Endpoint
             </button>
@@ -408,7 +408,7 @@ export default function WebhooksPage() {
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => openEditModal(endpoint)}
-                          className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                          className="text-xs font-medium text-deep-blue-violet-600 dark:text-deep-blue-violet-400 hover:underline flex items-center gap-1"
                         >
                           <Edit className="w-3 h-3" />
                           Edit
@@ -485,7 +485,7 @@ export default function WebhooksPage() {
                     <td className="py-3 px-4">
                       <button
                         onClick={() => openDetailModal(delivery.id)}
-                        className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                        className="text-xs font-medium text-deep-blue-violet-600 dark:text-deep-blue-violet-400 hover:underline flex items-center gap-1"
                       >
                         <Eye className="w-3 h-3" />
                         View
@@ -526,8 +526,8 @@ export default function WebhooksPage() {
                 </div>
               )}
 
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
-                <p className="text-xs text-blue-900 dark:text-blue-100">
+              <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/20 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-3">
+                <p className="text-xs text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                   <strong>Important:</strong> You must subscribe to all 6 required events. This ensures
                   you receive all transaction notifications.
                 </p>
@@ -545,7 +545,7 @@ export default function WebhooksPage() {
                     setUrlError(null);
                   }}
                   placeholder="https://api.myapp.com/webhooks/zitopay"
-                  className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                   disabled={createMutation.isPending}
                 />
                 <p className="text-xs text-muted-foreground mt-1">Must be HTTPS (required in production)</p>
@@ -594,7 +594,7 @@ export default function WebhooksPage() {
                 </button>
                 <button
                   onClick={handleCreateEndpoint}
-                  className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                   disabled={createMutation.isPending}
                 >
                   {createMutation.isPending ? (
@@ -652,7 +652,7 @@ export default function WebhooksPage() {
                     setUrlError(null);
                   }}
                   placeholder="https://api.myapp.com/webhooks/zitopay"
-                  className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                   disabled={updateMutation.isPending}
                 />
               </div>
@@ -715,7 +715,7 @@ export default function WebhooksPage() {
                 </button>
                 <button
                   onClick={handleUpdateEndpoint}
-                  className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                   disabled={updateMutation.isPending}
                 >
                   {updateMutation.isPending ? (

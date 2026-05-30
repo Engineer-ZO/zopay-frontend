@@ -38,7 +38,7 @@ export function AdminSettlementFilters({
             placeholder="Search by settlement ID or merchant..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full pl-9 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
           />
         </div>
 
@@ -47,7 +47,7 @@ export function AdminSettlementFilters({
           <select
             value={merchantFilter}
             onChange={(e) => onMerchantChange(e.target.value)}
-            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
           >
             <option value="">All Merchants</option>
             {merchants.map((merchant) => (
@@ -62,7 +62,7 @@ export function AdminSettlementFilters({
         <select
           value={statusFilter}
           onChange={(e) => onStatusChange(e.target.value)}
-          className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
         >
           <option value="">All Status</option>
           <option value="PENDING">Pending</option>
@@ -79,7 +79,7 @@ export function AdminSettlementFilters({
             onChange={(e) =>
               onDateRangeChange({ ...dateRange, start: e.target.value })
             }
-            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
           />
           <input
             type="date"
@@ -87,7 +87,7 @@ export function AdminSettlementFilters({
             onChange={(e) =>
               onDateRangeChange({ ...dateRange, end: e.target.value })
             }
-            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
           />
         </div>
 

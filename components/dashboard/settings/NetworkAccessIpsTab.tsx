@@ -45,13 +45,13 @@ export function NetworkAccessIpsTab() {
         switch (status) {
             case "APPROVED":
                 return {
-                    color: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
+                    color: "bg-deep-blue-violet-500/10 text-deep-blue-violet-600 dark:text-deep-blue-violet-400 border-deep-blue-violet-500/20",
                     icon: <CheckCircle2 className="w-3.5 h-3.5" />,
                     label: "Approved",
                 };
             case "PENDING":
                 return {
-                    color: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20",
+                    color: "bg-crimson-red-500/10 text-crimson-red-600 dark:text-crimson-red-400 border-crimson-red-500/20",
                     icon: <Clock className="w-3.5 h-3.5" />,
                     label: "Pending Review",
                 };
@@ -179,7 +179,7 @@ export function NetworkAccessIpsTab() {
                                 setDescriptionInput("");
                                 setIpError(null);
                             }}
-                            className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2"
+                            className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-2"
                         >
                             <Plus className="w-4 h-4" />
                             Add IP Address
@@ -260,7 +260,7 @@ export function NetworkAccessIpsTab() {
                                         )}
 
                                         {ip.status === "PENDING" && (
-                                            <div className="mt-3 bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-xs text-blue-700 dark:text-blue-300 flex items-start gap-2">
+                                            <div className="mt-3 bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-3 text-xs text-deep-blue-violet-700 dark:text-deep-blue-violet-300 flex items-start gap-2">
                                                 <Info className="w-3.5 h-3.5 mt-0.5 shrink-0" />
                                                 <p>This IP is waiting for admin approval.</p>
                                             </div>
@@ -343,7 +343,7 @@ export function NetworkAccessIpsTab() {
                                 />
                             </div>
 
-                            <div className="bg-blue-50 dark:bg-blue-900/10 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+                            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 rounded-lg p-4 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800">
                                 <p className="text-xs font-medium text-foreground mb-1 flex items-center gap-1.5">
                                     <AlertCircle className="w-3.5 h-3.5" />
                                     Admin Approval Required
@@ -368,7 +368,7 @@ export function NetworkAccessIpsTab() {
                                 <button
                                     onClick={handleAddIp}
                                     disabled={addIpMutation.isPending || !ipInput.trim()}
-                                    className="flex-1 px-4 py-2.5 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="flex-1 px-4 py-2.5 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     {addIpMutation.isPending ? (
                                         <>

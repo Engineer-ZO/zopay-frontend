@@ -35,7 +35,7 @@ export function AdminRefundStatsCards({
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      <div className="bg-blue-50 dark:bg-blue-900/10 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
+      <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 rounded-xl p-4 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800">
         <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2 flex items-center gap-1">
           <DollarSign className="w-3 h-3" />
           TOTAL
@@ -51,7 +51,7 @@ export function AdminRefundStatsCards({
         </p>
         <p className="text-xl font-bold text-foreground">{successful}</p>
       </div>
-      <div className="bg-orange-50 dark:bg-orange-900/10 rounded-xl p-4 border border-orange-200 dark:border-orange-800">
+      <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 rounded-xl p-4 border border-crimson-red-200 dark:border-crimson-red-800">
         <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2 flex items-center gap-1">
           <Clock className="w-3 h-3" />
           PENDING

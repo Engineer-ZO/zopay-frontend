@@ -76,7 +76,7 @@ export default function TeamMembersPage() {
             case "owner":
                 return <Crown className="w-4 h-4 text-yellow-600" />;
             case "admin":
-                return <Shield className="w-4 h-4 text-blue-600" />;
+                return <Shield className="w-4 h-4 text-deep-blue-violet-600" />;
             case "viewer":
                 return <Eye className="w-4 h-4 text-gray-600" />;
         }
@@ -117,7 +117,7 @@ export default function TeamMembersPage() {
                 </div>
                 <button
                     onClick={() => setShowInviteModal(true)}
-                    className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2"
+                    className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-2"
                 >
                     <Plus className="w-4 h-4" />
                     Invite Member
@@ -126,7 +126,7 @@ export default function TeamMembersPage() {
 
             {/* TEAM OVERVIEW */}
             <div className="grid grid-cols-3 gap-4">
-                <div className="bg-blue-50 dark:bg-blue-900/10 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
+                <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 rounded-xl p-4 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800">
                     <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">
                         TOTAL MEMBERS
                     </p>
@@ -191,7 +191,7 @@ export default function TeamMembersPage() {
                                     </td>
                                     <td className="py-3 px-4">
                                         {member.status === "pending" ? (
-                                            <span className="inline-flex items-center gap-1.5 px-2 py-1 bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 rounded text-xs font-medium">
+                                            <span className="inline-flex items-center gap-1.5 px-2 py-1 bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400 rounded text-xs font-medium">
                                                 <Mail className="w-3 h-3" />
                                                 Pending {getRoleLabel(member.role).split(" ")[1]}
                                             </span>
@@ -208,11 +208,11 @@ export default function TeamMembersPage() {
                                         ) : (
                                             <div className="flex items-center gap-2">
                                                 {member.status === "pending" ? (
-                                                    <button className="text-xs font-medium text-orange-600 dark:text-orange-400 hover:underline">
+                                                    <button className="text-xs font-medium text-crimson-red-600 dark:text-crimson-red-400 hover:underline">
                                                         Resend
                                                     </button>
                                                 ) : (
-                                                    <button className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                                                    <button className="text-xs font-medium text-deep-blue-violet-600 dark:text-deep-blue-violet-400 hover:underline">
                                                         Edit
                                                     </button>
                                                 )}
@@ -256,21 +256,21 @@ export default function TeamMembersPage() {
                                     <td className="py-2 px-3 text-xs text-foreground">{permission.name}</td>
                                     <td className="py-2 px-3 text-center">
                                         {permission.owner ? (
-                                            <CheckCircle2 className="w-4 h-4 text-blue-600 mx-auto" />
+                                            <CheckCircle2 className="w-4 h-4 text-deep-blue-violet-600 mx-auto" />
                                         ) : (
                                             <XCircle className="w-4 h-4 text-red-600 mx-auto" />
                                         )}
                                     </td>
                                     <td className="py-2 px-3 text-center">
                                         {permission.admin ? (
-                                            <CheckCircle2 className="w-4 h-4 text-blue-600 mx-auto" />
+                                            <CheckCircle2 className="w-4 h-4 text-deep-blue-violet-600 mx-auto" />
                                         ) : (
                                             <XCircle className="w-4 h-4 text-red-600 mx-auto" />
                                         )}
                                     </td>
                                     <td className="py-2 px-3 text-center">
                                         {permission.viewer ? (
-                                            <CheckCircle2 className="w-4 h-4 text-blue-600 mx-auto" />
+                                            <CheckCircle2 className="w-4 h-4 text-deep-blue-violet-600 mx-auto" />
                                         ) : (
                                             <XCircle className="w-4 h-4 text-red-600 mx-auto" />
                                         )}
@@ -339,20 +339,20 @@ export default function TeamMembersPage() {
                                 <div className="space-y-1">
                                     {inviteRole === "admin" ? (
                                         <>
-                                            <p className="text-xs text-blue-600 dark:text-blue-400">
+                                            <p className="text-xs text-deep-blue-violet-600 dark:text-deep-blue-violet-400">
                                                 ✅ View all data
                                             </p>
-                                            <p className="text-xs text-blue-600 dark:text-blue-400">
+                                            <p className="text-xs text-deep-blue-violet-600 dark:text-deep-blue-violet-400">
                                                 ✅ Create payouts and refunds
                                             </p>
-                                            <p className="text-xs text-blue-600 dark:text-blue-400">
+                                            <p className="text-xs text-deep-blue-violet-600 dark:text-deep-blue-violet-400">
                                                 ✅ Manage integrations
                                             </p>
                                             <p className="text-xs text-red-600 dark:text-red-400">❌ Delete account</p>
                                         </>
                                     ) : (
                                         <>
-                                            <p className="text-xs text-blue-600 dark:text-blue-400">
+                                            <p className="text-xs text-deep-blue-violet-600 dark:text-deep-blue-violet-400">
                                                 ✅ View all data
                                             </p>
                                             <p className="text-xs text-red-600 dark:text-red-400">
@@ -374,7 +374,7 @@ export default function TeamMembersPage() {
                                 >
                                     Cancel
                                 </button>
-                                <button className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors">
+                                <button className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors">
                                     Send Invitation
                                 </button>
                             </div>

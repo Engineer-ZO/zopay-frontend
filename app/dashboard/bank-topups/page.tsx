@@ -34,7 +34,7 @@ async function readFileAsBase64(file: File): Promise<MerchantBase64FileObject> {
 }
 
 const statusTone: Record<MerchantBankTopupRequest["status"], string> = {
-    PENDING: "bg-orange-100 text-orange-700",
+    PENDING: "bg-crimson-red-100 text-crimson-red-700",
     APPROVED: "bg-green-100 text-green-700",
     REJECTED: "bg-red-100 text-red-700",
 };
@@ -124,7 +124,7 @@ export default function MerchantBankTopupsPage() {
         <div className="space-y-6 max-w-6xl mx-auto p-6">
             <div className="flex items-center justify-between gap-4">
                 <div>
-                    <Link href="/dashboard/wallet" className="text-sm text-orange-600 hover:text-orange-700 inline-flex items-center gap-1">
+                    <Link href="/dashboard/wallet" className="text-sm text-crimson-red-600 hover:text-crimson-red-700 inline-flex items-center gap-1">
                         <ArrowLeft className="w-4 h-4" />
                         Back to Wallet
                     </Link>
@@ -139,12 +139,12 @@ export default function MerchantBankTopupsPage() {
             </div>
 
             {createdRequest && (
-                <div className="rounded-xl border border-orange-200 bg-orange-50 p-5">
+                <div className="rounded-xl border border-crimson-red-200 bg-crimson-red-50 p-5">
                     <div className="flex items-start justify-between gap-4">
                         <div>
-                            <p className="text-sm font-semibold text-orange-900">Reference code generated</p>
-                            <p className="text-2xl font-bold text-orange-700 mt-2">{createdRequest.referenceCode}</p>
-                            <p className="text-xs text-orange-800 mt-2">
+                            <p className="text-sm font-semibold text-crimson-red-900">Reference code generated</p>
+                            <p className="text-2xl font-bold text-crimson-red-700 mt-2">{createdRequest.referenceCode}</p>
+                            <p className="text-xs text-crimson-red-800 mt-2">
                                 Use this exact reference in your bank transfer description or narration.
                             </p>
                         </div>
@@ -154,13 +154,13 @@ export default function MerchantBankTopupsPage() {
                                 navigator.clipboard.writeText(createdRequest.referenceCode);
                                 toast.success("Reference code copied");
                             }}
-                            className="px-3 py-2 rounded-lg border border-orange-300 bg-white text-orange-700 text-sm font-medium inline-flex items-center gap-2"
+                            className="px-3 py-2 rounded-lg border border-crimson-red-300 bg-white text-crimson-red-700 text-sm font-medium inline-flex items-center gap-2"
                         >
                             <Copy className="w-4 h-4" />
                             Copy
                         </button>
                     </div>
-                    <div className="mt-4 rounded-lg bg-white p-4 border border-orange-100">
+                    <div className="mt-4 rounded-lg bg-white p-4 border border-crimson-red-100">
                         <p className="text-sm font-semibold text-foreground">Bank instructions</p>
                         <pre className="mt-2 whitespace-pre-wrap text-sm text-muted-foreground font-sans">{createdRequest.instructions}</pre>
                     </div>
@@ -253,7 +253,7 @@ export default function MerchantBankTopupsPage() {
                             type="button"
                             onClick={() => void handleCreateRequest()}
                             disabled={createRequestMutation.isPending || accountsLoading}
-                            className="w-full px-4 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-semibold disabled:opacity-60 inline-flex items-center justify-center gap-2"
+                            className="w-full px-4 py-3 bg-crimson-red-600 hover:bg-crimson-red-700 text-white rounded-lg font-semibold disabled:opacity-60 inline-flex items-center justify-center gap-2"
                         >
                             {createRequestMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
                             Create Bank Top-Up Request
@@ -315,11 +315,11 @@ export default function MerchantBankTopupsPage() {
                                         </td>
                                         <td className="py-4 pr-4">
                                             {request.receiptUrl ? (
-                                                <a href={request.receiptUrl} target="_blank" rel="noreferrer" className="text-sm text-orange-600 hover:text-orange-700">
+                                                <a href={request.receiptUrl} target="_blank" rel="noreferrer" className="text-sm text-crimson-red-600 hover:text-crimson-red-700">
                                                     View receipt
                                                 </a>
                                             ) : request.status === "PENDING" ? (
-                                                <label className="inline-flex items-center gap-2 text-sm text-orange-600 cursor-pointer">
+                                                <label className="inline-flex items-center gap-2 text-sm text-crimson-red-600 cursor-pointer">
                                                     {uploadingRequestId === request.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileUp className="w-4 h-4" />}
                                                     Upload receipt
                                                     <input

@@ -114,7 +114,7 @@ export default function MerchantOverrideModal({ isOpen, onClose, mode, override 
               <select
                 value={formData.merchantId}
                 onChange={(e) => setFormData(prev => ({ ...prev, merchantId: e.target.value }))}
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs"
+                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs"
               >
                 <option value="">Select merchant</option>
                 {uniqueMerchants.map((mu) => (
@@ -135,7 +135,7 @@ export default function MerchantOverrideModal({ isOpen, onClose, mode, override 
                 value={formData.gateway}
                 onChange={(e) => setFormData(prev => ({ ...prev, gateway: e.target.value }))}
                 disabled={mode === "edit"}
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs disabled:bg-gray-50"
+                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs disabled:bg-gray-50"
               >
                 <option value="MTN_MOMO">MTN Mobile Money</option>
                 <option value="ORANGE_MONEY">Orange Money</option>
@@ -150,7 +150,7 @@ export default function MerchantOverrideModal({ isOpen, onClose, mode, override 
                 value={formData.transactionType}
                 onChange={(e) => setFormData(prev => ({ ...prev, transactionType: e.target.value as "COLLECTION" | "DISBURSEMENT" }))}
                 disabled={mode === "edit"}
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs disabled:bg-gray-50"
+                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs disabled:bg-gray-50"
               >
                 <option value="COLLECTION">Collection</option>
                 <option value="DISBURSEMENT">Disbursement</option>
@@ -165,7 +165,7 @@ export default function MerchantOverrideModal({ isOpen, onClose, mode, override 
                 value={formData.currency}
                 onChange={(e) => setFormData(prev => ({ ...prev, currency: e.target.value }))}
                 disabled={mode === "edit"}
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs disabled:bg-gray-50"
+                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs disabled:bg-gray-50"
               >
                 <option value="XAF">XAF</option>
                 <option value="EUR">EUR</option>
@@ -181,7 +181,7 @@ export default function MerchantOverrideModal({ isOpen, onClose, mode, override 
               <select
                 value={formData.gatewayFeeType}
                 onChange={(e) => setFormData(prev => ({ ...prev, gatewayFeeType: e.target.value as "PERCENTAGE" | "FIXED" | "TIERED" }))}
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs"
+                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs"
               >
                 <option value="PERCENTAGE">Percentage</option>
                 <option value="FIXED">Fixed</option>
@@ -199,7 +199,7 @@ export default function MerchantOverrideModal({ isOpen, onClose, mode, override 
                 onChange={(e) => setFormData(prev => ({ ...prev, gatewayFeeValue: e.target.value }))}
                 disabled={formData.gatewayFeeType === "TIERED"}
                 placeholder={formData.gatewayFeeType === "PERCENTAGE" ? "e.g., 0.75" : "e.g., 100.00"}
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs disabled:bg-gray-50"
+                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs disabled:bg-gray-50"
               />
             </div>
           </div>
@@ -212,7 +212,7 @@ export default function MerchantOverrideModal({ isOpen, onClose, mode, override 
               <select
                 value={formData.platformFeeType}
                 onChange={(e) => setFormData(prev => ({ ...prev, platformFeeType: e.target.value as "PERCENTAGE" | "FIXED" | "TIERED" }))}
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs"
+                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs"
               >
                 <option value="PERCENTAGE">Percentage</option>
                 <option value="FIXED">Fixed</option>
@@ -230,7 +230,7 @@ export default function MerchantOverrideModal({ isOpen, onClose, mode, override 
                 onChange={(e) => setFormData(prev => ({ ...prev, platformFeeValue: e.target.value }))}
                 disabled={formData.platformFeeType === "TIERED"}
                 placeholder={formData.platformFeeType === "PERCENTAGE" ? "e.g., 0.25" : "e.g., 50.00"}
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs disabled:bg-gray-50"
+                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs disabled:bg-gray-50"
               />
             </div>
           </div>
@@ -241,7 +241,7 @@ export default function MerchantOverrideModal({ isOpen, onClose, mode, override 
               <select
                 value={formData.status}
                 onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as "ACTIVE" | "INACTIVE" }))}
-                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs"
+                className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs"
               >
                 <option value="ACTIVE">Active</option>
                 <option value="INACTIVE">Inactive</option>
@@ -259,7 +259,7 @@ export default function MerchantOverrideModal({ isOpen, onClose, mode, override 
             <button
               onClick={handleSubmit}
               disabled={createMutation.isPending || updateMutation.isPending || (mode === "create" && !formData.merchantId)}
-              className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
+              className="flex-1 px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
             >
               {createMutation.isPending || updateMutation.isPending
                 ? "Saving..."

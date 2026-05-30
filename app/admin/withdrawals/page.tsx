@@ -31,7 +31,7 @@ import {
 import type { AdminWithdrawalMethod } from "@/features/admin/api";
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; icon: React.ReactNode }> = {
-    PENDING: { label: "Pending", color: "bg-orange-100 text-orange-700", icon: <Clock className="w-3 h-3" /> },
+    PENDING: { label: "Pending", color: "bg-crimson-red-100 text-crimson-red-700", icon: <Clock className="w-3 h-3" /> },
     ACTIVE: { label: "Active", color: "bg-green-100 text-green-700", icon: <CheckCircle2 className="w-3 h-3" /> },
     DISABLED: { label: "Disabled", color: "bg-gray-100 text-gray-600", icon: <Ban className="w-3 h-3" /> },
     REJECTED: { label: "Rejected", color: "bg-red-100 text-red-700", icon: <XCircle className="w-3 h-3" /> },
@@ -39,9 +39,9 @@ const STATUS_CONFIG: Record<string, { label: string; color: string; icon: React.
 
 const TYPE_CONFIG: Record<string, { label: string; icon: React.ReactNode }> = {
     MOBILE_MONEY: { label: "Mobile Money", icon: <Smartphone className="w-4 h-4 text-green-500" /> },
-    LOCAL_BANK: { label: "Local Bank", icon: <Building2 className="w-4 h-4 text-blue-500" /> },
+    LOCAL_BANK: { label: "Local Bank", icon: <Building2 className="w-4 h-4 text-deep-blue-violet-500" /> },
     INTERNATIONAL_BANK: { label: "International Bank", icon: <Globe className="w-4 h-4 text-purple-500" /> },
-    PREPAID_CARD: { label: "Prepaid Card", icon: <CreditCard className="w-4 h-4 text-orange-500" /> },
+    PREPAID_CARD: { label: "Prepaid Card", icon: <CreditCard className="w-4 h-4 text-crimson-red-500" /> },
 };
 
 function methodSummary(m: AdminWithdrawalMethod): string {
@@ -153,7 +153,7 @@ export default function AdminWithdrawalsPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                        <Wallet className="w-6 h-6 text-blue-600" />
+                        <Wallet className="w-6 h-6 text-deep-blue-violet-600" />
                         Withdrawal Methods
                     </h1>
                     <p className="text-xs text-gray-500 mt-1">
@@ -162,7 +162,7 @@ export default function AdminWithdrawalsPage() {
                 </div>
                 <button
                     onClick={() => setShowAddMM(true)}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg text-sm font-semibold hover:bg-deep-blue-violet-700 transition-colors"
                 >
                     <Plus className="w-4 h-4" />
                     Add Mobile Money
@@ -178,13 +178,13 @@ export default function AdminWithdrawalsPage() {
                         placeholder="Search by merchant or account..."
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                        className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                     />
                 </div>
                 <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                 >
                     <option value="">All Statuses</option>
                     <option value="PENDING">Pending</option>
@@ -195,7 +195,7 @@ export default function AdminWithdrawalsPage() {
                 <select
                     value={typeFilter}
                     onChange={(e) => setTypeFilter(e.target.value)}
-                    className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                 >
                     <option value="">All Types</option>
                     <option value="MOBILE_MONEY">Mobile Money</option>
@@ -209,7 +209,7 @@ export default function AdminWithdrawalsPage() {
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
                 {isLoading ? (
                     <div className="flex items-center justify-center py-16">
-                        <Loader2 className="w-6 h-6 animate-spin text-blue-600" />
+                        <Loader2 className="w-6 h-6 animate-spin text-deep-blue-violet-600" />
                     </div>
                 ) : error ? (
                     <div className="p-6 text-center text-red-600 text-sm">{error.message}</div>
@@ -322,7 +322,7 @@ export default function AdminWithdrawalsPage() {
                                     value={mmMerchantId}
                                     onChange={(e) => setMmMerchantId(e.target.value)}
                                     placeholder="uuid"
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                     required
                                 />
                             </div>
@@ -331,7 +331,7 @@ export default function AdminWithdrawalsPage() {
                                 <select
                                     value={mmGateway}
                                     onChange={(e) => setMmGateway(e.target.value)}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                 >
                                     <option value="MTN_MOMO">MTN MoMo</option>
                                     <option value="ORANGE_MONEY">Orange Money</option>
@@ -344,7 +344,7 @@ export default function AdminWithdrawalsPage() {
                                     value={mmMsisdn}
                                     onChange={(e) => setMmMsisdn(e.target.value)}
                                     placeholder="237670000001"
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                     required
                                 />
                             </div>
@@ -352,7 +352,7 @@ export default function AdminWithdrawalsPage() {
                                 <button type="button" onClick={() => setShowAddMM(false)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">
                                     Cancel
                                 </button>
-                                <button type="submit" disabled={addingMM} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 disabled:opacity-50">
+                                <button type="submit" disabled={addingMM} className="flex-1 px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg text-sm font-semibold hover:bg-deep-blue-violet-700 disabled:opacity-50">
                                     {addingMM ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : "Add Method"}
                                 </button>
                             </div>

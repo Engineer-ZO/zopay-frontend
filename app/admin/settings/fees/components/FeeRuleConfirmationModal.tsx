@@ -70,8 +70,8 @@ export default function FeeRuleConfirmationModal({
         <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {isActivate ? (
-              <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                <Rocket className="w-5 h-5 text-orange-600" />
+              <div className="w-10 h-10 bg-crimson-red-100 rounded-full flex items-center justify-center">
+                <Rocket className="w-5 h-5 text-crimson-red-600" />
               </div>
             ) : (
               <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
@@ -102,14 +102,14 @@ export default function FeeRuleConfirmationModal({
           {/* Warning Message */}
           <div className={`flex items-start gap-3 p-4 rounded-lg mb-4 ${
             isActivate 
-              ? "bg-orange-50 border border-orange-200" 
+              ? "bg-crimson-red-50 border border-crimson-red-200" 
               : "bg-red-50 border border-red-200"
           }`}>
             <AlertTriangle className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
-              isActivate ? "text-orange-600" : "text-red-600"
+              isActivate ? "text-crimson-red-600" : "text-red-600"
             }`} />
             <p className={`text-sm ${
-              isActivate ? "text-orange-900" : "text-red-900"
+              isActivate ? "text-crimson-red-900" : "text-red-900"
             }`}>
               {getMessage()}
             </p>
@@ -135,7 +135,7 @@ export default function FeeRuleConfirmationModal({
             disabled={isLoading}
             className={`px-4 py-2 rounded-lg text-sm font-semibold text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 ${
               isActivate
-                ? "bg-orange-600 hover:bg-orange-700"
+                ? "bg-crimson-red-600 hover:bg-crimson-red-700"
                 : "bg-red-600 hover:bg-red-700"
             }`}
           >

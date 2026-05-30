@@ -179,10 +179,10 @@ console.log('Amount:', data.payout.amount);`}
                 If a payout is in PROCESSING status, you may want to poll this endpoint periodically until it reaches a final state (SUCCESS, FAILED, or CANCELLED). However, we recommend using webhooks instead of polling for better efficiency.
             </p>
 
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-blue-700 dark:text-blue-400 text-lg mt-0.5">ℹ️</span>
-                    <div className="flex-1 text-sm text-blue-900 dark:text-blue-100">
+                    <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">ℹ️</span>
+                    <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
                             <strong>Best Practice:</strong> Instead of polling, set up webhooks to receive real-time notifications when payouts complete. This is more efficient and reduces API calls.
                         </p>

@@ -53,7 +53,7 @@ export default function ScheduledReportsList() {
             setEditingReport(null);
             setShowModal(true);
           }}
-          className="text-xs font-medium text-orange-600 hover:underline flex items-center gap-1"
+          className="text-xs font-medium text-crimson-red-600 hover:underline flex items-center gap-1"
         >
           <Plus className="w-3 h-3" />
           Schedule

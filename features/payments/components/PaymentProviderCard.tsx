@@ -19,7 +19,7 @@ export function PaymentProviderCard({
 }: PaymentProviderCardProps) {
   return (
     <div
-      className="border rounded-lg p-6 cursor-pointer hover:border-blue-500 transition-colors"
+      className="border rounded-lg p-6 cursor-pointer hover:border-deep-blue-violet-500 transition-colors"
       onClick={() => onSelect(provider)}
     >
       {icon && <div className="mb-4">{icon}</div>}

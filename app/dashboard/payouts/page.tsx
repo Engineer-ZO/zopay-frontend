@@ -65,7 +65,7 @@ type DashboardPayout = Omit<Payout, "amount"> & {
 const getStatusColor = (status: string) => {
     switch (status.toUpperCase()) {
         case "SUCCESS": return "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400";
-        case "PENDING_GATEWAY": return "bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400";
+        case "PENDING_GATEWAY": return "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400";
         case "FAILED": return "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400";
         default: return "bg-muted text-muted-foreground";
     }
@@ -125,7 +125,7 @@ function ExpiryTimer({ expiresAt }: { expiresAt: string }) {
     const isWarning = remaining !== "Expired" && parseInt(remaining) < 5;
 
     return (
-        <span className={`font-mono font-semibold ${isWarning || remaining === "Expired" ? "text-red-500" : "text-orange-500"}`}>
+        <span className={`font-mono font-semibold ${isWarning || remaining === "Expired" ? "text-red-500" : "text-crimson-red-500"}`}>
             {remaining}
         </span>
     );
@@ -187,9 +187,9 @@ function PreviewStep({
                     <p className="text-xs text-muted-foreground mb-1">Invalid</p>
                     <p className="text-lg font-bold text-red-600 dark:text-red-400">{preview.invalidCount}</p>
                 </div>
-                <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-center">
+                <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-3 text-center">
                     <p className="text-xs text-muted-foreground mb-1">Recipient Gets</p>
-                    <p className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                    <p className="text-lg font-bold text-deep-blue-violet-600 dark:text-deep-blue-violet-400">
                         {recipientTotal.toLocaleString()} {preview.currency}
                     </p>
                 </div>
@@ -338,7 +338,7 @@ function PreviewStep({
                     value={memo}
                     onChange={(e) => setMemo(e.target.value)}
                     placeholder="April salary payments"
-                    className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                 />
             </div>
 
@@ -354,7 +354,7 @@ function PreviewStep({
                 <button
                     onClick={handleConfirm}
                     disabled={confirming || executableCount === 0}
-                    className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                 >
                     {confirming ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                     {confirming ? "Sending..." : `Confirm & Send ${executableCount} payout${executableCount !== 1 ? "s" : ""}`}
@@ -388,8 +388,8 @@ function ResultStep({
         <div className="text-center space-y-4 py-4">
             {isProcessing ? (
                 <>
-                    <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto">
-                        <Loader2 className="w-7 h-7 text-blue-500 animate-spin" />
+                    <div className="w-14 h-14 bg-deep-blue-violet-100 dark:bg-deep-blue-violet-900/20 rounded-full flex items-center justify-center mx-auto">
+                        <Loader2 className="w-7 h-7 text-deep-blue-violet-500 animate-spin" />
                     </div>
                     <div>
                         <p className="text-base font-bold text-foreground">Batch Processing</p>
@@ -423,8 +423,8 @@ function ResultStep({
                 </>
             ) : isAwaitingApproval ? (
                 <>
-                    <div className="w-14 h-14 bg-orange-100 dark:bg-orange-900/20 rounded-full flex items-center justify-center mx-auto">
-                        <Clock className="w-7 h-7 text-orange-500" />
+                    <div className="w-14 h-14 bg-crimson-red-100 dark:bg-crimson-red-900/20 rounded-full flex items-center justify-center mx-auto">
+                        <Clock className="w-7 h-7 text-crimson-red-500" />
                     </div>
                     <div>
                         <p className="text-base font-bold text-foreground">Awaiting Admin Approval</p>
@@ -472,7 +472,7 @@ function ResultStep({
             )}
             <button
                 onClick={onClose}
-                className="px-6 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors"
+                className="px-6 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors"
             >
                 Done
             </button>
@@ -727,7 +727,7 @@ export default function PayoutsPage() {
                     </button>
                     <button
                         onClick={() => setStep({ type: "single" })}
-                        className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2"
+                        className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-2"
                     >
                         <Plus className="w-4 h-4" />
                         Single Payout
@@ -738,9 +738,9 @@ export default function PayoutsPage() {
             {/* STATS */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                 {[
-                    { label: "TOTAL", value: isLoading ? "—" : `${currency} ${stats.total.toLocaleString()}`, color: "blue" },
+                    { label: "TOTAL", value: isLoading ? "—" : `${currency} ${stats.total.toLocaleString()}`, color: "deep-blue-violet" },
                     { label: "SUCCESS", value: isLoading ? "—" : stats.successful, color: "green" },
-                    { label: "PENDING", value: isLoading ? "—" : stats.pending, color: "orange" },
+                    { label: "PENDING", value: isLoading ? "—" : stats.pending, color: "crimson-red" },
                     { label: "FAILED", value: isLoading ? "—" : stats.failed, color: "red" },
                 ].map(({ label, value, color }) => (
                     <div key={label} className={`bg-${color}-50 dark:bg-${color}-900/10 rounded-xl p-4 border border-${color}-200 dark:border-${color}-800`}>
@@ -760,13 +760,13 @@ export default function PayoutsPage() {
                             placeholder="Search ID or recipient..."
                             value={searchQuery}
                             onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-                            className="w-full pl-9 pr-4 py-1.5 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+                            className="w-full pl-9 pr-4 py-1.5 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                         />
                     </div>
                     <select
                         value={statusFilter}
                         onChange={(e) => { setStatusFilter(e.target.value); setCurrentPage(1); }}
-                        className="px-3 py-1.5 bg-background border border-border rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        className="px-3 py-1.5 bg-background border border-border rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                     >
                         <option value="">All Status</option>
                         <option value="SUCCESS">Success</option>
@@ -896,7 +896,7 @@ export default function PayoutsPage() {
                                         <select
                                             value={single.gateway}
                                             onChange={(e) => { setSingle((p) => ({ ...p, gateway: e.target.value as "MTN_MOMO" | "ORANGE_MONEY" })); setVerifiedName(null); }}
-                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                         >
                                             <option value="MTN_MOMO">MTN Mobile Money</option>
                                             <option value="ORANGE_MONEY">Orange Money</option>
@@ -913,7 +913,7 @@ export default function PayoutsPage() {
                                                 value={single.msisdn}
                                                 onChange={(e) => { setSingle((p) => ({ ...p, msisdn: e.target.value })); setVerifiedName(null); }}
                                                 placeholder="237670000001"
-                                                className="flex-1 px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                                className="flex-1 px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                             />
                                             <button
                                                 onClick={handleVerifyPhone}
@@ -937,7 +937,7 @@ export default function PayoutsPage() {
                                             onChange={(e) => setSingle((p) => ({ ...p, amount: e.target.value }))}
                                             placeholder="50000"
                                             min="1"
-                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                         />
                                     </div>
                                     <div>
@@ -947,13 +947,13 @@ export default function PayoutsPage() {
                                             value={single.description}
                                             onChange={(e) => setSingle((p) => ({ ...p, description: e.target.value }))}
                                             placeholder="Salary payment"
-                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                         />
                                     </div>
                                     <button
                                         onClick={handleSinglePreview}
                                         disabled={isPreviewing || !single.msisdn || !single.amount}
-                                        className="w-full px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                                        className="w-full px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                                     >
                                         {isPreviewing ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
                                         {isPreviewing ? "Validating..." : "Preview Payout"}
@@ -990,7 +990,7 @@ export default function PayoutsPage() {
                                         </div>
                                         <div className="flex justify-between gap-4 border-t border-border pt-2">
                                             <span className="font-semibold text-foreground">Total wallet deduction</span>
-                                            <span className="font-bold text-orange-600">
+                                            <span className="font-bold text-crimson-red-600">
                                                 {Math.abs(parseFloat(step.quote.netToMerchant)).toLocaleString()} {step.quote.currency}
                                             </span>
                                         </div>
@@ -1020,7 +1020,7 @@ export default function PayoutsPage() {
                                                 }
                                             )}
                                             disabled={executingPayout}
-                                            className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                                            className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                                         >
                                             {executingPayout ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                                             {executingPayout ? "Sending..." : "Execute Payout"}
@@ -1043,12 +1043,12 @@ export default function PayoutsPage() {
                                                     value={row.msisdn}
                                                     onChange={(e) => updateRow(i, "msisdn", e.target.value)}
                                                     placeholder="237670000001"
-                                                    className="px-2 py-1.5 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-orange-500"
+                                                    className="px-2 py-1.5 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-crimson-red-500"
                                                 />
                                                 <select
                                                     value={row.gateway}
                                                     onChange={(e) => updateRow(i, "gateway", e.target.value)}
-                                                    className="px-2 py-1.5 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-orange-500"
+                                                    className="px-2 py-1.5 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-crimson-red-500"
                                                 >
                                                     <option value="MTN_MOMO">MTN</option>
                                                     <option value="ORANGE_MONEY">Orange</option>
@@ -1059,7 +1059,7 @@ export default function PayoutsPage() {
                                                     onChange={(e) => updateRow(i, "amount", e.target.value)}
                                                     placeholder="Amount"
                                                     min="1"
-                                                    className="px-2 py-1.5 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-orange-500"
+                                                    className="px-2 py-1.5 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-crimson-red-500"
                                                 />
                                                 <button
                                                     onClick={() => setManualRows((prev) => prev.filter((_, idx) => idx !== i))}
@@ -1082,7 +1082,7 @@ export default function PayoutsPage() {
                                         <button
                                             onClick={handleManualPreview}
                                             disabled={isPreviewing}
-                                            className="flex-1 px-3 py-2 bg-orange-500 text-white rounded-lg text-xs font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-1"
+                                            className="flex-1 px-3 py-2 bg-crimson-red-500 text-white rounded-lg text-xs font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-1"
                                         >
                                             {isPreviewing ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
                                             {isPreviewing ? "Validating..." : "Preview Batch"}
@@ -1102,7 +1102,7 @@ export default function PayoutsPage() {
                                         <select
                                             value={csvGateway}
                                             onChange={(e) => setCsvGateway(e.target.value as "MTN_MOMO" | "ORANGE_MONEY")}
-                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                         >
                                             <option value="MTN_MOMO">MTN Mobile Money</option>
                                             <option value="ORANGE_MONEY">Orange Money</option>
@@ -1110,7 +1110,7 @@ export default function PayoutsPage() {
                                     </div>
                                     <div
                                         onClick={() => fileInputRef.current?.click()}
-                                        className="border-2 border-dashed border-border rounded-xl p-8 text-center cursor-pointer hover:border-orange-400 hover:bg-orange-50/30 dark:hover:bg-orange-900/10 transition-colors"
+                                        className="border-2 border-dashed border-border rounded-xl p-8 text-center cursor-pointer hover:border-crimson-red-400 hover:bg-crimson-red-50/30 dark:hover:bg-crimson-red-900/10 transition-colors"
                                     >
                                         <Upload className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
                                         {csvFile ? (
@@ -1154,7 +1154,7 @@ export default function PayoutsPage() {
                                         <button
                                             onClick={handleCsvPreview}
                                             disabled={!csvFile || uploadingCsv || isPreviewing}
-                                            className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                                            className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                                         >
                                             {(uploadingCsv || isPreviewing) ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
                                             {uploadingCsv ? "Uploading..." : isPreviewing ? "Validating..." : "Preview Batch"}

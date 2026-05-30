@@ -138,7 +138,7 @@ export default function AdminBankTopupAccountsPage() {
                 </div>
                 <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
                     <p className="text-xs uppercase tracking-wide text-gray-500">Inactive Accounts</p>
-                    <p className="text-2xl font-bold text-orange-700 mt-2">{accounts.length - activeCount}</p>
+                    <p className="text-2xl font-bold text-crimson-red-700 mt-2">{accounts.length - activeCount}</p>
                 </div>
             </div>
 
@@ -202,7 +202,7 @@ export default function AdminBankTopupAccountsPage() {
                         type="button"
                         onClick={() => void handleSubmit()}
                         disabled={isSubmitting}
-                        className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold disabled:opacity-60 inline-flex items-center justify-center gap-2"
+                        className="w-full px-4 py-3 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white rounded-lg font-semibold disabled:opacity-60 inline-flex items-center justify-center gap-2"
                     >
                         {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : editingAccount ? <Pencil className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                         {editingAccount ? "Update account" : "Create account"}
@@ -242,7 +242,7 @@ export default function AdminBankTopupAccountsPage() {
                                             <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${account.isActive ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-600"}`}>
                                                 {account.isActive ? "Active" : "Inactive"}
                                             </span>
-                                            <button type="button" onClick={() => handleEdit(account)} className="p-2 rounded-lg border border-gray-200 text-gray-600 hover:text-blue-600">
+                                            <button type="button" onClick={() => handleEdit(account)} className="p-2 rounded-lg border border-gray-200 text-gray-600 hover:text-deep-blue-violet-600">
                                                 <Pencil className="w-4 h-4" />
                                             </button>
                                             <button type="button" onClick={() => void handleDisable(account)} className="p-2 rounded-lg border border-gray-200 text-gray-600 hover:text-red-600">

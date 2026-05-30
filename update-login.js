@@ -55,7 +55,7 @@ content = content.replace(
                   type="button"
                   onClick={handleResendVerification}
                   disabled={resendVerificationMutation.isPending}
-                  className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 disabled:opacity-50"
+                  className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-deep-blue-violet-600 hover:text-deep-blue-violet-700 disabled:opacity-50"
                 >
                   {resendVerificationMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
                   Resend verification code
@@ -65,7 +65,7 @@ content = content.replace(
 );
 
 const loginUI = `<div className="flex items-center justify-center gap-2 mb-6">
-            <Shield className="w-6 h-6 text-blue-600" />
+            <Shield className="w-6 h-6 text-deep-blue-violet-600" />
             <h2 className="text-xl font-bold text-gray-900">Admin Login</h2>
           </div>
 
@@ -95,7 +95,7 @@ const verifyUI = `{isVerificationRequired ? (
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <div className="flex items-center justify-center gap-2">
-                <CheckCircle2 className="w-6 h-6 text-blue-600" />
+                <CheckCircle2 className="w-6 h-6 text-deep-blue-violet-600" />
                 <h2 className="text-xl font-bold text-gray-900">Verify Email</h2>
               </div>
             </div>
@@ -114,7 +114,7 @@ const verifyUI = `{isVerificationRequired ? (
                   value={verificationCode}
                   onChange={(e) => setVerificationCode(e.target.value.replace(/\\D/g, '').slice(0, 6))}
                   placeholder="123456"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-center tracking-widest text-xl font-mono"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-transparent outline-none transition-all text-center tracking-widest text-xl font-mono"
                   required
                   disabled={verifyMutation.isPending || isPending}
                 />
@@ -123,7 +123,7 @@ const verifyUI = `{isVerificationRequired ? (
               <button
                 type="submit"
                 disabled={verifyMutation.isPending || isPending || verificationCode.length !== 6}
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full bg-deep-blue-violet-600 text-white py-3 rounded-lg font-semibold hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {verifyMutation.isPending || isPending ? (
                   <>
@@ -143,7 +143,7 @@ const verifyUI = `{isVerificationRequired ? (
                   type="button"
                   onClick={handleResendVerification}
                   disabled={resendVerificationMutation.isPending || verifyMutation.isPending || isPending}
-                  className="text-sm text-blue-600 hover:text-blue-800 disabled:opacity-50 font-medium inline-flex items-center gap-1.5"
+                  className="text-sm text-deep-blue-violet-600 hover:text-deep-blue-violet-800 disabled:opacity-50 font-medium inline-flex items-center gap-1.5"
                 >
                   {resendVerificationMutation.isPending ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Mail className="w-3.5 h-3.5" />}
                   Resend Code
@@ -157,7 +157,7 @@ const verifyUI = `{isVerificationRequired ? (
 
 content = content.replace(
   `<div className="flex items-center justify-center gap-2 mb-6">
-            <Shield className="w-6 h-6 text-blue-600" />
+            <Shield className="w-6 h-6 text-deep-blue-violet-600" />
             <h2 className="text-xl font-bold text-gray-900">Admin Login</h2>
           </div>
 

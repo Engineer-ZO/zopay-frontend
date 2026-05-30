@@ -23,7 +23,7 @@ export default function FeesManagementPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <CreditCard className="w-6 h-6 text-blue-600" />
+            <CreditCard className="w-6 h-6 text-deep-blue-violet-600" />
             Fee Management
           </h1>
           <p className="text-xs text-gray-500 mt-1">Manage fee versions, rules, overrides, and wallet settings</p>
@@ -41,7 +41,7 @@ export default function FeesManagementPage() {
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-4 py-2 rounded-md text-xs font-medium transition-all whitespace-nowrap ${
                 isActive
-                  ? "bg-blue-600 text-white"
+                  ? "bg-deep-blue-violet-600 text-white"
                   : "text-gray-600 hover:bg-gray-100"
               }`}
             >

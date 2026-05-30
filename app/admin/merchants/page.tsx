@@ -158,7 +158,7 @@ export default function AdminMerchantsPage() {
   const stats = useMemo(() => {
     if (!merchantUsersData?.merchantUsers) {
       return [
-        { label: "Total Merchants", value: "0", color: "bg-blue-50 text-blue-700", type: "TOTAL" },
+        { label: "Total Merchants", value: "0", color: "bg-deep-blue-violet-50 text-deep-blue-violet-700", type: "TOTAL" },
         { label: "Sandbox Only", value: "0", color: "bg-yellow-50 text-yellow-700", type: "SANDBOX" },
         { label: "Production", value: "0", color: "bg-teal-50 text-teal-700", type: "PRODUCTION" },
         { label: "Suspended", value: "0", color: "bg-red-50 text-red-700", type: "SUSPENDED" },
@@ -174,7 +174,7 @@ export default function AdminMerchantsPage() {
     const suspended = merchants.filter((m) => !m.enabled || m.productionState === "SUSPENDED").length;
 
     return [
-      { label: "Total Merchants", value: totalMerchants.toLocaleString(), color: "bg-blue-50 text-blue-700", type: "TOTAL" },
+      { label: "Total Merchants", value: totalMerchants.toLocaleString(), color: "bg-deep-blue-violet-50 text-deep-blue-violet-700", type: "TOTAL" },
       { label: "Sandbox Only", value: sandboxOnly.toLocaleString(), color: "bg-yellow-50 text-yellow-700", type: "SANDBOX" },
       { label: "Production", value: production.toLocaleString(), color: "bg-teal-50 text-teal-700", type: "PRODUCTION" },
       { label: "Suspended", value: suspended.toLocaleString(), color: "bg-red-50 text-red-700", type: "SUSPENDED" },
@@ -249,7 +249,7 @@ export default function AdminMerchantsPage() {
       case "APPROVED":
         return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"><CheckCircle2 className="w-3 h-3" /> Approved</span>;
       case "PENDING":
-        return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800"><Clock className="w-3 h-3" /> Pending</span>;
+        return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-crimson-red-100 text-crimson-red-800"><Clock className="w-3 h-3" /> Pending</span>;
       case "REJECTED":
         return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"><XCircle className="w-3 h-3" /> Rejected</span>;
       case "NOT_SUBMITTED":
@@ -264,7 +264,7 @@ export default function AdminMerchantsPage() {
       case "PRODUCTION_ACTIVE":
         return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800"><Rocket className="w-3 h-3" /> Prod Active</span>;
       case "PRODUCTION_PENDING":
-        return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800"><Clock className="w-3 h-3" /> Prod Pending</span>;
+        return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-crimson-red-100 text-crimson-red-800"><Clock className="w-3 h-3" /> Prod Pending</span>;
       case "PRODUCTION_SUSPENDED":
         return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"><Ban className="w-3 h-3" /> Prod Suspended</span>;
       case "SANDBOX":
@@ -328,7 +328,7 @@ export default function AdminMerchantsPage() {
         <div className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4">
           <div className="bg-white rounded-xl border border-gray-200 shadow-2xl max-w-md w-full p-6">
             <div className="flex items-center gap-3">
-              <Loader2 className="w-5 h-5 animate-spin text-blue-600" />
+              <Loader2 className="w-5 h-5 animate-spin text-deep-blue-violet-600" />
               <div>
                 <p className="text-sm font-semibold text-gray-900">
                   Logging in as {loggingInMerchantName || 'merchant'}...
@@ -344,7 +344,7 @@ export default function AdminMerchantsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <Building2 className="w-6 h-6 text-blue-600" />
+            <Building2 className="w-6 h-6 text-deep-blue-violet-600" />
             Merchants
           </h1>
           <p className="text-xs text-gray-500 mt-1">Manage and monitor all merchant accounts</p>
@@ -352,7 +352,7 @@ export default function AdminMerchantsPage() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => router.push("/admin/merchants/create")}
-            className="flex items-center gap-2 px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700"
+            className="flex items-center gap-2 px-3 py-1.5 bg-deep-blue-violet-600 text-white rounded-lg text-xs font-medium hover:bg-deep-blue-violet-700"
           >
             <Plus className="w-3.5 h-3.5" /> Create Merchant
           </button>
@@ -387,7 +387,7 @@ export default function AdminMerchantsPage() {
           <input
             type="text"
             placeholder="Search by name, email, or ID..."
-            className="w-full pl-9 pr-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs"
+            className="w-full pl-9 pr-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -403,7 +403,7 @@ export default function AdminMerchantsPage() {
             <Filter className="w-3.5 h-3.5" />
             Filter
             {(kybStatusFilter !== "all" || environmentFilter !== "all") && (
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-blue-600 rounded-full" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-deep-blue-violet-600 rounded-full" />
             )}
             <ChevronDown className={`w-3 h-3 transition-transform ${showFilterDropdown ? 'rotate-180' : ''}`} />
           </button>
@@ -439,7 +439,7 @@ export default function AdminMerchantsPage() {
                             setKybStatusFilter(e.target.value);
                             handleFilterChange();
                           }}
-                          className="w-3.5 h-3.5 text-blue-600 focus:ring-blue-500"
+                          className="w-3.5 h-3.5 text-deep-blue-violet-600 focus:ring-deep-blue-violet-500"
                         />
                         <span className="text-xs text-gray-700">{option.label}</span>
                       </label>
@@ -474,7 +474,7 @@ export default function AdminMerchantsPage() {
                             setEnvironmentFilter(e.target.value);
                             handleFilterChange();
                           }}
-                          className="w-3.5 h-3.5 text-blue-600 focus:ring-blue-500"
+                          className="w-3.5 h-3.5 text-deep-blue-violet-600 focus:ring-deep-blue-violet-500"
                         />
                         <span className="text-xs text-gray-700">{option.label}</span>
                       </label>
@@ -492,7 +492,7 @@ export default function AdminMerchantsPage() {
                         setEnvironmentFilter("all");
                         handleFilterChange();
                       }}
-                      className="w-full text-xs text-blue-600 hover:text-blue-700 font-medium py-1.5"
+                      className="w-full text-xs text-deep-blue-violet-600 hover:text-deep-blue-violet-700 font-medium py-1.5"
                     >
                       Clear All Filters
                     </button>
@@ -513,7 +513,7 @@ export default function AdminMerchantsPage() {
                 <th className="p-3 w-4">
                   <input
                     type="checkbox"
-                    className="w-3.5 h-3.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    className="w-3.5 h-3.5 rounded border-gray-300 text-deep-blue-violet-600 focus:ring-deep-blue-violet-500"
                     onChange={handleSelectAll}
                     checked={selectedMerchants.length === paginatedMerchants.length && paginatedMerchants.length > 0}
                   />
@@ -551,18 +551,18 @@ export default function AdminMerchantsPage() {
                     <td className="p-3" onClick={(e) => e.stopPropagation()}>
                       <input
                         type="checkbox"
-                        className="w-3.5 h-3.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="w-3.5 h-3.5 rounded border-gray-300 text-deep-blue-violet-600 focus:ring-deep-blue-violet-500"
                         checked={selectedMerchants.includes(merchantUser.merchantUserId)}
                         onChange={() => handleSelectOne(merchantUser.merchantUserId)}
                       />
                     </td>
                     <td className="p-3">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-deep-blue-violet-100 flex items-center justify-center text-deep-blue-violet-600 shrink-0">
                           <Building2 className="w-4 h-4" />
                         </div>
                         <div>
-                          <p className="font-medium text-xs text-gray-900 group-hover:text-blue-600 transition-colors">{merchantUser.businessName}</p>
+                          <p className="font-medium text-xs text-gray-900 group-hover:text-deep-blue-violet-600 transition-colors">{merchantUser.businessName}</p>
                           <p className="text-[10px] text-gray-500">{merchantUser.userEmail}</p>
                         </div>
                       </div>
@@ -580,7 +580,7 @@ export default function AdminMerchantsPage() {
                       <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
                         merchantUser.feePayer === 'PAYER' 
                           ? 'bg-green-100 text-green-800' 
-                          : 'bg-blue-100 text-blue-800'
+                          : 'bg-deep-blue-violet-100 text-deep-blue-violet-800'
                       }`}>
                         {merchantUser.feePayer === 'PAYER' ? 'Customer' : 'Merchant'}
                       </span>
@@ -694,7 +694,7 @@ export default function AdminMerchantsPage() {
                   return (
                     <button
                       key={page}
-                      className={`px-2.5 py-1 rounded-md text-xs font-medium ${currentPage === page ? 'bg-blue-600 text-white' : 'hover:bg-gray-100 text-gray-600'}`}
+                      className={`px-2.5 py-1 rounded-md text-xs font-medium ${currentPage === page ? 'bg-deep-blue-violet-600 text-white' : 'hover:bg-gray-100 text-gray-600'}`}
                       onClick={() => setCurrentPage(page)}
                     >
                       {page}
@@ -705,7 +705,7 @@ export default function AdminMerchantsPage() {
                   <>
                     <span className="text-gray-400 px-1 text-xs">...</span>
                     <button
-                      className={`px-2.5 py-1 rounded-md text-xs font-medium ${currentPage === totalPages ? 'bg-blue-600 text-white' : 'hover:bg-gray-100 text-gray-600'}`}
+                      className={`px-2.5 py-1 rounded-md text-xs font-medium ${currentPage === totalPages ? 'bg-deep-blue-violet-600 text-white' : 'hover:bg-gray-100 text-gray-600'}`}
                       onClick={() => setCurrentPage(totalPages)}
                     >
                       {totalPages}
@@ -739,7 +739,7 @@ export default function AdminMerchantsPage() {
                     className="w-12 h-12 rounded-lg object-cover border border-gray-200"
                   />
                 ) : (
-                  <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 font-semibold">
+                  <div className="w-12 h-12 rounded-lg bg-deep-blue-violet-100 flex items-center justify-center text-deep-blue-violet-600 font-semibold">
                     {merchantInitials(modalMerchant)}
                   </div>
                 )}
@@ -759,7 +759,7 @@ export default function AdminMerchantsPage() {
             {/* Modal Content */}
             <div className="p-6 space-y-6">
               {isMerchantDetailLoading && (
-                <div className="flex items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-800">
+                <div className="flex items-center gap-2 rounded-lg border border-deep-blue-violet-200 bg-deep-blue-violet-50 px-4 py-3 text-sm text-deep-blue-violet-800">
                   <Loader2 className="w-4 h-4 animate-spin" />
                   Loading full merchant details...
                 </div>
@@ -948,7 +948,7 @@ export default function AdminMerchantsPage() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-500 mb-1">Role in Merchant</p>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 capitalize">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-deep-blue-violet-100 text-deep-blue-violet-800 capitalize">
                       {selectedMerchant.role}
                     </span>
                   </div>

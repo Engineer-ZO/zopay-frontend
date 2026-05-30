@@ -283,16 +283,16 @@ function EnvironmentSwitchConfirmation({
         </div>
 
         {isSwitchingToProduction && (
-          <div className="bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-900 rounded-lg p-4 space-y-2">
+          <div className="bg-crimson-red-50 dark:bg-crimson-red-950/20 border border-crimson-red-200 dark:border-crimson-red-900 rounded-lg p-4 space-y-2">
             <div className="flex items-start gap-2">
-              <div className="text-orange-600 dark:text-orange-400 mt-0.5">
+              <div className="text-crimson-red-600 dark:text-crimson-red-400 mt-0.5">
                 ⚠️
               </div>
               <div className="flex-1 space-y-1">
-                <p className="text-sm font-medium text-orange-900 dark:text-orange-100">
+                <p className="text-sm font-medium text-crimson-red-900 dark:text-crimson-red-100">
                   Production Environment
                 </p>
-                <p className="text-xs text-orange-700 dark:text-orange-300">
+                <p className="text-xs text-crimson-red-700 dark:text-crimson-red-300">
                   You are switching to the live production environment. All transactions will process real money.
                 </p>
               </div>
@@ -301,16 +301,16 @@ function EnvironmentSwitchConfirmation({
         )}
 
         {isSwitchingToSandbox && (
-          <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900 rounded-lg p-4 space-y-2">
+          <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-950/20 border border-deep-blue-violet-200 dark:border-deep-blue-violet-900 rounded-lg p-4 space-y-2">
             <div className="flex items-start gap-2">
-              <div className="text-blue-600 dark:text-blue-400 mt-0.5">
+              <div className="text-deep-blue-violet-600 dark:text-deep-blue-violet-400 mt-0.5">
                 ℹ️
               </div>
               <div className="flex-1 space-y-1">
-                <p className="text-sm font-medium text-blue-900 dark:text-blue-100">
+                <p className="text-sm font-medium text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                   Sandbox Environment
                 </p>
-                <p className="text-xs text-blue-700 dark:text-blue-300">
+                <p className="text-xs text-deep-blue-violet-700 dark:text-deep-blue-violet-300">
                   You are switching to the test sandbox environment. All transactions will be simulated.
                 </p>
               </div>
@@ -333,8 +333,8 @@ function EnvironmentSwitchConfirmation({
             onClick={onConfirm}
             className={`flex-1 px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors ${
               isSwitchingToProduction
-                ? 'bg-orange-600 hover:bg-orange-700'
-                : 'bg-blue-600 hover:bg-blue-700'
+                ? 'bg-crimson-red-600 hover:bg-crimson-red-700'
+                : 'bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700'
             }`}
           >
             Switch to {targetEnvironment === 'production' ? 'Production' : 'Sandbox'}
@@ -362,8 +362,8 @@ function EnvironmentSwitchingLoader({ targetEnvironment }: EnvironmentSwitchingL
           <div className="absolute inset-0 flex items-center justify-center">
             <div className={`w-8 h-8 rounded-full ${
               targetEnvironment === 'production' 
-                ? 'bg-orange-500' 
-                : 'bg-blue-500'
+                ? 'bg-crimson-red-500' 
+                : 'bg-deep-blue-violet-500'
             }`} />
           </div>
         </div>

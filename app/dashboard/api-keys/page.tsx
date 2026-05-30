@@ -65,7 +65,7 @@ export default function ApiKeysPage() {
           </p>
         </div>
         <div className="flex items-center justify-center h-64">
-          <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
+          <div className="w-8 h-8 border-4 border-crimson-red-500 border-t-transparent rounded-full animate-spin" />
         </div>
       </div>
     );
@@ -187,11 +187,11 @@ export default function ApiKeysPage() {
         <button
           onClick={() => setActiveEnv("sandbox")}
           className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2 ${activeEnv === "sandbox"
-            ? "bg-orange-500 text-white"
+            ? "bg-crimson-red-500 text-white"
             : "bg-background border border-border text-foreground hover:bg-muted"
             }`}
         >
-          <div className="w-2 h-2 bg-orange-400 rounded-full" />
+          <div className="w-2 h-2 bg-crimson-red-400 rounded-full" />
           Sandbox
           {activeEnv === "sandbox" && <Check className="w-4 h-4" />}
         </button>
@@ -199,11 +199,11 @@ export default function ApiKeysPage() {
           onClick={() => setActiveEnv("production")}
           disabled={!isProductionActive}
           className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2 ${activeEnv === "production"
-            ? "bg-blue-500 text-white"
+            ? "bg-deep-blue-violet-500 text-white"
             : "bg-background border border-border text-foreground hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
             }`}
         >
-          <div className="w-2 h-2 bg-blue-400 rounded-full" />
+          <div className="w-2 h-2 bg-deep-blue-violet-400 rounded-full" />
           Production
           {activeEnv === "production" && <Check className="w-4 h-4" />}
         </button>
@@ -212,17 +212,17 @@ export default function ApiKeysPage() {
       {/* ENVIRONMENT BANNER */}
       <div
         className={`rounded-lg p-3 border ${isProduction
-          ? "bg-blue-50 dark:bg-blue-900/10 border-blue-200 dark:border-blue-800"
-          : "bg-orange-50 dark:bg-orange-900/10 border-orange-200 dark:border-orange-800"
+          ? "bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border-deep-blue-violet-200 dark:border-deep-blue-violet-800"
+          : "bg-crimson-red-50 dark:bg-crimson-red-900/10 border-crimson-red-200 dark:border-crimson-red-800"
           }`}
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
               {isProduction ? (
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+                <div className="w-2 h-2 bg-deep-blue-violet-500 rounded-full animate-pulse" />
               ) : (
-                <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
+                <div className="w-2 h-2 bg-crimson-red-500 rounded-full animate-pulse" />
               )}
               <h3 className="text-sm font-semibold text-foreground">
                 {isProduction ? "🔵 PRODUCTION MODE - Live Environment" : "🟠 SANDBOX MODE - Testing Environment"}
@@ -235,11 +235,11 @@ export default function ApiKeysPage() {
             </p>
             {isProduction && isProductionActive && (
               <div className="flex items-center gap-3 mt-2 text-xs">
-                <span className="flex items-center gap-1 text-blue-600 dark:text-blue-400">
+                <span className="flex items-center gap-1 text-deep-blue-violet-600 dark:text-deep-blue-violet-400">
                   <CheckCircle2 className="w-3 h-3" />
                   Active
                 </span>
-                <span className="flex items-center gap-1 text-blue-600 dark:text-blue-400">
+                <span className="flex items-center gap-1 text-deep-blue-violet-600 dark:text-deep-blue-violet-400">
                   <CheckCircle2 className="w-3 h-3" />
                   KYB Approved
                 </span>
@@ -249,7 +249,7 @@ export default function ApiKeysPage() {
           {!isProduction && isProductionActive && (
             <button
               onClick={() => setActiveEnv("production")}
-              className="text-xs font-medium text-orange-600 dark:text-orange-400 hover:underline whitespace-nowrap flex items-center gap-1"
+              className="text-xs font-medium text-crimson-red-600 dark:text-crimson-red-400 hover:underline whitespace-nowrap flex items-center gap-1"
             >
               Switch to Production
               <ArrowRight className="w-3 h-3" />
@@ -262,8 +262,8 @@ export default function ApiKeysPage() {
       {isProduction && !isProductionActive && (
         <div className="bg-background rounded-xl p-6 border border-border">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/20 rounded-lg flex items-center justify-center shrink-0">
-              <Lock className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+            <div className="w-12 h-12 bg-crimson-red-100 dark:bg-crimson-red-900/20 rounded-lg flex items-center justify-center shrink-0">
+              <Lock className="w-6 h-6 text-crimson-red-600 dark:text-crimson-red-400" />
             </div>
             <div className="flex-1">
               <h3 className="text-sm font-semibold text-foreground mb-2">
@@ -275,9 +275,9 @@ export default function ApiKeysPage() {
               <div className="space-y-2 mb-4">
               <div className="flex items-center gap-2 text-xs">
                 {isKYBApproved ? (
-                  <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                  <CheckCircle2 className="w-4 h-4 text-deep-blue-violet-500" />
                 ) : (
-                  <div className="w-4 h-4 border-2 border-orange-500 rounded-full" />
+                  <div className="w-4 h-4 border-2 border-crimson-red-500 rounded-full" />
                 )}
                 <span className="text-foreground">
                   1. Complete KYB verification {isKYBApproved && "✓"}
@@ -285,11 +285,11 @@ export default function ApiKeysPage() {
               </div>
               <div className="flex items-center gap-2 text-xs">
                 {isProductionPending ? (
-                  <div className="w-4 h-4 border-2 border-orange-500 rounded-full animate-spin border-t-transparent" />
+                  <div className="w-4 h-4 border-2 border-crimson-red-500 rounded-full animate-spin border-t-transparent" />
                 ) : merchant.productionState === "NOT_REQUESTED" ? (
                   <div className="w-4 h-4 border-2 border-border rounded-full" />
                 ) : (
-                  <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                  <CheckCircle2 className="w-4 h-4 text-deep-blue-violet-500" />
                 )}
                 <span className="text-foreground">
                   2. Submit production access request
@@ -306,7 +306,7 @@ export default function ApiKeysPage() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <button className="px-3 py-1.5 bg-orange-500 text-white rounded-lg text-xs font-semibold hover:bg-orange-600 transition-colors">
+                <button className="px-3 py-1.5 bg-crimson-red-500 text-white rounded-lg text-xs font-semibold hover:bg-crimson-red-600 transition-colors">
                   View KYB Status
                 </button>
                 <button
@@ -330,7 +330,7 @@ export default function ApiKeysPage() {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <label className="text-xs font-medium text-foreground">API Key (Public)</label>
-              <span className="flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400">
+              <span className="flex items-center gap-1 text-xs text-deep-blue-violet-600 dark:text-deep-blue-violet-400">
                 <CheckCircle2 className="w-3 h-3" />
                 Safe to expose
               </span>
@@ -348,7 +348,7 @@ export default function ApiKeysPage() {
               >
                 {copiedKey === "apiKey" ? (
                   <>
-                    <Check className="w-3 h-3 text-blue-500" />
+                    <Check className="w-3 h-3 text-deep-blue-violet-500" />
                     Copied
                   </>
                 ) : (
@@ -360,7 +360,7 @@ export default function ApiKeysPage() {
               </button>
             </div>
             <p className="text-xs text-muted-foreground flex items-start gap-1">
-              <CheckCircle2 className="w-3 h-3 mt-0.5 text-blue-500 shrink-0" />
+              <CheckCircle2 className="w-3 h-3 mt-0.5 text-deep-blue-violet-500 shrink-0" />
               This key is safe to expose in your frontend code
             </p>
           </div>
@@ -407,7 +407,7 @@ export default function ApiKeysPage() {
                   >
                     {copiedKey === "secretKey" ? (
                       <>
-                        <Check className="w-3 h-3 text-blue-500" />
+                        <Check className="w-3 h-3 text-deep-blue-violet-500" />
                         Copied
                       </>
                     ) : (
@@ -421,9 +421,9 @@ export default function ApiKeysPage() {
               )}
             </div>
             {currentCreds.hasSecretKey ? (
-              <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
+              <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-3">
                 <p className="text-xs font-semibold text-foreground flex items-center gap-1 mb-1">
-                  <CheckCircle2 className="w-3 h-3 text-blue-600" />
+                  <CheckCircle2 className="w-3 h-3 text-deep-blue-violet-600" />
                   Secret Key Available
                 </p>
                 <p className="text-xs text-muted-foreground">
@@ -432,7 +432,7 @@ export default function ApiKeysPage() {
               </div>
             ) : (
               <p className="text-xs text-muted-foreground flex items-start gap-1">
-                <AlertCircle className="w-3 h-3 mt-0.5 text-orange-500 shrink-0" />
+                <AlertCircle className="w-3 h-3 mt-0.5 text-crimson-red-500 shrink-0" />
                 Secret keys are only shown once during generation. If you lost it, you must regenerate your credentials.
               </p>
             )}
@@ -450,7 +450,7 @@ export default function ApiKeysPage() {
             <button
               onClick={() => setShowRegenerateModal(true)}
               disabled={regenerateSandbox.isPending || regenerateProduction.isPending}
-              className="px-4 py-2 bg-orange-500 text-white rounded-lg text-xs font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-xs font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <RefreshCw className={`w-4 h-4 ${(regenerateSandbox.isPending || regenerateProduction.isPending) ? "animate-spin" : ""}`} />
               {(regenerateSandbox.isPending || regenerateProduction.isPending) ? "Regenerating..." : "Regenerate Credentials"}
@@ -488,7 +488,7 @@ export default function ApiKeysPage() {
             <span className="text-xs font-medium text-foreground">JavaScript / Node.js</span>
             <button
               onClick={() => handleCopy(codeExample, "code")}
-              className="text-xs font-medium text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-1"
+              className="text-xs font-medium text-crimson-red-600 dark:text-crimson-red-400 hover:underline flex items-center gap-1"
             >
               {copiedKey === "code" ? (
                 <>
@@ -507,7 +507,7 @@ export default function ApiKeysPage() {
             <code>{codeExample}</code>
           </pre>
         </div>
-        <button className="mt-4 text-xs font-medium text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-1">
+        <button className="mt-4 text-xs font-medium text-crimson-red-600 dark:text-crimson-red-400 hover:underline flex items-center gap-1">
           View More Examples
           <ArrowRight className="w-3 h-3" />
         </button>
@@ -516,34 +516,34 @@ export default function ApiKeysPage() {
       {/* SECURITY BEST PRACTICES */}
       <div className="bg-background rounded-xl p-6 border border-border">
         <div className="flex items-center gap-2 mb-4">
-          <Lock className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+          <Lock className="w-4 h-4 text-crimson-red-600 dark:text-crimson-red-400" />
           <h3 className="text-sm font-semibold text-foreground">Security Best Practices</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h4 className="text-xs font-semibold text-blue-600 dark:text-blue-400 mb-3 flex items-center gap-1">
+            <h4 className="text-xs font-semibold text-deep-blue-violet-600 dark:text-deep-blue-violet-400 mb-3 flex items-center gap-1">
               <CheckCircle2 className="w-4 h-4" />
               DO:
             </h4>
             <ul className="space-y-2 text-xs text-muted-foreground">
               <li className="flex items-start gap-2">
-                <span className="text-blue-500 mt-0.5">•</span>
+                <span className="text-deep-blue-violet-500 mt-0.5">•</span>
                 Store secret keys in environment variables
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-500 mt-0.5">•</span>
+                <span className="text-deep-blue-violet-500 mt-0.5">•</span>
                 Use HTTPS for all API requests
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-500 mt-0.5">•</span>
+                <span className="text-deep-blue-violet-500 mt-0.5">•</span>
                 Rotate credentials regularly
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-500 mt-0.5">•</span>
+                <span className="text-deep-blue-violet-500 mt-0.5">•</span>
                 Monitor API usage for anomalies
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-500 mt-0.5">•</span>
+                <span className="text-deep-blue-violet-500 mt-0.5">•</span>
                 Use different keys for sandbox and production
               </li>
             </ul>
@@ -577,7 +577,7 @@ export default function ApiKeysPage() {
             </ul>
           </div>
         </div>
-        <button className="mt-6 text-xs font-medium text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-1">
+        <button className="mt-6 text-xs font-medium text-crimson-red-600 dark:text-crimson-red-400 hover:underline flex items-center gap-1">
           Read Full Security Guide
           <ArrowRight className="w-3 h-3" />
         </button>
@@ -587,7 +587,7 @@ export default function ApiKeysPage() {
       {activeEnv === "sandbox" && (
         <div className="bg-background rounded-xl p-6 border border-border">
           <div className="flex items-center gap-2 mb-1">
-            <TestTube className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+            <TestTube className="w-4 h-4 text-crimson-red-600 dark:text-crimson-red-400" />
             <h3 className="text-sm font-semibold text-foreground">Sandbox Test Numbers</h3>
           </div>
           <p className="text-xs text-muted-foreground mb-5">
@@ -607,8 +607,8 @@ export default function ApiKeysPage() {
                   { number: "237670000002", outcome: "SUCCESS", desc: "Completes on first check", color: "text-green-600 dark:text-green-400", bg: "bg-green-50 dark:bg-green-900/10" },
                   { number: "237670000003", outcome: "FAILED", desc: "Insufficient funds", color: "text-red-600 dark:text-red-400", bg: "bg-red-50 dark:bg-red-900/10" },
                   { number: "237670000004", outcome: "FAILED", desc: "Declined", color: "text-red-600 dark:text-red-400", bg: "bg-red-50 dark:bg-red-900/10" },
-                  { number: "237670000005", outcome: "PENDING", desc: "Never resolves", color: "text-orange-600 dark:text-orange-400", bg: "bg-orange-50 dark:bg-orange-900/10" },
-                  { number: "237670000006", outcome: "PENDING", desc: "Never resolves", color: "text-orange-600 dark:text-orange-400", bg: "bg-orange-50 dark:bg-orange-900/10" },
+                  { number: "237670000005", outcome: "PENDING", desc: "Never resolves", color: "text-crimson-red-600 dark:text-crimson-red-400", bg: "bg-crimson-red-50 dark:bg-crimson-red-900/10" },
+                  { number: "237670000006", outcome: "PENDING", desc: "Never resolves", color: "text-crimson-red-600 dark:text-crimson-red-400", bg: "bg-crimson-red-50 dark:bg-crimson-red-900/10" },
                 ].map(({ number, outcome, desc, color, bg }) => (
                   <div key={number} className={`flex items-center justify-between px-3 py-2 rounded-lg ${bg} border border-transparent`}>
                     <div>
@@ -625,7 +625,7 @@ export default function ApiKeysPage() {
             {/* Orange */}
             <div>
               <h4 className="text-xs font-semibold text-foreground mb-3 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-orange-400 inline-block" />
+                <span className="w-2 h-2 rounded-full bg-crimson-red-400 inline-block" />
                 Orange Money
               </h4>
               <div className="space-y-2">
@@ -634,8 +634,8 @@ export default function ApiKeysPage() {
                   { number: "237690000002", outcome: "SUCCESS", desc: "Completes on first check", color: "text-green-600 dark:text-green-400", bg: "bg-green-50 dark:bg-green-900/10" },
                   { number: "237690000003", outcome: "FAILED", desc: "Insufficient funds", color: "text-red-600 dark:text-red-400", bg: "bg-red-50 dark:bg-red-900/10" },
                   { number: "237690000004", outcome: "FAILED", desc: "Declined", color: "text-red-600 dark:text-red-400", bg: "bg-red-50 dark:bg-red-900/10" },
-                  { number: "237690000005", outcome: "PENDING", desc: "Never resolves", color: "text-orange-600 dark:text-orange-400", bg: "bg-orange-50 dark:bg-orange-900/10" },
-                  { number: "237690000006", outcome: "PENDING", desc: "Never resolves", color: "text-orange-600 dark:text-orange-400", bg: "bg-orange-50 dark:bg-orange-900/10" },
+                  { number: "237690000005", outcome: "PENDING", desc: "Never resolves", color: "text-crimson-red-600 dark:text-crimson-red-400", bg: "bg-crimson-red-50 dark:bg-crimson-red-900/10" },
+                  { number: "237690000006", outcome: "PENDING", desc: "Never resolves", color: "text-crimson-red-600 dark:text-crimson-red-400", bg: "bg-crimson-red-50 dark:bg-crimson-red-900/10" },
                 ].map(({ number, outcome, desc, color, bg }) => (
                   <div key={number} className={`flex items-center justify-between px-3 py-2 rounded-lg ${bg} border border-transparent`}>
                     <div>
@@ -658,7 +658,7 @@ export default function ApiKeysPage() {
           <div className="bg-background rounded-2xl p-6 shadow-2xl border border-border max-w-md w-full">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                <AlertCircle className="w-5 h-5 text-crimson-red-600 dark:text-crimson-red-400" />
                 <h3 className="text-lg font-semibold text-foreground">Regenerate API Credentials?</h3>
               </div>
               <button
@@ -677,9 +677,9 @@ export default function ApiKeysPage() {
                 This will generate new API credentials and immediately invalidate your current ones.
               </p>
 
-              <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4">
+              <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4">
                 <h4 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1">
-                  <AlertCircle className="w-4 h-4 text-orange-600" />
+                  <AlertCircle className="w-4 h-4 text-crimson-red-600" />
                   Important:
                 </h4>
                 <ul className="space-y-1 text-xs text-muted-foreground">
@@ -693,15 +693,15 @@ export default function ApiKeysPage() {
                 <h4 className="text-xs font-semibold text-foreground mb-2">Before proceeding:</h4>
                 <ul className="space-y-1 text-xs text-muted-foreground">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3 h-3 mt-0.5 text-blue-500" />
+                    <CheckCircle2 className="w-3 h-3 mt-0.5 text-deep-blue-violet-500" />
                     Ensure you have access to update your integration
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3 h-3 mt-0.5 text-blue-500" />
+                    <CheckCircle2 className="w-3 h-3 mt-0.5 text-deep-blue-violet-500" />
                     Consider doing this during low-traffic periods
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3 h-3 mt-0.5 text-blue-500" />
+                    <CheckCircle2 className="w-3 h-3 mt-0.5 text-deep-blue-violet-500" />
                     Have a rollback plan ready
                   </li>
                 </ul>
@@ -734,7 +734,7 @@ export default function ApiKeysPage() {
               <button
                 onClick={handleRegenerate}
                 disabled={confirmText !== "REGENERATE" || regenerateSandbox.isPending || regenerateProduction.isPending}
-                className="px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-4 py-2 rounded-lg bg-crimson-red-500 text-white hover:bg-crimson-red-600 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {(regenerateSandbox.isPending || regenerateProduction.isPending) && (
                   <RefreshCw className="w-4 h-4 animate-spin" />
@@ -754,7 +754,7 @@ export default function ApiKeysPage() {
           <div className="bg-background rounded-2xl p-6 shadow-2xl border border-border max-w-md w-full">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                <CheckCircle2 className="w-5 h-5 text-deep-blue-violet-600" />
                 <h3 className="text-lg font-semibold text-foreground">New Credentials Generated</h3>
               </div>
               <button
@@ -768,9 +768,9 @@ export default function ApiKeysPage() {
               </button>
             </div>
 
-            <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4 mb-4">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4 mb-4">
               <p className="text-xs font-semibold text-foreground flex items-center gap-1">
-                <AlertCircle className="w-4 h-4 text-orange-600" />
+                <AlertCircle className="w-4 h-4 text-crimson-red-600" />
                 SAVE THESE CREDENTIALS NOW!
               </p>
               <p className="text-xs text-muted-foreground mt-1">
@@ -807,7 +807,7 @@ export default function ApiKeysPage() {
                   >
                     {copiedKey === "newApiKey" ? (
                       <>
-                        <Check className="w-3 h-3 text-blue-500" />
+                        <Check className="w-3 h-3 text-deep-blue-violet-500" />
                         Copied
                       </>
                     ) : (
@@ -848,7 +848,7 @@ export default function ApiKeysPage() {
                   >
                     {copiedKey === "newSecretKey" ? (
                       <>
-                        <Check className="w-3 h-3 text-blue-500" />
+                        <Check className="w-3 h-3 text-deep-blue-violet-500" />
                         Copied
                       </>
                     ) : (
@@ -907,7 +907,7 @@ ZITOPAY_SECRET_KEY=${"sandboxSecretKey" in newCredentials ? newCredentials.sandb
                   setShowNewCredsModal(false);
                   // Don't clear newCredentials - keep it so secret key stays visible on main page
                 }}
-                className="flex-1 px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition-colors text-sm font-medium"
+                className="flex-1 px-4 py-2 rounded-lg bg-crimson-red-500 text-white hover:bg-crimson-red-600 transition-colors text-sm font-medium"
               >
                 Done
               </button>

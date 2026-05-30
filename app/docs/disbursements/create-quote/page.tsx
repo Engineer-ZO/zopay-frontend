@@ -21,10 +21,10 @@ export default function CreateDisbursementQuotePage() {
                 <strong>Note:</strong> This endpoint returns the recipient amount in <code>total_amount</code> and the merchant wallet debit in <code>net_to_merchant</code>.
             </p>
             
-            <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4 my-6">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-orange-700 dark:text-orange-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-orange-900 dark:text-orange-100">
+                    <span className="text-crimson-red-700 dark:text-crimson-red-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-crimson-red-900 dark:text-crimson-red-100">
                         <p className="leading-relaxed">
                             <strong>Quote Validity:</strong> Quotes expire after 15 minutes. Fees are locked in during this period, but after expiry, you must create a new quote as pricing may have changed. Each quote can only be used once.
                         </p>

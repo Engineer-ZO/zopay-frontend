@@ -58,7 +58,7 @@ export function LanguageSwitcher({ showLabel = false }: LanguageSwitcherProps) {
                             onClick={() => handleLanguageSelect("en")}
                             className={`w-full text-left px-4 py-2 text-sm transition-colors ${
                                 language === "en"
-                                    ? "bg-primary-orange text-white"
+                                    ? "bg-primary-crimson-red- text-white"
                                     : "text-foreground hover:bg-muted"
                             }`}
                         >
@@ -68,7 +68,7 @@ export function LanguageSwitcher({ showLabel = false }: LanguageSwitcherProps) {
                             onClick={() => handleLanguageSelect("fr")}
                             className={`w-full text-left px-4 py-2 text-sm transition-colors ${
                                 language === "fr"
-                                    ? "bg-primary-orange text-white"
+                                    ? "bg-primary-crimson-red- text-white"
                                     : "text-foreground hover:bg-muted"
                             }`}
                         >

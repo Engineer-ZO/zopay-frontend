@@ -1,17 +1,24 @@
-"use client";
+'use client'
 
-import { Hero } from "@/components/marketing/sections/Hero";
-import { Features } from "@/components/marketing/sections/Features";
-import { Developers } from "@/components/marketing/sections/Developers";
-import { CTA } from "@/components/marketing/sections/CTA";
+import Header from '@/components/header'
+import Hero from '@/components/hero'
+import Features from '@/components/features'
+import TechStack from '@/components/tech-stack'
+import DeveloperSection from '@/components/developer-section'
+import GetStarted from '@/components/get-started'
+import FAQ from '@/components/faq'
+import Footer from '@/components/footer'
 
-export default function MarketingHome() {
-    return (
-        <div className="flex flex-col min-h-screen">
-            <Hero />
-            <Features />
-            <Developers />
-            <CTA />
-        </div>
-    );
+export default function Home() {
+  return (
+    <main className="w-full">
+      <Hero />
+      <Features />
+      <TechStack />
+      <DeveloperSection />
+      <GetStarted />
+      <FAQ />
+      <Footer />
+    </main>
+  )
 }

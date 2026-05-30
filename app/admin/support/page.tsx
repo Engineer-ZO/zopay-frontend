@@ -38,7 +38,7 @@ export default function SupportPage() {
         {
             title: "Onboarding & KYB",
             icon: FileText,
-            color: "bg-blue-50 text-blue-600 border-blue-200",
+            color: "bg-deep-blue-violet-50 text-deep-blue-violet-600 border-deep-blue-violet-200",
             articles: ["Verifying Merchant Documents", "Updating KYB Status", "Handling Rejections"]
         },
         {
@@ -56,7 +56,7 @@ export default function SupportPage() {
         {
             title: "Platform Admin",
             icon: Activity,
-            color: "bg-orange-50 text-orange-600 border-orange-200",
+            color: "bg-crimson-red-50 text-crimson-red-600 border-crimson-red-200",
             articles: ["Creating Admin Users", "Audit Log Analysis", "Maintenance Mode"]
         }
     ];
@@ -67,7 +67,7 @@ export default function SupportPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                        <LifeBuoy className="w-8 h-8 text-blue-600" />
+                        <LifeBuoy className="w-8 h-8 text-deep-blue-violet-600" />
                         Help & Support Center
                     </h1>
                     <p className="text-sm text-gray-500 mt-1">Manage support tickets and view documentation</p>
@@ -81,7 +81,7 @@ export default function SupportPage() {
                         key={tab}
                         onClick={() => setActiveTab(tab)}
                         className={`px-4 py-2 rounded-md text-sm font-medium capitalize transition-all ${activeTab === tab
-                            ? "bg-blue-600 text-white"
+                            ? "bg-deep-blue-violet-600 text-white"
                             : "text-gray-600 hover:bg-gray-100"
                             }`}
                     >
@@ -109,7 +109,7 @@ export default function SupportPage() {
                                         <input
                                             type="text"
                                             placeholder="Search guides, error codes, or articles..."
-                                            className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-blue-400/30 outline-none text-sm shadow-sm"
+                                            className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-deep-blue-violet-400/30 outline-none text-sm shadow-sm"
                                             value={searchQuery}
                                             onChange={(e) => setSearchQuery(e.target.value)}
                                         />
@@ -130,7 +130,7 @@ export default function SupportPage() {
                                             <h3 className="font-semibold text-gray-900 text-sm mb-3">{category.title}</h3>
                                             <ul className="space-y-1.5">
                                                 {category.articles.map((article) => (
-                                                    <li key={article} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-blue-600 cursor-pointer">
+                                                    <li key={article} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-deep-blue-violet-600 cursor-pointer">
                                                         <ChevronRight className="w-3 h-3" />
                                                         {article}
                                                     </li>
@@ -149,7 +149,7 @@ export default function SupportPage() {
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {['Emergency Response Plan', 'Compliance Handbook 2026', 'Brand Assets', 'API Specs (Private)'].map((link) => (
-                                        <a href="#" key={link} className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-lg text-xs font-medium text-gray-700 hover:border-blue-300 hover:text-blue-600 transition-colors">
+                                        <a href="#" key={link} className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-lg text-xs font-medium text-gray-700 hover:border-deep-blue-violet-300 hover:text-deep-blue-violet-600 transition-colors">
                                             {link}
                                         </a>
                                     ))}
@@ -168,7 +168,7 @@ export default function SupportPage() {
                                         <select
                                             value={statusFilter}
                                             onChange={(e) => setStatusFilter(e.target.value as any)}
-                                            className="text-xs border-gray-200 rounded-lg focus:ring-blue-500"
+                                            className="text-xs border-gray-200 rounded-lg focus:ring-deep-blue-violet-500"
                                         >
                                             <option value="ALL">All Status</option>
                                             <option value="OPEN">Open</option>
@@ -182,7 +182,7 @@ export default function SupportPage() {
 
                                 {ticketsLoading ? (
                                     <div className="py-12 flex justify-center">
-                                        <Loader2 className="w-6 h-6 animate-spin text-blue-600" />
+                                        <Loader2 className="w-6 h-6 animate-spin text-deep-blue-violet-600" />
                                     </div>
                                 ) : ticketsData?.tickets && ticketsData.tickets.length > 0 ? (
                                     <div className="space-y-3">
@@ -194,18 +194,18 @@ export default function SupportPage() {
                                                 <div
                                                     key={ticket.id}
                                                     onClick={() => router.push(`/admin/support/${ticket.id}`)}
-                                                    className="bg-white border border-gray-200 p-4 rounded-lg flex items-center justify-between hover:border-blue-300 hover:shadow-sm transition-all cursor-pointer group"
+                                                    className="bg-white border border-gray-200 p-4 rounded-lg flex items-center justify-between hover:border-deep-blue-violet-300 hover:shadow-sm transition-all cursor-pointer group"
                                                 >
                                                     <div className="flex items-center gap-3">
                                                         <div className={cn(
                                                             "w-2 h-2 rounded-full",
                                                             ticket.priority === 'URGENT' || ticket.priority === 'HIGH' ? 'bg-red-500 shadow-red-200 shadow-[0_0_8px]' :
-                                                                ticket.priority === 'MEDIUM' ? 'bg-orange-500' : 'bg-blue-500'
+                                                                ticket.priority === 'MEDIUM' ? 'bg-crimson-red-500' : 'bg-deep-blue-violet-500'
                                                         )} />
                                                         <div>
                                                             <div className="flex items-center gap-2 mb-0.5">
                                                                 <span className="font-mono text-xs text-gray-400 font-medium tracking-tight">#{ticket.ticketNumber}</span>
-                                                                <h4 className="font-medium text-gray-900 text-sm group-hover:text-blue-600 transition-colors">
+                                                                <h4 className="font-medium text-gray-900 text-sm group-hover:text-deep-blue-violet-600 transition-colors">
                                                                     {ticket.subject}
                                                                 </h4>
                                                             </div>
@@ -218,9 +218,9 @@ export default function SupportPage() {
                                                     </div>
                                                     <div className={cn(
                                                         "px-2.5 py-0.5 rounded-full text-xs font-medium uppercase min-w-[80px] text-center",
-                                                        ticket.status === 'OPEN' ? "bg-blue-50 text-blue-700" :
+                                                        ticket.status === 'OPEN' ? "bg-deep-blue-violet-50 text-deep-blue-violet-700" :
                                                             ticket.status === 'IN_PROGRESS' ? "bg-yellow-50 text-yellow-700" :
-                                                                ticket.status === 'WAITING_FOR_CUSTOMER' ? "bg-orange-50 text-orange-700" :
+                                                                ticket.status === 'WAITING_FOR_CUSTOMER' ? "bg-crimson-red-50 text-crimson-red-700" :
                                                                     ticket.status === 'RESOLVED' ? "bg-green-50 text-green-700" :
                                                                         "bg-gray-100 text-gray-600"
                                                     )}>
@@ -267,15 +267,15 @@ export default function SupportPage() {
                                     <div className="space-y-1.5">
                                         <a href="#" className="flex p-2.5 hover:bg-gray-50 rounded-lg text-xs text-gray-700 font-medium transition-colors justify-between items-center group">
                                             MTN Partner Portal
-                                            <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-blue-600" />
+                                            <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-deep-blue-violet-600" />
                                         </a>
                                         <a href="#" className="flex p-2.5 hover:bg-gray-50 rounded-lg text-xs text-gray-700 font-medium transition-colors justify-between items-center group">
                                             Orange Money Business
-                                            <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-blue-600" />
+                                            <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-deep-blue-violet-600" />
                                         </a>
                                         <a href="#" className="flex p-2.5 hover:bg-gray-50 rounded-lg text-xs text-gray-700 font-medium transition-colors justify-between items-center group">
                                             Stripe Dashboard
-                                            <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-blue-600" />
+                                            <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-deep-blue-violet-600" />
                                         </a>
                                     </div>
                                 </div>

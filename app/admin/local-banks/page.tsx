@@ -96,7 +96,7 @@ export default function AdminLocalBanksPage() {
                 </div>
                 <button
                     onClick={handleAddNew}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2"
+                    className="px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg text-sm font-semibold hover:bg-deep-blue-violet-700 transition-colors flex items-center gap-2"
                 >
                     <Plus className="w-4 h-4" />
                     Add Bank
@@ -112,7 +112,7 @@ export default function AdminLocalBanksPage() {
                             placeholder="Search banks..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500"
                         />
                     </div>
                 </div>
@@ -162,7 +162,7 @@ export default function AdminLocalBanksPage() {
                                             <div className="flex items-center justify-end gap-2">
                                                 <button
                                                     onClick={() => handleEdit(bank)}
-                                                    className="p-1 text-slate-400 hover:text-blue-600 rounded transition-colors"
+                                                    className="p-1 text-slate-400 hover:text-deep-blue-violet-600 rounded transition-colors"
                                                 >
                                                     <Edit2 className="w-4 h-4" />
                                                 </button>
@@ -208,7 +208,7 @@ export default function AdminLocalBanksPage() {
                                     onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
                                     placeholder="e.g. Afriland First Bank"
                                     required
-                                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500"
                                 />
                             </div>
                             <div>
@@ -219,7 +219,7 @@ export default function AdminLocalBanksPage() {
                                     onChange={(e) => setForm((p) => ({ ...p, code: e.target.value }))}
                                     placeholder="e.g. AFLB"
                                     required
-                                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500"
                                 />
                             </div>
                             <div>
@@ -231,7 +231,7 @@ export default function AdminLocalBanksPage() {
                                     placeholder="e.g. CM"
                                     required
                                     maxLength={2}
-                                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500"
                                 />
                             </div>
                             <div className="flex items-center gap-2 mt-2">
@@ -240,7 +240,7 @@ export default function AdminLocalBanksPage() {
                                     id="isActive"
                                     checked={form.isActive}
                                     onChange={(e) => setForm((p) => ({ ...p, isActive: e.target.checked }))}
-                                    className="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
+                                    className="w-4 h-4 text-deep-blue-violet-600 border-slate-300 rounded focus:ring-deep-blue-violet-500"
                                 />
                                 <label htmlFor="isActive" className="text-sm text-slate-700 font-medium">Bank is active and visible to merchants</label>
                             </div>
@@ -255,7 +255,7 @@ export default function AdminLocalBanksPage() {
                                 <button
                                     type="submit"
                                     disabled={creating || updating}
-                                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                                    className="flex-1 px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg font-medium hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                                 >
                                     {(creating || updating) ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save Bank"}
                                 </button>

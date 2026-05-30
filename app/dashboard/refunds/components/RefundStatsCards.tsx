@@ -16,9 +16,9 @@ interface RefundStatsCardsProps {
 // Icon colours are muted for secondary cards; orange for the primary.
 const cardStyle = {
   base: "bg-background rounded-lg p-3 border border-border hover:shadow-sm transition-shadow",
-  primary: "bg-background rounded-lg p-3 border border-border border-l-2 border-l-orange-500 hover:shadow-sm transition-shadow",
+  primary: "bg-background rounded-lg p-3 border border-border border-l-2 border-l-crimson-red-500 hover:shadow-sm transition-shadow",
   icon: {
-    primary: "text-orange-500",
+    primary: "text-crimson-red-500",
     secondary: "text-muted-foreground",
   },
 };
@@ -102,7 +102,7 @@ export function RefundStatsCards({
             </p>
             <p
               className={`text-base font-semibold ${
-                isPrimary ? "text-orange-500" : "text-foreground"
+                isPrimary ? "text-crimson-red-500" : "text-foreground"
               }`}
             >
               {stat.value}

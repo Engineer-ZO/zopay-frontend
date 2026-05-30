@@ -43,7 +43,7 @@ export default function AdminTicketDetailPage() {
     if (isLoading) {
         return (
             <div className="p-6 flex justify-center items-center h-96">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-deep-blue-violet-500"></div>
             </div>
         );
     }
@@ -133,9 +133,9 @@ export default function AdminTicketDetailPage() {
 
     const getStatusColor = (status: string) => {
         switch (status) {
-            case 'OPEN': return 'bg-blue-100 text-blue-700 border-blue-200';
+            case 'OPEN': return 'bg-deep-blue-violet-100 text-deep-blue-violet-700 border-deep-blue-violet-200';
             case 'IN_PROGRESS': return 'bg-yellow-100 text-yellow-700 border-yellow-200';
-            case 'WAITING_FOR_CUSTOMER': return 'bg-orange-100 text-orange-700 border-orange-200';
+            case 'WAITING_FOR_CUSTOMER': return 'bg-crimson-red-100 text-crimson-red-700 border-crimson-red-200';
             case 'RESOLVED': return 'bg-green-100 text-green-700 border-green-200';
             case 'CLOSED': return 'bg-gray-100 text-gray-700 border-gray-200';
             default: return 'bg-gray-100 text-gray-700';
@@ -176,8 +176,8 @@ export default function AdminTicketDetailPage() {
                         >
                             <div className={cn(
                                 "w-10 h-10 rounded-full flex items-center justify-center shrink-0 border",
-                                msg.senderType === 'MERCHANT' ? "bg-orange-100 text-orange-600 border-orange-200" :
-                                    msg.isInternal ? "bg-yellow-100 text-yellow-600 border-yellow-200" : "bg-blue-100 text-blue-600 border-blue-200"
+                                msg.senderType === 'MERCHANT' ? "bg-crimson-red-100 text-crimson-red-600 border-crimson-red-200" :
+                                    msg.isInternal ? "bg-yellow-100 text-yellow-600 border-yellow-200" : "bg-deep-blue-violet-100 text-deep-blue-violet-600 border-deep-blue-violet-200"
                             )}>
                                 {msg.senderType === 'MERCHANT' ? <User className="w-5 h-5" /> : msg.isInternal ? <Lock className="w-4 h-4" /> : <Shield className="w-5 h-5" />}
                             </div>
@@ -188,7 +188,7 @@ export default function AdminTicketDetailPage() {
                                     ? "bg-white border-gray-200"
                                     : msg.isInternal
                                         ? "bg-yellow-50 border-yellow-200"
-                                        : "bg-blue-50 border-blue-100"
+                                        : "bg-deep-blue-violet-50 border-deep-blue-violet-100"
                             )}>
                                 <div className="flex items-center justify-between gap-4 mb-2">
                                     <div className="flex items-center gap-2">
@@ -232,7 +232,7 @@ export default function AdminTicketDetailPage() {
                                                     href={url}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="flex items-center gap-2 text-xs text-blue-600 hover:underline"
+                                                    className="flex items-center gap-2 text-xs text-deep-blue-violet-600 hover:underline"
                                                 >
                                                     <FileText className="w-3 h-3" />
                                                     {getAttachmentDisplayName(url, idx)}
@@ -250,7 +250,7 @@ export default function AdminTicketDetailPage() {
                 <div className="bg-white border top border-gray-200 p-4 rounded-xl shadow-lg sticky bottom-6 z-10">
                     <form onSubmit={handleReply}>
                         {ticket.status === 'CLOSED' && !isInternal && (
-                            <div className="mb-3 p-2 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-700 flex items-center gap-2">
+                            <div className="mb-3 p-2 bg-deep-blue-violet-50 border border-deep-blue-violet-200 rounded-lg text-xs text-deep-blue-violet-700 flex items-center gap-2">
                                 <Shield className="w-3 h-3" />
                                 <span>Note: Replying will automatically re-open this ticket.</span>
                             </div>
@@ -276,7 +276,7 @@ export default function AdminTicketDetailPage() {
                             rows={3}
                             className={cn(
                                 "w-full border rounded-lg p-3 text-sm focus:ring-2 outline-none resize-none transition-colors",
-                                isInternal ? "bg-yellow-50 border-yellow-200 focus:ring-yellow-500 placeholder-yellow-700/50" : "bg-white border-gray-200 focus:ring-blue-500"
+                                isInternal ? "bg-yellow-50 border-yellow-200 focus:ring-yellow-500 placeholder-yellow-700/50" : "bg-white border-gray-200 focus:ring-deep-blue-violet-500"
                             )}
                         />
                         <div className="flex items-center justify-between mt-3">
@@ -298,7 +298,7 @@ export default function AdminTicketDetailPage() {
                                 disabled={!replyMessage.trim() || replyMutation.isPending}
                                 className={cn(
                                     "px-4 py-2 text-white rounded-lg text-sm font-semibold transition-colors disabled:opacity-50 flex items-center gap-2",
-                                    isInternal ? "bg-yellow-600 hover:bg-yellow-700" : "bg-blue-600 hover:bg-blue-700"
+                                    isInternal ? "bg-yellow-600 hover:bg-yellow-700" : "bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700"
                                 )}
                             >
                                 {replyMutation.isPending ? "Sending..." : <>
@@ -340,7 +340,7 @@ export default function AdminTicketDetailPage() {
                             <select
                                 value={editStatus || ticket.status}
                                 onChange={(e) => setEditStatus(e.target.value as TicketStatus)}
-                                className="w-full text-sm border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                className="w-full text-sm border-gray-200 rounded-lg focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
                             >
                                 <option value="OPEN">Open</option>
                                 <option value="IN_PROGRESS">In Progress</option>
@@ -355,7 +355,7 @@ export default function AdminTicketDetailPage() {
                             <select
                                 value={editPriority || ticket.priority}
                                 onChange={(e) => setEditPriority(e.target.value as TicketPriority)}
-                                className="w-full text-sm border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                className="w-full text-sm border-gray-200 rounded-lg focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
                             >
                                 <option value="LOW">Low</option>
                                 <option value="MEDIUM">Medium</option>

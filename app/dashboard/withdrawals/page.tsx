@@ -43,7 +43,7 @@ type MethodFormType = "LOCAL_BANK" | "INTERNATIONAL_BANK" | "PREPAID_CARD" | nul
 const STATUS_CONFIG: Record<WithdrawalMethodStatus, { label: string; color: string; icon: React.ReactNode }> = {
     PENDING: {
         label: "Pending Approval",
-        color: "bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400",
+        color: "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400",
         icon: <Clock className="w-3 h-3" />,
     },
     ACTIVE: {
@@ -65,9 +65,9 @@ const STATUS_CONFIG: Record<WithdrawalMethodStatus, { label: string; color: stri
 
 function MethodTypeIcon({ type }: { type: string }) {
     switch (type) {
-        case "LOCAL_BANK": return <Building2 className="w-5 h-5 text-blue-500" />;
+        case "LOCAL_BANK": return <Building2 className="w-5 h-5 text-deep-blue-violet-500" />;
         case "INTERNATIONAL_BANK": return <Globe className="w-5 h-5 text-purple-500" />;
-        case "PREPAID_CARD": return <CreditCard className="w-5 h-5 text-orange-500" />;
+        case "PREPAID_CARD": return <CreditCard className="w-5 h-5 text-crimson-red-500" />;
         default: return <Wallet className="w-5 h-5 text-muted-foreground" />;
     }
 }
@@ -365,7 +365,7 @@ export default function WithdrawalsPage() {
                                 setWithdrawalSuccess(null);
                                 setShowWithdrawModal(true);
                             }}
-                            className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors flex items-center gap-2"
+                            className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-2"
                         >
                             <ArrowUpFromLine className="w-4 h-4" />
                             Withdraw Funds
@@ -399,7 +399,7 @@ export default function WithdrawalsPage() {
                         </p>
                         <button
                             onClick={() => setShowAddMethod(true)}
-                            className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors inline-flex items-center gap-2"
+                            className="px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors inline-flex items-center gap-2"
                         >
                             <Plus className="w-4 h-4" />
                             Add Method
@@ -500,9 +500,9 @@ export default function WithdrawalsPage() {
                                         Choose the type of withdrawal method to add. Mobile money accounts are managed by admin.
                                     </p>
                                     {([
-                                        { type: "LOCAL_BANK" as const, label: "Local Bank Account", desc: "Cameroonian bank from catalog", icon: Building2, color: "text-blue-500" },
+                                        { type: "LOCAL_BANK" as const, label: "Local Bank Account", desc: "Cameroonian bank from catalog", icon: Building2, color: "text-deep-blue-violet-500" },
                                         { type: "INTERNATIONAL_BANK" as const, label: "International Bank", desc: "SWIFT / IBAN transfer", icon: Globe, color: "text-purple-500" },
-                                        { type: "PREPAID_CARD" as const, label: "Prepaid Card", desc: "Visa or Mastercard", icon: CreditCard, color: "text-orange-500" },
+                                        { type: "PREPAID_CARD" as const, label: "Prepaid Card", desc: "Visa or Mastercard", icon: CreditCard, color: "text-crimson-red-500" },
                                     ]).map(({ type, label, desc, icon: Icon, color }) => (
                                         <button
                                             key={type}
@@ -524,7 +524,7 @@ export default function WithdrawalsPage() {
                                         ← Back
                                     </button>
                                     <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                                        <Building2 className="w-4 h-4 text-blue-500" /> Local Bank Account
+                                        <Building2 className="w-4 h-4 text-deep-blue-violet-500" /> Local Bank Account
                                     </h4>
                                     {/* Bank dropdown */}
                                     <div>
@@ -532,7 +532,7 @@ export default function WithdrawalsPage() {
                                         <select
                                             value={localBank.bank_code}
                                             onChange={(e) => setLocalBank((p) => ({ ...p, bank_code: e.target.value }))}
-                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                             required
                                         >
                                             <option value="">Select a bank...</option>
@@ -560,7 +560,7 @@ export default function WithdrawalsPage() {
                                                 value={localBank[key]}
                                                 onChange={(e) => setLocalBank((p) => ({ ...p, [key]: e.target.value }))}
                                                 placeholder={placeholder}
-                                                className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                                className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                                 required
                                             />
                                         </div>
@@ -569,7 +569,7 @@ export default function WithdrawalsPage() {
                                         <button type="button" onClick={() => setFormType(null)} className="flex-1 px-4 py-2 border border-border text-foreground rounded-lg text-sm font-semibold hover:bg-muted transition-colors">
                                             Cancel
                                         </button>
-                                        <button type="submit" disabled={submittingLocal} className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50">
+                                        <button type="submit" disabled={submittingLocal} className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50">
                                             {submittingLocal ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : "Submit for Approval"}
                                         </button>
                                     </div>
@@ -599,7 +599,7 @@ export default function WithdrawalsPage() {
                                                 value={intlBank[key]}
                                                 onChange={(e) => setIntlBank((p) => ({ ...p, [key]: e.target.value }))}
                                                 placeholder={placeholder}
-                                                className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                                className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                                 required={required}
                                             />
                                         </div>
@@ -608,7 +608,7 @@ export default function WithdrawalsPage() {
                                         <button type="button" onClick={() => setFormType(null)} className="flex-1 px-4 py-2 border border-border text-foreground rounded-lg text-sm font-semibold hover:bg-muted transition-colors">
                                             Cancel
                                         </button>
-                                        <button type="submit" disabled={submittingIntl} className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50">
+                                        <button type="submit" disabled={submittingIntl} className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50">
                                             {submittingIntl ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : "Submit for Approval"}
                                         </button>
                                     </div>
@@ -619,14 +619,14 @@ export default function WithdrawalsPage() {
                                         ← Back
                                     </button>
                                     <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                                        <CreditCard className="w-4 h-4 text-orange-500" /> Prepaid Card
+                                        <CreditCard className="w-4 h-4 text-crimson-red-500" /> Prepaid Card
                                     </h4>
                                     <div>
                                         <label className="text-xs font-medium text-foreground mb-1 block">Card Network</label>
                                         <select
                                             value={card.card_network}
                                             onChange={(e) => setCard((p) => ({ ...p, card_network: e.target.value as "VISA" | "MASTERCARD" }))}
-                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                         >
                                             <option value="VISA">Visa</option>
                                             <option value="MASTERCARD">Mastercard</option>
@@ -646,7 +646,7 @@ export default function WithdrawalsPage() {
                                                 placeholder={placeholder}
                                                 pattern={pattern}
                                                 maxLength={maxLength}
-                                                className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                                className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                                 required
                                             />
                                         </div>
@@ -655,7 +655,7 @@ export default function WithdrawalsPage() {
                                         <button type="button" onClick={() => setFormType(null)} className="flex-1 px-4 py-2 border border-border text-foreground rounded-lg text-sm font-semibold hover:bg-muted transition-colors">
                                             Cancel
                                         </button>
-                                        <button type="submit" disabled={submittingCard} className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50">
+                                        <button type="submit" disabled={submittingCard} className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50">
                                             {submittingCard ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : "Submit for Approval"}
                                         </button>
                                     </div>
@@ -699,7 +699,7 @@ export default function WithdrawalsPage() {
                                     </div>
                                     <div className="border-t border-border pt-3 mt-3 flex justify-between text-base font-bold">
                                         <span className="text-foreground">Total Deduction</span>
-                                        <span className="text-orange-600">{parseFloat(withdrawalSuccess.totalDeduction).toLocaleString()} {currency}</span>
+                                        <span className="text-crimson-red-600">{parseFloat(withdrawalSuccess.totalDeduction).toLocaleString()} {currency}</span>
                                     </div>
                                 </div>
 
@@ -726,7 +726,7 @@ export default function WithdrawalsPage() {
                                             setSelectedMethodId(e.target.value);
                                             if (withdrawError) setWithdrawError("");
                                         }}
-                                        className="w-full px-3 py-2.5 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                        className="w-full px-3 py-2.5 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                                         required
                                     >
                                         <option value="">Select a method...</option>
@@ -752,7 +752,7 @@ export default function WithdrawalsPage() {
                                             if (withdrawError) setWithdrawError("");
                                         }}
                                         placeholder="50000"
-                                        className={`w-full px-3 py-2.5 bg-background border ${withdrawError ? "border-red-500 focus:ring-red-500" : "border-border focus:ring-orange-500"} rounded-lg text-sm focus:outline-none focus:ring-2`}
+                                        className={`w-full px-3 py-2.5 bg-background border ${withdrawError ? "border-red-500 focus:ring-red-500" : "border-border focus:ring-crimson-red-500"} rounded-lg text-sm focus:outline-none focus:ring-2`}
                                         required
                                     />
                                     {withdrawError && (
@@ -814,7 +814,7 @@ export default function WithdrawalsPage() {
                                             <button
                                                 type="submit"
                                                 disabled={withdrawing}
-                                                className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50"
+                                                className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50"
                                             >
                                                 {withdrawing ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : "Submit Withdrawal"}
                                             </button>
@@ -835,7 +835,7 @@ export default function WithdrawalsPage() {
                                                 type="button"
                                                 onClick={handleReviewWithdrawal}
                                                 disabled={!selectedMethodId || !withdrawAmount || quotingWithdrawal}
-                                                className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50"
+                                                className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50"
                                             >
                                                 {quotingWithdrawal ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : "Review Withdrawal"}
                                             </button>

@@ -64,7 +64,7 @@ content = content.replace(
                                                                     setIsVerifyModalOpen(true);
                                                                     setVerificationCode("");
                                                                 }}
-                                                                className="px-2 py-1 text-xs font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-md transition-all border border-blue-200"
+                                                                className="px-2 py-1 text-xs font-medium text-deep-blue-violet-600 bg-deep-blue-violet-50 hover:bg-deep-blue-violet-100 rounded-md transition-all border border-deep-blue-violet-200"
                                                                 title="Verify admin"
                                                             >
                                                                 Verify
@@ -100,7 +100,7 @@ const modalContent = `
                         >
                             <div className="p-6 border-b border-gray-200 flex items-center justify-between">
                                 <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                                    <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                                    <CheckCircle2 className="w-5 h-5 text-deep-blue-violet-600" />
                                     Verify Admin Email
                                 </h2>
                                 {!verifyAdminMutation.isPending && (
@@ -128,7 +128,7 @@ const modalContent = `
                                         placeholder="123456"
                                         maxLength={6}
                                         disabled={verifyAdminMutation.isPending}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm disabled:bg-gray-50 disabled:cursor-not-allowed text-center tracking-widest text-lg font-mono"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm disabled:bg-gray-50 disabled:cursor-not-allowed text-center tracking-widest text-lg font-mono"
                                     />
                                 </div>
                                 <div className="flex justify-between items-center pt-2">
@@ -136,7 +136,7 @@ const modalContent = `
                                         type="button"
                                         onClick={() => resendCodeMutation.mutate(adminToVerify.email)}
                                         disabled={resendCodeMutation.isPending || verifyAdminMutation.isPending}
-                                        className="text-sm text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+                                        className="text-sm text-deep-blue-violet-600 hover:text-deep-blue-violet-800 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
                                     >
                                         {resendCodeMutation.isPending ? "Resending..." : "Resend Code"}
                                     </button>
@@ -155,7 +155,7 @@ const modalContent = `
                                 <button
                                     onClick={() => verifyAdminMutation.mutate({ email: adminToVerify.email, code: verificationCode })}
                                     disabled={verifyAdminMutation.isPending || verificationCode.length !== 6}
-                                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                    className="px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-sm font-medium rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                                 >
                                     {verifyAdminMutation.isPending ? (
                                         <>

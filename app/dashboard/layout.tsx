@@ -66,7 +66,7 @@ export default function DashboardLayout({
 
           {/* Loading Spinner */}
           <motion.div
-            className="w-10 h-10 border-4 border-orange-500 border-t-transparent rounded-full"
+            className="w-10 h-10 border-4 border-crimson-red-500 border-t-transparent rounded-full"
             animate={{ rotate: 360 }}
             transition={{
               duration: 1,

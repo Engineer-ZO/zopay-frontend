@@ -166,7 +166,7 @@ function WithdrawModal({
             <select
               value={gateway}
               onChange={(e) => setGateway(e.target.value as "MTN_MOMO" | "ORANGE_MONEY")}
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
               disabled={withdrawMutation.isPending}
             >
               <option value="MTN_MOMO">MTN Mobile Money</option>
@@ -188,7 +188,7 @@ function WithdrawModal({
               placeholder="Enter amount"
               min="0"
               step="0.01"
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
               disabled={withdrawMutation.isPending}
             />
           </div>
@@ -205,7 +205,7 @@ function WithdrawModal({
                 setError(null);
               }}
               placeholder="237670000000 or 0670000000"
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
               disabled={withdrawMutation.isPending}
             />
             <p className="text-xs text-muted-foreground mt-1">
@@ -214,8 +214,8 @@ function WithdrawModal({
           </div>
 
           {environment === "sandbox" && (
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
-              <p className="text-xs text-blue-900 dark:text-blue-100">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/20 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-3">
+              <p className="text-xs text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                 <strong>Note:</strong> In sandbox mode, only EUR currency is supported.
               </p>
             </div>
@@ -231,7 +231,7 @@ function WithdrawModal({
             </button>
             <button
               onClick={handleWithdraw}
-              className="flex-1 px-4 py-2.5 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="flex-1 px-4 py-2.5 bg-crimson-red-500 text-white rounded-lg font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               disabled={withdrawMutation.isPending}
             >
               {withdrawMutation.isPending ? (
@@ -383,7 +383,7 @@ function TopUpModal({
             <select
               value={gateway}
               onChange={(e) => setGateway(e.target.value as "MTN_MOMO" | "ORANGE_MONEY")}
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
               disabled={topUpMutation.isPending}
             >
               <option value="MTN_MOMO">MTN Mobile Money</option>
@@ -405,7 +405,7 @@ function TopUpModal({
               placeholder="Enter amount"
               min="0"
               step="0.01"
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
               disabled={topUpMutation.isPending}
             />
           </div>
@@ -422,7 +422,7 @@ function TopUpModal({
                 setError(null);
               }}
               placeholder="237670000000 or 0670000000"
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
               disabled={topUpMutation.isPending}
             />
             <p className="text-xs text-muted-foreground mt-1">
@@ -437,8 +437,8 @@ function TopUpModal({
           </div>
 
           {environment === "sandbox" && (
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
-              <p className="text-xs text-blue-900 dark:text-blue-100">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/20 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-3">
+              <p className="text-xs text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                 <strong>Note:</strong> In sandbox mode, only EUR currency is supported.
               </p>
             </div>
@@ -454,7 +454,7 @@ function TopUpModal({
             </button>
             <button
               onClick={handleTopUp}
-              className="flex-1 px-4 py-2.5 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="flex-1 px-4 py-2.5 bg-crimson-red-500 text-white rounded-lg font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               disabled={topUpMutation.isPending}
             >
               {topUpMutation.isPending ? (
@@ -487,9 +487,9 @@ const iconMap: Record<string, typeof Wallet> = {
 // Icon colours are muted for secondary cards; orange for the primary.
 const cardStyle = {
   base: "bg-card rounded-lg p-3 border border-border hover:shadow-sm transition-shadow",
-  primary: "bg-card rounded-lg p-3 border border-border border-l-2 border-l-orange-500 hover:shadow-sm transition-shadow",
+  primary: "bg-card rounded-lg p-3 border border-border border-l-2 border-l-crimson-red-500 hover:shadow-sm transition-shadow",
   icon: {
-    primary: "text-orange-500",
+    primary: "text-crimson-red-500",
     secondary: "text-muted-foreground",
   },
 };
@@ -529,7 +529,7 @@ export default function DashboardPage() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-8 h-8 border-4 border-crimson-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-sm text-muted-foreground">Loading dashboard...</p>
         </div>
       </div>
@@ -541,7 +541,7 @@ export default function DashboardPage() {
       case "SUCCESS":
         return "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400";
       case "PENDING_GATEWAY":
-        return "bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400";
+        return "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400";
       case "FAILED":
         return "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400";
       default:
@@ -569,7 +569,7 @@ export default function DashboardPage() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => router.push("/dashboard/withdrawals")}
-            className="px-3 py-1.5 bg-orange-500 text-white rounded-md text-xs font-semibold hover:bg-orange-600 transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 bg-crimson-red-500 text-white rounded-md text-xs font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-1.5"
           >
             <ArrowDownToLine className="w-3.5 h-3.5" />
             Withdraw
@@ -642,7 +642,7 @@ export default function DashboardPage() {
                   <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide mb-1">
                     {stat.label}
                   </p>
-                  <p className={`text-2xl font-bold mb-0.5 ${isPrimary ? "text-orange-500" : "text-foreground"
+                  <p className={`text-2xl font-bold mb-0.5 ${isPrimary ? "text-crimson-red-500" : "text-foreground"
                     }`}>
                     {stat.value} {stat.currency}
                   </p>
@@ -664,7 +664,7 @@ export default function DashboardPage() {
             <h3 className="text-lg font-semibold text-foreground">Recent Transactions</h3>
             <button
               onClick={() => router.push('/dashboard/transactions')}
-              className="text-xs text-orange-600 dark:text-orange-400 hover:underline font-medium flex items-center gap-1"
+              className="text-xs text-crimson-red-600 dark:text-crimson-red-400 hover:underline font-medium flex items-center gap-1"
             >
               View All
               <ArrowRight className="w-3 h-3" />
@@ -707,7 +707,7 @@ export default function DashboardPage() {
                       <td className="py-2 px-3">
                         <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium ${getStatusColor(tx.status)}`}>
                           <span className={`w-1 h-1 rounded-full ${tx.status === "SUCCESS" ? "bg-green-500"
-                            : tx.status === "PENDING_GATEWAY" ? "bg-orange-500"
+                            : tx.status === "PENDING_GATEWAY" ? "bg-crimson-red-500"
                               : "bg-red-500"
                             }`} />
                           {tx.status.replace(/_/g, " ")}
@@ -748,9 +748,9 @@ export default function DashboardPage() {
             <div className="space-y-1.5">
               <button
                 onClick={() => router.push("/dashboard/withdrawals")}
-                className="w-full flex items-center gap-3 px-3 py-2 bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/20 transition-colors group"
+                className="w-full flex items-center gap-3 px-3 py-2 bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg hover:bg-crimson-red-100 dark:hover:bg-crimson-red-900/20 transition-colors group"
               >
-                <div className="w-7 h-7 bg-orange-500 rounded-md flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 bg-crimson-red-500 rounded-md flex items-center justify-center shrink-0">
                   <ArrowDownToLine className="w-3.5 h-3.5 text-white" />
                 </div>
                 <div className="text-left">

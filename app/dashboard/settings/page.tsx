@@ -65,7 +65,7 @@ export default function SettingsPage() {
                     value="PAYER"
                     checked={feePayer === 'PAYER'}
                     onChange={(e) => handleFeePayerChange(e.target.value as 'PAYER' | 'MERCHANT')}
-                    className="w-4 h-4 text-blue-600"
+                    className="w-4 h-4 text-deep-blue-violet-600"
                     disabled={submitProfileUpdateRequest.isPending}
                   />
                   <div>
@@ -82,7 +82,7 @@ export default function SettingsPage() {
                     value="MERCHANT"
                     checked={feePayer === 'MERCHANT'}
                     onChange={(e) => handleFeePayerChange(e.target.value as 'PAYER' | 'MERCHANT')}
-                    className="w-4 h-4 text-blue-600"
+                    className="w-4 h-4 text-deep-blue-violet-600"
                     disabled={submitProfileUpdateRequest.isPending}
                   />
                   <div>

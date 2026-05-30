@@ -263,7 +263,7 @@ export function AdminSidebar() {
             {/* Mobile Menu Button */}
             <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
-                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-lg"
+                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-deep-blue-violet-600 text-white rounded-lg"
             >
                 {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -278,14 +278,14 @@ export function AdminSidebar() {
                 }}
             >
                 {/* Logo */}
-                <div className="p-6 border-b border-blue-800/30">
+                <div className="p-6 border-b border-deep-blue-violet-800/30">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <div className="w-10 h-10 bg-deep-blue-violet-500 rounded-lg flex items-center justify-center">
                             <Shield className="w-6 h-6 text-white" />
                         </div>
                         <div>
                             <h1 className="text-lg font-bold text-white">ZitoPay</h1>
-                            <p className="text-xs text-blue-300">Admin Portal</p>
+                            <p className="text-xs text-deep-blue-violet-300">Admin Portal</p>
                         </div>
                     </div>
                 </div>
@@ -298,7 +298,7 @@ export function AdminSidebar() {
                             {section.title && (
                                 <button
                                     onClick={() => section.collapsible && section.title && toggleSection(section.title)}
-                                    className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-blue-300 uppercase tracking-wider hover:text-white transition-colors"
+                                    className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-deep-blue-violet-300 uppercase tracking-wider hover:text-white transition-colors"
                                 >
                                     <span>{section.title}</span>
                                     {section.collapsible && (
@@ -322,8 +322,8 @@ export function AdminSidebar() {
                                             href={item.href}
                                             onClick={() => setIsMobileOpen(false)}
                                             className={`flex items-center justify-between px-3 py-2.5 rounded-lg transition-all ${isActive(item.href)
-                                                ? "bg-blue-600 text-white shadow-lg"
-                                                : "text-blue-100 hover:bg-blue-800/50 hover:text-white"
+                                                ? "bg-deep-blue-violet-600 text-white shadow-lg"
+                                                : "text-deep-blue-violet-100 hover:bg-deep-blue-violet-800/50 hover:text-white"
                                                 }`}
                                         >
                                             <div className="flex items-center gap-3">
@@ -332,7 +332,7 @@ export function AdminSidebar() {
                                             </div>
                                             {item.badge && (
                                                 <span
-                                                    className={`px-2 py-0.5 rounded-full text-xs font-semibold ${item.badgeColor || "bg-blue-700"
+                                                    className={`px-2 py-0.5 rounded-full text-xs font-semibold ${item.badgeColor || "bg-deep-blue-violet-700"
                                                         } text-white`}
                                                 >
                                                     {item.badge}

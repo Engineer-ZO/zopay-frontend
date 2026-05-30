@@ -43,7 +43,7 @@ function gatewayLabel(gateway: string) {
 function LoadingScreen() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#f4f0e8]">
-      <Loader2 className="w-8 h-8 animate-spin text-orange-600" />
+      <Loader2 className="w-8 h-8 animate-spin text-crimson-red-600" />
     </div>
   );
 }
@@ -204,7 +204,7 @@ function HostedCheckoutPage({ sessionId }: { sessionId: string }) {
                   value={selectedGateway}
                   onChange={(event) => setGateway(event.target.value as CheckoutGateway)}
                   disabled={formDisabled}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-orange-500 transition focus:ring-2 disabled:opacity-60"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-crimson-red-500 transition focus:ring-2 disabled:opacity-60"
                 >
                   {session.gateways.map((item) => (
                     <option key={item} value={item}>
@@ -221,7 +221,7 @@ function HostedCheckoutPage({ sessionId }: { sessionId: string }) {
                   onChange={(event) => setMsisdn(event.target.value)}
                   disabled={formDisabled}
                   placeholder="2376XXXXXXXX"
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-orange-500 transition focus:ring-2 disabled:opacity-60"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-crimson-red-500 transition focus:ring-2 disabled:opacity-60"
                 />
               </label>
             </div>
@@ -234,7 +234,7 @@ function HostedCheckoutPage({ sessionId }: { sessionId: string }) {
                   onChange={(event) => setPayerName(event.target.value)}
                   disabled={formDisabled}
                   placeholder="Customer name"
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-orange-500 transition focus:ring-2 disabled:opacity-60"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-crimson-red-500 transition focus:ring-2 disabled:opacity-60"
                 />
               </label>
 
@@ -246,7 +246,7 @@ function HostedCheckoutPage({ sessionId }: { sessionId: string }) {
                   onChange={(event) => setPayerEmail(event.target.value)}
                   disabled={formDisabled}
                   placeholder="customer@example.com"
-                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-orange-500 transition focus:ring-2 disabled:opacity-60"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-crimson-red-500 transition focus:ring-2 disabled:opacity-60"
                 />
               </label>
             </div>
@@ -259,7 +259,7 @@ function HostedCheckoutPage({ sessionId }: { sessionId: string }) {
                 disabled={formDisabled}
                 rows={4}
                 placeholder="Delivery note, order detail, or message for the merchant"
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-orange-500 transition focus:ring-2 disabled:opacity-60"
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-crimson-red-500 transition focus:ring-2 disabled:opacity-60"
               />
             </label>
 
@@ -267,7 +267,7 @@ function HostedCheckoutPage({ sessionId }: { sessionId: string }) {
               type="button"
               onClick={handlePay}
               disabled={!canPay}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 py-4 text-sm font-black text-white transition hover:bg-orange-600 disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 py-4 text-sm font-black text-white transition hover:bg-crimson-red-600 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {payMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <ShieldCheck className="h-4 w-4" />}
               Pay {formatMoney(session.amount, session.currency)}
@@ -281,7 +281,7 @@ function HostedCheckoutPage({ sessionId }: { sessionId: string }) {
         </section>
 
         <aside className="h-fit rounded-[2rem] border border-black/10 bg-white p-6 shadow-xl shadow-slate-900/5">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-600">Order summary</p>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-crimson-red-600">Order summary</p>
           <div className="mt-5 space-y-4">
             <SummaryLine label="Merchant" value={session.merchantName || "ZitoPay merchant"} />
             <SummaryLine label="Order amount" value={formatMoney(session.amount, session.currency)} />
@@ -360,7 +360,7 @@ function CheckoutStatusBanner({
 
   if (status === "PROCESSING") {
     return (
-      <div className="flex gap-3 rounded-2xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900">
+      <div className="flex gap-3 rounded-2xl border border-deep-blue-violet-200 bg-deep-blue-violet-50 p-4 text-sm text-deep-blue-violet-900">
         <Loader2 className="mt-0.5 h-4 w-4 shrink-0 animate-spin" />
         Payment request sent. Please approve it on your phone.
       </div>
@@ -369,7 +369,7 @@ function CheckoutStatusBanner({
 
   return (
     <div className="flex gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-      <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-orange-600" />
+      <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-crimson-red-600" />
       Your payment is processed securely by ZitoPay. We will never ask for your PIN here.
     </div>
   );
@@ -543,7 +543,7 @@ function PaymentLinkPage({ slug }: { slug: string }) {
               className="w-14 h-14 rounded-xl object-cover border border-border shrink-0"
             />
           ) : (
-            <div className="w-14 h-14 rounded-xl bg-orange-500 flex items-center justify-center text-white font-bold text-xl shrink-0">
+            <div className="w-14 h-14 rounded-xl bg-crimson-red-500 flex items-center justify-center text-white font-bold text-xl shrink-0">
               {link.merchantName ? link.merchantName.substring(0, 2).toUpperCase() : "M"}
             </div>
           )}
@@ -576,7 +576,7 @@ function PaymentLinkPage({ slug }: { slug: string }) {
         </div>
 
         {!link.payable || link.status !== "ACTIVE" ? (
-          <div className="rounded-lg border border-orange-200 bg-orange-50 dark:bg-orange-900/10 p-4 text-sm text-orange-700 dark:text-orange-300">
+          <div className="rounded-lg border border-crimson-red-200 bg-crimson-red-50 dark:bg-crimson-red-900/10 p-4 text-sm text-crimson-red-700 dark:text-crimson-red-300">
             This payment link is currently unavailable.
           </div>
         ) : (
@@ -672,7 +672,7 @@ function PaymentLinkPage({ slug }: { slug: string }) {
               type="button"
               onClick={handlePay}
               disabled={!canPay}
-              className="w-full px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 disabled:opacity-60 inline-flex justify-center items-center gap-2"
+              className="w-full px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 disabled:opacity-60 inline-flex justify-center items-center gap-2"
             >
               {payMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
               Pay now
@@ -713,13 +713,13 @@ function PaymentLinkPage({ slug }: { slug: string }) {
             ) : null}
 
             {done && statusQuery.data?.paymentLink?.successUrl && currentStatus === "SUCCESS" ? (
-              <a href={statusQuery.data.paymentLink.successUrl} className="inline-block text-xs text-orange-600 hover:underline">
+              <a href={statusQuery.data.paymentLink.successUrl} className="inline-block text-xs text-crimson-red-600 hover:underline">
                 Continue
               </a>
             ) : null}
 
             {done && statusQuery.data?.paymentLink?.cancelUrl && currentStatus === "FAILED" ? (
-              <a href={statusQuery.data.paymentLink.cancelUrl} className="inline-block text-xs text-orange-600 hover:underline">
+              <a href={statusQuery.data.paymentLink.cancelUrl} className="inline-block text-xs text-crimson-red-600 hover:underline">
                 Return
               </a>
             ) : null}

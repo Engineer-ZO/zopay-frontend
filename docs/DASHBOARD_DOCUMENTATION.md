@@ -109,7 +109,7 @@ components/
 - Height: `h-16` (64px)
 - Background: `bg-background`
 - Border: `border-b border-border`
-- Sandbox badge: `bg-orange-500 text-white rounded-full`
+- Sandbox badge: `bg-crimson-red-500 text-white rounded-full`
 - Avatar: `w-9 h-9 rounded-full bg-emerald-500`
 
 ---

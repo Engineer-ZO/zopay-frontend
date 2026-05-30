@@ -32,7 +32,7 @@ const [isSandboxMode, setIsSandboxMode] = useState(true);
 ```
 
 #### **UI Components:**
-- **Badge Container:** Light orange background (`bg-orange-50`) with border
+- **Badge Container:** Light orange background (`bg-crimson-red-50`) with border
 - **Mode Text:** Displays "SANDBOX MODE" or "LIVE MODE" dynamically
 - **Toggle Switch:** 
   - Gray (`bg-gray-300`) when in Sandbox Mode
@@ -41,8 +41,8 @@ const [isSandboxMode, setIsSandboxMode] = useState(true);
 
 #### **Visual Design:**
 ```tsx
-<div className="hidden md:flex items-center gap-3 px-4 py-2 bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800 rounded-full">
-    <span className="text-xs font-semibold uppercase text-orange-600 dark:text-orange-400">
+<div className="hidden md:flex items-center gap-3 px-4 py-2 bg-crimson-red-50 dark:bg-crimson-red-950/30 border border-crimson-red-200 dark:border-crimson-red-800 rounded-full">
+    <span className="text-xs font-semibold uppercase text-crimson-red-600 dark:text-crimson-red-400">
         {isSandboxMode ? 'Sandbox Mode' : 'Live Mode'}
     </span>
     <button onClick={() => setIsSandboxMode(!isSandboxMode)}>
@@ -104,7 +104,7 @@ const handleLogoutConfirm = () => {
 {isLoggingOut && (
     <div className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center">
         <div className="bg-background rounded-2xl p-8 shadow-2xl border border-border flex flex-col items-center gap-4">
-            <div className="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
+            <div className="w-12 h-12 border-4 border-crimson-red-500 border-t-transparent rounded-full animate-spin" />
             <p className="text-lg font-semibold text-foreground">Logging out...</p>
         </div>
     </div>
@@ -153,7 +153,7 @@ if (isLoading) {
     return (
         <div className="flex h-screen items-center justify-center bg-background">
             <div className="flex flex-col items-center gap-4">
-                <div className="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
+                <div className="w-12 h-12 border-4 border-crimson-red-500 border-t-transparent rounded-full animate-spin" />
                 <p className="text-lg font-semibold text-foreground">Loading...</p>
             </div>
         </div>

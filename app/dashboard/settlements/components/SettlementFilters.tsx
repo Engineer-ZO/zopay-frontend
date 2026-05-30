@@ -33,7 +33,7 @@ export function SettlementFilters({
             placeholder="Search by settlement ID..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            className="w-full pl-9 pr-3 py-2 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-crimson-red-500 focus:border-crimson-red-500"
           />
         </div>
 
@@ -41,7 +41,7 @@ export function SettlementFilters({
         <select
           value={statusFilter}
           onChange={(e) => onStatusChange(e.target.value)}
-          className="px-3 py-2 bg-background border border-border rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+          className="px-3 py-2 bg-background border border-border rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-crimson-red-500 focus:border-crimson-red-500"
         >
           <option value="">All Status</option>
           <option value="PENDING">Pending</option>
@@ -58,7 +58,7 @@ export function SettlementFilters({
             onChange={(e) =>
               onDateRangeChange({ ...dateRange, start: e.target.value })
             }
-            className="px-3 py-2 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            className="px-3 py-2 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-crimson-red-500 focus:border-crimson-red-500"
           />
           <input
             type="date"
@@ -66,7 +66,7 @@ export function SettlementFilters({
             onChange={(e) =>
               onDateRangeChange({ ...dateRange, end: e.target.value })
             }
-            className="px-3 py-2 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            className="px-3 py-2 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-crimson-red-500 focus:border-crimson-red-500"
           />
         </div>
 

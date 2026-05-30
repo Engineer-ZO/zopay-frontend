@@ -47,7 +47,7 @@ export function NetworkAccessView() {
                     onClick={() => setTab("domains")}
                     className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
                         activeTab === "domains"
-                            ? "bg-orange-500 text-white shadow-sm"
+                            ? "bg-crimson-red-500 text-white shadow-sm"
                             : "text-muted-foreground hover:text-foreground hover:bg-background/80"
                     }`}
                 >
@@ -59,7 +59,7 @@ export function NetworkAccessView() {
                     onClick={() => setTab("ips")}
                     className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
                         activeTab === "ips"
-                            ? "bg-orange-500 text-white shadow-sm"
+                            ? "bg-crimson-red-500 text-white shadow-sm"
                             : "text-muted-foreground hover:text-foreground hover:bg-background/80"
                     }`}
                 >

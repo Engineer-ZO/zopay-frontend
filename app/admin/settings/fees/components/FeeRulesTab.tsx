@@ -145,7 +145,7 @@ export default function FeeRulesTab() {
         <button
           onClick={() => setShowAddModal(true)}
           disabled={!activeVersion}
-          className="flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center gap-2 px-3 py-1.5 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <Plus className="w-3.5 h-3.5" />
           Add Rule
@@ -173,7 +173,7 @@ export default function FeeRulesTab() {
             <Filter className="w-3.5 h-3.5" />
             Filter
             {hasActiveFilters && (
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-blue-600 rounded-full" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-deep-blue-violet-600 rounded-full" />
             )}
             <ChevronDown className={`w-3 h-3 transition-transform ${showFilterDropdown ? 'rotate-180' : ''}`} />
           </button>
@@ -202,7 +202,7 @@ export default function FeeRulesTab() {
                           value={option.value}
                           checked={(filters.gateway || "all") === option.value}
                           onChange={(e) => handleFilterChange("gateway", e.target.value)}
-                          className="w-3.5 h-3.5 text-blue-600 focus:ring-blue-500"
+                          className="w-3.5 h-3.5 text-deep-blue-violet-600 focus:ring-deep-blue-violet-500"
                         />
                         <span className="text-xs text-gray-700">{option.label}</span>
                       </label>
@@ -230,7 +230,7 @@ export default function FeeRulesTab() {
                           value={option.value}
                           checked={(filters.transactionType || "all") === option.value}
                           onChange={(e) => handleFilterChange("transactionType", e.target.value)}
-                          className="w-3.5 h-3.5 text-blue-600 focus:ring-blue-500"
+                          className="w-3.5 h-3.5 text-deep-blue-violet-600 focus:ring-deep-blue-violet-500"
                         />
                         <span className="text-xs text-gray-700">{option.label}</span>
                       </label>
@@ -258,7 +258,7 @@ export default function FeeRulesTab() {
                           value={option.value}
                           checked={(filters.status || "all") === option.value}
                           onChange={(e) => handleFilterChange("status", e.target.value)}
-                          className="w-3.5 h-3.5 text-blue-600 focus:ring-blue-500"
+                          className="w-3.5 h-3.5 text-deep-blue-violet-600 focus:ring-deep-blue-violet-500"
                         />
                         <span className="text-xs text-gray-700">{option.label}</span>
                       </label>
@@ -274,7 +274,7 @@ export default function FeeRulesTab() {
                         setFilters({});
                         setShowFilterDropdown(false);
                       }}
-                      className="w-full text-xs text-blue-600 hover:text-blue-700 font-medium py-1.5"
+                      className="w-full text-xs text-deep-blue-violet-600 hover:text-deep-blue-violet-700 font-medium py-1.5"
                     >
                       Clear All Filters
                     </button>
@@ -351,7 +351,7 @@ export default function FeeRulesTab() {
                         {rule.gatewayFeeType === "TIERED" && (
                           <button
                             onClick={() => handleViewTiers(rule)}
-                            className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-400 hover:text-blue-600"
+                            className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-400 hover:text-deep-blue-violet-600"
                             title="View Tiers"
                           >
                             <Eye className="w-4 h-4" />
@@ -359,7 +359,7 @@ export default function FeeRulesTab() {
                         )}
                         <button
                           onClick={() => handleEdit(rule)}
-                          className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-400 hover:text-blue-600"
+                          className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-400 hover:text-deep-blue-violet-600"
                           title="Edit"
                         >
                           <Edit className="w-4 h-4" />
@@ -377,7 +377,7 @@ export default function FeeRulesTab() {
                           <button
                             onClick={() => handleActivate(rule)}
                             disabled={activateMutation.isPending}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
                             title="Activate"
                           >
                             <Rocket className="w-3 h-3" />

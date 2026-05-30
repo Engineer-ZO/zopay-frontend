@@ -372,7 +372,7 @@ All pages use the same 4-card layout:
 ### **Status Colors**
 ```javascript
 success: "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400"
-pending: "bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400"
+pending: "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400"
 failed: "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400"
 ```
 

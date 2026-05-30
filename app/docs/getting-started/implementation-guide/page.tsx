@@ -39,10 +39,10 @@ export default function ImplementationGuidePage() {
 
             <h3>Domain Verification Process</h3>
             
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-blue-700 dark:text-blue-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-blue-900 dark:text-blue-100">
+                    <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
                             Our sandbox and production environment are completely separated from each other. You can invite anybody into the sandbox portal, they will not get access to any production information as part of the sandbox.
                         </p>
@@ -50,7 +50,7 @@ export default function ImplementationGuidePage() {
                 </div>
             </div>
             
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
                     <span>📦</span> Domain Verification Steps
                 </h4>
@@ -78,10 +78,10 @@ export default function ImplementationGuidePage() {
                         </ul>
                     </li>
                     
-                    <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4 my-4">
+                    <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4 my-4">
                         <div className="flex items-start gap-3">
-                            <span className="text-orange-700 dark:text-orange-400 text-lg mt-0.5">💡</span>
-                            <div className="flex-1 text-sm text-orange-900 dark:text-orange-100">
+                            <span className="text-crimson-red-700 dark:text-crimson-red-400 text-lg mt-0.5">💡</span>
+                            <div className="flex-1 text-sm text-crimson-red-900 dark:text-crimson-red-100">
                                 <p className="leading-relaxed">
                                     <strong>About TTL:</strong> TTL (Time To Live) determines how long DNS servers cache the record. A TTL of 3600 seconds (1 hour) means the record will be cached for 1 hour. After the TTL expires, the record can still be verified - TTL only affects caching, not the record&apos;s validity. You can verify your domain at any time after adding the DNS record, regardless of TTL.
                                 </p>

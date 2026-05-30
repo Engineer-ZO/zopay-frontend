@@ -108,15 +108,15 @@ curl https://api.zitopay.com/v1/payments \\
             <div className="bg-background rounded-xl p-6 border border-border">
                 <h3 className="text-sm font-semibold text-foreground mb-4">QUICK START</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <button className="flex items-center gap-3 p-4 bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/20 transition-colors">
-                        <Rocket className="w-5 h-5 text-orange-600" />
+                    <button className="flex items-center gap-3 p-4 bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg hover:bg-crimson-red-100 dark:hover:bg-crimson-red-900/20 transition-colors">
+                        <Rocket className="w-5 h-5 text-crimson-red-600" />
                         <div className="text-left">
                             <p className="text-sm font-semibold text-foreground">Getting Started</p>
                             <p className="text-xs text-muted-foreground">Create your first integration</p>
                         </div>
                     </button>
-                    <button className="flex items-center gap-3 p-4 bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/20 transition-colors">
-                        <Key className="w-5 h-5 text-blue-600" />
+                    <button className="flex items-center gap-3 p-4 bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg hover:bg-deep-blue-violet-100 dark:hover:bg-deep-blue-violet-900/20 transition-colors">
+                        <Key className="w-5 h-5 text-deep-blue-violet-600" />
                         <div className="text-left">
                             <p className="text-sm font-semibold text-foreground">Authentication</p>
                             <p className="text-xs text-muted-foreground">Setup API credentials</p>
@@ -141,26 +141,26 @@ curl https://api.zitopay.com/v1/payments \\
                         <h3 className="text-sm font-semibold text-foreground">API REFERENCE</h3>
                     </div>
                     <ul className="space-y-2 mb-4">
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Authentication
                         </li>
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Collections
                         </li>
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Payouts
                         </li>
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Refunds
                         </li>
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Webhooks
                         </li>
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Errors
                         </li>
                     </ul>
-                    <button className="text-xs font-medium text-orange-600 dark:text-orange-400 hover:underline">
+                    <button className="text-xs font-medium text-crimson-red-600 dark:text-crimson-red-400 hover:underline">
                         View API Docs →
                     </button>
                 </div>
@@ -168,30 +168,30 @@ curl https://api.zitopay.com/v1/payments \\
                 {/* Guides */}
                 <div className="bg-background rounded-xl p-6 border border-border">
                     <div className="flex items-center gap-2 mb-4">
-                        <Book className="w-5 h-5 text-blue-600" />
+                        <Book className="w-5 h-5 text-deep-blue-violet-600" />
                         <h3 className="text-sm font-semibold text-foreground">GUIDES</h3>
                     </div>
                     <ul className="space-y-2 mb-4">
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Quick Start Guide
                         </li>
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Accept Payments
                         </li>
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Process Refunds
                         </li>
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Webhooks Setup
                         </li>
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Going to Production
                         </li>
-                        <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                        <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                             • Security Best Practices
                         </li>
                     </ul>
-                    <button className="text-xs font-medium text-orange-600 dark:text-orange-400 hover:underline">
+                    <button className="text-xs font-medium text-crimson-red-600 dark:text-crimson-red-400 hover:underline">
                         View All Guides →
                     </button>
                 </div>
@@ -208,7 +208,7 @@ curl https://api.zitopay.com/v1/payments \\
                             key={lang}
                             onClick={() => setSelectedLanguage(lang)}
                             className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${selectedLanguage === lang
-                                    ? "bg-orange-500 text-white"
+                                    ? "bg-crimson-red-500 text-white"
                                     : "bg-background border border-border text-foreground hover:bg-muted"
                                 }`}
                         >
@@ -263,7 +263,7 @@ curl https://api.zitopay.com/v1/payments \\
                                 >
                                     <span className="text-xs font-medium text-foreground">• {sdk.name}</span>
                                     <div className="flex gap-2">
-                                        <button className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
+                                        <button className="text-xs font-medium text-deep-blue-violet-600 dark:text-deep-blue-violet-400 hover:underline flex items-center gap-1">
                                             <Download className="w-3 h-3" />
                                             Download
                                         </button>
@@ -301,26 +301,26 @@ curl https://api.zitopay.com/v1/payments \\
             <div className="bg-background rounded-xl p-6 border border-border">
                 <h3 className="text-sm font-semibold text-foreground mb-4">POPULAR TOPICS</h3>
                 <ol className="space-y-2 mb-4">
-                    <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                    <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                         1. How to accept mobile money payments
                     </li>
-                    <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                    <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                         2. Setting up webhooks for payment notifications
                     </li>
-                    <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                    <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                         3. Processing bulk payouts
                     </li>
-                    <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                    <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                         4. Handling refunds
                     </li>
-                    <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                    <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                         5. Testing in sandbox mode
                     </li>
-                    <li className="text-xs text-foreground hover:text-orange-600 cursor-pointer">
+                    <li className="text-xs text-foreground hover:text-crimson-red-600 cursor-pointer">
                         6. Going live with production
                     </li>
                 </ol>
-                <button className="text-xs font-medium text-orange-600 dark:text-orange-400 hover:underline">
+                <button className="text-xs font-medium text-crimson-red-600 dark:text-crimson-red-400 hover:underline">
                     View All Topics →
                 </button>
             </div>

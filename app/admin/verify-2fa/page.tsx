@@ -48,15 +48,15 @@ function AdminVerify2FAContent() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-4">
             <Image src="/zitopaylogo.png" alt="ZitoPay" width={150} height={50} className="object-contain" />
-            <div className="px-2 py-1 bg-blue-500 text-white rounded text-xs font-bold">ADMIN</div>
+            <div className="px-2 py-1 bg-deep-blue-violet-500 text-white rounded text-xs font-bold">ADMIN</div>
           </div>
         </div>
 
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           {/* Header */}
           <div className="text-center mb-6">
-            <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Shield className="w-7 h-7 text-blue-600" />
+            <div className="w-14 h-14 bg-deep-blue-violet-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Shield className="w-7 h-7 text-deep-blue-violet-600" />
             </div>
             <h1 className="text-xl font-bold text-gray-900 mb-1">Two-Factor Authentication</h1>
             <p className="text-xs text-gray-500">
@@ -86,7 +86,7 @@ function AdminVerify2FAContent() {
                   onChange={(e) => setCode(e.target.value)}
                   placeholder={useBackupCode ? "A1B2C3D4E5" : "000000"}
                   maxLength={useBackupCode ? 10 : 6}
-                  className="w-full pl-9 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-center font-mono tracking-widest text-lg"
+                  className="w-full pl-9 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-transparent outline-none text-center font-mono tracking-widest text-lg"
                   autoComplete="one-time-code"
                   inputMode={useBackupCode ? "text" : "numeric"}
                   required
@@ -97,7 +97,7 @@ function AdminVerify2FAContent() {
             <button
               type="submit"
               disabled={isPending || code.trim().length === 0}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full bg-deep-blue-violet-600 text-white py-3 rounded-lg font-semibold hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {isPending ? (
                 <>
@@ -116,7 +116,7 @@ function AdminVerify2FAContent() {
           <div className="mt-4 text-center space-y-2">
             <button
               onClick={() => { setUseBackupCode((v) => !v); setCode(""); }}
-              className="text-sm text-blue-600 hover:underline block w-full"
+              className="text-sm text-deep-blue-violet-600 hover:underline block w-full"
             >
               {useBackupCode ? "Use authenticator app instead" : "Use a backup code instead"}
             </button>

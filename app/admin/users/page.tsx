@@ -197,7 +197,7 @@ export default function AdminUsersPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                        <Users className="w-8 h-8 text-blue-600" />
+                        <Users className="w-8 h-8 text-deep-blue-violet-600" />
                         Admin Users
                     </h1>
                     <p className="text-sm text-gray-500 mt-1">
@@ -206,7 +206,7 @@ export default function AdminUsersPage() {
                 </div>
                 <button
                     onClick={() => setIsCreateModalOpen(true)}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm transition-all"
+                    className="flex items-center gap-2 px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-sm font-medium rounded-lg shadow-sm transition-all"
                 >
                     <UserPlus className="w-4 h-4" />
                     Add Admin
@@ -256,7 +256,7 @@ export default function AdminUsersPage() {
                                                 <div>
                                                     <div className="font-medium text-gray-900 text-sm">{admin.email}</div>
                                                     <div className="text-xs text-gray-500 flex items-center gap-1">
-                                                        <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs font-medium">
+                                                        <span className="px-2 py-0.5 bg-deep-blue-violet-100 text-deep-blue-violet-700 rounded text-xs font-medium">
                                                             {admin.role}
                                                         </span>
                                                     </div>
@@ -270,7 +270,7 @@ export default function AdminUsersPage() {
                                                     Verified
                                                 </div>
                                             ) : (
-                                                <div className="flex items-center gap-1.5 text-orange-600 text-xs font-medium">
+                                                <div className="flex items-center gap-1.5 text-crimson-red-600 text-xs font-medium">
                                                     <Mail className="w-4 h-4" />
                                                     Unverified
                                                 </div>
@@ -324,7 +324,7 @@ export default function AdminUsersPage() {
                         >
                             <div className="p-6 border-b border-gray-200 flex items-center justify-between">
                                 <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                                    <UserPlus className="w-5 h-5 text-blue-600" />
+                                    <UserPlus className="w-5 h-5 text-deep-blue-violet-600" />
                                     Create New Admin
                                 </h2>
                                 {!createAdminMutation.isPending && (
@@ -351,7 +351,7 @@ export default function AdminUsersPage() {
                                             placeholder="admin@zitopay.com"
                                             required
                                             disabled={createAdminMutation.isPending}
-                                            className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm disabled:bg-gray-50 disabled:cursor-not-allowed"
+                                            className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm disabled:bg-gray-50 disabled:cursor-not-allowed"
                                         />
                                     </div>
                                     <p className="text-xs text-gray-500">A verification email will be sent. The new admin must verify their email before logging in.</p>
@@ -370,7 +370,7 @@ export default function AdminUsersPage() {
                                             required
                                             minLength={8}
                                             disabled={createAdminMutation.isPending}
-                                            className="w-full pl-3 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm disabled:bg-gray-50 disabled:cursor-not-allowed"
+                                            className="w-full pl-3 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm disabled:bg-gray-50 disabled:cursor-not-allowed"
                                         />
                                         <button
                                             type="button"
@@ -400,7 +400,7 @@ export default function AdminUsersPage() {
                                             placeholder="Confirm password"
                                             required
                                             disabled={createAdminMutation.isPending}
-                                            className="w-full pl-3 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm disabled:bg-gray-50 disabled:cursor-not-allowed"
+                                            className="w-full pl-3 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm disabled:bg-gray-50 disabled:cursor-not-allowed"
                                         />
                                         <button
                                             type="button"
@@ -430,7 +430,7 @@ export default function AdminUsersPage() {
                                 <button
                                     onClick={handleCreateAdmin}
                                     disabled={createAdminMutation.isPending || !email.trim() || !password.trim() || password !== confirmPassword}
-                                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                    className="px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-sm font-medium rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                                 >
                                     {createAdminMutation.isPending ? (
                                         <>
@@ -552,7 +552,7 @@ export default function AdminUsersPage() {
                         >
                             <div className="p-6 border-b border-gray-200 flex items-center justify-between">
                                 <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                                    <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                                    <CheckCircle2 className="w-5 h-5 text-deep-blue-violet-600" />
                                     Verify Admin Email
                                 </h2>
                                 {!verifyAdminMutation.isPending && (
@@ -580,7 +580,7 @@ export default function AdminUsersPage() {
                                         placeholder="123456"
                                         maxLength={6}
                                         disabled={verifyAdminMutation.isPending}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm disabled:bg-gray-50 disabled:cursor-not-allowed text-center tracking-widest text-lg font-mono"
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm disabled:bg-gray-50 disabled:cursor-not-allowed text-center tracking-widest text-lg font-mono"
                                     />
                                 </div>
                                 <div className="flex justify-between items-center pt-2">
@@ -588,7 +588,7 @@ export default function AdminUsersPage() {
                                         type="button"
                                         onClick={() => resendCodeMutation.mutate(adminToVerify.email)}
                                         disabled={resendCodeMutation.isPending || verifyAdminMutation.isPending}
-                                        className="text-sm text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+                                        className="text-sm text-deep-blue-violet-600 hover:text-deep-blue-violet-800 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
                                     >
                                         {resendCodeMutation.isPending ? "Resending..." : "Resend Code"}
                                     </button>
@@ -607,7 +607,7 @@ export default function AdminUsersPage() {
                                 <button
                                     onClick={() => verifyAdminMutation.mutate({ email: adminToVerify.email, code: verificationCode })}
                                     disabled={verifyAdminMutation.isPending || verificationCode.length !== 6}
-                                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                    className="px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-sm font-medium rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                                 >
                                     {verifyAdminMutation.isPending ? (
                                         <>

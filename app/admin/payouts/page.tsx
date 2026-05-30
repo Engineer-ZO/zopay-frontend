@@ -45,7 +45,7 @@ function BatchCard({
                 <div className="flex items-start justify-between gap-4">
                     <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
-                            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-orange-100 text-orange-700 rounded-full text-[10px] font-semibold">
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-crimson-red-100 text-crimson-red-700 rounded-full text-[10px] font-semibold">
                                 <AlertTriangle className="w-3 h-3" />
                                 Awaiting Approval
                             </span>
@@ -101,7 +101,7 @@ function BatchCard({
                 {/* Toggle recipients */}
                 <button
                     onClick={() => setExpanded((v) => !v)}
-                    className="mt-3 flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 transition-colors"
+                    className="mt-3 flex items-center gap-1 text-xs text-deep-blue-violet-600 hover:text-deep-blue-violet-800 transition-colors"
                 >
                     <Users className="w-3.5 h-3.5" />
                     {expanded ? "Hide" : "Show"} recipients ({batch.validCount})
@@ -205,7 +205,7 @@ export default function AdminPayoutsPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                        <Send className="w-6 h-6 text-blue-600" />
+                        <Send className="w-6 h-6 text-deep-blue-violet-600" />
                         Bulk Payout Approvals
                     </h1>
                     <p className="text-xs text-gray-500 mt-1">
@@ -226,15 +226,15 @@ export default function AdminPayoutsPage() {
 
             {/* Threshold banner */}
             {!thresholdLoading && (
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-center gap-3">
-                    <DollarSign className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                <div className="bg-deep-blue-violet-50 border border-deep-blue-violet-200 rounded-xl p-4 flex items-center gap-3">
+                    <DollarSign className="w-5 h-5 text-deep-blue-violet-600 flex-shrink-0" />
                     <div>
-                        <p className="text-sm font-semibold text-blue-900">
+                        <p className="text-sm font-semibold text-deep-blue-violet-900">
                             {thresholdData?.threshold != null
                                 ? `Batches above ${thresholdData.threshold.toLocaleString()} XAF require your approval`
                                 : "No threshold set — all batches execute immediately without approval"}
                         </p>
-                        <p className="text-xs text-blue-700 mt-0.5">
+                        <p className="text-xs text-deep-blue-violet-700 mt-0.5">
                             Click &ldquo;Approval Threshold&rdquo; to change this setting.
                         </p>
                     </div>
@@ -244,7 +244,7 @@ export default function AdminPayoutsPage() {
             {/* Pending Batches */}
             {isLoading ? (
                 <div className="flex items-center justify-center py-16">
-                    <Loader2 className="w-6 h-6 animate-spin text-blue-600" />
+                    <Loader2 className="w-6 h-6 animate-spin text-deep-blue-violet-600" />
                 </div>
             ) : error ? (
                 <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-600">
@@ -335,14 +335,14 @@ export default function AdminPayoutsPage() {
                                     value={thresholdValue}
                                     onChange={(e) => setThresholdValue(e.target.value)}
                                     placeholder="e.g. 5000000"
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-deep-blue-violet-500 outline-none"
                                 />
                             </div>
                             <div className="flex gap-2">
                                 <button type="button" onClick={() => setShowThresholdModal(false)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50">
                                     Cancel
                                 </button>
-                                <button type="submit" disabled={settingThreshold} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 disabled:opacity-50">
+                                <button type="submit" disabled={settingThreshold} className="flex-1 px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg text-sm font-semibold hover:bg-deep-blue-violet-700 disabled:opacity-50">
                                     {settingThreshold ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : "Save Threshold"}
                                 </button>
                             </div>

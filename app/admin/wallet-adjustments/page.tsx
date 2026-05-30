@@ -174,7 +174,7 @@ export default function AdminWalletAdjustmentsPage() {
                         type="button"
                         onClick={() => void handleCreate()}
                         disabled={createMutation.isPending}
-                        className="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold disabled:opacity-60 inline-flex items-center justify-center gap-2"
+                        className="px-5 py-3 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white rounded-lg font-semibold disabled:opacity-60 inline-flex items-center justify-center gap-2"
                     >
                         {createMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wallet className="w-4 h-4" />}
                         Create Wallet Adjustment

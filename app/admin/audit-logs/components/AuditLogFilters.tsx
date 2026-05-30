@@ -43,7 +43,7 @@ export function AuditLogFilters({
         {hasActiveFilters && (
           <button
             onClick={onClearFilters}
-            className="text-xs text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-1"
+            className="text-xs text-crimson-red-600 dark:text-crimson-red-400 hover:underline flex items-center gap-1"
           >
             <X className="w-3 h-3" />
             Clear All
@@ -61,7 +61,7 @@ export function AuditLogFilters({
             value={filters.actorType || ""}
             onChange={(e) => onFilterChange("actorType", e.target.value || undefined)}
             disabled={isLoading}
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
           >
             <option value="">All Actors</option>
             {filterOptions?.actorTypes?.map((type) => (
@@ -81,7 +81,7 @@ export function AuditLogFilters({
             value={filters.action || ""}
             onChange={(e) => onFilterChange("action", e.target.value || undefined)}
             disabled={isLoading}
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
           >
             <option value="">All Actions</option>
             {filterOptions?.actions?.map((action) => (
@@ -101,7 +101,7 @@ export function AuditLogFilters({
             value={filters.entityType || ""}
             onChange={(e) => onFilterChange("entityType", e.target.value || undefined)}
             disabled={isLoading}
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
           >
             <option value="">All Entities</option>
             {filterOptions?.entityTypes?.map((type) => (
@@ -125,7 +125,7 @@ export function AuditLogFilters({
               value={filters.search || ""}
               onChange={(e) => onFilterChange("search", e.target.value || undefined)}
               disabled={isLoading}
-              className="w-full pl-8 pr-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full pl-8 pr-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
             />
           </div>
         </div>
@@ -142,7 +142,7 @@ export function AuditLogFilters({
             value={filters.startDate || ""}
             onChange={(e) => onFilterChange("startDate", e.target.value || undefined)}
             disabled={isLoading}
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
           />
         </div>
         <div>
@@ -154,7 +154,7 @@ export function AuditLogFilters({
             value={filters.endDate || ""}
             onChange={(e) => onFilterChange("endDate", e.target.value || undefined)}
             disabled={isLoading}
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
           />
         </div>
       </div>

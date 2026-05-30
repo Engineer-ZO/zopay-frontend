@@ -113,12 +113,12 @@ export default function SessionsPage() {
       </div>
 
       {/* Security Notice */}
-      <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4">
+      <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4">
         <div className="flex items-start gap-3">
-          <Shield className="w-5 h-5 text-orange-600 dark:text-orange-400 mt-0.5" />
+          <Shield className="w-5 h-5 text-crimson-red-600 dark:text-crimson-red-400 mt-0.5" />
           <div>
-            <h3 className="font-medium text-orange-800 dark:text-orange-200 text-sm">Security Notice</h3>
-            <p className="text-xs text-orange-700 dark:text-orange-300 mt-1">
+            <h3 className="font-medium text-crimson-red-800 dark:text-crimson-red-200 text-sm">Security Notice</h3>
+            <p className="text-xs text-crimson-red-700 dark:text-crimson-red-300 mt-1">
               If you don&apos;t recognize a device or location, consider logging out from all devices immediately.
             </p>
           </div>
@@ -196,8 +196,8 @@ export default function SessionsPage() {
               </div>
             </div>
 
-            <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-3 mb-4">
-              <p className="text-xs text-orange-700 dark:text-orange-300">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-3 mb-4">
+              <p className="text-xs text-crimson-red-700 dark:text-crimson-red-300">
                 <strong>Important:</strong> You will be immediately logged out and will need to sign in again on all devices.
               </p>
             </div>

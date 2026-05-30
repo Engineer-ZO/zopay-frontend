@@ -194,7 +194,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id as TabType)}
                                 className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${isActive
-                                    ? "border-blue-600 text-blue-600"
+                                    ? "border-deep-blue-violet-600 text-deep-blue-violet-600"
                                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                                     }`}
                             >
@@ -215,7 +215,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                     {[
                                         { value: 'ACTIVE', label: 'Active', icon: CheckCircle2, color: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200' },
                                         { value: 'INACTIVE', label: 'Inactive', icon: XCircle, color: 'text-slate-600', bg: 'bg-slate-50', border: 'border-slate-200' },
-                                        { value: 'SUSPENDED', label: 'Suspended', icon: AlertTriangle, color: 'text-orange-600', bg: 'bg-orange-50', border: 'border-orange-200' },
+                                        { value: 'SUSPENDED', label: 'Suspended', icon: AlertTriangle, color: 'text-crimson-red-600', bg: 'bg-crimson-red-50', border: 'border-crimson-red-200' },
                                         { value: 'BANNED', label: 'Banned', icon: Ban, color: 'text-red-600', bg: 'bg-red-50', border: 'border-red-200' },
                                         { value: 'API_BLOCKED', label: 'API Blocked', icon: Lock, color: 'text-gray-600', bg: 'bg-gray-50', border: 'border-gray-200' },
                                     ].map((option) => {
@@ -226,7 +226,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                                 key={option.value}
                                                 onClick={() => setStatus(option.value as AccountStatus)}
                                                 className={`relative cursor-pointer rounded-lg border p-4 flex items-start gap-3 transition-all ${isSelected
-                                                    ? `${option.bg} ${option.border} ring-1 ring-offset-1 ring-blue-500`
+                                                    ? `${option.bg} ${option.border} ring-1 ring-offset-1 ring-deep-blue-violet-500`
                                                     : "bg-white border-gray-200 hover:bg-gray-50"
                                                     }`}
                                             >
@@ -244,7 +244,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                                     </p>
                                                 </div>
                                                 {isSelected && (
-                                                    <div className="absolute top-3 right-3 text-blue-600">
+                                                    <div className="absolute top-3 right-3 text-deep-blue-violet-600">
                                                         <CheckCircle2 className="w-4 h-4" />
                                                     </div>
                                                 )}
@@ -260,14 +260,14 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                     value={statusReason}
                                     onChange={(e) => setStatusReason(e.target.value)}
                                     placeholder="e.g. Suspicious activity detected on Feb 14..."
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm h-24 resize-none"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm h-24 resize-none"
                                 />
                                 <label className="flex items-center gap-2 cursor-pointer">
                                     <input
                                         type="checkbox"
                                         checked={notifyUser}
                                         onChange={(e) => setNotifyUser(e.target.checked)}
-                                        className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300"
+                                        className="w-4 h-4 text-deep-blue-violet-600 rounded focus:ring-deep-blue-violet-500 border-gray-300"
                                     />
                                     <span className="text-sm text-gray-700 select-none">Notify user via email about this status change</span>
                                 </label>
@@ -286,7 +286,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                             type="text"
                                             value={businessName}
                                             onChange={(e) => setBusinessName(e.target.value)}
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm"
                                         />
                                     </div>
                                     <div>
@@ -295,7 +295,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                             type="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm"
                                         />
                                     </div>
                                     <div>
@@ -304,7 +304,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                             type="tel"
                                             value={phone}
                                             onChange={(e) => setPhone(e.target.value)}
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm"
                                         />
                                     </div>
                                     <div>
@@ -333,7 +333,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                                 value="PAYER"
                                                 checked={feePayer === 'PAYER'}
                                                 onChange={(e) => setFeePayer(e.target.value as 'PAYER' | 'MERCHANT')}
-                                                className="w-4 h-4 text-blue-600"
+                                                className="w-4 h-4 text-deep-blue-violet-600"
                                             />
                                             <div>
                                                 <div className="font-medium text-sm">Customer (Payer)</div>
@@ -349,7 +349,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                                 value="MERCHANT"
                                                 checked={feePayer === 'MERCHANT'}
                                                 onChange={(e) => setFeePayer(e.target.value as 'PAYER' | 'MERCHANT')}
-                                                className="w-4 h-4 text-blue-600"
+                                                className="w-4 h-4 text-deep-blue-violet-600"
                                             />
                                             <div>
                                                 <div className="font-medium text-sm">Merchant</div>
@@ -366,8 +366,8 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
 
                     {activeTab === 'capabilities' && (
                         <div className="space-y-6">
-                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                                <p className="text-sm text-blue-800">
+                            <div className="bg-deep-blue-violet-50 border border-deep-blue-violet-200 rounded-lg p-4">
+                                <p className="text-sm text-deep-blue-violet-800">
                                     These settings control the merchant&apos;s ability to process transaction types globally. Disabling a capability here will override any gateway-specific settings.
                                 </p>
                             </div>
@@ -390,7 +390,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                             onChange={() => setCanCollect(!canCollect)}
                                             className="sr-only peer"
                                         />
-                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-deep-blue-violet-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-deep-blue-violet-600"></div>
                                     </label>
                                 </div>
 
@@ -411,13 +411,13 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                             onChange={() => setCanDisburse(!canDisburse)}
                                             className="sr-only peer"
                                         />
-                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-deep-blue-violet-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-deep-blue-violet-600"></div>
                                     </label>
                                 </div>
 
                                 <div className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg">
                                     <div className="flex items-start gap-3">
-                                        <div className="p-2 bg-orange-100 text-orange-600 rounded-lg">
+                                        <div className="p-2 bg-crimson-red-100 text-crimson-red-600 rounded-lg">
                                             <Activity className="w-5 h-5" />
                                         </div>
                                         <div>
@@ -432,7 +432,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                             onChange={() => setCanWithdraw(!canWithdraw)}
                                             className="sr-only peer"
                                         />
-                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-deep-blue-violet-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-deep-blue-violet-600"></div>
                                     </label>
                                 </div>
                             </div>
@@ -441,8 +441,8 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
 
                     {activeTab === 'gateways' && (
                         <div className="space-y-6">
-                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                                <p className="text-sm text-blue-800">
+                            <div className="bg-deep-blue-violet-50 border border-deep-blue-violet-200 rounded-lg p-4">
+                                <p className="text-sm text-deep-blue-violet-800">
                                     These settings apply per gateway for this merchant. They work underneath the global gateway switches and the merchant-wide capability toggles.
                                 </p>
                             </div>
@@ -459,7 +459,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                     <div key={code} className="border border-gray-200 rounded-lg overflow-hidden">
                                         <div className="bg-gray-50 px-4 py-3 flex items-center justify-between border-b border-gray-200">
                                             <div className="flex items-center gap-3">
-                                                <div className={`w-8 h-8 rounded flex items-center justify-center text-white text-xs font-bold ${isMtn ? 'bg-yellow-400' : 'bg-orange-500'}`}>
+                                                <div className={`w-8 h-8 rounded flex items-center justify-center text-white text-xs font-bold ${isMtn ? 'bg-yellow-400' : 'bg-crimson-red-500'}`}>
                                                     {isMtn ? 'MTN' : 'OM'}
                                                 </div>
                                                 <h4 className="font-semibold text-gray-900">{isMtn ? 'MTN Mobile Money' : 'Orange Money'}</h4>
@@ -481,7 +481,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                                 <button
                                                     onClick={() => handleSaveGateway(code)}
                                                     disabled={updateGatewayConfigMutation.isPending}
-                                                    className="ml-2 p-1.5 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 transition-colors disabled:opacity-50"
+                                                    className="ml-2 p-1.5 bg-deep-blue-violet-50 text-deep-blue-violet-600 rounded hover:bg-deep-blue-violet-100 transition-colors disabled:opacity-50"
                                                     title="Save Gateway Settings"
                                                 >
                                                     {updateGatewayConfigMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
@@ -499,7 +499,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                                         ...prev,
                                                         [code]: { ...gateways[code], canCollect: !gateways[code].canCollect }
                                                     }))}
-                                                    className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300"
+                                                    className="w-4 h-4 text-deep-blue-violet-600 rounded focus:ring-deep-blue-violet-500 border-gray-300"
                                                 />
                                             </label>
                                             <label className="flex items-center justify-between p-3 border border-gray-200 rounded hover:bg-gray-50 cursor-pointer">
@@ -511,7 +511,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                                                         ...prev,
                                                         [code]: { ...gateways[code], canDisburse: !gateways[code].canDisburse }
                                                     }))}
-                                                    className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300"
+                                                    className="w-4 h-4 text-deep-blue-violet-600 rounded focus:ring-deep-blue-violet-500 border-gray-300"
                                                 />
                                             </label>
                                         </div>
@@ -534,7 +534,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                         <button
                             onClick={handleSaveStatus}
                             disabled={updateStatusMutation.isPending}
-                            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="px-4 py-2 text-sm font-medium text-white bg-deep-blue-violet-600 rounded-lg hover:bg-deep-blue-violet-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {updateStatusMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                             Update Status
@@ -544,7 +544,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                         <button
                             onClick={handleSaveProfile}
                             disabled={updateMerchantMutation.isPending}
-                            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                            className="px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg hover:bg-deep-blue-violet-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                         >
                             {updateMerchantMutation.isPending ? (
                                 <>
@@ -563,7 +563,7 @@ export default function ManageMerchantModal({ merchant, onClose }: ManageMerchan
                         <button
                             onClick={handleSaveCapabilities}
                             disabled={updateCapabilitiesMutation.isPending}
-                            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="px-4 py-2 text-sm font-medium text-white bg-deep-blue-violet-600 rounded-lg hover:bg-deep-blue-violet-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {updateCapabilitiesMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                             Update Capabilities

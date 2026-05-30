@@ -67,7 +67,7 @@ export default function WalletPage() {
             case "completed":
                 return "text-green-600 dark:text-green-400";
             case "pending":
-                return "text-orange-600 dark:text-orange-400";
+                return "text-crimson-red-600 dark:text-crimson-red-400";
             case "failed":
                 return "text-red-600 dark:text-red-400";
             default:
@@ -208,7 +208,7 @@ export default function WalletPage() {
                     </p>
                     <button
                         onClick={() => window.location.reload()}
-                        className="px-4 py-2 bg-orange-500 text-white rounded-md text-sm font-semibold hover:bg-orange-600 transition-colors"
+                        className="px-4 py-2 bg-crimson-red-500 text-white rounded-md text-sm font-semibold hover:bg-crimson-red-600 transition-colors"
                     >
                         Retry
                     </button>
@@ -245,10 +245,10 @@ export default function WalletPage() {
             {/* BALANCE OVERVIEW */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                 {/* Available Balance - Primary card with orange accent */}
-                <div className="bg-background rounded-lg p-3 border border-border border-l-2 border-l-orange-500 hover:shadow-sm transition-shadow">
+                <div className="bg-background rounded-lg p-3 border border-border border-l-2 border-l-crimson-red-500 hover:shadow-sm transition-shadow">
                     <div className="flex items-start justify-between mb-2">
                         <div className="w-8 h-8 bg-muted/60 rounded-lg flex items-center justify-center">
-                            <WalletIcon className="w-4 h-4 text-orange-500" />
+                            <WalletIcon className="w-4 h-4 text-crimson-red-500" />
                         </div>
                         <span className="text-[10px] font-medium flex items-center gap-0.5 text-red-600 dark:text-red-400">
                             <TrendingDown className="w-2.5 h-2.5" />
@@ -258,7 +258,7 @@ export default function WalletPage() {
                     <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide mb-1">
                         Available Balance
                     </p>
-                    <p className="text-base font-semibold text-orange-500 mb-0.5">
+                    <p className="text-base font-semibold text-crimson-red-500 mb-0.5">
                         FCFA {formatNumber(balanceData!.available)}
                     </p>
                     <p className="text-[10px] text-muted-foreground">
@@ -329,7 +329,7 @@ export default function WalletPage() {
                         <button
                             type="button"
                             onClick={() => setShowTopUpModal(true)}
-                            className="px-4 py-2.5 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors"
+                            className="px-4 py-2.5 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors"
                         >
                             Direct Mobile Top-Up
                         </button>
@@ -361,7 +361,7 @@ export default function WalletPage() {
                         <button className="px-3 py-1.5 bg-background border border-border rounded-lg text-xs font-medium hover:bg-muted transition-colors">
                             7 Days
                         </button>
-                        <button className="px-3 py-1.5 bg-orange-500 text-white rounded-lg text-xs font-medium">
+                        <button className="px-3 py-1.5 bg-crimson-red-500 text-white rounded-lg text-xs font-medium">
                             30 Days
                         </button>
                         <button className="px-3 py-1.5 bg-background border border-border rounded-lg text-xs font-medium hover:bg-muted transition-colors">
@@ -387,7 +387,7 @@ export default function WalletPage() {
             <div className="bg-background rounded-lg border border-border overflow-hidden">
                 <div className="px-3 py-2 border-b border-border flex items-center justify-between">
                     <h3 className="text-sm font-semibold text-foreground">Recent Activity</h3>
-                    <button className="text-xs font-medium text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-1">
+                    <button className="text-xs font-medium text-crimson-red-600 dark:text-crimson-red-400 hover:underline flex items-center gap-1">
                         View All
                         <ArrowUpRight className="w-3 h-3" />
                     </button>
@@ -458,7 +458,7 @@ export default function WalletPage() {
                                                     activity.status === "completed"
                                                         ? "bg-green-500"
                                                         : activity.status === "pending"
-                                                        ? "bg-orange-500"
+                                                        ? "bg-crimson-red-500"
                                                         : "bg-red-500"
                                                 }`}
                                             />
@@ -478,7 +478,7 @@ export default function WalletPage() {
                         <button className="p-2 hover:bg-muted rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                             <ChevronLeft className="w-4 h-4" />
                         </button>
-                        <button className="px-3 py-1 bg-orange-500 text-white rounded text-xs font-medium">
+                        <button className="px-3 py-1 bg-crimson-red-500 text-white rounded text-xs font-medium">
                             1
                         </button>
                         <button className="px-3 py-1 hover:bg-muted rounded text-xs font-medium">2</button>
@@ -619,7 +619,7 @@ export default function WalletPage() {
                                 </div>
                             </div>
 
-                            <button className="w-full px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors">
+                            <button className="w-full px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors">
                                 Withdraw {withdrawAmount || "0"} FCFA
                             </button>
                         </div>
@@ -780,7 +780,7 @@ export default function WalletPage() {
                                 </button>
                                 <button
                                     onClick={handleTopUp}
-                                    className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                    className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-sm font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                     disabled={topUpMutation.isPending}
                                 >
                                     {topUpMutation.isPending ? (

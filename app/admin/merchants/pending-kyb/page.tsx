@@ -150,7 +150,7 @@ export default function PendingKYBPage() {
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
                     <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                        <Clock className="w-6 h-6 text-blue-600" />
+                        <Clock className="w-6 h-6 text-deep-blue-violet-600" />
                         Pending KYB Review
                     </h1>
                     <p className="text-xs text-gray-500 mt-1">Review and approve merchant business documentation</p>
@@ -162,7 +162,7 @@ export default function PendingKYBPage() {
                         <input
                             type="text"
                             placeholder="Search merchants..."
-                            className="pl-9 pr-4 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 w-64 text-sm transition-all"
+                            className="pl-9 pr-4 py-1.5 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500/20 focus:border-deep-blue-violet-500 w-64 text-sm transition-all"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
@@ -182,7 +182,7 @@ export default function PendingKYBPage() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
                     <div className="flex items-center gap-2 mb-2">
-                        <div className="p-1.5 bg-blue-50 rounded-lg text-blue-600">
+                        <div className="p-1.5 bg-deep-blue-violet-50 rounded-lg text-deep-blue-violet-600">
                             <Layers className="w-4 h-4" />
                         </div>
                         <span className="text-xs font-medium text-gray-500">Total Pending</span>
@@ -193,7 +193,7 @@ export default function PendingKYBPage() {
                         ) : (
                             <>
                                 <span className="text-xl font-bold text-gray-900">{submissions.length}</span>
-                                <span className="text-[10px] text-blue-600 font-medium">submissions</span>
+                                <span className="text-[10px] text-deep-blue-violet-600 font-medium">submissions</span>
                             </>
                         )}
                     </div>
@@ -201,7 +201,7 @@ export default function PendingKYBPage() {
 
                 <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
                     <div className="flex items-center gap-2 mb-2">
-                        <div className="p-1.5 bg-orange-50 rounded-lg text-orange-600">
+                        <div className="p-1.5 bg-crimson-red-50 rounded-lg text-crimson-red-600">
                             <AlertCircle className="w-4 h-4" />
                         </div>
                         <span className="text-xs font-medium text-gray-500">Oldest Submission</span>
@@ -214,7 +214,7 @@ export default function PendingKYBPage() {
                                 <span className="text-xl font-bold text-gray-900">
                                     {Math.max(...submissions.map(s => s.ageInDays))}d
                                 </span>
-                                <span className="text-[10px] text-orange-600 font-medium">Needs attention</span>
+                                <span className="text-[10px] text-crimson-red-600 font-medium">Needs attention</span>
                             </>
                         ) : (
                             <span className="text-xs text-gray-400">No data</span>
@@ -285,7 +285,7 @@ export default function PendingKYBPage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
-                            className="group bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all duration-300 overflow-hidden"
+                            className="group bg-white border border-gray-200 rounded-lg hover:border-deep-blue-violet-300 hover:shadow-sm transition-all duration-300 overflow-hidden"
                         >
                             <div className="p-4">
                                 {/* Header Section */}
@@ -293,7 +293,7 @@ export default function PendingKYBPage() {
                                     {/* Left: Merchant Info */}
                                     <div className="flex gap-3 flex-1">
                                         <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${item.priority === 'urgent' ? 'bg-red-50 text-red-600' :
-                                            item.priority === 'attention' ? 'bg-orange-50 text-orange-600' : 'bg-blue-50 text-blue-600'
+                                            item.priority === 'attention' ? 'bg-crimson-red-50 text-crimson-red-600' : 'bg-deep-blue-violet-50 text-deep-blue-violet-600'
                                             }`}>
                                             <Building2 className="w-5 h-5" />
                                         </div>
@@ -301,7 +301,7 @@ export default function PendingKYBPage() {
                                             <div className="flex items-center gap-2 mb-1">
                                                 <h3 className="font-bold text-gray-900 text-sm truncate">{item.merchant.businessName}</h3>
                                                 {item.isResubmission && (
-                                                    <span className="px-1.5 py-0.5 bg-blue-50 text-blue-600 text-[10px] font-semibold rounded-full border border-blue-200 shrink-0">
+                                                    <span className="px-1.5 py-0.5 bg-deep-blue-violet-50 text-deep-blue-violet-600 text-[10px] font-semibold rounded-full border border-deep-blue-violet-200 shrink-0">
                                                         Resubmission
                                                     </span>
                                                 )}
@@ -340,12 +340,12 @@ export default function PendingKYBPage() {
                                             </div>
 
                                             {/* Documents Count */}
-                                            <div className="bg-blue-50 rounded-lg px-2.5 py-1.5 border border-blue-200 min-w-[100px]">
+                                            <div className="bg-deep-blue-violet-50 rounded-lg px-2.5 py-1.5 border border-deep-blue-violet-200 min-w-[100px]">
                                                 <div className="flex items-center gap-1.5 mb-0.5">
-                                                    <FileText className="w-3 h-3 text-blue-600" />
-                                                    <span className="text-[10px] font-medium text-blue-700 uppercase tracking-wide">Documents</span>
+                                                    <FileText className="w-3 h-3 text-deep-blue-violet-600" />
+                                                    <span className="text-[10px] font-medium text-deep-blue-violet-700 uppercase tracking-wide">Documents</span>
                                                 </div>
-                                                <p className="text-xs font-bold text-blue-900">
+                                                <p className="text-xs font-bold text-deep-blue-violet-900">
                                                     {item.documents.length} Uploaded
                                                 </p>
                                             </div>
@@ -354,7 +354,7 @@ export default function PendingKYBPage() {
                                         {/* Priority Badge */}
                                         <div className="flex items-center gap-2">
                                             <span className={`px-2 py-0.5 text-[10px] font-bold rounded-lg border ${item.priority === 'urgent' ? 'bg-red-50 text-red-700 border-red-200' :
-                                                item.priority === 'attention' ? 'bg-orange-50 text-orange-700 border-orange-200' :
+                                                item.priority === 'attention' ? 'bg-crimson-red-50 text-crimson-red-700 border-crimson-red-200' :
                                                     'bg-green-50 text-green-700 border-green-200'
                                                 }`}>
                                                 {item.priority.toUpperCase()}
@@ -368,7 +368,7 @@ export default function PendingKYBPage() {
                                     <div className="flex items-center gap-3">
                                         <button
                                             onClick={() => openReviewModal(item)}
-                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all text-xs shadow-sm hover:shadow-md"
+                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white font-semibold rounded-lg transition-all text-xs shadow-sm hover:shadow-md"
                                         >
                                             <Eye className="w-3.5 h-3.5" />
                                             Review Docs
@@ -411,9 +411,9 @@ export default function PendingKYBPage() {
                                             ) : doc.reviewStatus === 'REJECTED' ? (
                                                 <FileWarning className="w-6 h-6 text-red-600 bg-red-100 p-1 rounded-md shrink-0" />
                                             ) : doc.status === 'valid' ? (
-                                                <FileCheck className="w-6 h-6 text-blue-600 bg-blue-100 p-1 rounded-md shrink-0" />
+                                                <FileCheck className="w-6 h-6 text-deep-blue-violet-600 bg-deep-blue-violet-100 p-1 rounded-md shrink-0" />
                                             ) : (
-                                                <FileWarning className="w-6 h-6 text-orange-600 bg-orange-100 p-1 rounded-md shrink-0" />
+                                                <FileWarning className="w-6 h-6 text-crimson-red-600 bg-crimson-red-100 p-1 rounded-md shrink-0" />
                                             )}
                                             <div className="min-w-0 flex-1">
                                                 <div className="flex items-center justify-between">
@@ -429,9 +429,9 @@ export default function PendingKYBPage() {
 
                                 {/* Admin Note Preview */}
                                 {item.notes && (
-                                    <div className="mt-3 flex items-start gap-2 bg-blue-50 p-2 rounded-lg border border-blue-200">
-                                        <MessageSquare className="w-3 h-3 text-blue-600 mt-0.5 shrink-0" />
-                                        <p className="text-xs text-blue-800 font-medium">&quot;{item.notes}&quot;</p>
+                                    <div className="mt-3 flex items-start gap-2 bg-deep-blue-violet-50 p-2 rounded-lg border border-deep-blue-violet-200">
+                                        <MessageSquare className="w-3 h-3 text-deep-blue-violet-600 mt-0.5 shrink-0" />
+                                        <p className="text-xs text-deep-blue-violet-800 font-medium">&quot;{item.notes}&quot;</p>
                                     </div>
                                 )}
                             </div>
@@ -467,8 +467,8 @@ export default function PendingKYBPage() {
                             {/* Modal Header */}
                             <div className="p-4 border-b border-gray-200 flex items-center justify-between shrink-0 bg-white">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
-                                        <Building2 className="w-4 h-4 text-blue-600" />
+                                    <div className="w-8 h-8 bg-deep-blue-violet-50 rounded-lg flex items-center justify-center">
+                                        <Building2 className="w-4 h-4 text-deep-blue-violet-600" />
                                     </div>
                                     <div>
                                         <h2 className="text-sm font-bold text-gray-900">{selectedMerchant.merchant.businessName}</h2>
@@ -574,7 +574,7 @@ export default function PendingKYBPage() {
                                                                 <div className="flex gap-2">
                                                                     <button
                                                                         onClick={() => window.open(doc.url, '_blank')}
-                                                                        className="flex-1 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
+                                                                        className="flex-1 px-3 py-1.5 bg-deep-blue-violet-50 hover:bg-deep-blue-violet-100 text-deep-blue-violet-700 rounded-lg text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
                                                                     >
                                                                         <Eye className="w-3.5 h-3.5" />
                                                                         View
@@ -612,14 +612,14 @@ export default function PendingKYBPage() {
                                                         key={doc.id}
                                                         className={`p-3 rounded-lg border transition-all ${doc.reviewStatus === 'APPROVED' ? 'bg-green-50 border-green-200' :
                                                             doc.reviewStatus === 'REJECTED' ? 'bg-red-50 border-red-200' :
-                                                                'bg-white border-gray-200 hover:border-blue-300'
+                                                                'bg-white border-gray-200 hover:border-deep-blue-violet-300'
                                                             }`}
                                                     >
                                                         <div className="flex items-start justify-between mb-2">
                                                             <div className="flex items-center gap-3 flex-1 min-w-0">
                                                                 <FileText className={`w-4 h-4 shrink-0 ${doc.reviewStatus === 'APPROVED' ? 'text-green-600' :
                                                                     doc.reviewStatus === 'REJECTED' ? 'text-red-600' :
-                                                                        'text-blue-600'
+                                                                        'text-deep-blue-violet-600'
                                                                     }`} />
                                                                 <div className="min-w-0 flex-1">
                                                                     <div className="flex items-center gap-2">
@@ -767,8 +767,8 @@ export default function PendingKYBPage() {
                                 // KYB not approved - Show warning
                                 <>
                                     <div className="p-6 text-center">
-                                        <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                            <AlertCircle className="w-8 h-8 text-orange-600" />
+                                        <div className="w-16 h-16 bg-crimson-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <AlertCircle className="w-8 h-8 text-crimson-red-600" />
                                         </div>
                                         <h3 className="text-lg font-bold text-gray-900 mb-2">
                                             KYB Not Approved
@@ -776,8 +776,8 @@ export default function PendingKYBPage() {
                                         <p className="text-sm text-gray-600 mb-3">
                                             <span className="font-semibold text-gray-900">{productionMerchant.merchant.businessName}</span> has not completed the KYB review process. Please approve their KYB first before granting production access.
                                         </p>
-                                        <div className="bg-orange-50 border border-orange-200 rounded-lg p-3 mb-4">
-                                            <p className="text-xs text-orange-800 font-medium">
+                                        <div className="bg-crimson-red-50 border border-crimson-red-200 rounded-lg p-3 mb-4">
+                                            <p className="text-xs text-crimson-red-800 font-medium">
                                                 {productionMerchant.documents.filter(doc => doc.reviewStatus === 'APPROVED').length} of {productionMerchant.documents.length} documents approved
                                             </p>
                                         </div>
@@ -796,7 +796,7 @@ export default function PendingKYBPage() {
                                         <button
                                             onClick={handleGrantProduction}
                                             disabled={isApprovingProduction}
-                                            className="flex-1 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-colors text-sm flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className="flex-1 px-4 py-2 bg-crimson-red-600 hover:bg-crimson-red-700 text-white font-semibold rounded-lg transition-colors text-sm flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                         >
                                             {isApprovingProduction ? (
                                                 <>

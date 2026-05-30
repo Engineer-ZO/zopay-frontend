@@ -39,7 +39,7 @@ export function LinkTransactionModal({
       <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 max-w-md w-full">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
           <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-            <LinkIcon className="w-5 h-5 text-blue-600" />
+            <LinkIcon className="w-5 h-5 text-deep-blue-violet-600" />
             Link Transaction
           </h3>
           <button
@@ -61,7 +61,7 @@ export function LinkTransactionModal({
               onChange={(e) => setTransactionId(e.target.value)}
               placeholder="tx-123"
               required
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500"
             />
             <p className="text-xs text-gray-500 mt-1">
               Enter the ZitoPay transaction ID to link
@@ -77,7 +77,7 @@ export function LinkTransactionModal({
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Manually linked after investigation..."
               rows={3}
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 resize-none"
             />
           </div>
 
@@ -93,7 +93,7 @@ export function LinkTransactionModal({
             <button
               type="submit"
               disabled={isLoading || !transactionId.trim()}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-4 py-2 bg-deep-blue-violet-600 text-white rounded-lg text-xs font-semibold hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? "Linking..." : "Link Transaction"}
             </button>

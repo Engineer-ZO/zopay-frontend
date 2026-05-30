@@ -36,12 +36,12 @@ export default function WalletSettingsTab() {
   return (
     <div className="space-y-4">
       {/* Info Box */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <div className="bg-deep-blue-violet-50 border border-deep-blue-violet-200 rounded-lg p-4">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5 shrink-0" />
+          <AlertCircle className="w-5 h-5 text-deep-blue-violet-600 mt-0.5 shrink-0" />
           <div>
-            <h3 className="text-sm font-semibold text-blue-900 mb-1">Global Wallet Fee Settings</h3>
-            <p className="text-xs text-blue-700">
+            <h3 className="text-sm font-semibold text-deep-blue-violet-900 mb-1">Global Wallet Fee Settings</h3>
+            <p className="text-xs text-deep-blue-violet-700">
               These settings apply to <strong>ALL merchants</strong> globally. When enabled, platform fees will be charged on wallet operations (top-ups and withdrawals) for all merchants.
             </p>
           </div>
@@ -81,7 +81,7 @@ export default function WalletSettingsTab() {
               <button
                 onClick={() => setFormData(prev => ({ ...prev, chargePlatformFeeOnTopup: !prev.chargePlatformFeeOnTopup }))}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  formData.chargePlatformFeeOnTopup ? 'bg-blue-600' : 'bg-gray-300'
+                  formData.chargePlatformFeeOnTopup ? 'bg-deep-blue-violet-600' : 'bg-gray-300'
                 }`}
               >
                 <span
@@ -106,7 +106,7 @@ export default function WalletSettingsTab() {
               <button
                 onClick={() => setFormData(prev => ({ ...prev, chargePlatformFeeOnWithdrawal: !prev.chargePlatformFeeOnWithdrawal }))}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  formData.chargePlatformFeeOnWithdrawal ? 'bg-blue-600' : 'bg-gray-300'
+                  formData.chargePlatformFeeOnWithdrawal ? 'bg-deep-blue-violet-600' : 'bg-gray-300'
                 }`}
               >
                 <span
@@ -131,7 +131,7 @@ export default function WalletSettingsTab() {
               <button
                 onClick={handleSubmit}
                 disabled={updateMutation.isPending}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
+                className="flex items-center gap-2 px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
               >
                 <Save className="w-4 h-4" />
                 {updateMutation.isPending ? "Saving..." : "Save Settings"}

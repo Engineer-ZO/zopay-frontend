@@ -738,10 +738,10 @@ app.post('/webhooks/zitopay', async (req, res) => {
                 language="javascript"
             />
 
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-blue-700 dark:text-blue-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-blue-900 dark:text-blue-100">
+                    <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
                             <strong>Production Tip:</strong> In production, use Redis or a database to track processed delivery IDs instead of an in-memory Set. This ensures idempotency works across server restarts and multiple server instances.
                         </p>
@@ -813,7 +813,7 @@ app.post('/webhooks/zitopay', (req, res) => {
                             <td className="py-1.5">Check error logs, fix issue</td>
                         </tr>
                         <tr>
-                            <td className="py-1.5 pr-4"><span className="px-2 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 rounded text-xs font-medium">INVALID_SIGNATURE</span></td>
+                            <td className="py-1.5 pr-4"><span className="px-2 py-0.5 bg-crimson-red-100 dark:bg-crimson-red-900/30 text-crimson-red-700 dark:text-crimson-red-400 rounded text-xs font-medium">INVALID_SIGNATURE</span></td>
                             <td className="py-1.5">Signature verification failed</td>
                             <td className="py-1.5">Check webhook secret, verify implementation</td>
                         </tr>

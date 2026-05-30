@@ -47,8 +47,8 @@ function Verify2FAContent() {
         <div className="bg-background rounded-2xl shadow-xl border border-border p-6 sm:p-8">
           {/* Header */}
           <div className="text-center mb-6">
-            <div className="w-14 h-14 bg-orange-100 dark:bg-orange-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Shield className="w-7 h-7 text-orange-500" />
+            <div className="w-14 h-14 bg-crimson-red-100 dark:bg-crimson-red-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Shield className="w-7 h-7 text-crimson-red-500" />
             </div>
             <h1 className="text-xl font-bold text-foreground mb-1">Two-Factor Authentication</h1>
             <p className="text-xs text-muted-foreground">

@@ -21,7 +21,7 @@ export function ReconciliationQueueTable({
       case "MISSING_IN_ZITOPAY":
         return "bg-red-100 text-red-700";
       case "MISSING_IN_GATEWAY":
-        return "bg-orange-100 text-orange-700";
+        return "bg-crimson-red-100 text-crimson-red-700";
       case "AMOUNT_MISMATCH":
         return "bg-yellow-100 text-yellow-700";
       default:
@@ -34,7 +34,7 @@ export function ReconciliationQueueTable({
       case "MTN_MOMO":
         return "bg-yellow-100 text-yellow-700";
       case "ORANGE_MONEY":
-        return "bg-orange-100 text-orange-700";
+        return "bg-crimson-red-100 text-crimson-red-700";
       default:
         return "bg-gray-100 text-gray-700";
     }
@@ -117,7 +117,7 @@ export function ReconciliationQueueTable({
               <tr
                 key={item.id}
                 className={`hover:bg-gray-50/50 transition-colors ${
-                  !item.resolved ? "bg-orange-50/30" : ""
+                  !item.resolved ? "bg-crimson-red-50/30" : ""
                 }`}
               >
                 <td className="px-4 py-2.5">
@@ -154,7 +154,7 @@ export function ReconciliationQueueTable({
                   {item.resolved ? (
                     <CheckCircle2 className="w-4 h-4 text-green-600" />
                   ) : (
-                    <XCircle className="w-4 h-4 text-orange-600" />
+                    <XCircle className="w-4 h-4 text-crimson-red-600" />
                   )}
                 </td>
                 <td className="px-4 py-2.5 text-right">
@@ -162,7 +162,7 @@ export function ReconciliationQueueTable({
                     <div className="flex items-center justify-end gap-1.5">
                       <button
                         onClick={() => onLink(item.id)}
-                        className="px-2 py-1 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-medium rounded-md transition-all flex items-center gap-1"
+                        className="px-2 py-1 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-[10px] font-medium rounded-md transition-all flex items-center gap-1"
                       >
                         <LinkIcon className="w-3 h-3" />
                         Link

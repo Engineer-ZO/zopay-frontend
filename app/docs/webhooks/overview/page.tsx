@@ -21,10 +21,10 @@ export default function WebhooksOverviewPage() {
                 <li>Your server returns a 200 OK response within 30 seconds</li>
             </ol>
 
-            <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4 my-6">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-orange-700 dark:text-orange-400 text-lg mt-0.5">⚠️</span>
-                    <div className="flex-1 text-sm text-orange-900 dark:text-orange-100">
+                    <span className="text-crimson-red-700 dark:text-crimson-red-400 text-lg mt-0.5">⚠️</span>
+                    <div className="flex-1 text-sm text-crimson-red-900 dark:text-crimson-red-100">
                         <p className="leading-relaxed">
                             <strong>Important:</strong> Your webhook secret is shown only once when you register the endpoint. Make sure to save it securely in your environment variables or secret management system. You&apos;ll need it to verify webhook signatures.
                         </p>
@@ -81,10 +81,10 @@ export default function WebhooksOverviewPage() {
                 </table>
             </div>
 
-            <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4 my-6">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-orange-700 dark:text-orange-400 text-lg mt-0.5">⚠️</span>
-                    <div className="flex-1 text-sm text-orange-900 dark:text-orange-100">
+                    <span className="text-crimson-red-700 dark:text-crimson-red-400 text-lg mt-0.5">⚠️</span>
+                    <div className="flex-1 text-sm text-crimson-red-900 dark:text-crimson-red-100">
                         <p className="leading-relaxed">
                             <strong>Required Events:</strong> All 6 events listed above must be included when registering a webhook endpoint. You cannot subscribe to a subset of events.
                         </p>
@@ -156,10 +156,10 @@ export default function WebhooksOverviewPage() {
                 After 6 failed attempts, the webhook is moved to the <strong>Dead Letter Queue (DLQ)</strong> where you can manually replay it after fixing the issue.
             </p>
 
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-blue-700 dark:text-blue-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-blue-900 dark:text-blue-100">
+                    <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
                             <strong>Response Codes:</strong> Return 200 OK even if processing fails (if you don&apos;t want retries), or return 500/502/503 if you want ZitoPay to retry the webhook.
                         </p>
@@ -214,7 +214,7 @@ export default function WebhooksOverviewPage() {
                         Error during processing - check logs
                     </li>
                     <li>
-                        <span className="px-2 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 rounded text-xs font-medium mr-2">INVALID_SIGNATURE</span>
+                        <span className="px-2 py-0.5 bg-crimson-red-100 dark:bg-crimson-red-900/30 text-crimson-red-700 dark:text-crimson-red-400 rounded text-xs font-medium mr-2">INVALID_SIGNATURE</span>
                         Signature verification failed - security issue
                     </li>
                     <li>

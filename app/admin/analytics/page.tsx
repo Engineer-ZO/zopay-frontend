@@ -23,9 +23,9 @@ export default function AnalyticsPage() {
 
     // Metrics for Cards
     const metrics = [
-        { label: "Total Payment Volume", value: "4.5B", unit: "FCFA", trend: "+15%", positive: true, icon: DollarSign, color: "blue" },
+        { label: "Total Payment Volume", value: "4.5B", unit: "FCFA", trend: "+15%", positive: true, icon: DollarSign, color: "deep-blue-violet" },
         { label: "Gross Revenue", value: "112M", unit: "FCFA", trend: "+8%", positive: true, icon: TrendingUp, color: "green" },
-        { label: "Avg Transaction Value", value: "12,400", unit: "FCFA", trend: "-2%", positive: false, icon: Activity, color: "orange" },
+        { label: "Avg Transaction Value", value: "12,400", unit: "FCFA", trend: "-2%", positive: false, icon: Activity, color: "crimson-red" },
         { label: "Conversion Rate", value: "96.8%", unit: "%", trend: "+1.2%", positive: true, icon: Zap, color: "purple" }
     ];
 
@@ -35,7 +35,7 @@ export default function AnalyticsPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                        <BarChart3 className="w-8 h-8 text-blue-600" />
+                        <BarChart3 className="w-8 h-8 text-deep-blue-violet-600" />
                         Analytics
                     </h1>
                     <p className="text-sm text-gray-500 mt-1">Holistic view of ecosystem growth and performance</p>
@@ -51,7 +51,7 @@ export default function AnalyticsPage() {
                         <Filter className="w-4 h-4 text-gray-500" />
                         Gateway: All
                     </button>
-                    <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 rounded-lg text-sm font-medium hover:bg-blue-700 text-white">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-deep-blue-violet-600 rounded-lg text-sm font-medium hover:bg-deep-blue-violet-700 text-white">
                         <Download className="w-4 h-4" />
                         Export
                     </button>
@@ -63,7 +63,7 @@ export default function AnalyticsPage() {
                 {metrics.map((m, i) => (
                     <div key={i} className={`p-4 rounded-xl border bg-white shadow-sm border-gray-200`}>
                         <div className="flex items-center justify-between mb-2">
-                            <div className={`p-2 rounded-lg ${m.color === 'blue' ? 'bg-blue-50 text-blue-700' : m.color === 'green' ? 'bg-green-50 text-green-700' : m.color === 'orange' ? 'bg-orange-50 text-orange-700' : 'bg-purple-50 text-purple-700'}`}>
+                            <div className={`p-2 rounded-lg ${m.color === 'blue' ? 'bg-deep-blue-violet-50 text-deep-blue-violet-700' : m.color === 'green' ? 'bg-green-50 text-green-700' : m.color === 'orange' ? 'bg-crimson-red-50 text-crimson-red-700' : 'bg-purple-50 text-purple-700'}`}>
                                 <m.icon className="w-5 h-5" />
                             </div>
                             <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${m.positive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
@@ -88,7 +88,7 @@ export default function AnalyticsPage() {
                         <h3 className="text-lg font-bold text-gray-900">Revenue & Volume Trends</h3>
                         <div className="flex gap-4">
                             <div className="flex items-center gap-2">
-                                <div className="w-3 h-3 rounded-full bg-blue-600" />
+                                <div className="w-3 h-3 rounded-full bg-deep-blue-violet-600" />
                                 <span className="text-xs text-gray-500">TPV</span>
                             </div>
                             <div className="flex items-center gap-2">
@@ -111,8 +111,8 @@ export default function AnalyticsPage() {
                     <div className="space-y-4 flex-1">
                         {[
                             { label: "MTN MoMo", value: 45, color: "bg-yellow-400", share: "98.2%", icon: Smartphone },
-                            { label: "Orange Money", value: 35, color: "bg-orange-500", share: "94.5%", icon: Smartphone },
-                            { label: "Bank Transfer", value: 12, color: "bg-blue-600", share: "99.1%", icon: Landmark },
+                            { label: "Orange Money", value: 35, color: "bg-crimson-red-500", share: "94.5%", icon: Smartphone },
+                            { label: "Bank Transfer", value: 12, color: "bg-deep-blue-violet-600", share: "99.1%", icon: Landmark },
                             { label: "Others", value: 8, color: "bg-gray-400", share: "92.0%", icon: Globe }
                         ].map((gw, i) => (
                             <div key={i}>
@@ -121,7 +121,7 @@ export default function AnalyticsPage() {
                                         <gw.icon className="w-4 h-4 text-gray-400" />
                                         <span className="text-sm font-medium text-gray-700">{gw.label}</span>
                                     </div>
-                                    <span className={`text-xs font-medium ${parseFloat(gw.share) > 95 ? 'text-green-600' : 'text-orange-600'}`}>{gw.share} Success</span>
+                                    <span className={`text-xs font-medium ${parseFloat(gw.share) > 95 ? 'text-green-600' : 'text-crimson-red-600'}`}>{gw.share} Success</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -153,9 +153,9 @@ export default function AnalyticsPage() {
                     <h3 className="text-lg font-bold text-gray-900 mb-4">Merchant Tier Distribution</h3>
                     <div className="space-y-4">
                         {[
-                            { label: "High Volume (> 10M)", count: 45, volume: "3.2B", color: "bg-blue-600" },
-                            { label: "Mid Tier (1M - 10M)", count: 280, volume: "1.1B", color: "bg-blue-400" },
-                            { label: "Long Tail (< 1M)", count: 1240, volume: "0.2B", color: "bg-blue-200" }
+                            { label: "High Volume (> 10M)", count: 45, volume: "3.2B", color: "bg-deep-blue-violet-600" },
+                            { label: "Mid Tier (1M - 10M)", count: 280, volume: "1.1B", color: "bg-deep-blue-violet-400" },
+                            { label: "Long Tail (< 1M)", count: 1240, volume: "0.2B", color: "bg-deep-blue-violet-200" }
                         ].map((tier, i) => (
                             <div key={i} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors border border-transparent hover:border-gray-100">
                                 <div>

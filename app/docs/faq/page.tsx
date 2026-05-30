@@ -111,17 +111,17 @@ export default function FAQPage() {
                 {/* Contact Support */}
                 <Link
                     href="/support"
-                    className="group bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 hover:shadow-md transition-all duration-200 hover:scale-[1.01]"
+                    className="group bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 hover:shadow-md transition-all duration-200 hover:scale-[1.01]"
                 >
                     <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
+                        <div className="w-10 h-10 bg-deep-blue-violet-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
                             <MessageCircle className="w-5 h-5 text-white" />
                         </div>
                         <div className="flex-1 min-w-0">
-                            <h3 className="text-sm font-bold text-blue-900 dark:text-blue-100 mb-1.5">
+                            <h3 className="text-sm font-bold text-deep-blue-violet-900 dark:text-deep-blue-violet-100 mb-1.5">
                                 Contact Support
                             </h3>
-                            <p className="text-xs text-blue-800 dark:text-blue-200 leading-relaxed">
+                            <p className="text-xs text-deep-blue-violet-800 dark:text-deep-blue-violet-200 leading-relaxed">
                                 Need help? Our support team is here to assist you with any questions or issues you may have.
                             </p>
                         </div>
@@ -131,17 +131,17 @@ export default function FAQPage() {
                 {/* Create a Ticket */}
                 <Link
                     href="/support/ticket"
-                    className="group bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4 hover:shadow-md transition-all duration-200 hover:scale-[1.01]"
+                    className="group bg-gradient-to-br from-crimson-red-50 to-crimson-red-100 dark:from-crimson-red-900/20 dark:to-crimson-red-800/20 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4 hover:shadow-md transition-all duration-200 hover:scale-[1.01]"
                 >
                     <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
+                        <div className="w-10 h-10 bg-crimson-red-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
                             <Ticket className="w-5 h-5 text-white" />
                         </div>
                         <div className="flex-1 min-w-0">
-                            <h3 className="text-sm font-bold text-orange-900 dark:text-orange-100 mb-1.5">
+                            <h3 className="text-sm font-bold text-crimson-red-900 dark:text-crimson-red-100 mb-1.5">
                                 Create a Ticket
                             </h3>
-                            <p className="text-xs text-orange-800 dark:text-orange-200 leading-relaxed">
+                            <p className="text-xs text-crimson-red-800 dark:text-crimson-red-200 leading-relaxed">
                                 Submit a support ticket for technical issues, feature requests, or detailed inquiries.
                             </p>
                         </div>

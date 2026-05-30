@@ -65,7 +65,7 @@ export function GenerateSettlementModal({
               value={periodStart}
               onChange={(e) => setPeriodStart(e.target.value)}
               required
-              className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-crimson-red-500 focus:border-crimson-red-500"
             />
           </div>
 
@@ -79,7 +79,7 @@ export function GenerateSettlementModal({
               onChange={(e) => setPeriodEnd(e.target.value)}
               required
               min={periodStart}
-              className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 bg-background border border-border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-crimson-red-500 focus:border-crimson-red-500"
             />
             <p className="text-xs text-muted-foreground mt-1">
               End date must be after start date
@@ -98,7 +98,7 @@ export function GenerateSettlementModal({
             <button
               type="submit"
               disabled={isLoading || !periodStart || !periodEnd}
-              className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg text-xs font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-xs font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? "Generating..." : "Generate Settlement"}
             </button>

@@ -56,8 +56,8 @@ export default function FeeSettingsPage() {
       {/* FEE PAYER SELECTION */}
       <div className="bg-background rounded-xl p-6 border border-border">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-            <Settings className="w-4 h-4 text-blue-600" />
+          <div className="w-8 h-8 bg-deep-blue-violet-100 rounded-lg flex items-center justify-center">
+            <Settings className="w-4 h-4 text-deep-blue-violet-600" />
           </div>
           <div>
             <h2 className="text-sm font-semibold text-foreground">Who Pays Transaction Fees?</h2>
@@ -71,14 +71,14 @@ export default function FeeSettingsPage() {
                 disabled={updateProfile.isPending}
             className={`p-4 rounded-lg border transition-colors text-left ${
               feePayer === 'PAYER'
-                ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800'
+                ? 'bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/20 border-deep-blue-violet-200 dark:border-deep-blue-violet-800'
                 : 'bg-background border-border hover:bg-muted'
             }`}
           >
             <div className="flex items-start gap-3">
               <div className={`w-4 h-4 rounded-full border-2 mt-0.5 ${
                 feePayer === 'PAYER' 
-                  ? 'bg-blue-500 border-blue-500' 
+                  ? 'bg-deep-blue-violet-500 border-deep-blue-violet-500' 
                   : 'border-border'
               }`}>
                 {feePayer === 'PAYER' && (
@@ -87,7 +87,7 @@ export default function FeeSettingsPage() {
               </div>
               <div className="flex-1">
                 <div className={`font-medium text-sm ${
-                  feePayer === 'PAYER' ? 'text-blue-700 dark:text-blue-400' : 'text-foreground'
+                  feePayer === 'PAYER' ? 'text-deep-blue-violet-700 dark:text-deep-blue-violet-400' : 'text-foreground'
                 }`}>
                   Customer (Payer)
                 </div>
@@ -102,14 +102,14 @@ export default function FeeSettingsPage() {
                 disabled={updateProfile.isPending}
             className={`p-4 rounded-lg border transition-colors text-left ${
               feePayer === 'MERCHANT'
-                ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800'
+                ? 'bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/20 border-deep-blue-violet-200 dark:border-deep-blue-violet-800'
                 : 'bg-background border-border hover:bg-muted'
             }`}
           >
             <div className="flex items-start gap-3">
               <div className={`w-4 h-4 rounded-full border-2 mt-0.5 ${
                 feePayer === 'MERCHANT' 
-                  ? 'bg-blue-500 border-blue-500' 
+                  ? 'bg-deep-blue-violet-500 border-deep-blue-violet-500' 
                   : 'border-border'
               }`}>
                 {feePayer === 'MERCHANT' && (
@@ -118,7 +118,7 @@ export default function FeeSettingsPage() {
               </div>
               <div className="flex-1">
                 <div className={`font-medium text-sm ${
-                  feePayer === 'MERCHANT' ? 'text-blue-700 dark:text-blue-400' : 'text-foreground'
+                  feePayer === 'MERCHANT' ? 'text-deep-blue-violet-700 dark:text-deep-blue-violet-400' : 'text-foreground'
                 }`}>
                   Merchant
                 </div>
@@ -148,7 +148,7 @@ export default function FeeSettingsPage() {
             <h3 className="text-sm font-semibold text-foreground mb-3">Transaction Fee Components</h3>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue-500 rounded-full mt-1.5"></div>
+                <div className="w-2 h-2 bg-deep-blue-violet-500 rounded-full mt-1.5"></div>
                 <div>
                   <div className="text-xs font-semibold text-foreground">Gateway Fees</div>
                   <div className="text-xs text-muted-foreground">
@@ -157,7 +157,7 @@ export default function FeeSettingsPage() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-blue-500 rounded-full mt-1.5"></div>
+                <div className="w-2 h-2 bg-deep-blue-violet-500 rounded-full mt-1.5"></div>
                 <div>
                   <div className="text-xs font-semibold text-foreground">Platform Fees</div>
                   <div className="text-xs text-muted-foreground">
@@ -168,7 +168,7 @@ export default function FeeSettingsPage() {
             </div>
           </div>
 
-          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
+          <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/20 rounded-lg p-4">
             <h3 className="text-sm font-semibold text-foreground mb-3">Example Calculation</h3>
             <div className="space-y-2 text-xs">
               <div className="flex justify-between">
@@ -188,7 +188,7 @@ export default function FeeSettingsPage() {
                   <span>Customer Pays:</span>
                   <span>10,200 XAF</span>
                 </div>
-                <div className="flex justify-between font-medium text-blue-600">
+                <div className="flex justify-between font-medium text-deep-blue-violet-600">
                   <span>You Receive:</span>
                   <span>10,000 XAF</span>
                 </div>
@@ -201,8 +201,8 @@ export default function FeeSettingsPage() {
       {/* NEGOTIATION OPTIONS */}
       <div className="bg-background rounded-xl p-6 border border-border">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
-            <TrendingUp className="w-4 h-4 text-orange-600" />
+          <div className="w-8 h-8 bg-crimson-red-100 rounded-lg flex items-center justify-center">
+            <TrendingUp className="w-4 h-4 text-crimson-red-600" />
           </div>
           <div>
             <h2 className="text-sm font-semibold text-foreground">Fee Negotiation</h2>
@@ -212,9 +212,9 @@ export default function FeeSettingsPage() {
 
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/20 rounded-lg p-4">
               <div className="flex items-center gap-2 mb-3">
-                <Mail className="w-4 h-4 text-orange-600" />
+                <Mail className="w-4 h-4 text-crimson-red-600" />
                 <h3 className="text-sm font-semibold text-foreground">Email Support</h3>
               </div>
               <p className="text-xs text-muted-foreground mb-3">
@@ -281,8 +281,8 @@ export default function FeeSettingsPage() {
       {/* FAQ */}
       <div className="bg-background rounded-xl p-6 border border-border">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-            <HelpCircle className="w-4 h-4 text-blue-600" />
+          <div className="w-8 h-8 bg-deep-blue-violet-100 rounded-lg flex items-center justify-center">
+            <HelpCircle className="w-4 h-4 text-deep-blue-violet-600" />
           </div>
           <div>
             <h2 className="text-sm font-semibold text-foreground">Frequently Asked Questions</h2>
@@ -291,13 +291,13 @@ export default function FeeSettingsPage() {
         </div>
 
         <div className="space-y-4">
-          <div className="border-l-2 border-blue-200 pl-4">
+          <div className="border-l-2 border-deep-blue-violet-200 pl-4">
             <h3 className="text-sm font-semibold text-foreground mb-1">Can I change the fee payer setting anytime?</h3>
             <p className="text-xs text-muted-foreground">
               Yes, you can change this setting at any time. The change takes effect immediately on all new transactions.
             </p>
           </div>
-          <div className="border-l-2 border-blue-200 pl-4">
+          <div className="border-l-2 border-deep-blue-violet-200 pl-4">
             <h3 className="text-sm font-semibold text-foreground mb-1">How are gateway fees determined?</h3>
             <p className="text-xs text-muted-foreground">
               Gateway fees are set by mobile money providers and may vary by country, transaction amount, and volume.
@@ -309,7 +309,7 @@ export default function FeeSettingsPage() {
               No, all fees are transparently displayed. You'll see the exact fee breakdown before confirming any transaction.
             </p>
           </div>
-          <div className="border-l-2 border-orange-200 pl-4">
+          <div className="border-l-2 border-crimson-red-200 pl-4">
             <h3 className="text-sm font-semibold text-foreground mb-1">What's the minimum transaction amount?</h3>
             <p className="text-xs text-muted-foreground">
               Minimum amounts vary by gateway and are typically around 1,000 XAF for most mobile money providers.

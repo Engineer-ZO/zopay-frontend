@@ -279,7 +279,7 @@ export default function PlatformSettingsPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                        <Settings className="w-8 h-8 text-blue-600" />
+                        <Settings className="w-8 h-8 text-deep-blue-violet-600" />
                         Platform Settings
                     </h1>
                     <p className="text-sm text-gray-500 mt-1">Configure global behavior, gateways, and system-wide parameters</p>
@@ -293,7 +293,7 @@ export default function PlatformSettingsPage() {
                         <button
                             onClick={handleProfileUpdate}
                             disabled={updateProfileMutation.isPending || !email.trim()}
-                            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-all disabled:opacity-70"
+                            className="flex items-center gap-2 px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-sm font-medium rounded-lg transition-all disabled:opacity-70"
                         >
                             {updateProfileMutation.isPending ? (
                                 <>
@@ -315,7 +315,7 @@ export default function PlatformSettingsPage() {
                         <button
                             onClick={handleMerchantRegistrationSave}
                             disabled={updateMerchantRegistrationMutation.isPending || platformSettingsLoading}
-                            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-all disabled:opacity-70"
+                            className="flex items-center gap-2 px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-sm font-medium rounded-lg transition-all disabled:opacity-70"
                         >
                             {updateMerchantRegistrationMutation.isPending ? (
                                 <>
@@ -339,7 +339,7 @@ export default function PlatformSettingsPage() {
                         <button
                             onClick={handleSave}
                             disabled={isSaving}
-                            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-all disabled:opacity-70"
+                            className="flex items-center gap-2 px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-sm font-medium rounded-lg transition-all disabled:opacity-70"
                         >
                             {isSaving ? (
                                 <>
@@ -371,7 +371,7 @@ export default function PlatformSettingsPage() {
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
                             className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap ${isActive
-                                ? "bg-blue-600 text-white"
+                                ? "bg-deep-blue-violet-600 text-white"
                                 : "text-gray-600 hover:bg-gray-100"
                                 }`}
                         >
@@ -425,11 +425,11 @@ export default function PlatformSettingsPage() {
                                                         onChange={(e) => setEmail(e.target.value)}
                                                         placeholder="admin@zitopay.com"
                                                         required
-                                                        className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                                        className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm"
                                                     />
                                                 </div>
                                                 {adminData?.admin && !adminData.admin.emailVerified && (
-                                                    <p className="text-xs text-orange-600">Email not verified. Please verify your email address.</p>
+                                                    <p className="text-xs text-crimson-red-600">Email not verified. Please verify your email address.</p>
                                                 )}
                                             </div>
                                             <div className="space-y-2">
@@ -457,7 +457,7 @@ export default function PlatformSettingsPage() {
                                             <input
                                                 type="password"
                                                 placeholder="Enter new password"
-                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm"
                                             />
                                             <p className="text-xs text-gray-500">Leave blank to keep current password</p>
                                         </div>
@@ -466,7 +466,7 @@ export default function PlatformSettingsPage() {
                                             <input
                                                 type="password"
                                                 placeholder="Confirm new password"
-                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm"
                                             />
                                         </div>
                                     </div>
@@ -536,7 +536,7 @@ export default function PlatformSettingsPage() {
                                                                 rel="noreferrer"
                                                                 aria-disabled={!applicationFormUrl.trim()}
                                                                 className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-md border ${applicationFormUrl.trim()
-                                                                    ? "border-blue-200 bg-blue-50 text-blue-700 hover:bg-blue-100"
+                                                                    ? "border-deep-blue-violet-200 bg-deep-blue-violet-50 text-deep-blue-violet-700 hover:bg-deep-blue-violet-100"
                                                                     : "border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed"
                                                                     }`}
                                                             >
@@ -552,7 +552,7 @@ export default function PlatformSettingsPage() {
                                                         placeholder="https://forms.google.com/..."
                                                         rows={2}
                                                         spellCheck={false}
-                                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm font-mono break-all resize-none"
+                                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-sm font-mono break-all resize-none"
                                                     />
                                                     <p className="text-xs text-gray-500">Google Form URL for merchant applications. Displayed when self-registration is disabled.</p>
                                                 </div>
@@ -617,7 +617,7 @@ export default function PlatformSettingsPage() {
                                         Platform Withdrawals
                                     </h3>
 
-                                    <div className="p-4 rounded-lg border border-orange-200 bg-orange-50">
+                                    <div className="p-4 rounded-lg border border-crimson-red-200 bg-crimson-red-50">
                                         <div className="flex items-start justify-between gap-4">
                                             <div>
                                                 <p className="text-sm font-semibold text-gray-900">Enable Platform Withdrawals</p>
@@ -738,7 +738,7 @@ export default function PlatformSettingsPage() {
                                                                         {item.description}
                                                                     </p>
                                                                     {isChildToggle && !notificationSettingsState.transactionAlertEmail && (
-                                                                        <p className="text-[11px] text-orange-600 mt-2">
+                                                                        <p className="text-[11px] text-crimson-red-600 mt-2">
                                                                             Transaction emails are disabled at the master level.
                                                                         </p>
                                                                     )}
@@ -780,7 +780,7 @@ export default function PlatformSettingsPage() {
                                             <div key={gateway.code} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
                                                 <div className="flex items-center justify-between mb-4">
                                                     <div className="flex items-center gap-3">
-                                                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-white text-sm ${gateway.code === 'MTN_MOMO' ? 'bg-yellow-400' : 'bg-orange-500'}`}>
+                                                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-white text-sm ${gateway.code === 'MTN_MOMO' ? 'bg-yellow-400' : 'bg-crimson-red-500'}`}>
                                                             {gateway.code === 'MTN_MOMO' ? 'MTN' : 'OM'}
                                                         </div>
                                                         <div>
@@ -812,7 +812,7 @@ export default function PlatformSettingsPage() {
                                                                 className="sr-only peer"
                                                                 disabled={!gateway.isActive}
                                                             />
-                                                            <div className="w-8 h-4 bg-gray-200 rounded-full peer peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
+                                                            <div className="w-8 h-4 bg-gray-200 rounded-full peer peer-checked:bg-deep-blue-violet-600 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
                                                         </div>
                                                         Collections
                                                     </label>
@@ -826,7 +826,7 @@ export default function PlatformSettingsPage() {
                                                                 className="sr-only peer"
                                                                 disabled={!gateway.isActive}
                                                             />
-                                                            <div className="w-8 h-4 bg-gray-200 rounded-full peer peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
+                                                            <div className="w-8 h-4 bg-gray-200 rounded-full peer peer-checked:bg-deep-blue-violet-600 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
                                                         </div>
                                                         Disbursements
                                                     </label>
@@ -840,7 +840,7 @@ export default function PlatformSettingsPage() {
                                                                 className="sr-only peer"
                                                                 disabled={!gateway.isActive}
                                                             />
-                                                            <div className="w-8 h-4 bg-gray-200 rounded-full peer peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
+                                                            <div className="w-8 h-4 bg-gray-200 rounded-full peer peer-checked:bg-deep-blue-violet-600 after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
                                                         </div>
                                                         Withdrawals
                                                     </label>
@@ -869,7 +869,7 @@ export default function PlatformSettingsPage() {
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100">
                                             <div className="flex items-start gap-3">
-                                                <AlertTriangle className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
+                                                <AlertTriangle className="w-5 h-5 text-crimson-red-500 shrink-0 mt-0.5" />
                                                 <div>
                                                     <h4 className="text-sm font-semibold text-gray-900">Enforce 2FA for Admins</h4>
                                                     <p className="text-xs text-gray-500 mt-0.5">Require Two-Factor Authentication for all administrative accounts.</p>
@@ -883,7 +883,7 @@ export default function PlatformSettingsPage() {
                                         <div className="space-y-2">
                                             <label className="text-sm font-medium text-gray-700">IP Whitelist (CIDR)</label>
                                             <textarea
-                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm h-24"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 font-mono text-sm h-24"
                                                 placeholder="192.168.1.0/24"
                                                 defaultValue="10.0.0.1/32"
                                             />

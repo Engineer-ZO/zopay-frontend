@@ -85,7 +85,7 @@ export default function FeeVersionsTab() {
         <p className="text-xs text-gray-500">Manage fee versions for version control</p>
         <button
           onClick={() => setShowAddModal(true)}
-          className="flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors"
+          className="flex items-center gap-2 px-3 py-1.5 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-xs font-medium rounded-lg transition-colors"
         >
           <Plus className="w-3.5 h-3.5" />
           Add Version
@@ -152,7 +152,7 @@ export default function FeeVersionsTab() {
                         <button
                           onClick={() => handleActivate(fv.id)}
                           disabled={activateMutation.isPending}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
                         >
                           <Rocket className="w-3.5 h-3.5" />
                           Activate
@@ -190,7 +190,7 @@ export default function FeeVersionsTab() {
                   value={version}
                   onChange={(e) => setVersion(e.target.value)}
                   placeholder="e.g., 2024-02"
-                  className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs"
+                  className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs"
                 />
                 <p className="text-[10px] text-gray-500 mt-1">Version identifier (1-50 characters, unique)</p>
               </div>
@@ -201,7 +201,7 @@ export default function FeeVersionsTab() {
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Optional description for this version"
                   rows={3}
-                  className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs resize-none"
+                  className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-deep-blue-violet-500 outline-none text-xs resize-none"
                 />
               </div>
               <div className="flex items-center gap-3 pt-4">
@@ -214,7 +214,7 @@ export default function FeeVersionsTab() {
                 <button
                   onClick={handleCreate}
                   disabled={createMutation.isPending || !version.trim()}
-                  className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
+                  className="flex-1 px-4 py-2 bg-deep-blue-violet-600 hover:bg-deep-blue-violet-700 text-white text-xs font-medium rounded-lg transition-colors disabled:opacity-50"
                 >
                   {createMutation.isPending ? "Creating..." : "Create Version"}
                 </button>

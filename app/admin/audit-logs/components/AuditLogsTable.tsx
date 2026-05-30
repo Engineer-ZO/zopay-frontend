@@ -44,13 +44,13 @@ export function AuditLogsTable({
       return <XCircle className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />;
     }
     if (action.includes("SUSPENDED")) {
-      return <AlertTriangle className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400" />;
+      return <AlertTriangle className="w-3.5 h-3.5 text-crimson-red-600 dark:text-crimson-red-400" />;
     }
     if (action.includes("CREATED") || action.includes("ADDED")) {
-      return <Plus className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />;
+      return <Plus className="w-3.5 h-3.5 text-deep-blue-violet-600 dark:text-deep-blue-violet-400" />;
     }
     if (action.includes("UPDATED") || action.includes("REACTIVATED")) {
-      return <RotateCcw className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400" />;
+      return <RotateCcw className="w-3.5 h-3.5 text-crimson-red-600 dark:text-crimson-red-400" />;
     }
     return <Eye className="w-3.5 h-3.5 text-muted-foreground" />;
   };
@@ -152,7 +152,7 @@ export function AuditLogsTable({
                         <span
                           className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium ${
                             log.actorType === "ADMIN"
-                              ? "bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400"
+                              ? "bg-deep-blue-violet-100 dark:bg-deep-blue-violet-900/20 text-deep-blue-violet-700 dark:text-deep-blue-violet-400"
                               : "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400"
                           }`}
                         >
@@ -182,7 +182,7 @@ export function AuditLogsTable({
                           e.stopPropagation();
                           toggleRow(log.id);
                         }}
-                        className="flex items-center gap-1 text-[10px] text-orange-600 dark:text-orange-400 hover:underline"
+                        className="flex items-center gap-1 text-[10px] text-crimson-red-600 dark:text-crimson-red-400 hover:underline"
                       >
                         {isExpanded ? (
                           <>
@@ -320,7 +320,7 @@ export function AuditLogsTable({
           <button
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage >= totalPages}
-            className="px-2 py-1 bg-orange-500 text-white rounded text-[10px] font-medium hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-2 py-1 bg-crimson-red-500 text-white rounded text-[10px] font-medium hover:bg-crimson-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Next
           </button>

@@ -67,10 +67,10 @@ export default function UsingTheAPIPage() {
                 <li>Save your secret key securely - it&apos;s only shown once!</li>
             </ol>
             
-            <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-200 dark:border-orange-800 rounded-lg p-4 my-6">
+            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-orange-700 dark:text-orange-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-orange-900 dark:text-orange-100">
+                    <span className="text-crimson-red-700 dark:text-crimson-red-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-crimson-red-900 dark:text-crimson-red-100">
                         <p className="leading-relaxed">
                             This key will authenticate your requests to the sandbox environment only and <strong>should not</strong> be used in production. Production API keys are separate and only available after completing KYC verification and requesting production access.
                         </p>
@@ -221,10 +221,10 @@ export default function UsingTheAPIPage() {
                 Prevents duplicate requests. Each nonce can only be used once within a 10-minute window. This protects against accidental or malicious duplicate submissions.
             </p>
             
-            <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-6">
+            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
                 <div className="flex items-start gap-3">
-                    <span className="text-blue-700 dark:text-blue-400 text-lg mt-0.5">💡</span>
-                    <div className="flex-1 text-sm text-blue-900 dark:text-blue-100">
+                    <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
+                    <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
                             <strong>Important:</strong> If you retry a request with the same nonce within 10 minutes, it will be rejected. Always generate a new nonce (UUID recommended) for each API request, even if you&apos;re retrying a failed request.
                         </p>

@@ -76,9 +76,9 @@ export default function AdminDashboardPage() {
             changeValue: platformMetrics.totalMerchants.change,
             trend: platformMetrics.totalMerchants.trend,
             icon: Building2,
-            bgColor: "bg-blue-50",
-            iconColor: "text-blue-600",
-            borderColor: "border-blue-200",
+            bgColor: "bg-deep-blue-violet-50",
+            iconColor: "text-deep-blue-violet-600",
+            borderColor: "border-deep-blue-violet-200",
         },
         {
             label: "ACTIVE MERCHANTS",
@@ -109,9 +109,9 @@ export default function AdminDashboardPage() {
             changeValue: platformMetrics.totalVolume.change,
             trend: platformMetrics.totalVolume.trend,
             icon: TrendingUp,
-            bgColor: "bg-orange-50",
-            iconColor: "text-orange-600",
-            borderColor: "border-orange-200",
+            bgColor: "bg-crimson-red-50",
+            iconColor: "text-crimson-red-600",
+            borderColor: "border-crimson-red-200",
         },
     ] : [];
 
@@ -194,7 +194,7 @@ export default function AdminDashboardPage() {
                         <h3 className="text-lg font-semibold text-gray-900">
                             📈 Top Merchants by Volume
                         </h3>
-                        <a href="/admin/reports" className="text-sm font-medium text-blue-600 hover:text-blue-700">
+                        <a href="/admin/reports" className="text-sm font-medium text-deep-blue-violet-600 hover:text-deep-blue-violet-700">
                             View All →
                         </a>
                     </div>
@@ -250,7 +250,7 @@ export default function AdminDashboardPage() {
                         <h3 className="text-lg font-semibold text-gray-900">
                             💰 Top Merchants by Revenue
                         </h3>
-                        <a href="/admin/reports" className="text-sm font-medium text-blue-600 hover:text-blue-700">
+                        <a href="/admin/reports" className="text-sm font-medium text-deep-blue-violet-600 hover:text-deep-blue-violet-700">
                             View All →
                         </a>
                     </div>
@@ -310,7 +310,7 @@ export default function AdminDashboardPage() {
                         <h3 className="text-lg font-semibold text-gray-900">
                             🎯 Gateway Performance
                         </h3>
-                        <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
+                        <button className="text-sm font-medium text-deep-blue-violet-600 hover:text-deep-blue-violet-700">
                             View Details →
                         </button>
                     </div>
@@ -360,7 +360,7 @@ export default function AdminDashboardPage() {
             <div className="bg-white rounded-lg border border-gray-200 p-6">
                 <div className="flex items-center justify-between mb-4">
                     <h3 className="text-lg font-semibold text-gray-900">📰 Recently Onboarded</h3>
-                    <a href="/admin/reports" className="text-sm font-medium text-blue-600 hover:text-blue-700">
+                    <a href="/admin/reports" className="text-sm font-medium text-deep-blue-violet-600 hover:text-deep-blue-violet-700">
                         View All →
                     </a>
                 </div>
@@ -398,7 +398,7 @@ export default function AdminDashboardPage() {
                                         </div>
                                         <a
                                             href={`/admin/merchants?merchantId=${merchant.merchantId}`}
-                                            className="text-xs font-medium text-blue-600 hover:text-blue-700 ml-4"
+                                            className="text-xs font-medium text-deep-blue-violet-600 hover:text-deep-blue-violet-700 ml-4"
                                         >
                                             View
                                         </a>

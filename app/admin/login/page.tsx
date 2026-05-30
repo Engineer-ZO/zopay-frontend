@@ -133,12 +133,12 @@ export default function AdminLoginPage() {
               height={50}
               className="object-contain"
             />
-            <div className="px-2 py-1 bg-blue-500 text-white rounded text-xs font-bold">
+            <div className="px-2 py-1 bg-deep-blue-violet-500 text-white rounded text-xs font-bold">
               ADMIN
             </div>
           </div>
           <h1 className="text-2xl font-bold text-white mb-2">Admin Portal</h1>
-          <p className="text-blue-200 text-sm">
+          <p className="text-deep-blue-violet-200 text-sm">
             Sign in to access the admin dashboard
           </p>
         </div>
@@ -160,7 +160,7 @@ export default function AdminLoginPage() {
                   <ArrowLeft className="w-5 h-5" />
                 </button>
                 <div className="flex items-center justify-center gap-2">
-                  <CheckCircle2 className="w-6 h-6 text-blue-600" />
+                  <CheckCircle2 className="w-6 h-6 text-deep-blue-violet-600" />
                   <h2 className="text-xl font-bold text-gray-900">Verify Email</h2>
                 </div>
               </div>
@@ -179,7 +179,7 @@ export default function AdminLoginPage() {
                     value={verificationCode}
                     onChange={(e) => setVerificationCode(e.target.value.replace(/\\D/g, '').slice(0, 6))}
                     placeholder="123456"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-center tracking-widest text-xl font-mono"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-transparent outline-none transition-all text-center tracking-widest text-xl font-mono"
                     required
                     disabled={verifyMutation.isPending || isPending}
                   />
@@ -188,7 +188,7 @@ export default function AdminLoginPage() {
                 <button
                   type="submit"
                   disabled={verifyMutation.isPending || isPending || verificationCode.length !== 6}
-                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-deep-blue-violet-600 text-white py-3 rounded-lg font-semibold hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {verifyMutation.isPending || isPending ? (
                     <>
@@ -208,7 +208,7 @@ export default function AdminLoginPage() {
                     type="button"
                     onClick={handleResendVerification}
                     disabled={resendVerificationMutation.isPending || verifyMutation.isPending || isPending}
-                    className="text-sm text-blue-600 hover:text-blue-800 disabled:opacity-50 font-medium inline-flex items-center gap-1.5"
+                    className="text-sm text-deep-blue-violet-600 hover:text-deep-blue-violet-800 disabled:opacity-50 font-medium inline-flex items-center gap-1.5"
                   >
                     {resendVerificationMutation.isPending ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Mail className="w-3.5 h-3.5" />}
                     Resend Code
@@ -219,7 +219,7 @@ export default function AdminLoginPage() {
           ) : (
             <>
               <div className="flex items-center justify-center gap-2 mb-6">
-                <Shield className="w-6 h-6 text-blue-600" />
+                <Shield className="w-6 h-6 text-deep-blue-violet-600" />
                 <h2 className="text-xl font-bold text-gray-900">Admin Login</h2>
               </div>
 
@@ -240,7 +240,7 @@ export default function AdminLoginPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="admin@zitopay.com"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-transparent outline-none transition-all"
                     required
                     disabled={isPending}
                   />
@@ -264,7 +264,7 @@ export default function AdminLoginPage() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all pr-12"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-transparent outline-none transition-all pr-12"
                       required
                       disabled={isPending}
                     />
@@ -288,14 +288,14 @@ export default function AdminLoginPage() {
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
                       type="checkbox"
-                      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-deep-blue-violet-600 border-gray-300 rounded focus:ring-deep-blue-violet-500"
                       disabled={isPending}
                     />
                     <span className="text-sm text-gray-600">Remember me</span>
                   </label>
                   <Link
                     href="/admin/forgot-password"
-                    className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+                    className="text-sm text-deep-blue-violet-600 hover:text-deep-blue-violet-700 font-medium"
                   >
                     Forgot password?
                   </Link>
@@ -305,7 +305,7 @@ export default function AdminLoginPage() {
                 <button
                   type="submit"
                   disabled={isPending || Boolean(turnstileConfig?.enabled && !turnstileToken)}
-                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-deep-blue-violet-600 text-white py-3 rounded-lg font-semibold hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {isPending ? (
                     <>
@@ -324,8 +324,8 @@ export default function AdminLoginPage() {
           )}
 
           {/* Security Notice */}
-          <div className="mt-6 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-            <p className="text-xs text-blue-800 text-center">
+          <div className="mt-6 p-3 bg-deep-blue-violet-50 border border-deep-blue-violet-200 rounded-lg">
+            <p className="text-xs text-deep-blue-violet-800 text-center">
               🔒 This is a secure admin area. All actions are logged and monitored.
             </p>
           </div>
@@ -333,7 +333,7 @@ export default function AdminLoginPage() {
 
         {/* Footer */}
         <div className="text-center mt-6">
-          <p className="text-sm text-blue-200">
+          <p className="text-sm text-deep-blue-violet-200">
             Not an admin?{" "}
             <Link href="/login" className="text-white font-semibold hover:underline">
               Merchant Login →

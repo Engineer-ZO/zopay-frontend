@@ -28,7 +28,7 @@ export function AdminNavbar() {
             title: "New KYB Submission",
             message: "ABC Corp submitted KYB",
             time: "5 mins ago",
-            color: "bg-orange-500",
+            color: "bg-crimson-red-500",
         },
         {
             type: "production",
@@ -95,7 +95,7 @@ export function AdminNavbar() {
                         placeholder="Search merchants, transactions..."
                         onFocus={() => setShowSearch(true)}
                         onBlur={() => setTimeout(() => setShowSearch(false), 200)}
-                        className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
+                        className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:bg-white transition-all"
                     />
 
                     {/* Search Results Dropdown */}
@@ -126,7 +126,7 @@ export function AdminNavbar() {
                                     </button>
                                 </div>
 
-                                <button className="w-full mt-4 px-3 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg">
+                                <button className="w-full mt-4 px-3 py-2 text-sm font-medium text-deep-blue-violet-600 hover:bg-deep-blue-violet-50 rounded-lg">
                                     View All Results →
                                 </button>
                             </div>
@@ -169,7 +169,7 @@ export function AdminNavbar() {
                                                 <p className="text-xs text-gray-600 mt-0.5">{notif.message}</p>
                                                 <p className="text-xs text-gray-400 mt-1">{notif.time}</p>
                                             </div>
-                                            <button className="text-xs font-medium text-blue-600 hover:underline">
+                                            <button className="text-xs font-medium text-deep-blue-violet-600 hover:underline">
                                                 View
                                             </button>
                                         </div>
@@ -181,7 +181,7 @@ export function AdminNavbar() {
                                 <button className="flex-1 px-3 py-2 text-xs font-medium text-gray-600 hover:bg-gray-100 rounded-lg">
                                     Mark All as Read
                                 </button>
-                                <button className="flex-1 px-3 py-2 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded-lg">
+                                <button className="flex-1 px-3 py-2 text-xs font-medium text-deep-blue-violet-600 hover:bg-deep-blue-violet-50 rounded-lg">
                                     View All →
                                 </button>
                             </div>
@@ -207,7 +207,7 @@ export function AdminNavbar() {
                             <div className="p-4 border-b border-gray-200">
                                 <p className="font-semibold text-gray-900">Admin User</p>
                                 <p className="text-xs text-gray-500 mt-0.5">admin@zitopay.com</p>
-                                <div className="mt-2 px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium inline-block">
+                                <div className="mt-2 px-2 py-1 bg-deep-blue-violet-100 text-deep-blue-violet-700 rounded text-xs font-medium inline-block">
                                     Super Admin
                                 </div>
                             </div>
@@ -274,7 +274,7 @@ export function AdminNavbar() {
                                 </>
                             ) : (
                                 <div className="flex flex-col items-center justify-center py-8">
-                                    <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+                                    <div className="w-12 h-12 border-4 border-deep-blue-violet-600 border-t-transparent rounded-full animate-spin mb-4"></div>
                                     <p className="text-sm font-medium text-gray-900">Logging out...</p>
                                     <p className="text-xs text-gray-500 mt-1">Please wait while we securely log you out</p>
                                 </div>

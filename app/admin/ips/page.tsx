@@ -147,7 +147,7 @@ export default function AdminIpsPage() {
                                 key={tab}
                                 onClick={() => setStatusFilter(tab)}
                                 className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${statusFilter === tab
-                                        ? "bg-white text-blue-600 shadow-sm"
+                                        ? "bg-white text-deep-blue-violet-600 shadow-sm"
                                         : "text-gray-500 hover:text-gray-900"
                                     }`}
                             >
@@ -164,7 +164,7 @@ export default function AdminIpsPage() {
                             placeholder="Search IPs or merchants..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full sm:w-64"
+                            className="pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-transparent w-full sm:w-64"
                         />
                     </div>
                 </div>
@@ -173,7 +173,7 @@ export default function AdminIpsPage() {
             {/* Content */}
             {isLoading ? (
                 <div className="flex justify-center items-center h-64">
-                    <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+                    <Loader2 className="w-8 h-8 animate-spin text-deep-blue-violet-500" />
                 </div>
             ) : filteredIps.length === 0 ? (
                 <div className="bg-white rounded-xl border border-dashed border-gray-300 p-12 text-center">
@@ -201,7 +201,7 @@ export default function AdminIpsPage() {
                                     <tr key={ip.id} className="hover:bg-gray-50/50 transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+                                                <div className="w-10 h-10 rounded-lg bg-deep-blue-violet-50 flex items-center justify-center text-deep-blue-violet-600">
                                                     <Network className="w-5 h-5" />
                                                 </div>
                                                 <div>

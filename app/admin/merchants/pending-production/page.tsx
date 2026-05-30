@@ -79,9 +79,9 @@ export default function PendingProductionPage() {
             case 'urgent':
                 return 'bg-red-100 text-red-700 border-red-200';
             case 'attention':
-                return 'bg-orange-100 text-orange-700 border-orange-200';
+                return 'bg-crimson-red-100 text-crimson-red-700 border-crimson-red-200';
             case 'recent':
-                return 'bg-blue-100 text-blue-700 border-blue-200';
+                return 'bg-deep-blue-violet-100 text-deep-blue-violet-700 border-deep-blue-violet-200';
             default:
                 return 'bg-gray-100 text-gray-700 border-gray-200';
         }
@@ -137,7 +137,7 @@ export default function PendingProductionPage() {
                         placeholder="Search by business name, email, or merchant ID..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-crimson-red-500 focus:border-transparent"
                     />
                 </div>
             </div>
@@ -145,17 +145,17 @@ export default function PendingProductionPage() {
             {/* Stats */}
             {!isLoading && requests.length > 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                        <p className="text-xs font-semibold text-blue-700 uppercase tracking-wide mb-1">
+                    <div className="bg-deep-blue-violet-50 border border-deep-blue-violet-200 rounded-xl p-4">
+                        <p className="text-xs font-semibold text-deep-blue-violet-700 uppercase tracking-wide mb-1">
                             Total Requests
                         </p>
-                        <p className="text-2xl font-bold text-blue-900">{requests.length}</p>
+                        <p className="text-2xl font-bold text-deep-blue-violet-900">{requests.length}</p>
                     </div>
-                    <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
-                        <p className="text-xs font-semibold text-orange-700 uppercase tracking-wide mb-1">
+                    <div className="bg-crimson-red-50 border border-crimson-red-200 rounded-xl p-4">
+                        <p className="text-xs font-semibold text-crimson-red-700 uppercase tracking-wide mb-1">
                             Needs Attention
                         </p>
-                        <p className="text-2xl font-bold text-orange-900">
+                        <p className="text-2xl font-bold text-crimson-red-900">
                             {requests.filter((r) => r.priority === 'attention' || r.priority === 'urgent').length}
                         </p>
                     </div>
@@ -202,7 +202,7 @@ export default function PendingProductionPage() {
                         >
                             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                                 <div className="flex gap-4 flex-1 min-w-0">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-orange-500 rounded-xl flex items-center justify-center shrink-0">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-crimson-red-500 rounded-xl flex items-center justify-center shrink-0">
                                         <Building2 className="w-6 h-6 text-white" />
                                     </div>
                                     <div className="flex-1 min-w-0">

@@ -66,12 +66,12 @@ export function DashboardNavbar() {
                 {/* Sandbox/Live Mode Toggle - Hidden on mobile */}
                 <div className={`hidden md:flex items-center gap-3 px-3 py-1.5 rounded-full transition-colors ${
                     isSandboxMode 
-                        ? 'bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800' 
+                        ? 'bg-crimson-red-50 dark:bg-crimson-red-950/30 border border-crimson-red-200 dark:border-crimson-red-800' 
                         : 'bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800'
                 }`}>
                     <span className={`text-xs font-semibold uppercase ${
                         isSandboxMode 
-                            ? 'text-orange-600 dark:text-orange-400' 
+                            ? 'text-crimson-red-600 dark:text-crimson-red-400' 
                             : 'text-green-600 dark:text-green-400'
                     }`}>
                         {isSandboxMode ? 'Sandbox Mode' : 'Live Mode'}
@@ -101,7 +101,7 @@ export function DashboardNavbar() {
                 <div className="relative group">
                     <button
                         onClick={() => router.push("/dashboard/profile")}
-                        className="w-9 h-9 rounded-full bg-orange-500 flex items-center justify-center text-white font-semibold text-sm hover:bg-orange-600 transition-colors cursor-pointer"
+                        className="w-9 h-9 rounded-full bg-crimson-red-500 flex items-center justify-center text-white font-semibold text-sm hover:bg-crimson-red-600 transition-colors cursor-pointer"
                         aria-label="Profile"
                     >
                         {user?.email ? getInitials(user.email) : 'U'}
@@ -128,8 +128,8 @@ export function DashboardNavbar() {
                         {/* Modal Header */}
                         <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center">
-                                    <AlertCircle className="w-6 h-6 text-orange-500" />
+                                <div className="w-12 h-12 rounded-full bg-crimson-red-500/10 flex items-center justify-center">
+                                    <AlertCircle className="w-6 h-6 text-crimson-red-500" />
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold text-foreground">Switch to Production Mode</h3>
@@ -148,7 +148,7 @@ export function DashboardNavbar() {
                         {/* Modal Content */}
                         <div className="space-y-6">
                             {/* Introduction */}
-                            <div className="bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4">
+                            <div className="bg-crimson-red-50 dark:bg-crimson-red-950/20 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg p-4">
                                 <p className="text-sm text-foreground">
                                     To switch to <strong>Production Mode</strong> and process live transactions, you need to complete the following steps. 
                                     Our team will review your application and approve access once all requirements are met.
@@ -158,12 +158,12 @@ export function DashboardNavbar() {
                             {/* Steps Section */}
                             <div>
                                 <h4 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
-                                    <CheckCircle2 className="w-5 h-5 text-orange-500" />
+                                    <CheckCircle2 className="w-5 h-5 text-crimson-red-500" />
                                     Steps to Get Approved
                                 </h4>
                                 <div className="space-y-3">
                                     <div className="flex gap-3 p-3 bg-muted/50 rounded-lg">
-                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm font-semibold">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-crimson-red-500 text-white flex items-center justify-center text-sm font-semibold">
                                             1
                                         </div>
                                         <div className="flex-1">
@@ -177,7 +177,7 @@ export function DashboardNavbar() {
                                     </div>
 
                                     <div className="flex gap-3 p-3 bg-muted/50 rounded-lg">
-                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm font-semibold">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-crimson-red-500 text-white flex items-center justify-center text-sm font-semibold">
                                             2
                                         </div>
                                         <div className="flex-1">
@@ -190,7 +190,7 @@ export function DashboardNavbar() {
                                     </div>
 
                                     <div className="flex gap-3 p-3 bg-muted/50 rounded-lg">
-                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm font-semibold">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-crimson-red-500 text-white flex items-center justify-center text-sm font-semibold">
                                             3
                                         </div>
                                         <div className="flex-1">
@@ -207,12 +207,12 @@ export function DashboardNavbar() {
                             {/* Important Advice Section */}
                             <div className="border-t border-border pt-6">
                                 <h4 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
-                                    <AlertCircle className="w-5 h-5 text-orange-500" />
+                                    <AlertCircle className="w-5 h-5 text-crimson-red-500" />
                                     Important Tips for Faster Approval
                                 </h4>
                                 <div className="space-y-4">
-                                    <div className="flex gap-3 p-4 bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                                        <FileText className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                                    <div className="flex gap-3 p-4 bg-deep-blue-violet-50 dark:bg-deep-blue-violet-950/20 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg">
+                                        <FileText className="w-5 h-5 text-deep-blue-violet-500 flex-shrink-0 mt-0.5" />
                                         <div>
                                             <p className="text-sm font-medium text-foreground mb-1">Document Submission</p>
                                             <p className="text-xs text-muted-foreground">
@@ -249,7 +249,7 @@ export function DashboardNavbar() {
                                         setShowProductionModal(false);
                                         router.push("/dashboard/support");
                                     }}
-                                    className="flex-1 px-4 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors text-sm font-medium"
+                                    className="flex-1 px-4 py-2.5 bg-crimson-red-500 hover:bg-crimson-red-600 text-white rounded-lg transition-colors text-sm font-medium"
                                 >
                                     Contact support
                                 </button>

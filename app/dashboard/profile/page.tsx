@@ -228,7 +228,7 @@ export default function ProfilePage() {
     if (isLoading) {
         return (
             <div className="flex items-center justify-center min-h-[400px]">
-                <Loader2 className="w-8 h-8 animate-spin text-orange-500" />
+                <Loader2 className="w-8 h-8 animate-spin text-crimson-red-500" />
             </div>
         );
     }
@@ -242,7 +242,7 @@ export default function ProfilePage() {
     }
 
     const inputClass =
-        "w-full px-3 py-1.5 bg-muted border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500";
+        "w-full px-3 py-1.5 bg-muted border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500";
 
     return (
         <div className="space-y-6 pt-4 pl-4">
@@ -256,7 +256,7 @@ export default function ProfilePage() {
                 <button
                     type="button"
                     onClick={() => setShowEditModal(true)}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-xs font-semibold transition-colors"
+                    className="flex items-center gap-2 px-3 py-1.5 bg-crimson-red-500 hover:bg-crimson-red-600 text-white rounded-lg text-xs font-semibold transition-colors"
                 >
                     <Edit className="w-3.5 h-3.5" />
                     Request changes
@@ -274,7 +274,7 @@ export default function ProfilePage() {
                                 className="w-16 h-16 rounded-xl object-cover border border-border"
                             />
                         ) : (
-                            <div className="w-16 h-16 rounded-xl bg-orange-500 flex items-center justify-center text-white font-semibold text-lg">
+                            <div className="w-16 h-16 rounded-xl bg-crimson-red-500 flex items-center justify-center text-white font-semibold text-lg">
                                 {initials}
                             </div>
                         )}
@@ -284,7 +284,7 @@ export default function ProfilePage() {
                             title="Upload logo"
                             onClick={() => logoInputRef.current?.click()}
                             disabled={uploadLogoMutation.isPending || removeLogoMutation.isPending}
-                            className="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-orange-500 hover:bg-orange-600 border-2 border-background flex items-center justify-center transition-colors disabled:opacity-50"
+                            className="absolute -bottom-1.5 -right-1.5 w-6 h-6 rounded-full bg-crimson-red-500 hover:bg-crimson-red-600 border-2 border-background flex items-center justify-center transition-colors disabled:opacity-50"
                         >
                             <ImagePlus className="w-3 h-3 text-white" />
                         </button>
@@ -343,7 +343,7 @@ export default function ProfilePage() {
                                 type="button"
                                 onClick={() => logoInputRef.current?.click()}
                                 disabled={uploadLogoMutation.isPending}
-                                className="mt-1 inline-flex items-center gap-1 text-[10px] text-orange-500 hover:text-orange-600 disabled:opacity-50"
+                                className="mt-1 inline-flex items-center gap-1 text-[10px] text-crimson-red-500 hover:text-crimson-red-600 disabled:opacity-50"
                             >
                                 <ImagePlus className="w-2.5 h-2.5" />
                                 {uploadLogoMutation.isPending ? "Uploading..." : "Upload logo"}
@@ -413,8 +413,8 @@ export default function ProfilePage() {
 
             <div className="bg-background rounded-xl p-5 border border-border">
                 <div className="flex items-center gap-2 mb-4">
-                    <div className="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center">
-                        <Lock className="w-4 h-4 text-orange-500" />
+                    <div className="w-8 h-8 rounded-full bg-crimson-red-500/10 flex items-center justify-center">
+                        <Lock className="w-4 h-4 text-crimson-red-500" />
                     </div>
                     <div>
                         <h3 className="text-sm font-bold text-foreground">Change Password</h3>
@@ -429,7 +429,7 @@ export default function ProfilePage() {
                             type="password"
                             value={currentPassword}
                             onChange={(e) => setCurrentPassword(e.target.value)}
-                            className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+                            className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                             placeholder="Enter current password"
                             disabled={changePasswordMutation.isPending || logoutMutation.isPending}
                             required
@@ -442,7 +442,7 @@ export default function ProfilePage() {
                             type="password"
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
-                            className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+                            className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                             placeholder="Enter new password"
                             minLength={6}
                             disabled={changePasswordMutation.isPending || logoutMutation.isPending}
@@ -457,7 +457,7 @@ export default function ProfilePage() {
                             type="password"
                             value={confirmNewPassword}
                             onChange={(e) => setConfirmNewPassword(e.target.value)}
-                            className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500"
+                            className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                             placeholder="Re-enter new password"
                             minLength={6}
                             disabled={changePasswordMutation.isPending || logoutMutation.isPending}
@@ -469,7 +469,7 @@ export default function ProfilePage() {
                         <button
                             type="submit"
                             disabled={changePasswordMutation.isPending || logoutMutation.isPending}
-                            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-xs font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-crimson-red-500 hover:bg-crimson-red-600 text-white rounded-lg text-xs font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {changePasswordMutation.isPending || logoutMutation.isPending ? (
                                 <>
@@ -507,7 +507,7 @@ export default function ProfilePage() {
                                 merchant.kycStatus === "APPROVED"
                                     ? "text-green-600 dark:text-green-400"
                                     : merchant.kycStatus === "PENDING"
-                                      ? "text-orange-600 dark:text-orange-400"
+                                      ? "text-crimson-red-600 dark:text-crimson-red-400"
                                       : merchant.kycStatus === "REJECTED"
                                         ? "text-red-600 dark:text-red-400"
                                         : "text-muted-foreground"
@@ -533,7 +533,7 @@ export default function ProfilePage() {
                                 merchant.productionState === "ACTIVE"
                                     ? "text-green-600 dark:text-green-400"
                                     : merchant.productionState === "PENDING_APPROVAL"
-                                      ? "text-orange-600 dark:text-orange-400"
+                                      ? "text-crimson-red-600 dark:text-crimson-red-400"
                                       : "text-muted-foreground"
                             }`}
                         >
@@ -554,8 +554,8 @@ export default function ProfilePage() {
                     >
                         <div className="flex items-center justify-between mb-5">
                             <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center">
-                                    <User className="w-4 h-4 text-orange-500" />
+                                <div className="w-8 h-8 rounded-full bg-crimson-red-500/10 flex items-center justify-center">
+                                    <User className="w-4 h-4 text-crimson-red-500" />
                                 </div>
                                 <div>
                                     <h3 className="text-base font-bold text-foreground">Request profile changes</h3>
@@ -721,7 +721,7 @@ export default function ProfilePage() {
                                     type="button"
                                     onClick={handleSave}
                                     disabled={submitProfileUpdateMutation.isPending}
-                                    className="flex-1 px-3 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-xs font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                    className="flex-1 px-3 py-2 bg-crimson-red-500 hover:bg-crimson-red-600 text-white rounded-lg text-xs font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                 >
                                     {submitProfileUpdateMutation.isPending ? (
                                         <>

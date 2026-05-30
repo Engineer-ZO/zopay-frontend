@@ -30,7 +30,7 @@ export function SettlementsTable({
       case "COMPLETED":
         return "text-green-600 dark:text-green-400";
       case "PENDING":
-        return "text-orange-600 dark:text-orange-400";
+        return "text-crimson-red-600 dark:text-crimson-red-400";
       case "PROCESSING":
         return "text-muted-foreground";
       case "FAILED":
@@ -132,7 +132,7 @@ export function SettlementsTable({
                         settlement.status === "COMPLETED"
                           ? "bg-green-500"
                           : settlement.status === "PENDING"
-                          ? "bg-orange-500"
+                          ? "bg-crimson-red-500"
                           : settlement.status === "PROCESSING"
                           ? "bg-muted-foreground"
                           : "bg-red-500"
@@ -148,7 +148,7 @@ export function SettlementsTable({
                         e.stopPropagation();
                         onDownloadStatement?.(settlement);
                       }}
-                      className="text-xs font-medium text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-1"
+                      className="text-xs font-medium text-crimson-red-600 dark:text-crimson-red-400 hover:underline flex items-center gap-1"
                     >
                       <FileText className="w-3 h-3" />
                       PDF
@@ -159,7 +159,7 @@ export function SettlementsTable({
                         e.stopPropagation();
                         onRowClick(settlement);
                       }}
-                      className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                      className="text-xs font-medium text-deep-blue-violet-600 dark:text-deep-blue-violet-400 hover:underline flex items-center gap-1"
                     >
                       <Eye className="w-3 h-3" />
                       View

@@ -107,7 +107,7 @@ export default function ReportsPage() {
           </select>
           <button
             onClick={() => setShowExportModal(true)}
-            className="px-3 py-1.5 bg-orange-500 text-white rounded-md text-xs font-semibold hover:bg-orange-600 transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 bg-crimson-red-500 text-white rounded-md text-xs font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-1.5"
           >
             <Download className="w-3.5 h-3.5" />
             Export
@@ -139,12 +139,12 @@ export default function ReportsPage() {
               <div
                 key={index}
                 className={`bg-background rounded-lg p-3 border border-border ${
-                  isPrimary ? "border-l-2 border-l-orange-500" : ""
+                  isPrimary ? "border-l-2 border-l-crimson-red-500" : ""
                 } hover:shadow-sm transition-shadow`}
               >
                 <div className="flex items-start justify-between mb-2">
                   <div className="w-8 h-8 bg-muted/60 rounded-lg flex items-center justify-center">
-                    <Icon className={`w-4 h-4 ${isPrimary ? "text-orange-500" : "text-muted-foreground"}`} />
+                    <Icon className={`w-4 h-4 ${isPrimary ? "text-crimson-red-500" : "text-muted-foreground"}`} />
                   </div>
                   {stat.change && stat.trend && (
                     <span
@@ -166,7 +166,7 @@ export default function ReportsPage() {
                 <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide mb-1">
                   {stat.label}
                 </p>
-                <p className={`text-base font-semibold ${isPrimary ? "text-orange-500" : "text-foreground"}`}>
+                <p className={`text-base font-semibold ${isPrimary ? "text-crimson-red-500" : "text-foreground"}`}>
                   {stat.value} {stat.currency}
                 </p>
                 {stat.subtitle && (
@@ -227,7 +227,7 @@ export default function ReportsPage() {
                   onClick={() => setChartDays(days)}
                   className={`px-3 py-1 text-xs font-medium rounded-lg transition-colors ${
                     chartDays === days
-                      ? "bg-orange-600 text-white"
+                      ? "bg-crimson-red-600 text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
@@ -333,8 +333,8 @@ export default function ReportsPage() {
                       gateway.gateway === "MTN_MOMO"
                         ? "bg-yellow-500"
                         : gateway.gateway === "ORANGE_MONEY"
-                        ? "bg-orange-500"
-                        : "bg-blue-500"
+                        ? "bg-crimson-red-500"
+                        : "bg-deep-blue-violet-500"
                     }`}
                     style={{ width: `${gateway.percentage}%` }}
                   />
@@ -380,7 +380,7 @@ export default function ReportsPage() {
                         value={format}
                         checked={exportFormat === format}
                         onChange={(e) => setExportFormat(e.target.value as "CSV" | "EXCEL")}
-                        className="text-orange-500"
+                        className="text-crimson-red-500"
                       />
                       <span className="text-xs text-foreground uppercase">{format}</span>
                     </label>
@@ -398,7 +398,7 @@ export default function ReportsPage() {
                 <button
                   onClick={handleExport}
                   disabled={exportMutation.isPending}
-                  className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-md text-xs font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-md text-xs font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {exportMutation.isPending ? "Exporting..." : "Export"}
                 </button>
