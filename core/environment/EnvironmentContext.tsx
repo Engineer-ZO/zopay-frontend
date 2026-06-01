@@ -17,7 +17,7 @@ interface EnvironmentContextType {
 
 const EnvironmentContext = createContext<EnvironmentContextType | undefined>(undefined);
 
-const ENVIRONMENT_STORAGE_KEY = 'zitopay_environment';
+const ENVIRONMENT_STORAGE_KEY = 'zopay_environment';
 
 /**
  * Environment Provider Component

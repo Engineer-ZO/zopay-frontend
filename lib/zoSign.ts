@@ -1,11 +1,11 @@
 /**
- * ZitoPay HMAC-SHA256 request signing utility (browser-compatible).
+ * ZoPay HMAC-SHA256 request signing utility (browser-compatible).
  * Used for all /api/v1/* routes which require signed headers.
  * See docs/API_HEADER_SIGNATURE_GUIDE.md for full specification.
  */
 
-const STORAGE_KEY_SANDBOX = 'zito_secret_sandbox';
-const STORAGE_KEY_PRODUCTION = 'zito_secret_production';
+const STORAGE_KEY_SANDBOX = 'zo_secret_sandbox';
+const STORAGE_KEY_PRODUCTION = 'zo_secret_production';
 
 // ---- Secret key persistence ----
 
@@ -44,13 +44,13 @@ async function hmacSha256Hex(secretKey: string, message: string): Promise<string
         .join('');
 }
 
-export interface ZitoHeaders {
-    'x-zito-key': string;
-    'x-zito-timestamp': string;
-    'x-zito-nonce': string;
-    'x-zito-origin': string;
-    'x-zito-signature': string;
-    'x-zito-version': string;
+export interface ZoHeaders {
+    'x-zo-key': string;
+    'x-zo-timestamp': string;
+    'x-zo-nonce': string;
+    'x-zo-origin': string;
+    'x-zo-signature': string;
+    'x-zo-version': string;
     [key: string]: string;
 }
 
@@ -61,20 +61,20 @@ export interface ZitoHeaders {
  * @param path     Request path including leading slash (e.g. '/api/v1/disbursements/bulk/preview')
  * @param query    Query parameters as a plain object (sorted alphabetically in the signature)
  * @param body     Request body as a plain object (or null for GET/DELETE with no body)
- * @param apiKey   The public API key (x-zito-key)
+ * @param apiKey   The public API key (x-zo-key)
  * @param secretKey The secret key used for HMAC signing
  */
-export async function buildZitoHeaders(
+export async function buildZoHeaders(
     method: string,
     path: string,
     query: Record<string, string>,
     body: object | null,
     apiKey: string,
     secretKey: string
-): Promise<ZitoHeaders> {
+): Promise<ZoHeaders> {
     const timestamp = Math.floor(Date.now() / 1000).toString();
     const nonce = crypto.randomUUID();
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://app.zitopay.com';
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://app.zopay.com';
 
     // Sort query params alphabetically
     const sortedQuery = Object.keys(query)
@@ -90,11 +90,11 @@ export async function buildZitoHeaders(
     const signature = await hmacSha256Hex(secretKey, stringToSign);
 
     return {
-        'x-zito-key': apiKey,
-        'x-zito-timestamp': timestamp,
-        'x-zito-nonce': nonce,
-        'x-zito-origin': origin,
-        'x-zito-signature': signature,
-        'x-zito-version': '1.0',
+        'x-zo-key': apiKey,
+        'x-zo-timestamp': timestamp,
+        'x-zo-nonce': nonce,
+        'x-zo-origin': origin,
+        'x-zo-signature': signature,
+        'x-zo-version': '1.0',
     };
 }
