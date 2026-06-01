@@ -51,8 +51,8 @@ export function Nav() {
                             className="hover:opacity-80 transition-opacity"
                         >
                             <Image
-                                src="/zitopaylogo.png"
-                                alt="ZitoPay Logo"
+                                src="/zopaylogo.png"
+                                alt="ZoPay Logo"
                                 width={140}
                                 height={40}
                                 className="h-10 w-auto object-contain"
@@ -79,8 +79,8 @@ export function Nav() {
                         onClick={closeMenu}
                     >
                         <Image
-                            src="/zitopaylogo.png"
-                            alt="ZitoPay Logo"
+                            src="/zopaylogo.png"
+                            alt="ZoPay Logo"
                             width={140}
                             height={40}
                             className="h-10 w-auto object-contain"

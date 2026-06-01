@@ -254,7 +254,7 @@ export default function HelpSupportPage() {
                                 </div>
                                 <div>
                                     <p className="text-xs text-muted-foreground">Email Support</p>
-                                    <p className="text-sm font-medium">support@zitopay.com</p>
+                                    <p className="text-sm font-medium">support@zopay.com</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-3">

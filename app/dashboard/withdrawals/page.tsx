@@ -824,7 +824,7 @@ export default function WithdrawalsPage() {
                                     <>
                                         <div className="bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800 rounded-lg p-3">
                                             <p className="text-xs text-amber-700 dark:text-amber-400">
-                                                Review your withdrawal before submitting. We’ll fetch the exact fee breakdown from ZitoPay before anything is created.
+                                                Review your withdrawal before submitting. We’ll fetch the exact fee breakdown from ZoPay before anything is created.
                                             </p>
                                         </div>
                                         <div className="flex gap-2">

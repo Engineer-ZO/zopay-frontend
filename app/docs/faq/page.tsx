@@ -11,7 +11,7 @@ interface FAQItem {
 
 const faqItems: FAQItem[] = [
     {
-        question: "How do I get started with ZitoPay?",
+        question: "How do I get started with ZoPay?",
         answer: "To get started, create an account on our platform. Once registered, you'll have immediate access to the sandbox environment where you can test your integration. Navigate to your merchant dashboard to retrieve your API keys. For production access, complete the KYC verification process and request production access."
     },
     {
@@ -23,20 +23,20 @@ const faqItems: FAQItem[] = [
         answer: "Quotes are valid for 15 minutes. During this period, fees are locked in. After expiry, you must create a new quote as pricing may have changed. Each quote can only be used once when executing a collection or disbursement."
     },
     {
-        question: "What payment gateways does ZitoPay support?",
-        answer: "ZitoPay currently supports MTN Mobile Money and Orange Money. Gateway availability and limits for your merchant account are managed by ZitoPay—contact Help & Support if you need changes."
+        question: "What payment gateways does ZoPay support?",
+        answer: "ZoPay currently supports MTN Mobile Money and Orange Money. Gateway availability and limits for your merchant account are managed by ZoPay—contact Help & Support if you need changes."
     },
     {
         question: "How do I verify my domain?",
-        answer: "To verify your domain, add it in the Domain Settings section of your merchant dashboard. You'll receive a verification token. Add a DNS TXT record with the name '_zitopay' and the token as the value at your domain registrar (where you bought the domain). Important: You must wait 15-30 minutes for DNS propagation before clicking 'Verify Domain'. If you're using Vercel, you cannot add DNS records to Vercel domains (*.vercel.app) - you need to use a custom domain and add the TXT record at your domain registrar, not in Vercel. Domain verification is required for production API access."
+        answer: "To verify your domain, add it in the Domain Settings section of your merchant dashboard. You'll receive a verification token. Add a DNS TXT record with the name '_zopay' and the token as the value at your domain registrar (where you bought the domain). Important: You must wait 15-30 minutes for DNS propagation before clicking 'Verify Domain'. If you're using Vercel, you cannot add DNS records to Vercel domains (*.vercel.app) - you need to use a custom domain and add the TXT record at your domain registrar, not in Vercel. Domain verification is required for production API access."
     },
     {
         question: "What is an idempotency key and why do I need it?",
-        answer: "An idempotency key is a unique identifier you provide with each transaction request. It ensures that if you retry a request (due to network issues or timeouts), the same transaction won't be processed twice. Always generate a unique idempotency key for each transaction attempt. If you retry with the same key, ZitoPay will return the original transaction result instead of creating a duplicate."
+        answer: "An idempotency key is a unique identifier you provide with each transaction request. It ensures that if you retry a request (due to network issues or timeouts), the same transaction won't be processed twice. Always generate a unique idempotency key for each transaction attempt. If you retry with the same key, ZoPay will return the original transaction result instead of creating a duplicate."
     },
     {
         question: "How do webhooks work?",
-        answer: "Webhooks allow you to receive real-time notifications about transaction events. After registering a webhook endpoint in your dashboard, ZitoPay sends HTTP POST requests to your endpoint when events occur (like transaction completion or failure). Always verify the webhook signature in the X-Webhook-Signature header before processing webhook payloads for security."
+        answer: "Webhooks allow you to receive real-time notifications about transaction events. After registering a webhook endpoint in your dashboard, ZoPay sends HTTP POST requests to your endpoint when events occur (like transaction completion or failure). Always verify the webhook signature in the X-Webhook-Signature header before processing webhook payloads for security."
     },
     {
         question: "What happens if a transaction fails?",
@@ -44,7 +44,7 @@ const faqItems: FAQItem[] = [
     },
     {
         question: "How are fees calculated?",
-        answer: "Fees consist of two components: gateway fees (charged by the mobile money provider like MTN or Orange) and platform fees (ZitoPay service fee). When you create a quote, you'll receive the exact fee breakdown. Fees are locked in for 15 minutes with the quote. The total amount the customer pays includes the original amount plus all fees."
+        answer: "Fees consist of two components: gateway fees (charged by the mobile money provider like MTN or Orange) and platform fees (ZoPay service fee). When you create a quote, you'll receive the exact fee breakdown. Fees are locked in for 15 minutes with the quote. The total amount the customer pays includes the original amount plus all fees."
     },
     {
         question: "Can I use the same API key for sandbox and production?",
@@ -56,7 +56,7 @@ const faqItems: FAQItem[] = [
     },
     {
         question: "How do I handle refunds?",
-        answer: "Refunds can be processed through the ZitoPay API. There are two methods: reversal (instant refund by reversing the original transaction) and manual refund (processed separately). To create a refund, use the refund endpoint with the original transaction ID and a reason. Refunds are subject to the same security and verification requirements as other transactions."
+        answer: "Refunds can be processed through the ZoPay API. There are two methods: reversal (instant refund by reversing the original transaction) and manual refund (processed separately). To create a refund, use the refund endpoint with the original transaction ID and a reason. Refunds are subject to the same security and verification requirements as other transactions."
     }
 ];
 
@@ -71,7 +71,7 @@ export default function FAQPage() {
         <div>
             <h1>Frequently Asked Questions</h1>
             <p className="mb-6">
-                Find answers to common questions about ZitoPay API, integration, and usage.
+                Find answers to common questions about ZoPay API, integration, and usage.
             </p>
 
             <div className="space-y-3 mb-12">

@@ -132,116 +132,125 @@ export default function LoginPage() {
   return (
     <AuthLayout>
       <div className="w-full max-w-md">
-        <div className="bg-background rounded-2xl shadow-xl border border-border p-6 sm:p-8">
-          {/* Header */}
-          <div className="text-center mb-6">
-            <h1 className="text-xl font-bold text-foreground mb-1.5">Welcome back</h1>
-            <p className="text-xs text-muted-foreground">
-              Access your dashboard to manage payments securely.
-            </p>
-          </div>
+  <div className="bg-white dark:bg-[#0f172a] rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 p-6 sm:p-8">
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Error Message */}
-            {loginErrorMessage && (
-              <div className="p-3 text-xs text-red-500 bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-900 rounded-lg">
-                {loginErrorMessage}
-              </div>
-            )}
+    {/* Header */}
+    <div className="text-center mb-6">
+      <h1 className="text-xl font-bold text-[#1e1b4b] dark:text-white mb-1.5">
+        Welcome back
+      </h1>
+      <p className="text-xs text-gray-500 dark:text-gray-400">
+        Access your dashboard to manage payments securely.
+      </p>
+    </div>
 
-            {/* Email Field */}
-            <div>
-              <label htmlFor="email" className="block text-xs font-medium text-foreground mb-1.5">
-                Email Address
-              </label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@example.com"
-                  className="w-full pl-9 pr-3 py-2.5 text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ef2d10] focus:border-transparent transition-all text-foreground placeholder:text-muted-foreground"
-                  required
-                />
-              </div>
-            </div>
+    {/* Form */}
+    <form onSubmit={handleSubmit} className="space-y-4">
 
-            {/* Password Field */}
-            <div>
-              <div className="flex items-center justify-between mb-1.5">
-                <label htmlFor="password" className="block text-xs font-medium text-foreground">
-                  Password
-                </label>
-                <Link
-                  href="/forgot-password"
-                  className="text-xs font-medium text-[#2466eb] hover:underline"
-                >
-                  Forgot password?
-                </Link>
-              </div>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="w-full pl-9 pr-10 py-2.5 text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ef2d10] focus:border-transparent transition-all text-foreground placeholder:text-muted-foreground"
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                </button>
-              </div>
-            </div>
-
-            {turnstileConfig?.enabled && turnstileConfig.siteKey && (
-              <TurnstileWidget
-                siteKey={turnstileConfig.siteKey}
-                onTokenChange={setTurnstileToken}
-              />
-            )}
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={isPending || Boolean(turnstileConfig?.enabled && !turnstileToken)}
-              className="w-full py-2.5 bg-[#ef2d10] text-white rounded-lg font-semibold text-sm hover:bg-[#d0260e] transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {isPending ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  Signing in...
-                </>
-              ) : (
-                "Sign In"
-              )}
-            </button>
-          </form>
-
-          {/* Footer */}
-          <p className="mt-5 text-center text-xs text-muted-foreground">
-            Don&apos;t have an account?{" "}
-            <Link href="/apply" className="font-semibold text-[#2466eb] hover:underline">
-              Apply now
-            </Link>
-          </p>
+      {/* Error */}
+      {loginErrorMessage && (
+        <div className="p-3 text-xs text-red-600 bg-red-50 border border-red-200 rounded-lg">
+          {loginErrorMessage}
         </div>
+      )}
 
-        {/* Security Badge */}
-        <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
-          <Shield className="w-3.5 h-3.5" />
-          <span>Secured by 256-bit encryption</span>
+      {/* Email */}
+      <div>
+        <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+          Email Address
+        </label>
+        <div className="relative">
+          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="name@example.com"
+            className="w-full pl-9 pr-3 py-2.5 text-sm bg-white dark:bg-[#020617] border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-all text-black dark:text-white placeholder:text-gray-400"
+            required
+          />
         </div>
       </div>
+
+      {/* Password */}
+      <div>
+        <div className="flex items-center justify-between mb-1.5">
+          <label className="text-xs font-medium text-gray-700 dark:text-gray-300">
+            Password
+          </label>
+          <Link
+            href="/forgot-password"
+            className="text-xs font-medium text-[#4f46e5] hover:underline"
+          >
+            Forgot password?
+          </Link>
+        </div>
+
+        <div className="relative">
+          <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <input
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="••••••••"
+            className="w-full pl-9 pr-10 py-2.5 text-sm bg-white dark:bg-[#020617] border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-all text-black dark:text-white placeholder:text-gray-400"
+            required
+          />
+
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#4f46e5] transition-colors"
+          >
+            {showPassword ? (
+              <EyeOff className="w-4 h-4" />
+            ) : (
+              <Eye className="w-4 h-4" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Turnstile */}
+      {turnstileConfig?.enabled && turnstileConfig.siteKey && (
+        <TurnstileWidget
+          siteKey={turnstileConfig.siteKey}
+          onTokenChange={setTurnstileToken}
+        />
+      )}
+
+      {/* Submit */}
+      <button
+        type="submit"
+        disabled={isPending || Boolean(turnstileConfig?.enabled && !turnstileToken)}
+        className="w-full py-2.5 bg-gradient-to-r from-[#7c3aed] to-[#dc2626] text-white rounded-lg font-semibold text-sm hover:opacity-90 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        {isPending ? (
+          <>
+            <Loader2 className="w-4 h-4 animate-spin" />
+            Signing in...
+          </>
+        ) : (
+          "Sign In"
+        )}
+      </button>
+    </form>
+
+    {/* Footer */}
+    <p className="mt-5 text-center text-xs text-gray-500 dark:text-gray-400">
+      Don&apos;t have an account?{" "}
+      <Link href="/apply" className="font-semibold text-[#4f46e5] hover:underline">
+        Apply now
+      </Link>
+    </p>
+  </div>
+
+  {/* Security */}
+  <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+    <Shield className="w-3.5 h-3.5 text-[#4f46e5]" />
+    <span>Secured with 256-bit encryption</span>
+  </div>
+</div>
     </AuthLayout>
   );
 }

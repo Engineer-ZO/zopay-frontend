@@ -139,15 +139,15 @@ export default function ListPayoutsPage() {
 
             <h3>Get All Payouts</h3>
             <CodeBlock
-                code={`const response = await fetch('https://api.zitopay.com/api/v1/disbursements', {
+                code={`const response = await fetch('https://api.zopay.com/api/v1/disbursements', {
   method: 'GET',
   headers: {
-    'x-zito-key': apiKey,
-    'x-zito-timestamp': timestamp,
-    'x-zito-nonce': nonce,
-    'x-zito-origin': origin,
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': apiKey,
+    'x-zo-timestamp': timestamp,
+    'x-zo-nonce': nonce,
+    'x-zo-origin': origin,
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   }
 });
 
@@ -159,15 +159,15 @@ console.log('Payouts:', data.payouts);`}
 
             <h3>Filter by Status</h3>
             <CodeBlock
-                code={`const response = await fetch('https://api.zitopay.com/api/v1/disbursements?status=SUCCESS', {
+                code={`const response = await fetch('https://api.zopay.com/api/v1/disbursements?status=SUCCESS', {
   method: 'GET',
   headers: {
-    'x-zito-key': apiKey,
-    'x-zito-timestamp': timestamp,
-    'x-zito-nonce': nonce,
-    'x-zito-origin': origin,
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': apiKey,
+    'x-zo-timestamp': timestamp,
+    'x-zo-nonce': nonce,
+    'x-zo-origin': origin,
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   }
 });`}
                 language="javascript"
@@ -176,15 +176,15 @@ console.log('Payouts:', data.payouts);`}
             <h3>Pagination</h3>
             <CodeBlock
                 code={`// Get second page (20 results per page)
-const response = await fetch('https://api.zitopay.com/api/v1/disbursements?limit=20&offset=20', {
+const response = await fetch('https://api.zopay.com/api/v1/disbursements?limit=20&offset=20', {
   method: 'GET',
   headers: {
-    'x-zito-key': apiKey,
-    'x-zito-timestamp': timestamp,
-    'x-zito-nonce': nonce,
-    'x-zito-origin': origin,
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': apiKey,
+    'x-zo-timestamp': timestamp,
+    'x-zo-nonce': nonce,
+    'x-zo-origin': origin,
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   }
 });`}
                 language="javascript"
@@ -196,16 +196,16 @@ const response = await fetch('https://api.zitopay.com/api/v1/disbursements?limit
 const endDate = '2024-01-31T23:59:59Z';
 
 const response = await fetch(
-  \`https://api.zitopay.com/api/v1/disbursements?startDate=\${startDate}&endDate=\${endDate}\`,
+  \`https://api.zopay.com/api/v1/disbursements?startDate=\${startDate}&endDate=\${endDate}\`,
   {
     method: 'GET',
     headers: {
-      'x-zito-key': apiKey,
-      'x-zito-timestamp': timestamp,
-      'x-zito-nonce': nonce,
-      'x-zito-origin': origin,
-      'x-zito-signature': signature,
-      'x-zito-version': '1.0'
+      'x-zo-key': apiKey,
+      'x-zo-timestamp': timestamp,
+      'x-zo-nonce': nonce,
+      'x-zo-origin': origin,
+      'x-zo-signature': signature,
+      'x-zo-version': '1.0'
     }
   }
 );`}

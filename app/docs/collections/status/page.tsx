@@ -108,7 +108,7 @@ export default function TransactionStatusPage() {
                     <tr>
                         <td><code>platformFee</code></td>
                         <td>string</td>
-                        <td>ZitoPay platform fee</td>
+                        <td>ZoPay platform fee</td>
                     </tr>
                     <tr>
                         <td><code>createdAt</code></td>
@@ -127,15 +127,15 @@ export default function TransactionStatusPage() {
             <CodeBlock
                 code={`const transactionId = 'txn-uuid-from-execute-response';
 
-const response = await fetch(\`https://api.zitopay.com/api/v1/wallets/transactions/\${transactionId}\`, {
+const response = await fetch(\`https://api.zopay.com/api/v1/wallets/transactions/\${transactionId}\`, {
   method: 'GET',
   headers: {
-    'x-zito-key': apiKey,
-    'x-zito-timestamp': timestamp,
-    'x-zito-nonce': nonce,
-    'x-zito-origin': origin,
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': apiKey,
+    'x-zo-timestamp': timestamp,
+    'x-zo-nonce': nonce,
+    'x-zo-origin': origin,
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   }
 });
 

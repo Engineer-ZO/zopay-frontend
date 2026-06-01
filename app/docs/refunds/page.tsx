@@ -7,7 +7,7 @@ export default function RefundsPage() {
         <div>
             <h1>Refunds</h1>
             <p>
-                Process refunds for completed transactions. This section covers how to create and manage refunds through the ZitoPay API.
+                Process refunds for completed transactions. This section covers how to create and manage refunds through the ZoPay API.
             </p>
 
             <h2>Overview</h2>
@@ -24,7 +24,7 @@ export default function RefundsPage() {
 
             <h3>Refund Methods</h3>
             <p>
-                ZitoPay supports two refund methods:
+                ZoPay supports two refund methods:
             </p>
             <ul>
                 <li><strong>Reversal:</strong> Instant refund by reversing the original transaction through the gateway (preferred method)</li>
@@ -38,7 +38,7 @@ export default function RefundsPage() {
                 <li>Specify refund amount (full or partial)</li>
                 <li>Select refund method (reversal or payout)</li>
                 <li>Provide reason for refund</li>
-                <li>ZitoPay processes the refund</li>
+                <li>ZoPay processes the refund</li>
                 <li>Webhook notification sent when refund completes</li>
                 <li>Check refund status via <code>GET /api/v1/refunds/:id</code></li>
             </ol>
@@ -142,16 +142,16 @@ export default function RefundsPage() {
 
             <h3>Example Request</h3>
             <CodeBlock
-                code={`const response = await fetch('https://api.zitopay.com/api/v1/refunds', {
+                code={`const response = await fetch('https://api.zopay.com/api/v1/refunds', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'x-zito-key': 'your-api-key',
-    'x-zito-timestamp': Math.floor(Date.now() / 1000).toString(),
-    'x-zito-nonce': crypto.randomBytes(16).toString('hex'),
-    'x-zito-origin': 'https://yourdomain.com',
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': 'your-api-key',
+    'x-zo-timestamp': Math.floor(Date.now() / 1000).toString(),
+    'x-zo-nonce': crypto.randomBytes(16).toString('hex'),
+    'x-zo-origin': 'https://yourdomain.com',
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   },
   body: JSON.stringify({
     transaction_id: 'txn-uuid',
@@ -337,15 +337,15 @@ const refund = await response.json();`}
             <h3>Example Request</h3>
             <CodeBlock
                 code={`// Get all refunds for a specific transaction
-const response = await fetch('https://api.zitopay.com/api/v1/refunds?transaction_id=txn-uuid', {
+const response = await fetch('https://api.zopay.com/api/v1/refunds?transaction_id=txn-uuid', {
   method: 'GET',
   headers: {
-    'x-zito-key': 'your-api-key',
-    'x-zito-timestamp': Math.floor(Date.now() / 1000).toString(),
-    'x-zito-nonce': crypto.randomBytes(16).toString('hex'),
-    'x-zito-origin': 'https://yourdomain.com',
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': 'your-api-key',
+    'x-zo-timestamp': Math.floor(Date.now() / 1000).toString(),
+    'x-zo-nonce': crypto.randomBytes(16).toString('hex'),
+    'x-zo-origin': 'https://yourdomain.com',
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   }
 });
 

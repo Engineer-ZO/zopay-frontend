@@ -7,7 +7,7 @@ export default function CollectionsPage() {
         <div>
             <h1>Collections</h1>
             <p>
-                Collections allow you to receive payments from customers via mobile money. This section covers everything you need to know about collecting payments through ZitoPay.
+                Collections allow you to receive payments from customers via mobile money. This section covers everything you need to know about collecting payments through ZoPay.
             </p>
 
             <h2>Overview</h2>
@@ -33,7 +33,7 @@ export default function CollectionsPage() {
                 <li>Quote includes fees and total amount</li>
                 <li>Customer confirms payment details</li>
                 <li>Your application executes collection via <code>POST /api/v1/wallets/collect</code></li>
-                <li>ZitoPay processes payment with the mobile money provider</li>
+                <li>ZoPay processes payment with the mobile money provider</li>
                 <li>Webhook notification sent when transaction completes</li>
                 <li>Check transaction status via <code>GET /api/v1/wallets/transactions/:id</code></li>
             </ol>
@@ -53,7 +53,7 @@ export default function CollectionsPage() {
             </p>
             <ul>
                 <li><strong>Gateway Fee:</strong> Fee charged by the mobile money provider (MTN, Orange, etc.)</li>
-                <li><strong>Platform Fee:</strong> ZitoPay service fee</li>
+                <li><strong>Platform Fee:</strong> ZoPay service fee</li>
                 <li><strong>Total Amount:</strong> Amount customer pays (original amount + fees)</li>
                 <li><strong>Net to Merchant:</strong> Amount you receive after fees</li>
             </ul>
@@ -174,7 +174,7 @@ export default function CollectionsPage() {
                     <tr>
                         <td><code>fees.platform_fee</code></td>
                         <td>string</td>
-                        <td>ZitoPay platform fee</td>
+                        <td>ZoPay platform fee</td>
                     </tr>
                     <tr>
                         <td><code>total_amount</code></td>
@@ -196,16 +196,16 @@ export default function CollectionsPage() {
 
             <h3>Example Request</h3>
             <CodeBlock
-                code={`const response = await fetch('https://api.zitopay.com/api/v1/wallets/quote', {
+                code={`const response = await fetch('https://api.zopay.com/api/v1/wallets/quote', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'x-zito-key': 'your-api-key',
-    'x-zito-timestamp': Math.floor(Date.now() / 1000).toString(),
-    'x-zito-nonce': crypto.randomBytes(16).toString('hex'),
-    'x-zito-origin': 'https://yourdomain.com',
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': 'your-api-key',
+    'x-zo-timestamp': Math.floor(Date.now() / 1000).toString(),
+    'x-zo-nonce': crypto.randomBytes(16).toString('hex'),
+    'x-zo-origin': 'https://yourdomain.com',
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   },
   body: JSON.stringify({
     gateway: 'MTN_MOMO',
@@ -314,16 +314,16 @@ const quote = await response.json();`}
 
             <h3>Example Request</h3>
             <CodeBlock
-                code={`const response = await fetch('https://api.zitopay.com/api/v1/wallets/collect', {
+                code={`const response = await fetch('https://api.zopay.com/api/v1/wallets/collect', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'x-zito-key': 'your-api-key',
-    'x-zito-timestamp': Math.floor(Date.now() / 1000).toString(),
-    'x-zito-nonce': crypto.randomBytes(16).toString('hex'),
-    'x-zito-origin': 'https://yourdomain.com',
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': 'your-api-key',
+    'x-zo-timestamp': Math.floor(Date.now() / 1000).toString(),
+    'x-zo-nonce': crypto.randomBytes(16).toString('hex'),
+    'x-zo-origin': 'https://yourdomain.com',
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   },
   body: JSON.stringify({
     quote_id: 'quote-uuid',
@@ -437,7 +437,7 @@ const transaction = await response.json();`}
                     <tr>
                         <td><code>transaction.platformFee</code></td>
                         <td>string</td>
-                        <td>ZitoPay platform fee</td>
+                        <td>ZoPay platform fee</td>
                     </tr>
                     <tr>
                         <td><code>transaction.createdAt</code></td>
@@ -454,15 +454,15 @@ const transaction = await response.json();`}
 
             <h3>Example Request</h3>
             <CodeBlock
-                code={`const response = await fetch('https://api.zitopay.com/api/v1/wallets/transactions/txn-uuid', {
+                code={`const response = await fetch('https://api.zopay.com/api/v1/wallets/transactions/txn-uuid', {
   method: 'GET',
   headers: {
-    'x-zito-key': 'your-api-key',
-    'x-zito-timestamp': Math.floor(Date.now() / 1000).toString(),
-    'x-zito-nonce': crypto.randomBytes(16).toString('hex'),
-    'x-zito-origin': 'https://yourdomain.com',
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': 'your-api-key',
+    'x-zo-timestamp': Math.floor(Date.now() / 1000).toString(),
+    'x-zo-nonce': crypto.randomBytes(16).toString('hex'),
+    'x-zo-origin': 'https://yourdomain.com',
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   }
 });
 

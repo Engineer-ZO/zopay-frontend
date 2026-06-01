@@ -116,7 +116,7 @@ export default function ApiReferencePage() {
         <div>
             <h1>API Reference</h1>
             <p className="mb-6">
-                Complete reference documentation for all ZitoPay API endpoints. All endpoints require authentication using API keys and HMAC signatures.
+                Complete reference documentation for all ZoPay API endpoints. All endpoints require authentication using API keys and HMAC signatures.
             </p>
 
             <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/10 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-4 my-6">
@@ -124,7 +124,7 @@ export default function ApiReferencePage() {
                     <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
                     <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
-                            <strong>Base URLs:</strong> Sandbox: <code>http://localhost:9000</code> | Production: <code>https://api.zitopay.com</code>. All <code>/api/v1/*</code> endpoints require the 6 authentication headers. See <Link href="/docs/getting-started/using-the-api" className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 hover:underline font-medium">Using the API</Link> for details.
+                            <strong>Base URLs:</strong> Sandbox: <code>http://localhost:9000</code> | Production: <code>https://api.zopay.com</code>. All <code>/api/v1/*</code> endpoints require the 6 authentication headers. See <Link href="/docs/getting-started/using-the-api" className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 hover:underline font-medium">Using the API</Link> for details.
                         </p>
                     </div>
                 </div>
@@ -135,12 +135,12 @@ export default function ApiReferencePage() {
                 All <code>/api/v1/*</code> endpoints require the following headers:
             </p>
             <ul>
-                <li><code>x-zito-key</code> - Your API key</li>
-                <li><code>x-zito-timestamp</code> - Unix timestamp in seconds</li>
-                <li><code>x-zito-nonce</code> - Unique random string (UUID recommended)</li>
-                <li><code>x-zito-origin</code> - Your verified domain or allowed IP</li>
-                <li><code>x-zito-signature</code> - HMAC-SHA256 signature</li>
-                <li><code>x-zito-version</code> - API version (&quot;1.0&quot;)</li>
+                <li><code>x-zo-key</code> - Your API key</li>
+                <li><code>x-zo-timestamp</code> - Unix timestamp in seconds</li>
+                <li><code>x-zo-nonce</code> - Unique random string (UUID recommended)</li>
+                <li><code>x-zo-origin</code> - Your verified domain or allowed IP</li>
+                <li><code>x-zo-signature</code> - HMAC-SHA256 signature</li>
+                <li><code>x-zo-version</code> - API version (&quot;1.0&quot;)</li>
             </ul>
             <p>
                 For detailed authentication instructions, see <Link href="/docs/getting-started/using-the-api" className="text-primary hover:underline">Using the API</Link>.

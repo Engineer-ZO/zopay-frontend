@@ -57,7 +57,7 @@ export default function ExecuteCollectionPage() {
                     <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
                     <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
-                            <strong>Idempotency Key:</strong> Always use a unique idempotency key for each collection attempt. If you retry a request with the same idempotency key, ZitoPay will return the original transaction result instead of creating a duplicate payment.
+                            <strong>Idempotency Key:</strong> Always use a unique idempotency key for each collection attempt. If you retry a request with the same idempotency key, ZoPay will return the original transaction result instead of creating a duplicate payment.
                         </p>
                     </div>
                 </div>
@@ -109,15 +109,15 @@ export default function ExecuteCollectionPage() {
 
             <h2>Example Request</h2>
             <CodeBlock
-                code={`const response = await fetch('https://api.zitopay.com/api/v1/wallets/collect', {
+                code={`const response = await fetch('https://api.zopay.com/api/v1/wallets/collect', {
   method: 'POST',
   headers: {
-    'x-zito-key': apiKey,
-    'x-zito-timestamp': timestamp,
-    'x-zito-nonce': nonce,
-    'x-zito-origin': origin,
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0',
+    'x-zo-key': apiKey,
+    'x-zo-timestamp': timestamp,
+    'x-zo-nonce': nonce,
+    'x-zo-origin': origin,
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({

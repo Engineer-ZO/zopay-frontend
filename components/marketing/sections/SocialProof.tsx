@@ -27,7 +27,7 @@ const stats = [
 
 const testimonials = [
     {
-        quote: "ZitoPay reduced our integration time from 3 months to just 2 weeks. The unified API is a game-changer for African fintech.",
+        quote: "ZoPay reduced our integration time from 3 months to just 2 weeks. The unified API is a game-changer for African fintech.",
         author: "Sarah Kamau",
         role: "CTO, PayFlow Kenya",
         rating: 5
@@ -39,7 +39,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "The automated reconciliation alone saves us 20 hours per week. ZitoPay is essential infrastructure for any serious fintech.",
+        quote: "The automated reconciliation alone saves us 20 hours per week. ZoPay is essential infrastructure for any serious fintech.",
         author: "Amina Diallo",
         role: "CFO, TransactHub Senegal",
         rating: 5
@@ -70,7 +70,7 @@ export function SocialProof() {
                         <span className="text-[#ef2d10]">Payment Revolution</span>
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                        Hundreds of businesses across Africa trust ZitoPay to power their payment infrastructure.
+                        Hundreds of businesses across Africa trust ZoPay to power their payment infrastructure.
                     </p>
                 </motion.div>
 

@@ -30,7 +30,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ZitoPay - Mobile Money Payment Gateway",
+  title: "ZoPay - Mobile Money Payment Gateway",
   description: "Accept MTN Mobile Money and Orange Money payments with ease",
 };
 

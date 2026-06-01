@@ -8,7 +8,7 @@ export default function CollectionsOverviewPage() {
         <div>
             <h1>Collections Overview</h1>
             <p>
-                Collections allow you to receive payments from customers via mobile money. This section covers everything you need to know about collecting payments through ZitoPay.
+                Collections allow you to receive payments from customers via mobile money. This section covers everything you need to know about collecting payments through ZoPay.
             </p>
 
             <h2>How Collections Work</h2>
@@ -34,7 +34,7 @@ export default function CollectionsOverviewPage() {
                 <li>Quote includes fees and total amount</li>
                 <li>Customer confirms payment details</li>
                 <li>Your application executes collection via <code>POST /api/v1/wallets/collect</code></li>
-                <li>ZitoPay processes payment with the mobile money provider</li>
+                <li>ZoPay processes payment with the mobile money provider</li>
                 <li>Webhook notification sent when transaction completes</li>
                 <li>Check transaction status via <code>GET /api/v1/wallets/transactions/:id</code></li>
             </ol>
@@ -54,7 +54,7 @@ export default function CollectionsOverviewPage() {
             </p>
             <ul>
                 <li><strong>Gateway Fee:</strong> Fee charged by the mobile money provider (MTN, Orange, etc.)</li>
-                <li><strong>Platform Fee:</strong> ZitoPay service fee</li>
+                <li><strong>Platform Fee:</strong> ZoPay service fee</li>
                 <li><strong>Total Amount:</strong> Amount customer pays (original amount + fees)</li>
                 <li><strong>Net to Merchant:</strong> Amount you receive after fees</li>
             </ul>

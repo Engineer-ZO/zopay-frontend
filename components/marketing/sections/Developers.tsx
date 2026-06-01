@@ -91,7 +91,7 @@ export function Developers() {
                                     <span style={{ color: '#2466eb' }} className="font-semibold">payment</span>{" "}
                                     <span className="text-muted-foreground">=</span>{" "}
                                     <span style={{ color: '#ef2d10' }} className="font-semibold">await</span>{" "}
-                                    <span className="text-foreground">zitoPay.collect</span>
+                                    <span className="text-foreground">zoPay.collect</span>
                                     <span className="text-muted-foreground">({"{"}</span>
                                 </div>
                                 <div className="pl-4 space-y-2">

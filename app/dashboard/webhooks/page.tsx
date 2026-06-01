@@ -544,7 +544,7 @@ export default function WebhooksPage() {
                     setUrl(e.target.value);
                     setUrlError(null);
                   }}
-                  placeholder="https://api.myapp.com/webhooks/zitopay"
+                  placeholder="https://api.myapp.com/webhooks/zopay"
                   className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                   disabled={createMutation.isPending}
                 />
@@ -651,7 +651,7 @@ export default function WebhooksPage() {
                     setUrl(e.target.value);
                     setUrlError(null);
                   }}
-                  placeholder="https://api.myapp.com/webhooks/zitopay"
+                  placeholder="https://api.myapp.com/webhooks/zopay"
                   className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
                   disabled={updateMutation.isPending}
                 />

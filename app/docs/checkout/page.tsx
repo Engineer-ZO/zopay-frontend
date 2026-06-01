@@ -7,8 +7,8 @@ export default function HostedCheckoutDocsPage() {
     <div>
       <h1>Hosted Checkout</h1>
       <p>
-        Hosted Checkout lets your backend create a short-lived ZitoPay payment session, then redirect
-        the customer to a secure ZitoPay-hosted page at <code>/pay/:checkoutSessionId</code>.
+        Hosted Checkout lets your backend create a short-lived ZoPay payment session, then redirect
+        the customer to a secure ZoPay-hosted page at <code>/pay/:checkoutSessionId</code>.
       </p>
 
       <h2>Important Implementation Rule</h2>
@@ -19,13 +19,13 @@ export default function HostedCheckoutDocsPage() {
       </p>
       <ul>
         <li>Creating checkout sessions must happen from the merchant backend.</li>
-        <li>The merchant backend server/domain/IP must be approved in ZitoPay.</li>
-        <li>Sending <code>x-zito-origin</code> alone is not enough if the real request comes from the wrong place.</li>
+        <li>The merchant backend server/domain/IP must be approved in ZoPay.</li>
+        <li>Sending <code>x-zo-origin</code> alone is not enough if the real request comes from the wrong place.</li>
       </ul>
 
       <h2>When to Use Hosted Checkout</h2>
       <p>
-        Use Hosted Checkout for ecommerce and customer-facing payment flows where ZitoPay should own
+        Use Hosted Checkout for ecommerce and customer-facing payment flows where ZoPay should own
         the payment page. Direct collection APIs are still available for approved server-to-server
         integrations, but Hosted Checkout is the recommended browser checkout flow.
       </p>
@@ -37,18 +37,18 @@ export default function HostedCheckoutDocsPage() {
   -> POST /api/v1/checkout/sessions with API key + HMAC signature
   -> receives checkoutSession.checkoutUrl
 Merchant website
-  -> redirects customer to https://checkout.zitopay.co/pay/:checkoutSessionId
-ZitoPay hosted page
+  -> redirects customer to https://checkout.zopay.co/pay/:checkoutSessionId
+ZoPay hosted page
   -> loads session, collects payer details, submits payment, polls status
   -> redirects to successUrl/cancelUrl when backend returns redirectUrl`}
       />
       <ol>
         <li>Your backend creates a checkout session with your API key and HMAC signature.</li>
-        <li>ZitoPay returns a <code>checkoutUrl</code>.</li>
+        <li>ZoPay returns a <code>checkoutUrl</code>.</li>
         <li>Your site redirects the customer to that URL.</li>
         <li>The customer selects MTN MoMo or Orange Money and enters payment details.</li>
-        <li>ZitoPay starts the collection and polls/verifies status.</li>
-        <li>ZitoPay redirects to your success or cancel URL when available.</li>
+        <li>ZoPay starts the collection and polls/verifies status.</li>
+        <li>ZoPay redirects to your success or cancel URL when available.</li>
       </ol>
 
       <h2>Hosted Checkout URL</h2>
@@ -58,7 +58,7 @@ ZitoPay hosted page
       </p>
       <CodeBlock
         language="text"
-        code={`https://checkout.zitopay.co/pay/<sessionId>
+        code={`https://checkout.zopay.co/pay/<sessionId>
 http://localhost:3001/pay/<sessionId>`}
       />
       <p>
@@ -91,12 +91,12 @@ http://localhost:3001/pay/<sessionId>`}
         language="http"
         code={`POST /api/v1/checkout/sessions
 Content-Type: application/json
-x-zito-key: <merchant_api_key>
-x-zito-timestamp: <unix_ms>
-x-zito-nonce: <unique_nonce>
-x-zito-origin: <merchant_origin>
-x-zito-signature: <hmac_signature>
-x-zito-version: 1.0`}
+x-zo-key: <merchant_api_key>
+x-zo-timestamp: <unix_ms>
+x-zo-nonce: <unique_nonce>
+x-zo-origin: <merchant_origin>
+x-zo-signature: <hmac_signature>
+x-zo-version: 1.0`}
       />
       <CodeBlock
         language="json"
@@ -108,7 +108,7 @@ x-zito-version: 1.0`}
   "expiresInMinutes": 30,
   "successUrl": "https://merchant.example.com/pay/success",
   "cancelUrl": "https://merchant.example.com/pay/cancel",
-  "webhookUrl": "https://merchant.example.com/webhooks/zitopay",
+  "webhookUrl": "https://merchant.example.com/webhooks/zopay",
   "metadata": {
     "orderId": "ORDER-1001",
     "cartId": "CART-22"
@@ -147,7 +147,7 @@ x-zito-version: 1.0`}
         code={`{
   "checkoutSession": {
     "id": "checkout-session-uuid",
-    "checkoutUrl": "https://checkout.zitopay.co/pay/checkout-session-uuid",
+    "checkoutUrl": "https://checkout.zopay.co/pay/checkout-session-uuid",
     "amount": "5000.00",
     "currency": "XAF",
     "description": "Order #1001",
@@ -207,7 +207,7 @@ x-zito-version: 1.0`}
     "id": "checkout-session-uuid",
     "merchantName": "Merchant Business Name",
     "merchantLogoUrl": "https://signed-logo-url",
-    "checkoutUrl": "https://checkout.zitopay.co/pay/checkout-session-uuid",
+    "checkoutUrl": "https://checkout.zopay.co/pay/checkout-session-uuid",
     "amount": "5000.00",
     "currency": "XAF",
     "description": "Order #1001",
@@ -235,7 +235,7 @@ x-zito-version: 1.0`}
       <h3>Hosted Page Display Rules</h3>
       <ul>
         <li>Show <code>merchantLogoUrl</code> at the top when present.</li>
-        <li>When the logo is missing, fall back to merchant name or default ZitoPay branding.</li>
+        <li>When the logo is missing, fall back to merchant name or default ZoPay branding.</li>
         <li>If <code>payable</code> is false or status is not <code>PENDING</code>, disable the form and show the matching state.</li>
         <li>Treat <code>merchantLogoUrl</code> as temporary because it is a signed URL.</li>
       </ul>
@@ -374,9 +374,9 @@ x-zito-version: 1.0`}
       />
       <CodeBlock
         language="http"
-        code={`X-Zito-Event: checkout.session.paid
-X-Zito-Timestamp: <unix_ms>
-X-Zito-Signature: <hmac_sha256(timestamp + "." + raw_body)>`}
+        code={`X-Zo-Event: checkout.session.paid
+X-Zo-Timestamp: <unix_ms>
+X-Zo-Signature: <hmac_sha256(timestamp + "." + raw_body)>`}
       />
       <p>
         The direct webhook HMAC secret is the merchant secret for the session environment.

@@ -59,7 +59,7 @@ export function ValueProposition() {
                     className="text-center mb-16"
                 >
                     <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold bg-[#2466eb]/10 text-[#2466eb] mb-4">
-                        Why ZitoPay Changes Everything
+                        Why ZoPay Changes Everything
                     </span>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                         Built for{" "}

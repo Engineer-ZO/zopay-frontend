@@ -7,7 +7,7 @@ export default function AuthenticationPage() {
         <div>
             <h1>Authentication</h1>
             <p>
-                ZitoPay uses API key authentication with HMAC-SHA256 signature verification for secure API access. This guide explains how to authenticate your requests.
+                ZoPay uses API key authentication with HMAC-SHA256 signature verification for secure API access. This guide explains how to authenticate your requests.
             </p>
 
             <h2>API Key Authentication</h2>
@@ -20,12 +20,12 @@ export default function AuthenticationPage() {
                 Every authenticated request must include the following headers:
             </p>
             <CodeBlock
-                code={`x-zito-key: <your-api-key>
-x-zito-timestamp: <unix-timestamp-in-seconds>
-x-zito-nonce: <unique-random-string>
-x-zito-origin: <your-domain-or-ip>
-x-zito-signature: <hmac-sha256-signature>
-x-zito-version: 1.0
+                code={`x-zo-key: <your-api-key>
+x-zo-timestamp: <unix-timestamp-in-seconds>
+x-zo-nonce: <unique-random-string>
+x-zo-origin: <your-domain-or-ip>
+x-zo-signature: <hmac-sha256-signature>
+x-zo-version: 1.0
 Content-Type: application/json`}
                 language="http"
             />
@@ -40,27 +40,27 @@ Content-Type: application/json`}
                 </thead>
                 <tbody>
                     <tr>
-                        <td><code>x-zito-key</code></td>
+                        <td><code>x-zo-key</code></td>
                         <td>Your public API key from the dashboard</td>
                     </tr>
                     <tr>
-                        <td><code>x-zito-timestamp</code></td>
+                        <td><code>x-zo-timestamp</code></td>
                         <td>Unix timestamp in seconds (prevents replay attacks)</td>
                     </tr>
                     <tr>
-                        <td><code>x-zito-nonce</code></td>
+                        <td><code>x-zo-nonce</code></td>
                         <td>Unique random string for each request (prevents replay attacks)</td>
                     </tr>
                     <tr>
-                        <td><code>x-zito-origin</code></td>
+                        <td><code>x-zo-origin</code></td>
                         <td>Your domain or IP address (for allowlisting)</td>
                     </tr>
                     <tr>
-                        <td><code>x-zito-signature</code></td>
+                        <td><code>x-zo-signature</code></td>
                         <td>HMAC-SHA256 signature of the request</td>
                     </tr>
                     <tr>
-                        <td><code>x-zito-version</code></td>
+                        <td><code>x-zo-version</code></td>
                         <td>API version (currently "1.0")</td>
                     </tr>
                 </tbody>
@@ -145,12 +145,12 @@ function generateHeaders(method, path, body, query, apiKey, secretKey, origin) {
   const signature = generateSignature(method, path, query, body, timestamp, nonce, origin, secretKey);
 
   return {
-    'x-zito-key': apiKey,
-    'x-zito-timestamp': timestamp,
-    'x-zito-nonce': nonce,
-    'x-zito-origin': origin,
-    'x-zito-signature': signature,  // Just hex, no prefix
-    'x-zito-version': '1.0',
+    'x-zo-key': apiKey,
+    'x-zo-timestamp': timestamp,
+    'x-zo-nonce': nonce,
+    'x-zo-origin': origin,
+    'x-zo-signature': signature,  // Just hex, no prefix
+    'x-zo-version': '1.0',
     'Content-Type': 'application/json'
   };
 }
@@ -207,12 +207,12 @@ def generate_headers(method, path, body, query, api_key, secret_key, origin):
     signature = generate_signature(method, path, query, body, timestamp, nonce, origin, secret_key)
     
     return {
-        'x-zito-key': api_key,
-        'x-zito-timestamp': timestamp,
-        'x-zito-nonce': nonce,
-        'x-zito-origin': origin,
-        'x-zito-signature': signature,  # Just hex, no prefix
-        'x-zito-version': '1.0',
+        'x-zo-key': api_key,
+        'x-zo-timestamp': timestamp,
+        'x-zo-nonce': nonce,
+        'x-zo-origin': origin,
+        'x-zo-signature': signature,  # Just hex, no prefix
+        'x-zo-version': '1.0',
         'Content-Type': 'application/json'
     }
 

@@ -7,14 +7,14 @@ export default function WebhooksOverviewPage() {
         <div>
             <h1>Webhooks Overview</h1>
             <p>
-                Webhooks allow you to receive real-time notifications about transaction events. Instead of polling for status updates, ZitoPay will automatically send HTTP POST requests to your registered endpoint when events occur.
+                Webhooks allow you to receive real-time notifications about transaction events. Instead of polling for status updates, ZoPay will automatically send HTTP POST requests to your registered endpoint when events occur.
             </p>
 
             <h2>How Webhooks Work</h2>
             <ol>
                 <li>Register a webhook endpoint in your dashboard (or via API) with your server URL</li>
-                <li>ZitoPay generates a unique webhook secret (shown only once - save it securely!)</li>
-                <li>ZitoPay sends HTTP POST requests to your endpoint when events occur</li>
+                <li>ZoPay generates a unique webhook secret (shown only once - save it securely!)</li>
+                <li>ZoPay sends HTTP POST requests to your endpoint when events occur</li>
                 <li>Your server verifies the webhook signature using the provided secret</li>
                 <li>Your server checks the delivery ID for idempotency (prevent duplicates)</li>
                 <li>Your server processes the event and updates your system</li>
@@ -104,7 +104,7 @@ export default function WebhooksOverviewPage() {
 
             <h2>Webhook Security</h2>
             <p>
-                All webhooks include an HMAC-SHA256 signature in the <code>X-Zito-Signature</code> header. Always verify this signature before processing webhook payloads to ensure requests are from ZitoPay.
+                All webhooks include an HMAC-SHA256 signature in the <code>X-Zo-Signature</code> header. Always verify this signature before processing webhook payloads to ensure requests are from ZoPay.
             </p>
             
             <div className="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800 rounded-lg p-4 my-6">
@@ -129,7 +129,7 @@ export default function WebhooksOverviewPage() {
 
             <h2>Retry Logic</h2>
             <p>
-                If your server doesn&apos;t respond with HTTP 200-299, ZitoPay will automatically retry the webhook delivery (up to 6 attempts):
+                If your server doesn&apos;t respond with HTTP 200-299, ZoPay will automatically retry the webhook delivery (up to 6 attempts):
             </p>
 
             <div className="bg-muted/50 border border-border rounded-lg p-3 my-4">
@@ -161,7 +161,7 @@ export default function WebhooksOverviewPage() {
                     <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
                     <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
-                            <strong>Response Codes:</strong> Return 200 OK even if processing fails (if you don&apos;t want retries), or return 500/502/503 if you want ZitoPay to retry the webhook.
+                            <strong>Response Codes:</strong> Return 200 OK even if processing fails (if you don&apos;t want retries), or return 500/502/503 if you want ZoPay to retry the webhook.
                         </p>
                     </div>
                 </div>
@@ -172,7 +172,7 @@ export default function WebhooksOverviewPage() {
                 <li><strong>Always verify signatures:</strong> Never process webhooks without signature verification - this is critical for security</li>
                 <li><strong>Use raw body for signature:</strong> Capture the raw request body before JSON parsing for signature verification</li>
                 <li><strong>Respond quickly:</strong> Return HTTP 200 within 30 seconds. Process webhooks asynchronously using a queue if needed.</li>
-                <li><strong>Implement idempotency:</strong> Use <code>X-Zito-Delivery-Id</code> header to prevent duplicate processing</li>
+                <li><strong>Implement idempotency:</strong> Use <code>X-Zo-Delivery-Id</code> header to prevent duplicate processing</li>
                 <li><strong>Handle duplicates:</strong> Webhooks may be delivered more than once. Always check delivery ID before processing.</li>
                 <li><strong>Check timestamps:</strong> Verify timestamp is within 5 minutes to prevent replay attacks</li>
                 <li><strong>Use HTTPS:</strong> Webhook URLs must use HTTPS in production (HTTP is only allowed for local testing)</li>

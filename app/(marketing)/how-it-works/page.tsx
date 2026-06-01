@@ -5,6 +5,7 @@ import { Target, Users, Zap, Shield, Globe, Heart, TrendingUp, Award } from "luc
 import { UserPlus, TestTube, Code2, Rocket, CheckCircle, ArrowRight, Copy, Check } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import Footer from '@/components/footer'
 
 const steps = [
     {
@@ -636,6 +637,8 @@ export default function HowItWorksPage() {
           </motion.div>
         </div>
       </section>
+      
+            <Footer />
     </div>
     </>
         

@@ -25,7 +25,7 @@ export default function NotificationsPage() {
         weeklySettlement: true,
     });
 
-    const [recipients, setRecipients] = useState("finance@zitopay.com, admin@zitopay.com");
+    const [recipients, setRecipients] = useState("finance@zopay.com, admin@zopay.com");
     const [saved, setSaved] = useState(false);
 
     const handleToggle = (key: keyof typeof notifications) => {
@@ -268,7 +268,7 @@ export default function NotificationsPage() {
                 <div className="space-y-4">
                     <div>
                         <p className="text-xs font-medium text-muted-foreground mb-1">Primary Email</p>
-                        <p className="text-sm font-semibold text-foreground">contact@zitopay.com</p>
+                        <p className="text-sm font-semibold text-foreground">contact@zopay.com</p>
                     </div>
 
                     <div>
@@ -279,7 +279,7 @@ export default function NotificationsPage() {
                             type="text"
                             value={recipients}
                             onChange={(e) => setRecipients(e.target.value)}
-                            placeholder="finance@zitopay.com, admin@zitopay.com"
+                            placeholder="finance@zopay.com, admin@zopay.com"
                             className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-sm"
                         />
                         <p className="text-xs text-muted-foreground mt-1">

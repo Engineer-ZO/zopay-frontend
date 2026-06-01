@@ -181,7 +181,7 @@ function HostedCheckoutPage({ sessionId }: { sessionId: string }) {
               )}
               <div>
                 <p className="text-xs uppercase tracking-[0.25em] text-white/70">Secure checkout</p>
-                <h1 className="mt-1 text-2xl font-black">{session.merchantName || "ZitoPay Checkout"}</h1>
+                <h1 className="mt-1 text-2xl font-black">{session.merchantName || "ZoPay Checkout"}</h1>
               </div>
             </div>
             {session.description ? (
@@ -283,7 +283,7 @@ function HostedCheckoutPage({ sessionId }: { sessionId: string }) {
         <aside className="h-fit rounded-[2rem] border border-black/10 bg-white p-6 shadow-xl shadow-slate-900/5">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-crimson-red-600">Order summary</p>
           <div className="mt-5 space-y-4">
-            <SummaryLine label="Merchant" value={session.merchantName || "ZitoPay merchant"} />
+            <SummaryLine label="Merchant" value={session.merchantName || "ZoPay merchant"} />
             <SummaryLine label="Order amount" value={formatMoney(session.amount, session.currency)} />
             <SummaryLine
               label="Total to approve"
@@ -370,7 +370,7 @@ function CheckoutStatusBanner({
   return (
     <div className="flex gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
       <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-crimson-red-600" />
-      Your payment is processed securely by ZitoPay. We will never ask for your PIN here.
+      Your payment is processed securely by ZoPay. We will never ask for your PIN here.
     </div>
   );
 }

@@ -26,7 +26,7 @@ import type {
   RegenerateSandboxCredentialsResponse,
   RegenerateProductionCredentialsResponse
 } from "@/features/merchants/types/index";
-import { storeSecretKey } from "@/lib/zitoSign";
+import { storeSecretKey } from "@/lib/zoSign";
 
 type Environment = "sandbox" | "production";
 
@@ -178,7 +178,7 @@ export default function ApiKeysPage() {
       <div>
         <h1 className="text-xl font-bold text-foreground">API Keys</h1>
         <p className="text-xs text-muted-foreground mt-1">
-          Manage your API keys for accessing the ZitoPay API
+          Manage your API keys for accessing the ZoPay API
         </p>
       </div>
 
@@ -886,8 +886,8 @@ export default function ApiKeysPage() {
               <button
                 onClick={() => {
                   const envContent = `# ${activeEnv === "production" ? "Production" : "Sandbox"} API Credentials
-ZITOPAY_API_KEY=${"sandboxApiKey" in newCredentials ? newCredentials.sandboxApiKey : newCredentials.productionApiKey}
-ZITOPAY_SECRET_KEY=${"sandboxSecretKey" in newCredentials ? newCredentials.sandboxSecretKey : newCredentials.productionSecretKey}`;
+ZOPAY_API_KEY=${"sandboxApiKey" in newCredentials ? newCredentials.sandboxApiKey : newCredentials.productionApiKey}
+ZOPAY_SECRET_KEY=${"sandboxSecretKey" in newCredentials ? newCredentials.sandboxSecretKey : newCredentials.productionSecretKey}`;
 
                   const blob = new Blob([envContent], { type: "text/plain" });
                   const url = URL.createObjectURL(blob);
@@ -919,9 +919,9 @@ ZITOPAY_SECRET_KEY=${"sandboxSecretKey" in newCredentials ? newCredentials.sandb
   );
 }
 
-const codeExample = `const zitopay = require('zitopay-sdk');
+const codeExample = `const zopay = require('zopay-sdk');
 
-const client = new zitopay({
+const client = new zopay({
   apiKey: 'sk_sandbox_...',
   secretKey: 'secret_...'
 });

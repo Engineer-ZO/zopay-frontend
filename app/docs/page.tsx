@@ -5,9 +5,9 @@ import Link from "next/link";
 export default function DocsHome() {
     return (
         <div>
-            <h1>ZitoPay API Documentation</h1>
+            <h1>ZoPay API Documentation</h1>
             <p className="mb-6">
-                Welcome to the ZitoPay API documentation. Learn how to integrate mobile money payments into your application with our comprehensive guides and API reference.
+                Welcome to the ZoPay API documentation. Learn how to integrate mobile money payments into your application with our comprehensive guides and API reference.
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 my-6">
@@ -17,7 +17,7 @@ export default function DocsHome() {
                 >
                     <h2 className="mb-1.5">Get Started</h2>
                     <p className="text-muted-foreground mb-3">
-                        New to ZitoPay? Start here to learn the basics and get your first integration working.
+                        New to ZoPay? Start here to learn the basics and get your first integration working.
                     </p>
                     <span className="text-xs font-medium text-primary">
                         Get Started →
@@ -43,7 +43,7 @@ export default function DocsHome() {
                 >
                     <h2 className="mb-1.5">Hosted Checkout</h2>
                     <p className="text-muted-foreground mb-3">
-                        Create secure checkout sessions from your backend and redirect customers to ZitoPay.
+                        Create secure checkout sessions from your backend and redirect customers to ZoPay.
                     </p>
                     <span className="text-xs font-medium text-primary">
                         View Hosted Checkout â†’

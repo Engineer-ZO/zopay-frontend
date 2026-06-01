@@ -157,7 +157,7 @@ export default function TicketDetailPage() {
                         )}>
                             <div className="flex items-center justify-between gap-4 mb-2">
                                 <span className="text-xs font-bold text-foreground">
-                                    {msg.senderType === 'MERCHANT' ? 'You' : 'ZitoPay Support'}
+                                    {msg.senderType === 'MERCHANT' ? 'You' : 'ZoPay Support'}
                                 </span>
                                 <span className="text-xs text-muted-foreground">
                                     {format(new Date(msg.createdAt), "MMM d, h:mm a")}

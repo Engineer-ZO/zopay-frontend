@@ -161,7 +161,7 @@ export default function FeeSettingsPage() {
                 <div>
                   <div className="text-xs font-semibold text-foreground">Platform Fees</div>
                   <div className="text-xs text-muted-foreground">
-                    ZitoPay platform charges for maintaining infrastructure, security, and support
+                    ZoPay platform charges for maintaining infrastructure, security, and support
                   </div>
                 </div>
               </div>
@@ -222,7 +222,7 @@ export default function FeeSettingsPage() {
               </p>
               <div className="space-y-2">
                 <div className="text-xs">
-                  <span className="font-medium text-foreground">Email:</span> support@zitopay.com
+                  <span className="font-medium text-foreground">Email:</span> support@zopay.com
                 </div>
                 <div className="text-xs">
                   <span className="font-medium text-foreground">Include:</span> Your merchant ID, monthly volume, business type

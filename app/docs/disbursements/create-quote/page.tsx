@@ -125,7 +125,7 @@ export default function CreateDisbursementQuotePage() {
                     <tr>
                         <td><code>platform_fee</code></td>
                         <td>string</td>
-                        <td>ZitoPay platform fee</td>
+                        <td>ZoPay platform fee</td>
                     </tr>
                     <tr>
                         <td><code>total_amount</code></td>
@@ -142,15 +142,15 @@ export default function CreateDisbursementQuotePage() {
 
             <h2>Example Request</h2>
             <CodeBlock
-                code={`const response = await fetch('https://api.zitopay.com/api/v1/disbursements/quote', {
+                code={`const response = await fetch('https://api.zopay.com/api/v1/disbursements/quote', {
   method: 'POST',
   headers: {
-    'x-zito-key': apiKey,
-    'x-zito-timestamp': timestamp,
-    'x-zito-nonce': nonce,
-    'x-zito-origin': origin,
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0',
+    'x-zo-key': apiKey,
+    'x-zo-timestamp': timestamp,
+    'x-zo-nonce': nonce,
+    'x-zo-origin': origin,
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({

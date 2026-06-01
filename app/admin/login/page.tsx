@@ -127,8 +127,8 @@ export default function AdminLoginPage() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-4">
             <Image
-              src="/zitopaylogo.png"
-              alt="ZitoPay"
+              src="/zopaylogo.png"
+              alt="ZoPay"
               width={150}
               height={50}
               className="object-contain"

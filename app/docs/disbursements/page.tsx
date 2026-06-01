@@ -7,7 +7,7 @@ export default function DisbursementsPage() {
         <div>
             <h1>Disbursements</h1>
             <p>
-                Disbursements allow you to send money to customers, suppliers, employees, or partners via mobile money. This section covers everything you need to know about processing payouts through ZitoPay.
+                Disbursements allow you to send money to customers, suppliers, employees, or partners via mobile money. This section covers everything you need to know about processing payouts through ZoPay.
             </p>
 
             <h2>Overview</h2>
@@ -34,7 +34,7 @@ export default function DisbursementsPage() {
                 <li>Your application creates a quote via <code>POST /api/v1/disbursements/quote</code></li>
                 <li>Quote includes gateway fee, platform fee, recipient amount, and total wallet deduction</li>
                 <li>Your application executes disbursement via <code>POST /api/v1/disbursements/execute</code></li>
-                <li>ZitoPay processes payout with the mobile money provider</li>
+                <li>ZoPay processes payout with the mobile money provider</li>
                 <li>Webhook notification sent when payout completes</li>
                 <li>Check payout status via <code>GET /api/v1/disbursements/:id</code></li>
             </ol>
@@ -54,7 +54,7 @@ export default function DisbursementsPage() {
             </p>
             <ul>
                 <li><strong>Gateway Fee:</strong> Fee charged by the mobile money provider</li>
-                <li><strong>Platform Fee:</strong> ZitoPay service fee</li>
+                <li><strong>Platform Fee:</strong> ZoPay service fee</li>
                 <li><strong>Total Amount:</strong> Amount the recipient receives</li>
                 <li><strong>Net to Merchant:</strong> Total deducted from the merchant wallet</li>
             </ul>

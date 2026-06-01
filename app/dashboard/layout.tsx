@@ -55,8 +55,8 @@ export default function DashboardLayout({
             }}
           >
             <Image
-              src="/zitopaylogo.png"
-              alt="ZitoPay"
+              src="/zopaylogo.png"
+              alt="ZoPay"
               width={180}
               height={60}
               className="object-contain"

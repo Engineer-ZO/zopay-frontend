@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
 import { Mail, Linkedin, Twitter } from 'lucide-react'
 
+import Image from "next/image";
 const footerLinks = {
   Products: [
     { label: 'Payment Links', href: '#' },
@@ -43,10 +44,14 @@ export default function Footer() {
             {/* Brand */}
             <div className="lg:col-span-1">
               <Link href="#" className="flex items-center gap-2">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                  <span className="text-lg font-bold text-primary-foreground">Z</span>
-                </div>
-                <span className="font-bold text-foreground">ZOPAY</span>
+               <Image
+                            src="/zopaylogo.png"
+                            alt="ZoPay Logo"
+                            width={140}
+                            height={40}
+                            className="h-10 w-auto object-contain"
+                            priority
+                        />
               </Link>
               <p className="mt-4 text-sm text-foreground/60">
                 Secure payment solutions for African businesses.

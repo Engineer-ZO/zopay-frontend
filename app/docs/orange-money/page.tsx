@@ -3,7 +3,7 @@ export default function OrangeMoneyPage() {
     <div>
       <h1>Orange Money Integration</h1>
       <p>
-        Learn how to integrate Orange Money payments into your application using the ZitoPay API.
+        Learn how to integrate Orange Money payments into your application using the ZoPay API.
       </p>
       <h2>Initiate Payment</h2>
       <p>

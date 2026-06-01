@@ -281,8 +281,8 @@ export function DashboardSidebar() {
                 <div className="h-16 flex items-center justify-between px-6 border-b border-border">
                     <Link href="/dashboard" className="flex items-center gap-2">
                         <Image
-                            src="/zitopaylogo.png"
-                            alt="ZitoPay"
+                            src="/zopaylogo.png"
+                            alt="ZoPay"
                             width={120}
                             height={40}
                             className="h-8 w-auto object-contain"

@@ -20,9 +20,9 @@ export default function DocumentationPage() {
 
     const codeExamples = {
         javascript: `// Accept a payment
-const zitopay = require('zitopay-sdk');
+const zopay = require('zopay-sdk');
 
-const client = new zitopay({
+const client = new zopay({
   apiKey: 'sk_sandbox_...',
   secretKey: 'secret_...'
 });
@@ -35,9 +35,9 @@ const payment = await client.createPayment({
   }
 });`,
         python: `# Accept a payment
-from zitopay import ZitoPay
+from zopay import ZoPay
 
-client = ZitoPay(
+client = ZoPay(
     api_key='sk_sandbox_...',
     secret_key='secret_...'
 )
@@ -53,7 +53,7 @@ payment = client.create_payment(
 // Accept a payment
 require 'vendor/autoload.php';
 
-$client = new ZitoPay\\Client([
+$client = new ZoPay\\Client([
     'api_key' => 'sk_sandbox_...',
     'secret_key' => 'secret_...'
 ]);
@@ -66,9 +66,9 @@ $payment = $client->createPayment([
     ]
 ]);`,
         ruby: `# Accept a payment
-require 'zitopay'
+require 'zopay'
 
-client = ZitoPay::Client.new(
+client = ZoPay::Client.new(
   api_key: 'sk_sandbox_...',
   secret_key: 'secret_...'
 )
@@ -81,7 +81,7 @@ payment = client.create_payment(
   }
 )`,
         curl: `# Accept a payment
-curl https://api.zitopay.com/v1/payments \\
+curl https://api.zopay.com/v1/payments \\
   -u sk_sandbox_...:secret_... \\
   -d amount=10000 \\
   -d currency=XAF \\
@@ -100,7 +100,7 @@ curl https://api.zitopay.com/v1/payments \\
             <div>
                 <h1 className="text-xl font-bold text-foreground">Documentation</h1>
                 <p className="text-xs text-muted-foreground mt-1">
-                    Learn how to integrate ZitoPay into your application
+                    Learn how to integrate ZoPay into your application
                 </p>
             </div>
 

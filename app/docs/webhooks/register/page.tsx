@@ -8,7 +8,7 @@ export default function RegisterWebhookPage() {
         <div>
             <h1>Register Webhook Endpoint</h1>
             <p>
-                This guide explains how to register and manage webhook endpoints in ZitoPay. You can register endpoints through the dashboard or via the API.
+                This guide explains how to register and manage webhook endpoints in ZoPay. You can register endpoints through the dashboard or via the API.
             </p>
 
             <h2>Prerequisites</h2>
@@ -23,7 +23,7 @@ export default function RegisterWebhookPage() {
 
             <h2>Registering via Dashboard</h2>
             <p>
-                The easiest way to register a webhook endpoint is through the ZitoPay dashboard:
+                The easiest way to register a webhook endpoint is through the ZoPay dashboard:
             </p>
 
             <ol>
@@ -59,7 +59,7 @@ export default function RegisterWebhookPage() {
             <h3>Request Body</h3>
             <CodeBlock
                 code={`{
-  "url": "https://your-server.com/webhooks/zitopay",
+  "url": "https://your-server.com/webhooks/zopay",
   "events": [
     "payment.succeeded",
     "payment.failed",
@@ -78,7 +78,7 @@ export default function RegisterWebhookPage() {
   "endpoint": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
     "merchantId": "merchant-uuid",
-    "url": "https://your-server.com/webhooks/zitopay",
+    "url": "https://your-server.com/webhooks/zopay",
     "enabled": true,
     "events": [
       "payment.succeeded",
@@ -100,7 +100,7 @@ export default function RegisterWebhookPage() {
                     <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
                     <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
-                            <strong>Save the Secret:</strong> The <code>secret</code> field in the response is your webhook signing secret. Store it securely in your environment variables or secret management system. You&apos;ll use this to verify that webhook requests are actually from ZitoPay.
+                            <strong>Save the Secret:</strong> The <code>secret</code> field in the response is your webhook signing secret. Store it securely in your environment variables or secret management system. You&apos;ll use this to verify that webhook requests are actually from ZoPay.
                         </p>
                     </div>
                 </div>
@@ -138,8 +138,8 @@ export default function RegisterWebhookPage() {
             <div className="bg-muted/50 border border-border rounded-lg p-3 my-4">
                 <p className="text-sm font-medium mb-2">Example URLs:</p>
                 <ul className="text-sm space-y-1">
-                    <li>✅ <code>https://api.yourstore.com/webhooks/zitopay</code></li>
-                    <li>✅ <code>https://yourstore.com/api/webhooks/zitopay</code></li>
+                    <li>✅ <code>https://api.yourstore.com/webhooks/zopay</code></li>
+                    <li>✅ <code>https://yourstore.com/api/webhooks/zopay</code></li>
                     <li>❌ <code>http://localhost:3000/webhooks</code> (HTTP not allowed in production)</li>
                     <li>❌ <code>https://192.168.1.100/webhooks</code> (Not publicly accessible)</li>
                 </ul>
@@ -158,7 +158,7 @@ export default function RegisterWebhookPage() {
             <h3>Request Body</h3>
             <CodeBlock
                 code={`{
-  "url": "https://new-server.com/webhooks/zitopay",
+  "url": "https://new-server.com/webhooks/zopay",
   "enabled": true,
   "events": [
     "payment.succeeded",
@@ -192,7 +192,7 @@ export default function RegisterWebhookPage() {
   "endpoints": [
     {
       "id": "550e8400-e29b-41d4-a716-446655440000",
-      "url": "https://your-server.com/webhooks/zitopay",
+      "url": "https://your-server.com/webhooks/zopay",
       "enabled": true,
       "events": [...],
       "createdAt": "2026-01-18T23:30:00.000Z"
@@ -221,7 +221,7 @@ export default function RegisterWebhookPage() {
                 code={`{
   "endpoint": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
-    "url": "https://your-server.com/webhooks/zitopay",
+    "url": "https://your-server.com/webhooks/zopay",
     "enabled": true,
     "events": [...],
     "secret": "whsec_abc123def456...",
@@ -257,7 +257,7 @@ export default function RegisterWebhookPage() {
             <h3>Method 1: Test Transaction</h3>
             <ol>
                 <li>Make a test transaction in sandbox mode</li>
-                <li>Check the webhook deliveries in your ZitoPay dashboard</li>
+                <li>Check the webhook deliveries in your ZoPay dashboard</li>
                 <li>Verify that your server receives the webhook</li>
                 <li>Confirm that signature verification works</li>
                 <li>Check your server logs for webhook processing</li>
@@ -275,7 +275,7 @@ curl -X GET https://your-domain.com/api/webhooks/test
 # Expected response:
 {
   "message": "Webhook endpoint is accessible",
-  "endpoint": "/api/webhooks/zitopay",
+  "endpoint": "/api/webhooks/zopay",
   "method": "POST",
   "status": "ready"
 }`}
@@ -284,17 +284,17 @@ curl -X GET https://your-domain.com/api/webhooks/test
 
             <h3>Method 3: Manual Testing with curl</h3>
             <p>
-                You can test your endpoint manually, but note that signature verification will fail without a proper signature from ZitoPay:
+                You can test your endpoint manually, but note that signature verification will fail without a proper signature from ZoPay:
             </p>
 
             <CodeBlock
                 code={`# Basic connectivity test (signature will fail)
-curl -X POST https://your-domain.com/api/webhooks/zitopay \\
+curl -X POST https://your-domain.com/api/webhooks/zopay \\
   -H "Content-Type: application/json" \\
-  -H "X-Zito-Event: payment.succeeded" \\
-  -H "X-Zito-Delivery-Id: test-123" \\
-  -H "X-Zito-Timestamp: 1769164241000" \\
-  -H "X-Zito-Signature: test-signature" \\
+  -H "X-Zo-Event: payment.succeeded" \\
+  -H "X-Zo-Delivery-Id: test-123" \\
+  -H "X-Zo-Timestamp: 1769164241000" \\
+  -H "X-Zo-Signature: test-signature" \\
   -d '{"event":"payment.succeeded","data":{"transaction_id":"test"}}'`}
                 language="bash"
             />
@@ -304,7 +304,7 @@ curl -X POST https://your-domain.com/api/webhooks/zitopay \\
                     <span className="text-deep-blue-violet-700 dark:text-deep-blue-violet-400 text-lg mt-0.5">💡</span>
                     <div className="flex-1 text-sm text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
                         <p className="leading-relaxed">
-                            <strong>Note:</strong> Real webhooks must come from ZitoPay with proper HMAC-SHA256 signatures. Manual testing with curl will fail signature verification, but you can verify that your endpoint is accessible and returns appropriate error messages.
+                            <strong>Note:</strong> Real webhooks must come from ZoPay with proper HMAC-SHA256 signatures. Manual testing with curl will fail signature verification, but you can verify that your endpoint is accessible and returns appropriate error messages.
                         </p>
                     </div>
                 </div>
@@ -335,7 +335,7 @@ curl -X POST https://your-domain.com/api/webhooks/zitopay \\
 
             <h2>Your Webhook Secret</h2>
             <p>
-                When you register a webhook endpoint, ZitoPay generates a unique <strong>webhook secret</strong> (64-character hex string). This secret is:
+                When you register a webhook endpoint, ZoPay generates a unique <strong>webhook secret</strong> (64-character hex string). This secret is:
             </p>
             <ul>
                 <li><strong>Shown only once</strong> when you create the endpoint</li>
@@ -366,7 +366,7 @@ curl -X POST https://your-domain.com/api/webhooks/zitopay \\
 
             <CodeBlock
                 code={`# .env.local or production environment
-ZITOPAY_WEBHOOK_SECRET=your_64_character_hex_string_from_zitopay`}
+ZITOPAY_WEBHOOK_SECRET=your_64_character_hex_string_from_zopay`}
                 language="bash"
             />
 

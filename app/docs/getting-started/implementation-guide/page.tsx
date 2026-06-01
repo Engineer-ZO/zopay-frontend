@@ -8,21 +8,21 @@ export default function ImplementationGuidePage() {
             <h1>Implementation Guide</h1>
             
             <p>
-                This guide explains how to set up and configure your ZitoPay integration, including how payment methods work, domain verification, and the payment flow architecture.
+                This guide explains how to set up and configure your ZoPay integration, including how payment methods work, domain verification, and the payment flow architecture.
             </p>
 
             <h2>Gateway Configuration</h2>
 
             <h3>Understanding Gateways</h3>
             <p>
-                Payment gateways are the underlying payment methods that ZitoPay supports. Currently, ZitoPay supports two main gateways:
+                Payment gateways are the underlying payment methods that ZoPay supports. Currently, ZoPay supports two main gateways:
             </p>
             <ul>
                 <li><strong>MTN_MOMO</strong> - MTN Mobile Money</li>
                 <li><strong>ORANGE_MONEY</strong> - Orange Money</li>
             </ul>
             <p>
-                Each merchant account is enabled for the payment methods agreed with ZitoPay (typically MTN Mobile Money and/or Orange Money). Gateway availability and limits are managed by ZitoPay operations—not via a self-service screen in the dashboard.
+                Each merchant account is enabled for the payment methods agreed with ZoPay (typically MTN Mobile Money and/or Orange Money). Gateway availability and limits are managed by ZoPay operations—not via a self-service screen in the dashboard.
             </p>
 
             <h3>Configuring a Gateway</h3>
@@ -34,7 +34,7 @@ export default function ImplementationGuidePage() {
 
             <h3>Why Domain Verification?</h3>
             <p>
-                Domain verification is a security feature that proves you own the domain you're claiming. It's required for production API access and prevents unauthorized domains from using your API keys. Only verified domains can be used in the <code>x-zito-origin</code> header.
+                Domain verification is a security feature that proves you own the domain you're claiming. It's required for production API access and prevents unauthorized domains from using your API keys. Only verified domains can be used in the <code>x-zo-origin</code> header.
             </p>
 
             <h3>Domain Verification Process</h3>
@@ -69,7 +69,7 @@ export default function ImplementationGuidePage() {
                             <li><strong>Important for Vercel users:</strong> You cannot add DNS records to Vercel domains (*.vercel.app). You must use a custom domain and add the TXT record at your domain registrar (where you bought the domain), not in Vercel&apos;s DNS settings.</li>
                             <li>Add a new TXT record:
                                 <ul className="list-none ml-3 mt-1 space-y-0.5 text-sm">
-                                    <li>• <strong>Name:</strong> <code>_zitopay</code></li>
+                                    <li>• <strong>Name:</strong> <code>_zopay</code></li>
                                     <li>• <strong>Type:</strong> TXT</li>
                                     <li>• <strong>Value:</strong> [your verification token]</li>
                                     <li>• <strong>TTL:</strong> 3600 (or default)</li>
@@ -94,7 +94,7 @@ export default function ImplementationGuidePage() {
                             <li><strong>Important:</strong> DNS changes can take 15-30 minutes (sometimes up to 48 hours) to propagate globally</li>
                             <li><strong>You must wait before clicking &quot;Verify Domain&quot;</strong> - if you click too soon, verification will fail</li>
                             <li><strong>Test the DNS record first</strong> using online tools (see <Link href="/docs/getting-started/domain-verification" className="text-primary hover:underline">Domain Verification Guide</Link>)</li>
-                            <li>You can check if the record has propagated with: <code>nslookup -type=TXT _zitopay.example.com</code></li>
+                            <li>You can check if the record has propagated with: <code>nslookup -type=TXT _zopay.example.com</code></li>
                             <li>Wait at least 15-30 minutes after adding the TXT record before attempting verification</li>
                         </ul>
                     </li>
@@ -110,7 +110,7 @@ export default function ImplementationGuidePage() {
                     </li>
                     <li className="font-medium">Domain Ready
                         <ul className="list-disc list-inside ml-5 mt-1.5 font-normal text-sm">
-                            <li>Once verified, you can use this domain in the <code>x-zito-origin</code> header</li>
+                            <li>Once verified, you can use this domain in the <code>x-zo-origin</code> header</li>
                             <li>Verified domains are automatically allowlisted</li>
                         </ul>
                     </li>
@@ -144,7 +144,7 @@ export default function ImplementationGuidePage() {
 
             <h3>Quote-Based System</h3>
             <p>
-                All payments in ZitoPay start with creating a quote. The quote locks in fees for 15 minutes, ensuring you know exactly what you'll be charged. The quote must be used before expiry, and each quote can only be used once.
+                All payments in ZoPay start with creating a quote. The quote locks in fees for 15 minutes, ensuring you know exactly what you'll be charged. The quote must be used before expiry, and each quote can only be used once.
             </p>
             <p>
                 This quote-based approach provides price certainty and prevents fee fluctuations during the payment process.
@@ -152,7 +152,7 @@ export default function ImplementationGuidePage() {
 
             <h3>Transaction States</h3>
             <p>
-                Transactions in ZitoPay go through several states:
+                Transactions in ZoPay go through several states:
             </p>
             <ul>
                 <li><strong>PENDING</strong> - Transaction has been initiated</li>

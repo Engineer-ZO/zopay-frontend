@@ -12,10 +12,14 @@ export function AuthLayout({ children }: { children: React.ReactNode }) {
             {/* Logo - Fixed positioning with proper spacing */}
             <div className="mb-8">
                 <Link href="/" className="flex items-center gap-2">
-                <Logo />
-                <span className="hidden text-xl font-bold text-foreground sm:inline">
-            ZoPay
-          </span>
+                <Image
+                            src="/zopaylogo.png"
+                            alt="ZoPay Logo"
+                            width={140}
+                            height={40}
+                            className="h-10 w-auto object-contain"
+                            priority
+                        />
                 </Link>
             </div>
 

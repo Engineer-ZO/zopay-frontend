@@ -32,8 +32,8 @@ export function DocsHeader() {
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                         <Image
-                            src="/zitopaylogo.png"
-                            alt="ZitoPay Logo"
+                            src="/zopaylogo.png"
+                            alt="ZoPay Logo"
                             width={120}
                             height={35}
                             className="h-8 w-auto object-contain"

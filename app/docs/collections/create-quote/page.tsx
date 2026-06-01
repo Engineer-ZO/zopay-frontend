@@ -156,15 +156,15 @@ export default function CreateQuotePage() {
 
             <h2>Example Request</h2>
             <CodeBlock
-                code={`const response = await fetch('https://api.zitopay.com/api/v1/wallets/quote', {
+                code={`const response = await fetch('https://api.zopay.com/api/v1/wallets/quote', {
   method: 'POST',
   headers: {
-    'x-zito-key': apiKey,
-    'x-zito-timestamp': timestamp,
-    'x-zito-nonce': nonce,
-    'x-zito-origin': origin,
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0',
+    'x-zo-key': apiKey,
+    'x-zo-timestamp': timestamp,
+    'x-zo-nonce': nonce,
+    'x-zo-origin': origin,
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({

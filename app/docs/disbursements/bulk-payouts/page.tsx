@@ -81,15 +81,15 @@ export default function BulkPayoutsPage() {
                 code={`const formData = new FormData();
 formData.append('file', csvFile);
 
-const response = await fetch('https://api.zitopay.com/files/v1/payout-csv', {
+const response = await fetch('https://api.zopay.com/files/v1/payout-csv', {
   method: 'POST',
   headers: {
-    'x-zito-key': apiKey,
-    'x-zito-timestamp': timestamp,
-    'x-zito-nonce': nonce,
-    'x-zito-origin': origin,
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': apiKey,
+    'x-zo-timestamp': timestamp,
+    'x-zo-nonce': nonce,
+    'x-zo-origin': origin,
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   },
   body: formData
 });
@@ -206,15 +206,15 @@ console.log('File ID:', uploadResult.file_id);`}
             <h3>Example: Check Batch Status</h3>
             <CodeBlock
                 code={`// List payouts from a specific batch
-const response = await fetch('https://api.zitopay.com/api/v1/disbursements?batch_id=batch-uuid', {
+const response = await fetch('https://api.zopay.com/api/v1/disbursements?batch_id=batch-uuid', {
   method: 'GET',
   headers: {
-    'x-zito-key': apiKey,
-    'x-zito-timestamp': timestamp,
-    'x-zito-nonce': nonce,
-    'x-zito-origin': origin,
-    'x-zito-signature': signature,
-    'x-zito-version': '1.0'
+    'x-zo-key': apiKey,
+    'x-zo-timestamp': timestamp,
+    'x-zo-nonce': nonce,
+    'x-zo-origin': origin,
+    'x-zo-signature': signature,
+    'x-zo-version': '1.0'
   }
 });
 
