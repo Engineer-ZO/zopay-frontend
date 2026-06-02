@@ -1,8 +1,10 @@
+
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation"; 
+import Image from "next/image";
 import {
     Home,
     Building2,
@@ -263,50 +265,53 @@ export function AdminSidebar() {
             {/* Mobile Menu Button */}
             <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
-                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-deep-blue-violet-600 text-white rounded-lg"
+                className="lg:hidden fixed top-4 left-4 z-50 p-2.5 bg-gradient-to-r from-crimson-600 to-deep-blue-violet-600 text-white rounded-xl shadow-lg"
             >
-                {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
 
             {/* Sidebar */}
             <aside
-                className={`fixed left-0 top-0 h-screen w-72 bg-gradient-to-b from-blue-900 to-purple-900 overflow-y-auto transition-transform duration-300 z-40 ${isMobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+                className={`fixed left-0 top-0 h-screen w-72 bg-gradient-to-b from-gray-950 via-gray-900 to-black overflow-y-auto transition-transform duration-300 z-40 border-r border-crimson-900/30 ${isMobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
                     }`}
                 style={{
                     scrollbarWidth: 'thin',
-                    scrollbarColor: 'rgba(96, 165, 250, 0.5) transparent',
+                    scrollbarColor: '#dc2626 #374151',
                 }}
             >
-                {/* Logo */}
-                <div className="p-6 border-b border-deep-blue-violet-800/30">
+                {/* Logo Section */}
+                <div className="p-5 border-b border-gray-800">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-deep-blue-violet-500 rounded-lg flex items-center justify-center">
-                            <Shield className="w-6 h-6 text-white" />
-                        </div>
                         <div>
-                            <h1 className="text-lg font-bold text-white">ZoPay</h1>
-                            <p className="text-xs text-deep-blue-violet-300">Admin Portal</p>
+                             <Image
+                                              src="/zopaylogo.png"
+                                              alt="ZoPay"
+                                              width={140}
+                                              height={45}
+                                              className="object-contain brightness-0 invert"
+                                            />
+                            <p className="text-[11px] text-gray-500 tracking-wider">ADMIN PORTAL</p>
                         </div>
                     </div>
                 </div>
 
-                {/* Menu */}
-                <nav className="p-4 space-y-1">
+                {/* Menu Navigation */}
+                <nav className="p-3 space-y-2">
                     {menuSections.map((section, sectionIndex) => (
-                        <div key={sectionIndex}>
+                        <div key={sectionIndex} className="space-y-1">
                             {/* Section Header */}
                             {section.title && (
                                 <button
                                     onClick={() => section.collapsible && section.title && toggleSection(section.title)}
-                                    className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-deep-blue-violet-300 uppercase tracking-wider hover:text-white transition-colors"
+                                    className="w-full flex items-center justify-between px-3 py-2 mt-2 text-[10px] font-bold text-gray-500 uppercase tracking-wider hover:text-crimson-400 transition-colors"
                                 >
                                     <span>{section.title}</span>
                                     {section.collapsible && (
                                         <>
                                             {collapsedSections.includes(section.title) ? (
-                                                <ChevronRight className="w-4 h-4" />
+                                                <ChevronRight className="w-3.5 h-3.5" />
                                             ) : (
-                                                <ChevronDown className="w-4 h-4" />
+                                                <ChevronDown className="w-3.5 h-3.5" />
                                             )}
                                         </>
                                     )}
@@ -315,25 +320,32 @@ export function AdminSidebar() {
 
                             {/* Menu Items */}
                             {(!section.title || !collapsedSections.includes(section.title)) && (
-                                <div className="space-y-1">
+                                <div className="space-y-0.5">
                                     {section.items.map((item, itemIndex) => (
                                         <Link
                                             key={itemIndex}
                                             href={item.href}
                                             onClick={() => setIsMobileOpen(false)}
-                                            className={`flex items-center justify-between px-3 py-2.5 rounded-lg transition-all ${isActive(item.href)
-                                                ? "bg-deep-blue-violet-600 text-white shadow-lg"
-                                                : "text-deep-blue-violet-100 hover:bg-deep-blue-violet-800/50 hover:text-white"
+                                            className={`flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 group ${isActive(item.href)
+                                                    ? "bg-gradient-to-r from-crimson-600/20 to-deep-blue-violet-600/20 border-l-2 border-crimson-500"
+                                                    : "text-gray-400 hover:bg-gray-800/50 hover:text-white"
                                                 }`}
                                         >
                                             <div className="flex items-center gap-3">
-                                                <item.icon className="w-5 h-5" />
-                                                <span className="text-sm font-medium">{item.label}</span>
+                                                <item.icon className={`w-4 h-4 transition-colors ${isActive(item.href)
+                                                        ? "text-crimson-400"
+                                                        : "text-gray-500 group-hover:text-crimson-400"
+                                                    }`} />
+                                                <span className={`text-sm font-medium ${isActive(item.href)
+                                                        ? "text-white"
+                                                        : "text-gray-300"
+                                                    }`}>
+                                                    {item.label}
+                                                </span>
                                             </div>
                                             {item.badge && (
                                                 <span
-                                                    className={`px-2 py-0.5 rounded-full text-xs font-semibold ${item.badgeColor || "bg-deep-blue-violet-700"
-                                                        } text-white`}
+                                                    className={`px-2 py-0.5 rounded-full text-[10px] font-bold bg-gradient-to-r from-crimson-600 to-crimson-700 text-white shadow-sm`}
                                                 >
                                                     {item.badge}
                                                 </span>
@@ -345,13 +357,23 @@ export function AdminSidebar() {
                         </div>
                     ))}
                 </nav>
+
+                {/* Footer Decoration */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-800">
+                    <div className="flex items-center justify-center gap-2">
+                        <div className="w-1 h-1 rounded-full bg-crimson-500"></div>
+                        <div className="w-1 h-1 rounded-full bg-gray-600"></div>
+                        <div className="w-1 h-1 rounded-full bg-deep-blue-violet-500"></div>
+                        <span className="text-[10px] text-gray-600">v2.0.0</span>
+                    </div>
+                </div>
             </aside>
 
             {/* Mobile Overlay */}
             {isMobileOpen && (
                 <div
                     onClick={() => setIsMobileOpen(false)}
-                    className="lg:hidden fixed inset-0 bg-black/50 z-30"
+                    className="lg:hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-30"
                 />
             )}
         </>

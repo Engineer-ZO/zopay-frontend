@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Eye, EyeOff, Shield, Loader2, Mail, CheckCircle2, ArrowLeft } from "lucide-react";
+import { Eye, EyeOff, Shield, Loader2, Mail, CheckCircle2, ArrowLeft, Lock, LogIn } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { verifyEmail } from "@/features/auth/api/index";
 import Image from "next/image";
@@ -121,30 +121,41 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <Image
-              src="/zopaylogo.png"
-              alt="ZoPay"
-              width={150}
-              height={50}
-              className="object-contain"
-            />
-            <div className="px-2 py-1 bg-deep-blue-violet-500 text-white rounded text-xs font-bold">
-              ADMIN
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
+      {/* Animated background pattern */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="w-full max-w-md relative z-10">
+        {/* Logo Section */}
+        <div className="text-center mb-5">
+          <div className="flex justify-center mb-4">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl blur-xl opacity-30"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 inline-flex items-center gap-3 border border-white/20">
+                <Image
+                  src="/zopaylogo.png"
+                  alt="ZoPay"
+                  width={140}
+                  height={45}
+                  className="object-contain brightness-0 invert"
+                />
+                <div className="px-3 py-1 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full text-xs font-bold shadow-lg">
+                  ADMIN
+                </div>
+              </div>
             </div>
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">Admin Portal</h1>
-          <p className="text-deep-blue-violet-200 text-sm">
-            Sign in to access the admin dashboard
+          <h1 className="text-3xl font-bold text-white mb-2 tracking-tight">Welcome Back</h1>
+          <p className="text-purple-200 text-sm">
+            Access the admin dashboard securely
           </p>
         </div>
 
-        {/* Login Card */}
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
+        {/* Main Card */}
+        <div className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
           {isVerificationRequired ? (
             <>
               <div className="mb-6 relative">
@@ -155,23 +166,25 @@ export default function AdminLoginPage() {
                        window.location.reload();
                      }
                   }}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 p-2 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all"
                 >
                   <ArrowLeft className="w-5 h-5" />
                 </button>
                 <div className="flex items-center justify-center gap-2">
-                  <CheckCircle2 className="w-6 h-6 text-deep-blue-violet-600" />
-                  <h2 className="text-xl font-bold text-gray-900">Verify Email</h2>
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center shadow-lg">
+                    <CheckCircle2 className="w-5 h-5 text-white" />
+                  </div>
+                  <h2 className="text-xl font-bold text-white">Verify Your Email</h2>
                 </div>
               </div>
               
-              <p className="text-sm text-gray-600 mb-6 text-center">
-                Please enter the 6-digit verification code sent to <span className="font-medium text-gray-900">{email}</span>.
+              <p className="text-sm text-purple-200 mb-6 text-center">
+                Please enter the 6-digit verification code sent to <span className="font-medium text-white">{email}</span>
               </p>
               
-              <form onSubmit={handleVerifySubmit} className="space-y-4">
+              <form onSubmit={handleVerifySubmit} className="space-y-5">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2 text-center">
+                  <label className="block text-sm font-medium text-white mb-2 text-center">
                     Verification Code
                   </label>
                   <input
@@ -179,7 +192,7 @@ export default function AdminLoginPage() {
                     value={verificationCode}
                     onChange={(e) => setVerificationCode(e.target.value.replace(/\\D/g, '').slice(0, 6))}
                     placeholder="123456"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-transparent outline-none transition-all text-center tracking-widest text-xl font-mono"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-center tracking-widest text-xl font-mono text-white placeholder-white/50"
                     required
                     disabled={verifyMutation.isPending || isPending}
                   />
@@ -188,7 +201,7 @@ export default function AdminLoginPage() {
                 <button
                   type="submit"
                   disabled={verifyMutation.isPending || isPending || verificationCode.length !== 6}
-                  className="w-full bg-deep-blue-violet-600 text-white py-3 rounded-lg font-semibold hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-3 rounded-xl font-semibold hover:from-purple-600 hover:to-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
                 >
                   {verifyMutation.isPending || isPending ? (
                     <>
@@ -208,7 +221,7 @@ export default function AdminLoginPage() {
                     type="button"
                     onClick={handleResendVerification}
                     disabled={resendVerificationMutation.isPending || verifyMutation.isPending || isPending}
-                    className="text-sm text-deep-blue-violet-600 hover:text-deep-blue-violet-800 disabled:opacity-50 font-medium inline-flex items-center gap-1.5"
+                    className="text-sm text-purple-300 hover:text-white disabled:opacity-50 font-medium inline-flex items-center gap-1.5 transition-colors"
                   >
                     {resendVerificationMutation.isPending ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Mail className="w-3.5 h-3.5" />}
                     Resend Code
@@ -218,60 +231,71 @@ export default function AdminLoginPage() {
             </>
           ) : (
             <>
-              <div className="flex items-center justify-center gap-2 mb-6">
-                <Shield className="w-6 h-6 text-deep-blue-violet-600" />
-                <h2 className="text-xl font-bold text-gray-900">Admin Login</h2>
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center shadow-lg">
+                  <Shield className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="text-xl font-bold text-white">Admin Access</h2>
               </div>
 
               {error && (
-                <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-600">
-                  <div>{loginErrorMessage}</div>
+                <div className="mb-5 p-3 bg-red-500/10 backdrop-blur-sm border border-red-500/30 rounded-xl text-sm text-red-200">
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-4 h-4" />
+                    {loginErrorMessage}
+                  </div>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Email */}
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Email Field */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Email Address
                   </label>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="admin@zitopay.com"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-transparent outline-none transition-all"
-                    required
-                    disabled={isPending}
-                  />
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" />
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="admin@zitopay.com"
+                      className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white placeholder-white/50"
+                      required
+                      disabled={isPending}
+                    />
+                  </div>
                 </div>
 
                 {turnstileConfig?.enabled && turnstileConfig.siteKey && (
-                  <TurnstileWidget
-                    siteKey={turnstileConfig.siteKey}
-                    onTokenChange={setTurnstileToken}
-                  />
+                  <div className="flex justify-center">
+                    <TurnstileWidget
+                      siteKey={turnstileConfig.siteKey}
+                      onTokenChange={setTurnstileToken}
+                    />
+                  </div>
                 )}
 
-                {/* Password */}
+                {/* Password Field */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Password
                   </label>
                   <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" />
                     <input
                       type={showPassword ? "text" : "password"}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-blue-violet-500 focus:border-transparent outline-none transition-all pr-12"
+                      className="w-full pl-10 pr-12 py-3 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white placeholder-white/50"
                       required
                       disabled={isPending}
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors"
                       disabled={isPending}
                     >
                       {showPassword ? (
@@ -288,14 +312,14 @@ export default function AdminLoginPage() {
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
                       type="checkbox"
-                      className="w-4 h-4 text-deep-blue-violet-600 border-gray-300 rounded focus:ring-deep-blue-violet-500"
+                      className="w-4 h-4 rounded border-white/30 bg-white/10 text-purple-500 focus:ring-purple-500 focus:ring-offset-0"
                       disabled={isPending}
                     />
-                    <span className="text-sm text-gray-600">Remember me</span>
+                    <span className="text-sm text-purple-200">Remember me</span>
                   </label>
                   <Link
                     href="/admin/forgot-password"
-                    className="text-sm text-deep-blue-violet-600 hover:text-deep-blue-violet-700 font-medium"
+                    className="text-sm text-purple-300 hover:text-white font-medium transition-colors"
                   >
                     Forgot password?
                   </Link>
@@ -305,16 +329,16 @@ export default function AdminLoginPage() {
                 <button
                   type="submit"
                   disabled={isPending || Boolean(turnstileConfig?.enabled && !turnstileToken)}
-                  className="w-full bg-deep-blue-violet-600 text-white py-3 rounded-lg font-semibold hover:bg-deep-blue-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-purple-500 to-red-500 text-white py-3 rounded-xl font-semibold hover:from-red-600 hover:to-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
                 >
                   {isPending ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <Loader2 className="w-5 h-5 animate-spin" />
                       Signing in...
                     </>
                   ) : (
                     <>
-                      <Shield className="w-5 h-5" />
+                      <LogIn className="w-5 h-5" />
                       Sign In
                     </>
                   )}
@@ -324,16 +348,16 @@ export default function AdminLoginPage() {
           )}
 
           {/* Security Notice */}
-          <div className="mt-6 p-3 bg-deep-blue-violet-50 border border-deep-blue-violet-200 rounded-lg">
-            <p className="text-xs text-deep-blue-violet-800 text-center">
-              🔒 This is a secure admin area. All actions are logged and monitored.
+          <div className="mt-6 p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
+            <p className="text-xs text-purple-200 text-center">
+              🔒 Secure admin area. All actions are logged and monitored.
             </p>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-6">
-          <p className="text-sm text-deep-blue-violet-200">
+        <div className="text-center mt-3">
+          <p className="text-sm text-purple-200">
             Not an admin?{" "}
             <Link href="/login" className="text-white font-semibold hover:underline">
               Merchant Login →

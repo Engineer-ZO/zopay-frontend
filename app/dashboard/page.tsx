@@ -20,6 +20,11 @@ import {
   SendHorizonal,
   RotateCcw,
   LayoutDashboard,
+  Zap,
+  Shield,
+  Sparkles,
+  Copy,
+  ExternalLink,
 } from "lucide-react";
 import { useUserMerchantData } from "@/features/merchants/context/MerchantContext";
 import { useEnvironment } from "@/core/environment/EnvironmentContext";
@@ -58,47 +63,32 @@ function WithdrawModal({
   const withdrawMutation = useWithdrawFromWallet(merchantId);
 
   const formatPhoneNumber = (phone: string): string => {
-    // Remove all non-digit characters
     const digits = phone.replace(/\D/g, "");
-    // If starts with country code, return as is, otherwise add 237
-    if (digits.startsWith("237")) {
-      return digits;
-    }
-    // If starts with 0, replace with 237
-    if (digits.startsWith("0")) {
-      return "237" + digits.substring(1);
-    }
-    // Otherwise, add 237 prefix
+    if (digits.startsWith("237")) return digits;
+    if (digits.startsWith("0")) return "237" + digits.substring(1);
     return "237" + digits;
   };
 
   const validateInputs = (): boolean => {
     setError(null);
-
     if (!amount || parseFloat(amount) <= 0) {
       setError("Amount must be greater than 0");
       return false;
     }
-
     if (!recipientMsisdn || recipientMsisdn.trim().length === 0) {
       setError("Recipient phone number is required");
       return false;
     }
-
     const formattedPhone = formatPhoneNumber(recipientMsisdn);
     if (formattedPhone.length < 12 || formattedPhone.length > 15) {
       setError("Invalid phone number format. Use format: 237670000000");
       return false;
     }
-
     return true;
   };
 
   const handleWithdraw = async () => {
-    if (!validateInputs()) {
-      return;
-    }
-
+    if (!validateInputs()) return;
     try {
       const formattedPhone = formatPhoneNumber(recipientMsisdn);
       const result = await withdrawMutation.mutateAsync({
@@ -108,18 +98,11 @@ function WithdrawModal({
         recipientMsisdn: formattedPhone,
         environment,
       });
-
-      toast.success("Withdrawal initiated successfully!", {
-        description: result.message,
-      });
-
-      // Reset form
+      toast.success("Withdrawal initiated successfully!", { description: result.message });
       setAmount("");
       setRecipientMsisdn("");
       setError(null);
       onClose();
-
-      // Invalidate queries to refresh dashboard data
       queryClient.invalidateQueries({ queryKey: ["dashboard", "stats"] });
       queryClient.invalidateQueries({ queryKey: ["dashboard", "transactions"] });
     } catch (error: unknown) {
@@ -129,44 +112,47 @@ function WithdrawModal({
         (error as { message?: string })?.message ||
         "Failed to withdraw funds";
       setError(errorMessage);
-      toast.error("Withdrawal failed", {
-        description: errorMessage,
-      });
+      toast.error("Withdrawal failed", { description: errorMessage });
     }
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-background rounded-xl border border-border max-w-md w-full p-6">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-scaleIn border border-gray-100 dark:border-gray-800">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-semibold text-foreground">Withdraw Funds</h2>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-rose-500 flex items-center justify-center shadow-md">
+              <ArrowDownToLine className="w-5 h-5 text-white" />
+            </div>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Withdraw Funds</h2>
+          </div>
           <button
             onClick={onClose}
-            className="p-1 hover:bg-muted rounded-lg transition-colors"
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
             disabled={withdrawMutation.isPending}
           >
-            <X className="w-5 h-5 text-muted-foreground" />
+            <X className="w-5 h-5 text-gray-400" />
           </button>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-5">
           {error && (
-            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 flex items-start gap-2">
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-3 flex items-start gap-2">
               <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
               <p className="text-sm text-red-900 dark:text-red-100">{error}</p>
             </div>
           )}
 
           <div>
-            <label className="text-xs font-medium text-foreground mb-2 block">
-              Gateway
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
+              Select Gateway
             </label>
             <select
               value={gateway}
               onChange={(e) => setGateway(e.target.value as "MTN_MOMO" | "ORANGE_MONEY")}
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
+              className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
               disabled={withdrawMutation.isPending}
             >
               <option value="MTN_MOMO">MTN Mobile Money</option>
@@ -175,63 +161,59 @@ function WithdrawModal({
           </div>
 
           <div>
-            <label className="text-xs font-medium text-foreground mb-2 block">
-              Withdrawal Amount ({environment === "sandbox" ? "EUR" : "FCFA"})
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
+              Amount ({environment === "sandbox" ? "EUR" : "FCFA"})
             </label>
-            <input
-              type="number"
-              value={amount}
-              onChange={(e) => {
-                setAmount(e.target.value);
-                setError(null);
-              }}
-              placeholder="Enter amount"
-              min="0"
-              step="0.01"
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
-              disabled={withdrawMutation.isPending}
-            />
+            <div className="relative">
+              <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input
+                type="number"
+                value={amount}
+                onChange={(e) => { setAmount(e.target.value); setError(null); }}
+                placeholder="0.00"
+                min="0"
+                step="0.01"
+                className="w-full pl-10 pr-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                disabled={withdrawMutation.isPending}
+              />
+            </div>
           </div>
 
           <div>
-            <label className="text-xs font-medium text-foreground mb-2 block">
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
               Recipient Phone Number
             </label>
             <input
               type="text"
               value={recipientMsisdn}
-              onChange={(e) => {
-                setRecipientMsisdn(e.target.value);
-                setError(null);
-              }}
+              onChange={(e) => { setRecipientMsisdn(e.target.value); setError(null); }}
               placeholder="237670000000 or 0670000000"
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
+              className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
               disabled={withdrawMutation.isPending}
             />
-            <p className="text-xs text-muted-foreground mt-1">
-              Format: 237670000000 (E.164 format)
-            </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Format: 237670000000 (E.164 format)</p>
           </div>
 
           {environment === "sandbox" && (
-            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/20 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-3">
-              <p className="text-xs text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
-                <strong>Note:</strong> In sandbox mode, only EUR currency is supported.
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-3">
+              <p className="text-xs text-blue-800 dark:text-blue-200 flex items-center gap-1">
+                <Shield className="w-3 h-3" />
+                <strong>Sandbox Mode:</strong> Only EUR currency is supported
               </p>
             </div>
           )}
 
-          <div className="flex gap-3 pt-4">
+          <div className="flex gap-3 pt-2">
             <button
               onClick={onClose}
-              className="flex-1 px-4 py-2.5 bg-background border border-border text-foreground rounded-lg font-medium hover:bg-muted transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-all disabled:opacity-50"
               disabled={withdrawMutation.isPending}
             >
               Cancel
             </button>
             <button
               onClick={handleWithdraw}
-              className="flex-1 px-4 py-2.5 bg-crimson-red-500 text-white rounded-lg font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="flex-1 px-4 py-3 bg-gradient-to-r from-red-600 to-rose-600 text-white rounded-xl font-semibold hover:from-red-700 hover:to-rose-700 transition-all shadow-lg shadow-red-500/25 disabled:opacity-50 flex items-center justify-center gap-2"
               disabled={withdrawMutation.isPending}
             >
               {withdrawMutation.isPending ? (
@@ -271,47 +253,32 @@ function TopUpModal({
   const topUpMutation = useTopUpWallet(merchantId);
 
   const formatPhoneNumber = (phone: string): string => {
-    // Remove all non-digit characters
     const digits = phone.replace(/\D/g, "");
-    // If starts with country code, return as is, otherwise add 237
-    if (digits.startsWith("237")) {
-      return digits;
-    }
-    // If starts with 0, replace with 237
-    if (digits.startsWith("0")) {
-      return "237" + digits.substring(1);
-    }
-    // Otherwise, add 237 prefix
+    if (digits.startsWith("237")) return digits;
+    if (digits.startsWith("0")) return "237" + digits.substring(1);
     return "237" + digits;
   };
 
   const validateInputs = (): boolean => {
     setError(null);
-
     if (!amount || parseFloat(amount) <= 0) {
       setError("Amount must be greater than 0");
       return false;
     }
-
     if (!msisdn || msisdn.trim().length === 0) {
       setError("Phone number is required");
       return false;
     }
-
     const formattedPhone = formatPhoneNumber(msisdn);
     if (formattedPhone.length < 12 || formattedPhone.length > 15) {
       setError("Invalid phone number format. Use format: 237670000000");
       return false;
     }
-
     return true;
   };
 
   const handleTopUp = async () => {
-    if (!validateInputs()) {
-      return;
-    }
-
+    if (!validateInputs()) return;
     try {
       const formattedPhone = formatPhoneNumber(msisdn);
       const result = await topUpMutation.mutateAsync({
@@ -321,22 +288,11 @@ function TopUpModal({
         msisdn: formattedPhone,
         environment,
       });
-
-      toast.success("Top-up initiated successfully!", {
-        description:
-          result.message ||
-          `Approve the ${result.chargedAmount?.toLocaleString() ?? parseFloat(amount).toLocaleString()} ${
-            environment === "sandbox" ? "EUR" : "XAF"
-          } payment on your phone to finish funding your wallet.`,
-      });
-
-      // Reset form
+      toast.success("Top-up initiated successfully!", { description: result.message });
       setAmount("");
       setMsisdn("");
       setError(null);
       onClose();
-
-      // Invalidate queries to refresh dashboard data
       queryClient.invalidateQueries({ queryKey: ["dashboard", "stats"] });
       queryClient.invalidateQueries({ queryKey: ["dashboard", "transactions"] });
     } catch (error: unknown) {
@@ -346,44 +302,47 @@ function TopUpModal({
         (error as { message?: string })?.message ||
         "Failed to top up wallet";
       setError(errorMessage);
-      toast.error("Top-up failed", {
-        description: errorMessage,
-      });
+      toast.error("Top-up failed", { description: errorMessage });
     }
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-background rounded-xl border border-border max-w-md w-full p-6">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full p-6 animate-scaleIn border border-gray-100 dark:border-gray-800">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-semibold text-foreground">Top Up Wallet</h2>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center shadow-md">
+              <ArrowUpFromLine className="w-5 h-5 text-white" />
+            </div>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Top Up Wallet</h2>
+          </div>
           <button
             onClick={onClose}
-            className="p-1 hover:bg-muted rounded-lg transition-colors"
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
             disabled={topUpMutation.isPending}
           >
-            <X className="w-5 h-5 text-muted-foreground" />
+            <X className="w-5 h-5 text-gray-400" />
           </button>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-5">
           {error && (
-            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 flex items-start gap-2">
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-3 flex items-start gap-2">
               <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
               <p className="text-sm text-red-900 dark:text-red-100">{error}</p>
             </div>
           )}
 
           <div>
-            <label className="text-xs font-medium text-foreground mb-2 block">
-              Gateway
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
+              Select Gateway
             </label>
             <select
               value={gateway}
               onChange={(e) => setGateway(e.target.value as "MTN_MOMO" | "ORANGE_MONEY")}
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
+              className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
               disabled={topUpMutation.isPending}
             >
               <option value="MTN_MOMO">MTN Mobile Money</option>
@@ -392,69 +351,68 @@ function TopUpModal({
           </div>
 
           <div>
-            <label className="text-xs font-medium text-foreground mb-2 block">
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
               Amount ({environment === "sandbox" ? "EUR" : "FCFA"})
             </label>
-            <input
-              type="number"
-              value={amount}
-              onChange={(e) => {
-                setAmount(e.target.value);
-                setError(null);
-              }}
-              placeholder="Enter amount"
-              min="0"
-              step="0.01"
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
-              disabled={topUpMutation.isPending}
-            />
+            <div className="relative">
+              <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input
+                type="number"
+                value={amount}
+                onChange={(e) => { setAmount(e.target.value); setError(null); }}
+                placeholder="0.00"
+                min="0"
+                step="0.01"
+                className="w-full pl-10 pr-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                disabled={topUpMutation.isPending}
+              />
+            </div>
           </div>
 
           <div>
-            <label className="text-xs font-medium text-foreground mb-2 block">
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
               Your Phone Number
             </label>
             <input
               type="text"
               value={msisdn}
-              onChange={(e) => {
-                setMsisdn(e.target.value);
-                setError(null);
-              }}
+              onChange={(e) => { setMsisdn(e.target.value); setError(null); }}
               placeholder="237670000000 or 0670000000"
-              className="w-full px-4 py-2.5 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500"
+              className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
               disabled={topUpMutation.isPending}
             />
-            <p className="text-xs text-muted-foreground mt-1">
-              Format: 237670000000 (E.164 format). You&apos;ll receive a payment prompt on this number.
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              Format: 237670000000 (E.164 format). You'll receive a payment prompt on this number.
             </p>
           </div>
 
-          <div className="bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800 rounded-lg p-3">
-            <p className="text-xs text-amber-700 dark:text-amber-400">
-              This top-up is initiated immediately through the dashboard. Complete the collection approval on your phone to finish funding your wallet.
+          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-3">
+            <p className="text-xs text-amber-800 dark:text-amber-200 flex items-center gap-1">
+              <Sparkles className="w-3 h-3" />
+              Complete the collection approval on your phone to finish funding your wallet.
             </p>
           </div>
 
           {environment === "sandbox" && (
-            <div className="bg-deep-blue-violet-50 dark:bg-deep-blue-violet-900/20 border border-deep-blue-violet-200 dark:border-deep-blue-violet-800 rounded-lg p-3">
-              <p className="text-xs text-deep-blue-violet-900 dark:text-deep-blue-violet-100">
-                <strong>Note:</strong> In sandbox mode, only EUR currency is supported.
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-3">
+              <p className="text-xs text-blue-800 dark:text-blue-200 flex items-center gap-1">
+                <Shield className="w-3 h-3" />
+                <strong>Sandbox Mode:</strong> Only EUR currency is supported
               </p>
             </div>
           )}
 
-          <div className="flex gap-3 pt-4">
+          <div className="flex gap-3 pt-2">
             <button
               onClick={onClose}
-              className="flex-1 px-4 py-2.5 bg-background border border-border text-foreground rounded-lg font-medium hover:bg-muted transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-all disabled:opacity-50"
               disabled={topUpMutation.isPending}
             >
               Cancel
             </button>
             <button
               onClick={handleTopUp}
-              className="flex-1 px-4 py-2.5 bg-crimson-red-500 text-white rounded-lg font-semibold hover:bg-crimson-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="flex-1 px-4 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition-all shadow-lg shadow-green-500/25 disabled:opacity-50 flex items-center justify-center gap-2"
               disabled={topUpMutation.isPending}
             >
               {topUpMutation.isPending ? (
@@ -473,29 +431,55 @@ function TopUpModal({
   );
 }
 
-// Icon mapping for stats
-const iconMap: Record<string, typeof Wallet> = {
-  "Available Balance": Wallet,
-  "Total Revenue": DollarSign,
-  "Transactions": Activity,
-  "Success Rate": CheckCircle2,
-  "Pending": Clock,
-};
+// Metric Card Component
+function MetricCard({ stat, isPrimary }: { stat: any; isPrimary: boolean }) {
+  const iconMap: Record<string, any> = {
+    "Available Balance": Wallet,
+    "Total Revenue": DollarSign,
+    "Transactions": Activity,
+    "Success Rate": CheckCircle2,
+  };
+  const Icon = iconMap[stat.label] || Wallet;
+  const isUp = stat.trend === "up";
 
-// Unified card style — same neutral background for all cards.
-// Only the primary card (Available Balance) gets an orange left-border accent.
-// Icon colours are muted for secondary cards; orange for the primary.
-const cardStyle = {
-  base: "bg-card rounded-lg p-3 border border-border hover:shadow-sm transition-shadow",
-  primary: "bg-card rounded-lg p-3 border border-border border-l-2 border-l-crimson-red-500 hover:shadow-sm transition-shadow",
-  icon: {
-    primary: "text-crimson-red-500",
-    secondary: "text-muted-foreground",
-  },
-};
-
-// Which stat label is the primary (highlighted) card
-const PRIMARY_STAT = "Available Balance";
+  return (
+    <div className={`group relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl p-5 transition-all duration-300 hover:shadow-xl ${isPrimary 
+      ? 'border-l-4 border-l-red-500 shadow-md' 
+      : 'border border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700'
+    }`}>
+      {/* Animated gradient background on hover */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${isPrimary ? 'from-red-50 to-transparent' : 'from-gray-50 to-transparent'} dark:from-gray-800/50 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+      
+      <div className="relative">
+        <div className="flex items-start justify-between mb-3">
+          <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${isPrimary ? 'bg-red-100 dark:bg-red-900/30' : 'bg-gray-100 dark:bg-gray-800'}`}>
+            <Icon className={`w-5 h-5 ${isPrimary ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-400'}`} />
+          </div>
+          <span className={`inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full text-[10px] font-semibold ${
+            isUp 
+              ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' 
+              : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
+          }`}>
+            {isUp ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
+            {stat.change}
+          </span>
+        </div>
+        
+        <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">
+          {stat.label}
+        </p>
+        
+        <p className={`text-3xl font-bold mb-1 ${isPrimary ? 'text-red-600 dark:text-red-400' : 'text-gray-900 dark:text-white'}`}>
+          {stat.value} <span className="text-sm font-normal text-gray-500 dark:text-gray-400">{stat.currency}</span>
+        </p>
+        
+        {stat.subtitle && (
+          <p className="text-[11px] text-gray-500 dark:text-gray-400">{stat.subtitle}</p>
+        )}
+      </div>
+    </div>
+  );
+}
 
 // ============================================
 // MAIN DASHBOARD COMPONENT
@@ -509,10 +493,8 @@ export default function DashboardPage() {
   const [topUpModalOpen, setTopUpModalOpen] = useState(false);
   const [period] = useState<'7d' | '30d' | '90d' | 'all'>('30d');
 
-  // Ensure environment is defined (fallback to sandbox)
   const currentEnvironment = environment || 'sandbox';
 
-  // Fetch dashboard data
   const { data: statsData, isLoading: isLoadingStats } = useDashboardStats(
     merchantId || '',
     period
@@ -524,13 +506,15 @@ export default function DashboardPage() {
     undefined
   );
 
-  // Show loading state if merchant or environment is not ready
   if (!merchantId || !currentEnvironment) {
     return (
-      <div className="flex items-center justify-center h-64">
+      <div className="flex items-center justify-center h-96">
         <div className="text-center">
-          <div className="w-8 h-8 border-4 border-crimson-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-sm text-muted-foreground">Loading dashboard...</p>
+          <div className="relative w-16 h-16 mx-auto mb-4">
+            <div className="absolute inset-0 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
+            <div className="absolute inset-0 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+          <p className="text-sm text-gray-500 dark:text-gray-400">Loading dashboard...</p>
         </div>
       </div>
     );
@@ -539,293 +523,307 @@ export default function DashboardPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "SUCCESS":
-        return "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400";
+        return "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400";
       case "PENDING_GATEWAY":
-        return "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400";
+        return "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400";
       case "FAILED":
-        return "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400";
+        return "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400";
       default:
-        return "bg-gray-100 dark:bg-gray-900/20 text-gray-700 dark:text-gray-400";
+        return "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-400";
     }
   };
 
   const formatAmount = (amount: number, currency: string = "XAF") => {
-    // Display FCFA instead of XAF in production mode
     const displayCurrency = currency === "XAF" && currentEnvironment === "production" ? "FCFA" : currency;
     return `${amount.toLocaleString()} ${displayCurrency}`;
   };
 
-
   return (
-    <div className="space-y-4 p-4">
-      {/* HEADER */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-xl font-semibold text-foreground">Business Dashboard</h1>
-          <p className="text-xs text-muted-foreground mt-0.5">
-            Monitor your transactions and business performance
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => router.push("/dashboard/withdrawals")}
-            className="px-3 py-1.5 bg-crimson-red-500 text-white rounded-md text-xs font-semibold hover:bg-crimson-red-600 transition-colors flex items-center gap-1.5"
-          >
-            <ArrowDownToLine className="w-3.5 h-3.5" />
-            Withdraw
-          </button>
-          <button
-            onClick={() => {
-              if (!merchantId) { toast.error("Merchant ID not found"); return; }
-              setTopUpModalOpen(true);
-            }}
-            className="px-3 py-1.5 bg-background border border-border text-foreground rounded-md text-xs font-semibold hover:bg-muted transition-colors flex items-center gap-1.5"
-          >
-            <ArrowUpFromLine className="w-3.5 h-3.5" />
-            Top Up
-          </button>
-        </div>
-      </div>
-
-      {/* SECTION 1: KEY METRICS */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-        {isLoadingStats ? (
-          // Skeleton Loaders
-          Array.from({ length: 4 }).map((_, i) => (
-            <div
-              key={i}
-              className="bg-card rounded-lg p-3 border border-border animate-pulse"
-            >
-              <div className="flex items-start justify-between mb-2">
-                <div className="w-8 h-8 bg-muted rounded-lg" />
-                <div className="w-10 h-3 bg-muted rounded" />
-              </div>
-              <div className="w-20 h-2.5 bg-muted rounded mb-1.5" />
-              <div className="w-28 h-5 bg-muted rounded mb-1" />
-              <div className="w-16 h-2.5 bg-muted rounded" />
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+      <div className="space-y-6 p-6">
+        {/* HEADER SECTION */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-1 h-8 bg-gradient-to-b from-red-500 to-rose-500 rounded-full"></div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
+                Business Dashboard
+              </h1>
             </div>
-          ))
-        ) : (
-          statsData?.stats
-            .filter((stat) => stat.label !== "Pending")
-            .map((stat, index) => {
-              const Icon = iconMap[stat.label] || Wallet;
-              const isPrimary = stat.label === PRIMARY_STAT;
-              return (
-                <div
-                  key={index}
-                  className={isPrimary ? cardStyle.primary : cardStyle.base}
-                >
-                  <div className="flex items-start justify-between mb-2">
-                    <div className="w-8 h-8 bg-muted/60 rounded-lg flex items-center justify-center">
-                      <Icon
-                        className={`w-4 h-4 ${isPrimary
-                          ? cardStyle.icon.primary
-                          : cardStyle.icon.secondary
-                          }`}
-                      />
-                    </div>
-                    <span
-                      className={`text-[10px] font-medium flex items-center gap-0.5 ${stat.trend === "up"
-                        ? "text-green-600 dark:text-green-400"
-                        : "text-red-600 dark:text-red-400"
-                        }`}
-                    >
-                      {stat.trend === "up" ? (
-                        <TrendingUp className="w-2.5 h-2.5" />
-                      ) : (
-                        <TrendingDown className="w-2.5 h-2.5" />
-                      )}
-                      {stat.change}
-                    </span>
-                  </div>
-                  <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide mb-1">
-                    {stat.label}
-                  </p>
-                  <p className={`text-2xl font-bold mb-0.5 ${isPrimary ? "text-crimson-red-500" : "text-foreground"
-                    }`}>
-                    {stat.value} {stat.currency}
-                  </p>
-                  {stat.subtitle && (
-                    <p className="text-[10px] text-muted-foreground">{stat.subtitle}</p>
-                  )}
-                </div>
-              );
-            })
-        )}
-      </div>
-
-      {/* SECTION 2: TWO-COLUMN LOWER LAYOUT */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-
-        {/* LEFT — Recent Transactions (2/3 width) */}
-        <div className="lg:col-span-2 bg-card rounded-lg border border-border">
-          <div className="flex items-center justify-between px-3 py-2 border-b border-border">
-            <h3 className="text-lg font-semibold text-foreground">Recent Transactions</h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 ml-3">
+              Monitor your transactions and business performance
+            </p>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <div className="px-3 py-1.5 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div className="flex items-center gap-2">
+                <Zap className="w-3.5 h-3.5 text-amber-500" />
+                <span className="text-xs font-medium text-gray-600 dark:text-gray-400 capitalize">
+                  {currentEnvironment} Mode
+                </span>
+              </div>
+            </div>
             <button
-              onClick={() => router.push('/dashboard/transactions')}
-              className="text-xs text-crimson-red-600 dark:text-crimson-red-400 hover:underline font-medium flex items-center gap-1"
+              onClick={() => router.push("/dashboard/withdrawals")}
+              className="px-4 py-2.5 bg-gradient-to-r from-red-600 to-rose-600 text-white rounded-xl text-sm font-semibold hover:from-red-700 hover:to-rose-700 transition-all shadow-lg shadow-red-500/25 flex items-center gap-2"
             >
-              View All
-              <ArrowRight className="w-3 h-3" />
+              <ArrowDownToLine className="w-4 h-4" />
+              Withdraw
+            </button>
+            <button
+              onClick={() => {
+                if (!merchantId) { toast.error("Merchant ID not found"); return; }
+                setTopUpModalOpen(true);
+              }}
+              className="px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all flex items-center gap-2 shadow-sm"
+            >
+              <ArrowUpFromLine className="w-4 h-4" />
+              Top Up
             </button>
           </div>
+        </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border bg-muted/30">
-                  <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">Date</th>
-                  <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">Transaction ID</th>
-                  <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">Status</th>
-                  <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">Amount</th>
-                  <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">Gateway</th>
-                  <th className="py-2 px-3" />
-                </tr>
-              </thead>
-              <tbody>
-                {isLoadingTransactions ? (
-                  Array.from({ length: 5 }).map((_, i) => (
-                    <tr key={i} className="border-b border-border last:border-0">
-                      {Array.from({ length: 6 }).map((__, j) => (
-                        <td key={j} className="py-2 px-3">
-                          <div className="h-2.5 bg-muted rounded animate-pulse w-20" />
-                        </td>
-                      ))}
-                    </tr>
-                  ))
-                ) : transactionsData?.transactions && transactionsData.transactions.length > 0 ? (
-                  transactionsData.transactions.slice(0, 8).map((tx) => (
-                    <tr key={tx.id} className="border-b border-border last:border-0 hover:bg-muted/30 transition-colors">
-                      <td className="py-2 px-3">
-                        <div className="text-xs text-foreground font-medium">{tx.date}</div>
-                        <div className="text-[10px] text-muted-foreground">{tx.time}</div>
-                      </td>
-                      <td className="py-2 px-3">
-                        <span className="text-[10px] text-foreground font-mono">{tx.id.slice(0, 16)}...</span>
-                      </td>
-                      <td className="py-2 px-3">
-                        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium ${getStatusColor(tx.status)}`}>
-                          <span className={`w-1 h-1 rounded-full ${tx.status === "SUCCESS" ? "bg-green-500"
-                            : tx.status === "PENDING_GATEWAY" ? "bg-crimson-red-500"
-                              : "bg-red-500"
-                            }`} />
-                          {tx.status.replace(/_/g, " ")}
-                        </span>
-                      </td>
-                      <td className="py-2 px-3">
-                        <div className="text-xs text-foreground font-semibold">{formatAmount(tx.amount, tx.currency)}</div>
-                        <div className="text-[10px] text-muted-foreground">Fee: {formatAmount(tx.fees, tx.currency)}</div>
-                      </td>
-                      <td className="py-2 px-3">
-                        <span className="text-[10px] text-foreground">{tx.gateway.replace(/_/g, " ")}</span>
-                      </td>
-                      <td className="py-2 px-3">
-                        <button className="p-0.5 hover:bg-muted rounded transition-colors">
-                          <MoreVertical className="w-3.5 h-3.5 text-muted-foreground" />
-                        </button>
-                      </td>
-                    </tr>
-                  ))
-                ) : (
+        {/* KEY METRICS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {isLoadingStats ? (
+            Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 animate-pulse">
+                <div className="flex items-start justify-between mb-3">
+                  <div className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-xl" />
+                  <div className="w-12 h-5 bg-gray-200 dark:bg-gray-700 rounded-full" />
+                </div>
+                <div className="w-24 h-3 bg-gray-200 dark:bg-gray-700 rounded mb-2" />
+                <div className="w-32 h-7 bg-gray-200 dark:bg-gray-700 rounded mb-1" />
+                <div className="w-20 h-2 bg-gray-200 dark:bg-gray-700 rounded" />
+              </div>
+            ))
+          ) : (
+            statsData?.stats
+              .filter((stat) => stat.label !== "Pending")
+              .map((stat, index) => (
+                <MetricCard key={index} stat={stat} isPrimary={stat.label === "Available Balance"} />
+              ))
+          )}
+        </div>
+
+        {/* TWO-COLUMN LOWER LAYOUT */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* LEFT - Recent Transactions */}
+          <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                  <Activity className="w-4 h-4 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Recent Transactions</h3>
+              </div>
+              <button
+                onClick={() => router.push('/dashboard/transactions')}
+                className="text-sm text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium flex items-center gap-1 transition-colors"
+              >
+                View All
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gray-50 dark:bg-gray-800/50">
                   <tr>
-                    <td colSpan={6} className="py-10 text-center">
-                      <p className="text-xs text-muted-foreground">No transactions found</p>
-                    </td>
+                    <th className="text-left py-3 px-6 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
+                    <th className="text-left py-3 px-6 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Transaction ID</th>
+                    <th className="text-left py-3 px-6 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                    <th className="text-left py-3 px-6 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Amount</th>
+                    <th className="text-left py-3 px-6 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Gateway</th>
+                    <th className="py-3 px-6"></th>
                   </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* RIGHT — Quick Actions + Navigation (1/3 width) */}
-        <div className="flex flex-col gap-3">
-
-          {/* Quick Actions */}
-          <div className="bg-card rounded-lg border border-border p-3">
-            <h3 className="text-lg font-semibold text-foreground mb-2">Quick Actions</h3>
-            <div className="space-y-1.5">
-              <button
-                onClick={() => router.push("/dashboard/withdrawals")}
-                className="w-full flex items-center gap-3 px-3 py-2 bg-crimson-red-50 dark:bg-crimson-red-900/10 border border-crimson-red-200 dark:border-crimson-red-800 rounded-lg hover:bg-crimson-red-100 dark:hover:bg-crimson-red-900/20 transition-colors group"
-              >
-                <div className="w-7 h-7 bg-crimson-red-500 rounded-md flex items-center justify-center shrink-0">
-                  <ArrowDownToLine className="w-3.5 h-3.5 text-white" />
-                </div>
-                <div className="text-left">
-                  <p className="text-xs font-semibold text-foreground">Withdraw Funds</p>
-                  <p className="text-[10px] text-muted-foreground">Send to mobile money</p>
-                </div>
-              </button>
-
-              <button
-                onClick={() => {
-                  if (!merchantId) { toast.error("Merchant ID not found"); return; }
-                  setTopUpModalOpen(true);
-                }}
-                className="w-full flex items-center gap-3 px-3 py-2 bg-background border border-border rounded-lg hover:bg-muted transition-colors"
-              >
-                <div className="w-7 h-7 bg-muted rounded-md flex items-center justify-center shrink-0">
-                  <ArrowUpFromLine className="w-3.5 h-3.5 text-muted-foreground" />
-                </div>
-                <div className="text-left">
-                  <p className="text-xs font-semibold text-foreground">Top Up Wallet</p>
-                  <p className="text-[10px] text-muted-foreground">Add funds to balance</p>
-                </div>
-              </button>
+                </thead>
+                <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                  {isLoadingTransactions ? (
+                    Array.from({ length: 5 }).map((_, i) => (
+                      <tr key={i} className="animate-pulse">
+                        {Array.from({ length: 6 }).map((__, j) => (
+                          <td key={j} className="py-3 px-6">
+                            <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-20" />
+                          </td>
+                        ))}
+                      </tr>
+                    ))
+                  ) : transactionsData?.transactions && transactionsData.transactions.length > 0 ? (
+                    transactionsData.transactions.slice(0, 8).map((tx) => (
+                      <tr key={tx.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                        <td className="py-3 px-6">
+                          <div className="text-sm font-medium text-gray-900 dark:text-white">{tx.date}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">{tx.time}</div>
+                        </td>
+                        <td className="py-3 px-6">
+                          <span className="text-xs font-mono text-gray-600 dark:text-gray-400">{tx.id.slice(0, 16)}...</span>
+                        </td>
+                        <td className="py-3 px-6">
+                          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${getStatusColor(tx.status)}`}>
+                            <span className={`w-1.5 h-1.5 rounded-full ${
+                              tx.status === "SUCCESS" ? "bg-green-500" :
+                              tx.status === "PENDING_GATEWAY" ? "bg-amber-500" : "bg-red-500"
+                            }`} />
+                            {tx.status.replace(/_/g, " ")}
+                          </span>
+                        </td>
+                        <td className="py-3 px-6">
+                          <div className="text-sm font-semibold text-gray-900 dark:text-white">{formatAmount(tx.amount, tx.currency)}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">Fee: {formatAmount(tx.fees, tx.currency)}</div>
+                        </td>
+                        <td className="py-3 px-6">
+                          <span className="text-xs text-gray-600 dark:text-gray-400">{tx.gateway.replace(/_/g, " ")}</span>
+                        </td>
+                        <td className="py-3 px-6">
+                          <button className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">
+                            <MoreVertical className="w-4 h-4 text-gray-400" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={6} className="py-12 text-center">
+                        <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-3">
+                          <Activity className="w-8 h-8 text-gray-400" />
+                        </div>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">No transactions found</p>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             </div>
           </div>
 
-          {/* Navigate */}
-          <div className="bg-card rounded-lg border border-border p-3">
-            <h3 className="text-lg font-semibold text-foreground mb-1.5">Navigate</h3>
-            <div className="space-y-1">
-              {[
-                { label: "Collections", sub: "Incoming payments", icon: CreditCard, href: "/dashboard/collections" },
-                { label: "Payouts", sub: "Send to customers", icon: SendHorizonal, href: "/dashboard/payouts" },
-                { label: "Refunds", sub: "Process refunds", icon: RotateCcw, href: "/dashboard/refunds" },
-                { label: "Settlements", sub: "View settlements", icon: LayoutDashboard, href: "/dashboard/settlements" },
-              ].map(({ label, sub, icon: Icon, href }) => (
+          {/* RIGHT - Quick Actions & Navigation */}
+          <div className="flex flex-col gap-5">
+            {/* Quick Actions */}
+            <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-5 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                  <Zap className="w-4 h-4 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Quick Actions</h3>
+              </div>
+              
+              <div className="space-y-3">
                 <button
-                  key={label}
-                  onClick={() => router.push(href)}
-                  className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-muted transition-colors group"
+                  onClick={() => router.push("/dashboard/withdrawals")}
+                  className="w-full flex items-center gap-3 p-3 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/10 rounded-xl border border-red-100 dark:border-red-800/50 hover:from-red-100 dark:hover:from-red-900/20 transition-all group"
                 >
-                  <div className="flex items-center gap-2.5">
-                    <Icon className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                    <div className="text-left">
-                      <p className="text-xs font-medium text-foreground">{label}</p>
-                      <p className="text-[10px] text-muted-foreground">{sub}</p>
-                    </div>
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-red-500 to-rose-500 flex items-center justify-center shadow-md">
+                    <ArrowDownToLine className="w-4 h-4 text-white" />
                   </div>
-                  <ArrowRight className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="text-left flex-1">
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white">Withdraw Funds</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Send to mobile money</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-red-500 transition-colors" />
                 </button>
-              ))}
+
+                <button
+                  onClick={() => {
+                    if (!merchantId) { toast.error("Merchant ID not found"); return; }
+                    setTopUpModalOpen(true);
+                  }}
+                  className="w-full flex items-center gap-3 p-3 bg-gradient-to-r from-green-50 to-transparent dark:from-green-900/10 rounded-xl border border-green-100 dark:border-green-800/50 hover:from-green-100 dark:hover:from-green-900/20 transition-all group"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center shadow-md">
+                    <ArrowUpFromLine className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="text-left flex-1">
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white">Top Up Wallet</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Add funds to balance</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-green-500 transition-colors" />
+                </button>
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-5 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center">
+                  <LayoutDashboard className="w-4 h-4 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Navigation</h3>
+              </div>
+              
+              <div className="space-y-1">
+                {[
+                  { label: "Collections", sub: "Incoming payments", icon: CreditCard, href: "/dashboard/collections", color: "blue" },
+                  { label: "Payouts", sub: "Send to customers", icon: SendHorizonal, href: "/dashboard/payouts", color: "purple" },
+                  { label: "Refunds", sub: "Process refunds", icon: RotateCcw, href: "/dashboard/refunds", color: "amber" },
+                  { label: "Settlements", sub: "View settlements", icon: LayoutDashboard, href: "/dashboard/settlements", color: "emerald" },
+                ].map(({ label, sub, icon: Icon, href, color }) => {
+                  const colorClasses: Record<string, string> = {
+                    blue: "hover:bg-blue-50 dark:hover:bg-blue-900/10",
+                    purple: "hover:bg-purple-50 dark:hover:bg-purple-900/10",
+                    amber: "hover:bg-amber-50 dark:hover:bg-amber-900/10",
+                    emerald: "hover:bg-emerald-50 dark:hover:bg-emerald-900/10",
+                  };
+                  return (
+                    <button
+                      key={label}
+                      onClick={() => router.push(href)}
+                      className={`w-full flex items-center justify-between p-2.5 rounded-xl transition-all ${colorClasses[color]} group`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Icon className="w-4 h-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300" />
+                        </div>
+                        <div className="text-left">
+                          <p className="text-sm font-medium text-gray-900 dark:text-white">{label}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">{sub}</p>
+                        </div>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
-
         </div>
+
+        {/* MODALS */}
+        {merchantId && (
+          <>
+            <WithdrawModal
+              isOpen={withdrawModalOpen}
+              onClose={() => setWithdrawModalOpen(false)}
+              merchantId={merchantId}
+              environment={environment}
+            />
+            <TopUpModal
+              isOpen={topUpModalOpen}
+              onClose={() => setTopUpModalOpen(false)}
+              merchantId={merchantId}
+              environment={environment}
+            />
+          </>
+        )}
       </div>
-
-
-      {/* MODALS */}
-      {merchantId && (
-        <>
-          <WithdrawModal
-            isOpen={withdrawModalOpen}
-            onClose={() => setWithdrawModalOpen(false)}
-            merchantId={merchantId}
-            environment={environment}
-          />
-          <TopUpModal
-            isOpen={topUpModalOpen}
-            onClose={() => setTopUpModalOpen(false)}
-            merchantId={merchantId}
-            environment={environment}
-          />
-        </>
-      )}
     </div>
   );
 }
+
+<style jsx>{`
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .animate-scaleIn {
+    animation: scaleIn 0.2s ease-out;
+  }
+`}</style>
