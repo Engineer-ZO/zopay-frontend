@@ -500,11 +500,25 @@ export default function DashboardPage() {
     period
   );
 
-  const { data: transactionsData, isLoading: isLoadingTransactions } = useRecentTransactions(
-    merchantId || '',
-    10,
-    undefined
-  );
+  // const { data: transactionsData, isLoading: isLoadingTransactions } = useRecentTransactions(
+  //   merchantId || '',
+  //   10,
+  //   undefined
+  // );
+
+  const { 
+  data: transactionsData, 
+  isLoading: isLoadingTransactions,
+  error: transactionsError 
+} = useRecentTransactions(
+  merchantId || '',
+  10,
+  undefined
+);
+
+// Add this console log to debug
+console.log('Transactions data:', transactionsData);
+console.log('Transactions error:', transactionsError);
 
   if (!merchantId || !currentEnvironment) {
     return (

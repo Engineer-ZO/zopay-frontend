@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'ZITOPAY - Payment Platform for Africa',
+  title: 'ZOPAY - Payment Platform for Africa',
   description: 'Accept Mobile Money and cards instantly. Power your collections and disbursements with secure, developer-friendly tools built for the African market.',
   generator: 'v0.app',
   icons: {

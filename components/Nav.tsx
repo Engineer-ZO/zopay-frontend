@@ -50,14 +50,14 @@ export function Nav() {
                             href="/"
                             className="hover:opacity-80 transition-opacity"
                         >
-                            <Image
-                                src="/zopaylogo.png"
-                                alt="ZoPay Logo"
-                                width={140}
-                                height={40}
-                                className="h-10 w-auto object-contain"
-                                priority
-                            />
+                            <div style={{ position: 'relative', width: 100, height: 50 }}>
+  <Image 
+    src="/zopaylogo.png" 
+    fill
+    style={{ objectFit: 'contain' }}
+    alt="Zopay logo"
+  />
+</div>
                         </Link>
                         <div className="flex items-center gap-3">
                             <ThemeToggle />

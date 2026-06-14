@@ -28,6 +28,17 @@ import {
     Link2,
     Monitor,
     type LucideIcon,
+    TrendingUp,
+    CreditCard,
+    Zap,
+    Lock,
+    HelpCircle,
+    Sparkles,
+    Activity,
+    Server,
+    Fingerprint,
+    Coins,
+    RefreshCw,
 } from "lucide-react";
 import { useState } from "react";
 import { useLogout } from "@/features/auth/hooks/useAuth";
@@ -45,7 +56,6 @@ interface MenuSection {
 }
 
 const menuSections: MenuSection[] = [
-    // Dashboard (no section header)
     {
         items: [
             {
@@ -55,7 +65,6 @@ const menuSections: MenuSection[] = [
             },
         ],
     },
-    // PAYMENTS
     {
         title: "PAYMENTS",
         collapsible: true,
@@ -77,7 +86,6 @@ const menuSections: MenuSection[] = [
             },
         ],
     },
-    // FINANCE
     {
         title: "FINANCE",
         collapsible: true,
@@ -104,7 +112,6 @@ const menuSections: MenuSection[] = [
             },
         ],
     },
-    // DEVELOPER
     {
         title: "DEVELOPER",
         collapsible: true,
@@ -121,7 +128,6 @@ const menuSections: MenuSection[] = [
             },
         ],
     },
-    // INSIGHTS
     {
         title: "INSIGHTS",
         collapsible: true,
@@ -133,7 +139,6 @@ const menuSections: MenuSection[] = [
             },
         ],
     },
-    // SETTINGS
     {
         title: "SETTINGS",
         collapsible: true,
@@ -165,7 +170,6 @@ const menuSections: MenuSection[] = [
             },
         ],
     },
-    // SUPPORT
     {
         title: "SUPPORT",
         collapsible: true,
@@ -178,6 +182,33 @@ const menuSections: MenuSection[] = [
         ],
     },
 ];
+
+// Menu Item Component
+const MenuItemLink = ({ item, isActive, onClick }: { item: MenuItem; isActive: boolean; onClick: () => void }) => {
+    const Icon = item.icon;
+    return (
+        <Link
+            href={item.href}
+            onClick={onClick}
+            className={`group relative flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                isActive
+                    ? "bg-gradient-to-r from-indigo-500/10 to-purple-500/10 text-indigo-700 dark:text-indigo-400 shadow-sm"
+                    : "text-slate-600 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white"
+            }`}
+        >
+            {isActive && (
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-indigo-500 to-purple-600 rounded-r-full" />
+            )}
+            <Icon className={`w-5 h-5 transition-transform duration-200 group-hover:scale-110 ${
+                isActive ? "text-indigo-600 dark:text-indigo-400" : ""
+            }`} />
+            <span>{item.label}</span>
+            {isActive && (
+                <Sparkles className="w-3 h-3 absolute right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            )}
+        </Link>
+    );
+};
 
 export function DashboardSidebar() {
     const pathname = usePathname();
@@ -215,146 +246,171 @@ export function DashboardSidebar() {
 
     return (
         <>
-            {/* Logout Confirmation Dialog */}
+            {/* Logout Confirmation Dialog - Enhanced */}
             {showLogoutConfirm && (
-                <div className="fixed inset-0 bg-black/50 z-100 flex items-center justify-center p-4">
-                    <div className="bg-background rounded-2xl p-6 shadow-2xl border border-border max-w-md w-full">
-                        <h3 className="text-xl font-bold text-foreground mb-2">Confirm Logout</h3>
-                        <p className="text-sm text-muted-foreground mb-6">
-                            Are you sure you want to logout? You&apos;ll need to sign in again to access your dashboard.
-                        </p>
-                        <div className="flex gap-3 justify-end">
-                            <button
-                                onClick={handleLogoutCancel}
-                                className="px-4 py-2 rounded-lg border border-border text-foreground hover:bg-muted transition-colors"
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                onClick={handleLogoutConfirm}
-                                className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition-colors"
-                            >
-                                Logout
-                            </button>
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 max-w-md w-full animate-in zoom-in-95 duration-200">
+                        <div className="p-6 border-b border-slate-200 dark:border-slate-700">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 shadow-lg">
+                                    <LogOut className="w-5 h-5 text-white" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">Confirm Logout</h3>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                                        You&apos;ll need to sign in again to access your dashboard
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="p-6 space-y-4">
+                            <div className="rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 p-3">
+                                <div className="flex items-start gap-2">
+                                    <Shield className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+                                    <p className="text-xs text-amber-800 dark:text-amber-200">
+                                        Any unsaved changes will be lost. Make sure to save your work before logging out.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex gap-3">
+                                <button
+                                    onClick={handleLogoutCancel}
+                                    className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200"
+                                >
+                                    Stay Logged In
+                                </button>
+                                <button
+                                    onClick={handleLogoutConfirm}
+                                    className="flex-1 px-4 py-2.5 bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
+                                >
+                                    Logout
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             )}
 
-            {/* Logout Loading Popup */}
+            {/* Logout Loading Popup - Enhanced */}
             {isLoggingOut && (
-                <div className="fixed inset-0 bg-black/50 z-100 flex items-center justify-center">
-                    <div className="bg-background rounded-2xl p-8 shadow-2xl border border-border flex flex-col items-center gap-4">
-                        <div className="w-12 h-12 border-4 border-crimson-red-500 border-t-transparent rounded-full animate-spin" />
-                        <p className="text-lg font-semibold text-foreground">Logging out...</p>
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col items-center gap-4 animate-in zoom-in-95 duration-200">
+                        <div className="relative">
+                            <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <LogOut className="w-5 h-5 text-indigo-500 animate-pulse" />
+                            </div>
+                        </div>
+                        <p className="text-base font-semibold text-slate-900 dark:text-white">Logging out...</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">Please wait while we sign you out</p>
                     </div>
                 </div>
             )}
 
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Menu Button - Enhanced */}
             <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="lg:hidden fixed top-4 left-4 z-40 p-2 bg-background border border-border rounded-lg shadow-md hover:bg-muted transition-colors"
+                className="lg:hidden fixed top-4 left-4 z-40 p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group"
                 aria-label="Open menu"
             >
-                <Menu className="w-6 h-6 text-foreground" />
+                <Menu className="w-5 h-5 text-slate-700 dark:text-slate-300 group-hover:scale-110 transition-transform duration-200" />
             </button>
 
-            {/* Overlay */}
+            {/* Overlay - Enhanced */}
             {isMobileMenuOpen && (
                 <div
-                    className="lg:hidden fixed inset-0 bg-black/50 z-40"
+                    className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40 animate-in fade-in duration-200"
                     onClick={closeMobileMenu}
                 />
             )}
 
-            {/* Sidebar */}
+            {/* Sidebar - Enhanced */}
             <aside
                 className={`
-                    fixed lg:static inset-y-0 left-0 z-50
-                    w-64 bg-background border-r border-border flex flex-col
-                    transform transition-transform duration-300 ease-in-out
+                    fixed lg:sticky top-0 left-0 z-50
+                    w-72 bg-white dark:bg-slate-800/95 backdrop-blur-sm border-r border-slate-200 dark:border-slate-700 flex flex-col
+                    transform transition-all duration-300 ease-in-out shadow-xl
                     ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
                 `}
             >
-                {/* Logo & Close Button */}
-                <div className="h-16 flex items-center justify-between px-6 border-b border-border">
-                    <Link href="/dashboard" className="flex items-center gap-2">
+                {/* Logo Section - Enhanced */}
+                <div className="relative h-20 flex items-center justify-between px-6 border-b border-slate-200 dark:border-slate-700 bg-gradient-to-r from-white via-white to-indigo-50/30 dark:from-slate-800 dark:via-slate-800 dark:to-indigo-950/20">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 rounded-full blur-2xl" />
+                    <Link href="/dashboard" className="relative flex items-center gap-2 group">
                         <Image
                             src="/zopaylogo.png"
                             alt="ZoPay"
-                            width={120}
-                            height={40}
-                            className="h-8 w-auto object-contain"
+                            width={100}
+                            height={32}
+                            className="h-7 w-auto object-contain dark:brightness-0 dark:invert"
                         />
                     </Link>
-
-                    {/* Close button - only visible on mobile */}
                     <button
                         onClick={closeMobileMenu}
-                        className="lg:hidden p-1 hover:bg-muted rounded transition-colors"
+                        className="lg:hidden p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-all duration-200"
                         aria-label="Close menu"
                     >
-                        <X className="w-6 h-6 text-foreground" />
+                        <X className="w-5 h-5 text-slate-600 dark:text-slate-400" />
                     </button>
                 </div>
 
-                {/* Merchant Badge */}
-                <div className="px-4 py-4 border-b border-border">
-                    <div className="flex items-center gap-3 px-3 py-2 bg-crimson-red-500/10 rounded-lg">
-                        <div className="w-8 h-8 bg-crimson-red-500 rounded flex items-center justify-center">
-                            <Store className="w-4 h-4 text-white" />
+                {/* Merchant Badge - Enhanced */}
+                <div className="px-4 py-5 border-b border-slate-200 dark:border-slate-700 bg-gradient-to-b from-slate-50/30 to-transparent dark:from-slate-800/20">
+                    <div className="relative group">
+                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-300" />
+                        <div className="relative flex items-center gap-3 px-3 py-2.5 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-xl backdrop-blur-sm border border-indigo-200 dark:border-indigo-500/20">
+                            <div className="p-1.5 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 shadow-md">
+                                <Store className="w-3.5 h-3.5 text-white" />
+                            </div>
+                            <div className="flex-1">
+                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">Merchant Account</span>
+                                <p className="text-[10px] text-slate-500 dark:text-slate-400">Active · Production Ready</p>
+                            </div>
+                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                         </div>
-                        <span className="text-sm font-medium text-foreground">Merchants</span>
                     </div>
                 </div>
 
-                {/* Navigation Menu */}
-                <nav className="flex-1 px-4 py-4 space-y-6 overflow-y-auto">
+                {/* Navigation Menu - Enhanced */}
+                <nav className="flex-1 px-3 py-6 space-y-5 overflow-y-auto">
                     {menuSections.map((section, sectionIndex) => {
                         const isCollapsed = section.title && collapsedSections.has(section.title);
 
                         return (
-                            <div key={sectionIndex}>
+                            <div key={sectionIndex} className="space-y-2">
                                 {/* Section Header */}
                                 {section.title && (
                                     <button
                                         onClick={() => section.collapsible && toggleSection(section.title!)}
-                                        className="w-full flex items-center justify-between px-3 py-2 mb-2 group"
+                                        className="group w-full flex items-center justify-between px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200"
                                     >
-                                        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                                        <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                                             {section.title}
                                         </span>
                                         {section.collapsible && (
-                                            isCollapsed ? (
-                                                <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                                            ) : (
-                                                <ChevronDown className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                                            )
+                                            <div className="p-0.5 rounded-md group-hover:bg-slate-200 dark:group-hover:bg-slate-700 transition-colors">
+                                                {isCollapsed ? (
+                                                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-500 transition-all duration-200" />
+                                                ) : (
+                                                    <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-500 transition-all duration-200" />
+                                                )}
+                                            </div>
                                         )}
                                     </button>
                                 )}
 
                                 {/* Section Items */}
                                 {!isCollapsed && (
-                                    <div className="space-y-1">
+                                    <div className="space-y-1 ml-1">
                                         {section.items.map((item) => {
-                                            const Icon = item.icon;
                                             const isActive = pathname === item.href;
-
                                             return (
-                                                <Link
+                                                <MenuItemLink
                                                     key={item.href}
-                                                    href={item.href}
+                                                    item={item}
+                                                    isActive={isActive}
                                                     onClick={closeMobileMenu}
-                                                    className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive
-                                                        ? "bg-crimson-red-500/10 text-crimson-red-600 dark:text-crimson-red-400"
-                                                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                                                        }`}
-                                                >
-                                                    <Icon className="w-5 h-5" />
-                                                    <span>{item.label}</span>
-                                                </Link>
+                                                />
                                             );
                                         })}
                                     </div>
@@ -364,21 +420,25 @@ export function DashboardSidebar() {
                     })}
                 </nav>
 
-                {/* Logout Button */}
-                <div className="px-4 py-4 border-t border-border">
-                    <button
-                        onClick={handleLogoutClick}
-                        disabled={isLoggingOut}
-                        className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        <LogOut className="w-5 h-5" />
-                        <span>Logout</span>
-                    </button>
+                {/* Footer / Logout Button - Enhanced */}
+                <div className="p-4 border-t border-slate-200 dark:border-slate-700 bg-gradient-to-t from-slate-50/30 to-transparent dark:from-slate-800/20">
+                    <div className="space-y-3">
+                        
+                        {/* Logout Button */}
+                        <button
+                            onClick={handleLogoutClick}
+                            disabled={isLoggingOut}
+                            className="group w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 text-slate-600 dark:text-slate-400 hover:bg-rose-50 dark:hover:bg-rose-500/10 hover:text-rose-600 dark:hover:text-rose-400 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            <div className="p-1 rounded-lg group-hover:bg-rose-100 dark:group-hover:bg-rose-500/20 transition-colors">
+                                <LogOut className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                            </div>
+                            <span>Logout</span>
+                            <ChevronRight className="w-3.5 h-3.5 ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200 -translate-x-2 group-hover:translate-x-0" />
+                        </button>
+                    </div>
                 </div>
             </aside>
         </>
     );
 }
-
-
-

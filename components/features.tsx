@@ -38,7 +38,7 @@ export default function Features() {
             Tools for Every Business
           </h2>
           <p className="mx-auto max-w-2xl text-balance text-foreground/70">
-            From simple payment links to complex payment flows, ZITOPAY has everything you need to accept payments and manage your business.
+            From simple payment links to complex payment flows, ZOPAY has everything you need to accept payments and manage your business.
           </p>
         </div>
 

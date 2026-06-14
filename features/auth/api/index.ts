@@ -39,11 +39,15 @@ import type {
     TwoFADisableResponse,
     TwoFARegenerateCodesResponse,
 } from '../types/index';
+// import { getAccessToken } from '../utils/storage';
 
+import { getAccessToken, getRefreshToken, storeAuthData, syncAuthCookie } from '../utils/storage';
 /**
  * Register a new user account
  * Sends verification code to email
  */
+
+
 export const register = async (credentials: RegisterRequest): Promise<RegisterResponse> => {
     const { data } = await apiClient.post<RegisterResponse>('/public/v1/auth/register', credentials);
     return data;
@@ -143,6 +147,7 @@ export const resendResetCode = async (payload: ResendVerificationRequest): Promi
  * Refresh access token using refresh token
  * Returns new access token and user data
  */
+
 export const refreshToken = async (refreshTokenValue: string): Promise<RefreshTokenResponse> => {
     const { data } = await apiClient.post<RefreshTokenResponse>('/public/v1/auth/refresh', {
         refreshToken: refreshTokenValue,
@@ -154,11 +159,41 @@ export const refreshToken = async (refreshTokenValue: string): Promise<RefreshTo
  * Get current authenticated user
  * Requires valid access token
  */
+// In getCurrentUser, add debug logging
+// In features/auth/api/index.ts
 export const getCurrentUser = async (): Promise<GetCurrentUserResponse> => {
+    const token = getAccessToken();
+    console.log('=== DEBUG AUTH ===');
+    console.log('Token exists:', !!token);
+    if (token) {
+        console.log('Token length:', token.length);
+        console.log('Token first 50 chars:', token.substring(0, 50));
+        console.log('Token last 10 chars:', token.substring(token.length - 10));
+        
+        // Try to decode JWT
+        try {
+            const parts = token.split('.');
+            if (parts.length === 3) {
+                const payload = JSON.parse(atob(parts[1]));
+                console.log('Token payload:', {
+                    exp: new Date(payload.exp * 1000).toISOString(),
+                    now: new Date().toISOString(),
+                    isExpired: payload.exp * 1000 < Date.now(),
+                    email: payload.email,
+                    sub: payload.sub,
+                    role: payload.role
+                });
+            } else {
+                console.error('Token is not a valid JWT (wrong parts):', parts.length);
+            }
+        } catch (e) {
+            console.error('Failed to decode token:', e);
+        }
+    }
+    
     const { data } = await apiClient.get<GetCurrentUserResponse>('/auth/v1/me');
     return data;
 };
-
 /**
  * Update preferred language for the authenticated user
  */

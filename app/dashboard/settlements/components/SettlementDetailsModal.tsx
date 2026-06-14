@@ -1,285 +1,159 @@
-"use client";
+import { X, Download, CheckCircle, Clock, XCircle, Calendar, Wallet, TrendingUp, AlertCircle, Loader2 } from "lucide-react";
 
-import { X, Download, CheckCircle2, Clock, XCircle, ArrowLeft } from "lucide-react";
-import { SettlementDetails } from "@/features/settlements/types";
-import { useUserMerchantData } from "@/features/merchants/context/MerchantContext";
+const getStatusConfig = (status: string) => {
+  const configs = {
+    COMPLETED: { icon: CheckCircle, bg: "bg-emerald-100 dark:bg-emerald-500/10", text: "text-emerald-700 dark:text-emerald-400", border: "border-emerald-200 dark:border-emerald-500/20", label: "Completed" },
+    PROCESSING: { icon: Clock, bg: "bg-amber-100 dark:bg-amber-500/10", text: "text-amber-700 dark:text-amber-400", border: "border-amber-200 dark:border-amber-500/20", label: "Processing" },
+    PENDING: { icon: Clock, bg: "bg-sky-100 dark:bg-sky-500/10", text: "text-sky-700 dark:text-sky-400", border: "border-sky-200 dark:border-sky-500/20", label: "Pending" },
+    FAILED: { icon: XCircle, bg: "bg-rose-100 dark:bg-rose-500/10", text: "text-rose-700 dark:text-rose-400", border: "border-rose-200 dark:border-rose-500/20", label: "Failed" },
+  };
+  return configs[status as keyof typeof configs] || configs.PENDING;
+};
 
-interface SettlementDetailsModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  settlementDetails: SettlementDetails | null;
-  onDownloadStatement?: () => void;
-  onComplete?: () => void; // For admin to complete settlement
-  isLoading?: boolean;
-}
-
-export function SettlementDetailsModal({
-  isOpen,
-  onClose,
-  settlementDetails,
-  onDownloadStatement,
-  onComplete,
-  isLoading = false,
-}: SettlementDetailsModalProps) {
-  const { merchant } = useUserMerchantData();
-  
-  // Determine environment based on merchant state
-  const environment: "sandbox" | "production" =
-    merchant?.productionState === "ACTIVE" ? "production" : "sandbox";
-
-  // Currency display
-  const currency = environment === "production" ? "FCFA" : "XAF";
-
+export function SettlementDetailsModal({ isOpen, onClose, settlementDetails, onDownloadStatement, isLoading }: any) {
   if (!isOpen) return null;
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "COMPLETED":
-        return "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400";
-      case "PENDING":
-        return "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400";
-      case "PROCESSING":
-        return "bg-deep-blue-violet-100 dark:bg-deep-blue-violet-900/20 text-deep-blue-violet-700 dark:text-deep-blue-violet-400";
-      case "FAILED":
-        return "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400";
-      default:
-        return "bg-muted text-muted-foreground";
-    }
-  };
-
-  const formatDate = (dateString: string) => {
-    try {
-      return new Date(dateString).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      });
-    } catch {
-      return dateString;
-    }
-  };
-
-  const formatPeriod = (start: string, end: string) => {
-    try {
-      const startDate = new Date(start);
-      const endDate = new Date(end);
-      return `${formatDate(start)} - ${formatDate(end)}`;
-    } catch {
-      return `${start} - ${end}`;
-    }
-  };
-
-  if (isLoading || !settlementDetails) {
-    return (
-      <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-        <div className="bg-background rounded-2xl shadow-2xl border border-border max-w-2xl w-full p-6">
-          <div className="flex items-center justify-center h-64">
-            <div className="w-8 h-8 border-4 border-crimson-red-500 border-t-transparent rounded-full animate-spin" />
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  const { settlement, items } = settlementDetails;
+  const statusConfig = settlementDetails ? getStatusConfig(settlementDetails.status) : null;
+  const StatusIcon = statusConfig?.icon;
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-background rounded-2xl shadow-2xl border border-border max-w-2xl w-full my-8">
-        <div className="p-6 border-b border-border flex items-center justify-between">
-          <div>
-            <h3 className="text-lg font-semibold text-foreground">
-              Settlement Details
-            </h3>
-            <p className="text-xs text-muted-foreground mt-1">
-              {formatPeriod(settlement.periodStart, settlement.periodEnd)}
-            </p>
-          </div>
-          <button
-            onClick={onClose}
-            className="p-1 hover:bg-muted rounded transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        <div className="p-6 space-y-6 max-h-[70vh] overflow-y-auto">
-          {/* Status */}
-          <div>
-            <p className="text-xs font-medium text-muted-foreground mb-2">Status</p>
-            <span
-              className={`inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium ${getStatusColor(
-                settlement.status
-              )}`}
-            >
-              {settlement.status === "COMPLETED" && (
-                <CheckCircle2 className="w-4 h-4 mr-2" />
-              )}
-              {settlement.status === "PENDING" && (
-                <Clock className="w-4 h-4 mr-2" />
-              )}
-              {settlement.status === "FAILED" && (
-                <XCircle className="w-4 h-4 mr-2" />
-              )}
-              {settlement.status}
-            </span>
-          </div>
-
-          {/* Summary Cards */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-green-50 dark:bg-green-900/10 rounded-lg p-4 border border-green-200 dark:border-green-800">
-              <p className="text-xs font-medium text-muted-foreground mb-1">
-                Total Collections
-              </p>
-              <p className="text-lg font-bold text-green-600 dark:text-green-400">
-                {parseFloat(settlement.totalCollections).toLocaleString()} {currency}
-              </p>
-            </div>
-            <div className="bg-red-50 dark:bg-red-900/10 rounded-lg p-4 border border-red-200 dark:border-red-800">
-              <p className="text-xs font-medium text-muted-foreground mb-1">
-                Total Payouts
-              </p>
-              <p className="text-lg font-bold text-red-600 dark:text-red-400">
-                {parseFloat(settlement.totalPayouts).toLocaleString()} {currency}
-              </p>
-            </div>
-            <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 rounded-lg p-4 border border-crimson-red-200 dark:border-crimson-red-800">
-              <p className="text-xs font-medium text-muted-foreground mb-1">
-                Total Refunds
-              </p>
-              <p className="text-lg font-bold text-crimson-red-600 dark:text-crimson-red-400">
-                {parseFloat(settlement.totalRefunds).toLocaleString()} {currency}
-              </p>
-            </div>
-            <div className="bg-gray-50 dark:bg-gray-900/10 rounded-lg p-4 border border-gray-200 dark:border-gray-800">
-              <p className="text-xs font-medium text-muted-foreground mb-1">
-                Total Fees
-              </p>
-              <p className="text-lg font-bold text-gray-600 dark:text-gray-400">
-                {parseFloat(settlement.totalFees).toLocaleString()} {currency}
-              </p>
-            </div>
-          </div>
-
-          {/* Net Amount - Highlighted */}
-          <div className="bg-crimson-red-50 dark:bg-crimson-red-900/10 rounded-lg p-4 border-2 border-crimson-red-500">
-            <p className="text-xs font-medium text-muted-foreground mb-1">
-              Net Settlement Amount
-            </p>
-            <p className="text-2xl font-bold text-crimson-red-600 dark:text-crimson-red-400">
-              {parseFloat(settlement.netAmount).toLocaleString()} {currency}
-            </p>
-          </div>
-
-          {/* Transaction Items */}
-          {items && items.length > 0 && (
-            <div>
-              <h4 className="text-sm font-semibold text-foreground mb-3">
-                Transaction Details
-              </h4>
-              <div className="overflow-x-auto">
-                <table className="w-full text-xs">
-                  <thead>
-                    <tr className="border-b border-border">
-                      <th className="text-left py-2 px-3 font-medium text-muted-foreground">
-                        Type
-                      </th>
-                      <th className="text-left py-2 px-3 font-medium text-muted-foreground">
-                        Amount
-                      </th>
-                      <th className="text-left py-2 px-3 font-medium text-muted-foreground">
-                        Fees
-                      </th>
-                      <th className="text-left py-2 px-3 font-medium text-muted-foreground">
-                        Date
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {items.map((item) => (
-                      <tr key={item.id} className="border-b border-border last:border-0">
-                        <td className="py-2 px-3">
-                          <span
-                            className={`px-2 py-0.5 rounded text-xs font-medium ${
-                              item.type === "COLLECTION"
-                                ? "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400"
-                                : item.type === "PAYOUT"
-                                ? "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400"
-                                : "bg-crimson-red-100 dark:bg-crimson-red-900/20 text-crimson-red-700 dark:text-crimson-red-400"
-                            }`}
-                          >
-                            {item.type}
-                          </span>
-                        </td>
-                        <td className="py-2 px-3 font-medium">
-                          {parseFloat(item.amount).toLocaleString()} {currency}
-                        </td>
-                        <td className="py-2 px-3">
-                          {parseFloat(item.fees).toLocaleString()} {currency}
-                        </td>
-                        <td className="py-2 px-3 text-muted-foreground">
-                          {formatDate(item.createdAt)}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in duration-200" onClick={onClose}>
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-200" onClick={(e) => e.stopPropagation()}>
+        <div className="sticky top-0 bg-gradient-to-r from-white to-indigo-50/30 dark:from-slate-800 dark:to-indigo-950/20 border-b border-slate-200 dark:border-slate-700 p-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
+                <Wallet className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">Settlement Details</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Complete settlement information</p>
               </div>
             </div>
-          )}
+            <button onClick={onClose} className="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-all duration-200">
+              <X className="w-5 h-5 text-slate-500" />
+            </button>
+          </div>
+        </div>
 
-          {/* Payment Info (if completed) */}
-          {settlement.status === "COMPLETED" && settlement.bankTransferReference && (
-            <div className="bg-muted/50 rounded-lg p-4">
-              <h4 className="text-sm font-semibold text-foreground mb-3">
-                Payment Information
+        {isLoading ? (
+          <div className="p-12 text-center">
+            <Loader2 className="w-8 h-8 animate-spin mx-auto text-indigo-500" />
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">Loading settlement details...</p>
+          </div>
+        ) : !settlementDetails ? (
+          <div className="p-12 text-center">
+            <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center">
+              <Wallet className="w-10 h-10 text-slate-400" />
+            </div>
+            <p className="text-base font-medium text-slate-700 dark:text-slate-300">No settlement data available</p>
+          </div>
+        ) : (
+          <div className="p-6 space-y-6">
+            {/* Status Banner */}
+            <div className={`rounded-xl p-5 border-2 ${statusConfig?.bg} ${statusConfig?.border}`}>
+              <div className="flex items-center gap-3 mb-2">
+                {StatusIcon && <StatusIcon className={`w-6 h-6 ${statusConfig?.text}`} />}
+                <span className={`text-base font-bold ${statusConfig?.text}`}>{statusConfig?.label}</span>
+              </div>
+              <p className="text-sm opacity-90 ml-9 text-slate-600 dark:text-slate-400">
+                {settlementDetails.status === "COMPLETED"
+                  ? "✓ Settlement completed successfully. Funds have been transferred."
+                  : settlementDetails.status === "PROCESSING"
+                  ? "⏳ Settlement is being processed. This may take a few minutes."
+                  : settlementDetails.status === "PENDING"
+                  ? "⏰ Settlement is pending processing."
+                  : "⚠️ Settlement failed. Please contact support."}
+              </p>
+            </div>
+
+            {/* Settlement Info */}
+            <div className="rounded-xl bg-slate-50 dark:bg-slate-900/30 p-4 border border-slate-200 dark:border-slate-700">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-indigo-500" />
+                Settlement Information
               </h4>
-              <div className="space-y-2 text-xs">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">MoMo Transaction:</span>
-                  <span className="font-mono font-medium">
-                    {settlement.bankTransferReference}
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between py-2 border-b border-slate-200 dark:border-slate-700">
+                  <span className="text-slate-500 dark:text-slate-400">Settlement ID:</span>
+                  <code className="font-mono font-medium text-slate-900 dark:text-white">{settlementDetails.id}</code>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-200 dark:border-slate-700">
+                  <span className="text-slate-500 dark:text-slate-400">Period:</span>
+                  <span className="font-medium text-slate-900 dark:text-white">
+                    {new Date(settlementDetails.periodStart).toLocaleDateString()} — {new Date(settlementDetails.periodEnd).toLocaleDateString()}
                   </span>
                 </div>
-                {settlement.updatedAt && (
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Completed:</span>
-                    <span>{formatDate(settlement.updatedAt)}</span>
+                <div className="flex justify-between py-2 border-b border-slate-200 dark:border-slate-700">
+                  <span className="text-slate-500 dark:text-slate-400">Created:</span>
+                  <span className="font-medium text-slate-900 dark:text-white">
+                    {new Date(settlementDetails.createdAt).toLocaleString()}
+                  </span>
+                </div>
+                {settlementDetails.completedAt && (
+                  <div className="flex justify-between py-2 border-b border-slate-200 dark:border-slate-700">
+                    <span className="text-slate-500 dark:text-slate-400">Completed:</span>
+                    <span className="font-medium text-slate-900 dark:text-white">
+                      {new Date(settlementDetails.completedAt).toLocaleString()}
+                    </span>
                   </div>
                 )}
               </div>
             </div>
-          )}
 
-          {/* Actions */}
-          <div className="flex gap-3 pt-4 border-t border-border">
-            {settlement.status === "COMPLETED" && onDownloadStatement && (
+            {/* Amount Breakdown */}
+            <div className="rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 p-4 border border-indigo-200 dark:border-indigo-500/20">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-indigo-500" />
+                Amount Breakdown
+              </h4>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between py-2 border-b border-indigo-200 dark:border-indigo-500/20">
+                  <span className="text-slate-600 dark:text-slate-400">Gross Amount:</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">
+                    {parseFloat(settlementDetails.grossAmount).toLocaleString()} {settlementDetails.currency}
+                  </span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-indigo-200 dark:border-indigo-500/20">
+                  <span className="text-slate-600 dark:text-slate-400">Fees:</span>
+                  <span className="text-rose-600 dark:text-rose-400 font-medium">
+                    -{parseFloat(settlementDetails.fees).toLocaleString()} {settlementDetails.currency}
+                  </span>
+                </div>
+                <div className="flex justify-between py-2 pt-3 border-t-2 border-indigo-300 dark:border-indigo-500/30">
+                  <span className="font-bold text-slate-900 dark:text-white">Net Amount:</span>
+                  <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+                    {parseFloat(settlementDetails.netAmount).toLocaleString()} {settlementDetails.currency}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Transaction Count */}
+            <div className="rounded-xl bg-slate-50 dark:bg-slate-900/30 p-4 border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-500/20">
+                    <TrendingUp className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <span className="text-xs text-slate-600 dark:text-slate-400">Transactions in this settlement:</span>
+                </div>
+                <span className="text-lg font-bold text-indigo-600 dark:text-indigo-400">{settlementDetails.transactionCount}</span>
+              </div>
+            </div>
+
+            {/* Actions */}
+            {settlementDetails.status === "COMPLETED" && (
               <button
                 onClick={onDownloadStatement}
-                className="flex-1 px-4 py-2 bg-crimson-red-500 text-white rounded-lg text-xs font-semibold hover:bg-crimson-red-600 transition-colors flex items-center justify-center gap-2"
+                className="w-full px-5 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
               >
                 <Download className="w-4 h-4" />
                 Download Statement
               </button>
             )}
-            {settlement.status !== "COMPLETED" && onComplete && (
-              <button
-                onClick={onComplete}
-                className="flex-1 px-4 py-2 bg-green-600 text-white rounded-lg text-xs font-semibold hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
-              >
-                <CheckCircle2 className="w-4 h-4" />
-                Complete Settlement
-              </button>
-            )}
-            <button
-              onClick={onClose}
-              className="flex-1 px-4 py-2 bg-background border border-border rounded-lg text-xs font-semibold hover:bg-muted transition-colors flex items-center justify-center gap-2"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to List
-            </button>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

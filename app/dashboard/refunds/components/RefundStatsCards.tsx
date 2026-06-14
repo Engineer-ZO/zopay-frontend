@@ -11,27 +11,32 @@ interface RefundStatsCardsProps {
   isLoading?: boolean;
 }
 
-// Unified card style — same neutral background for all cards.
-// Only the primary card (TOTAL) gets an orange left-border accent.
-// Icon colours are muted for secondary cards; orange for the primary.
-const cardStyle = {
-  base: "bg-background rounded-lg p-3 border border-border hover:shadow-sm transition-shadow",
-  primary: "bg-background rounded-lg p-3 border border-border border-l-2 border-l-crimson-red-500 hover:shadow-sm transition-shadow",
-  icon: {
-    primary: "text-crimson-red-500",
-    secondary: "text-muted-foreground",
-  },
-};
-
-// Which stat label is the primary (highlighted) card
-const PRIMARY_STAT = "TOTAL";
-
-// Icon mapping for stats
-const iconMap: Record<string, typeof DollarSign> = {
-  "TOTAL": DollarSign,
-  "SUCCESSFUL": CheckCircle2,
-  "PENDING": Clock,
-  "FAILED": XCircle,
+const StatCard = ({ icon: Icon, label, value, color, isLoading }: any) => {
+  const colors = {
+    indigo: "from-indigo-500 to-purple-600",
+    emerald: "from-emerald-500 to-teal-600",
+    amber: "from-amber-500 to-orange-600",
+    rose: "from-rose-500 to-pink-600",
+  };
+  
+  return (
+    <div className="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+      <div className="relative flex items-start justify-between">
+        <div className="flex-1">
+          <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">{label}</p>
+          {isLoading ? (
+            <div className="mt-2 h-8 w-24 bg-slate-200 dark:bg-slate-700 rounded-lg animate-pulse" />
+          ) : (
+            <p className="text-2xl font-bold text-slate-900 dark:text-white mt-2">{value}</p>
+          )}
+        </div>
+        <div className={`p-3 rounded-xl bg-gradient-to-br ${colors[color as keyof typeof colors]} shadow-lg`}>
+          <Icon className="w-5 h-5 text-white" />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export function RefundStatsCards({
@@ -43,73 +48,55 @@ export function RefundStatsCards({
 }: RefundStatsCardsProps) {
   const { merchant } = useUserMerchantData();
 
-  // Determine environment based on merchant state
   const environment: "sandbox" | "production" =
     merchant?.productionState === "ACTIVE" ? "production" : "sandbox";
 
-  // Currency display
   const currency = environment === "production" ? "FCFA" : "XAF";
   
   if (isLoading) {
     return (
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[1, 2, 3, 4].map((i) => (
-          <div
-            key={i}
-            className="bg-background rounded-lg p-3 border border-border animate-pulse"
-          >
-            <div className="flex items-start justify-between mb-2">
-              <div className="w-8 h-8 bg-muted rounded-lg" />
-            </div>
-            <div className="w-20 h-2.5 bg-muted rounded mb-1.5" />
-            <div className="w-28 h-5 bg-muted rounded" />
+          <div key={i} className="rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-5 animate-pulse">
+            <div className="w-10 h-10 bg-slate-200 dark:bg-slate-700 rounded-xl mb-3" />
+            <div className="w-20 h-3 bg-slate-200 dark:bg-slate-700 rounded mb-2" />
+            <div className="w-28 h-6 bg-slate-200 dark:bg-slate-700 rounded" />
           </div>
         ))}
       </div>
     );
   }
 
-  const stats = [
-    { label: "TOTAL", value: `${total.toLocaleString()} ${currency}`, isPrimary: true },
-    { label: "SUCCESSFUL", value: successful.toString(), isPrimary: false },
-    { label: "PENDING", value: pending.toString(), isPrimary: false },
-    { label: "FAILED", value: failed.toString(), isPrimary: false },
-  ];
-
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-      {stats.map((stat, index) => {
-        const Icon = iconMap[stat.label] || DollarSign;
-        const isPrimary = stat.label === PRIMARY_STAT;
-        return (
-          <div
-            key={index}
-            className={isPrimary ? cardStyle.primary : cardStyle.base}
-          >
-            <div className="flex items-start justify-between mb-2">
-              <div className="w-8 h-8 bg-muted/60 rounded-lg flex items-center justify-center">
-                <Icon
-                  className={`w-4 h-4 ${
-                    isPrimary
-                      ? cardStyle.icon.primary
-                      : cardStyle.icon.secondary
-                  }`}
-                />
-              </div>
-            </div>
-            <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide mb-1">
-              {stat.label}
-            </p>
-            <p
-              className={`text-base font-semibold ${
-                isPrimary ? "text-crimson-red-500" : "text-foreground"
-              }`}
-            >
-              {stat.value}
-            </p>
-          </div>
-        );
-      })}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <StatCard 
+        icon={DollarSign} 
+        label="TOTAL REFUNDED" 
+        value={`${total.toLocaleString()} ${currency}`} 
+        color="indigo"
+        isLoading={isLoading}
+      />
+      <StatCard 
+        icon={CheckCircle2} 
+        label="SUCCESSFUL" 
+        value={successful} 
+        color="emerald"
+        isLoading={isLoading}
+      />
+      <StatCard 
+        icon={Clock} 
+        label="PENDING" 
+        value={pending} 
+        color="amber"
+        isLoading={isLoading}
+      />
+      <StatCard 
+        icon={XCircle} 
+        label="FAILED" 
+        value={failed} 
+        color="rose"
+        isLoading={isLoading}
+      />
     </div>
   );
 }

@@ -32,7 +32,7 @@ export function MerchantProvider({ children }: { children: ReactNode }) {
     // and is allowed to access merchant resources.
     const isMerchantUser = isAuthenticated && user?.role !== 'admin' && !requiresPasswordChange;
     const { data, isLoading: isMerchantLoading, error, refetch: refetchMerchant } = useGetFirstMerchant(isMerchantUser);
-
+    console.log('MerchantContext - isMerchantUser:', isMerchantUser, 'isAuthenticated:', isAuthenticated, 'user:', user);
     // Extract merchant from response
     const merchant = data?.merchant || null;
     const merchantId = merchant?.id || null;

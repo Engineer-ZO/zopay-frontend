@@ -7,6 +7,7 @@ import { EnvironmentProvider } from "@/core/environment/EnvironmentContext";
 import { LanguageProvider } from "@/core/i18n/LanguageProvider";
 import { AuthCookieSync } from "@/components/AuthCookieSync";
 import { Toaster } from "sonner";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,8 +42,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
+        style={{ fontFamily: "'Inter', Arial, Helvetica, sans-serif" }}
+        suppressHydrationWarning
+      >
+        {/* Script for theme and language restoration - runs before hydration */}
+        <Script
+          id="theme-language-restore"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -70,12 +78,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
-        style={{ fontFamily: "'Inter', Arial, Helvetica, sans-serif" }}
-        suppressHydrationWarning
-      >
         <Toaster position="top-right" richColors />
         <QueryProvider>
           <AuthProvider>

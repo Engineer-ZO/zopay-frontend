@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Clock, XCircle, Eye } from "lucide-react";
+import { ChevronLeft, ChevronRight, CheckCircle2, Clock, XCircle, Eye, User, CreditCard, RefreshCw, Receipt } from "lucide-react";
 import { Refund } from "@/features/refunds/types";
 import { useUserMerchantData } from "@/features/merchants/context/MerchantContext";
 
@@ -13,6 +13,16 @@ interface RefundsTableProps {
   onPageChange: (page: number) => void;
 }
 
+const getStatusConfig = (status: string) => {
+  const configs = {
+    SUCCESS: { icon: CheckCircle2, bg: "bg-emerald-50 dark:bg-emerald-500/10", text: "text-emerald-700 dark:text-emerald-400", border: "border-emerald-200 dark:border-emerald-500/20", label: "Success" },
+    PENDING: { icon: Clock, bg: "bg-amber-50 dark:bg-amber-500/10", text: "text-amber-700 dark:text-amber-400", border: "border-amber-200 dark:border-amber-500/20", label: "Pending" },
+    PROCESSING: { icon: RefreshCw, bg: "bg-sky-50 dark:bg-sky-500/10", text: "text-sky-700 dark:text-sky-400", border: "border-sky-200 dark:border-sky-500/20", label: "Processing" },
+    FAILED: { icon: XCircle, bg: "bg-rose-50 dark:bg-rose-500/10", text: "text-rose-700 dark:text-rose-400", border: "border-rose-200 dark:border-rose-500/20", label: "Failed" },
+  };
+  return configs[status as keyof typeof configs] || configs.PENDING;
+};
+
 export function RefundsTable({
   refunds,
   isLoading = false,
@@ -23,27 +33,11 @@ export function RefundsTable({
 }: RefundsTableProps) {
   const { merchant } = useUserMerchantData();
 
-  // Determine environment based on merchant state
   const environment: "sandbox" | "production" =
     merchant?.productionState === "ACTIVE" ? "production" : "sandbox";
 
-  // Format currency for display
   const formatCurrency = (currency: string) => {
     return currency === "XAF" && environment === "production" ? "FCFA" : currency;
-  };
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "SUCCESS":
-        return "text-green-600 dark:text-green-400";
-      case "PENDING":
-        return "text-crimson-red-600 dark:text-crimson-red-400";
-      case "PROCESSING":
-        return "text-muted-foreground";
-      case "FAILED":
-        return "text-red-600 dark:text-red-400";
-      default:
-        return "text-muted-foreground";
-    }
   };
 
   const formatDate = (dateString: string) => {
@@ -66,9 +60,21 @@ export function RefundsTable({
 
   if (isLoading) {
     return (
-      <div className="bg-background rounded-lg border border-border overflow-hidden">
-        <div className="p-8 text-center text-muted-foreground text-xs">
-          Loading refunds...
+      <div className="rounded-2xl bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
+        <div className="p-6">
+          <div className="space-y-3">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/30 animate-pulse">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-600" />
+                <div className="flex-1 space-y-2">
+                  <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/4" />
+                  <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded w-1/2" />
+                </div>
+                <div className="w-24 h-8 bg-slate-200 dark:bg-slate-700 rounded-full" />
+                <div className="w-8 h-8 bg-slate-200 dark:bg-slate-700 rounded-lg" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -76,104 +82,92 @@ export function RefundsTable({
 
   if (refunds.length === 0) {
     return (
-      <div className="bg-background rounded-lg border border-border overflow-hidden">
-        <div className="p-8 text-center text-muted-foreground text-xs">
-          No refunds found
+      <div className="rounded-2xl bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
+        <div className="p-16 text-center">
+          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center">
+            <Receipt className="w-10 h-10 text-slate-400" />
+          </div>
+          <p className="text-base font-medium text-slate-700 dark:text-slate-300">No refunds found</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Try adjusting your search or filter criteria</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-background rounded-lg border border-border overflow-hidden">
+    <div className="rounded-2xl bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm transition-all duration-300">
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-border bg-muted/30">
-              <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">
-                Date
-              </th>
-              <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">
-                TX ID
-              </th>
-              <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">
-                Amount
-              </th>
-              <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">
-                Method
-              </th>
-              <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">
-                Reason
-              </th>
-              <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">
-                Status
-              </th>
-              <th className="text-left py-2 px-3 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">
-                Actions
-              </th>
+            <tr className="bg-gradient-to-r from-slate-50 to-slate-100/50 dark:from-slate-800/50 dark:to-slate-800/30 border-b-2 border-slate-200 dark:border-slate-700">
+              <th className="text-left px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Date</th>
+              <th className="text-left px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Transaction ID</th>
+              <th className="text-left px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Amount</th>
+              <th className="text-left px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Method</th>
+              <th className="text-left px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Reason</th>
+              <th className="text-left px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Status</th>
+              <th className="text-left px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider"></th>
             </tr>
           </thead>
           <tbody>
             {refunds.map((refund) => {
               const { date, time } = formatDate(refund.createdAt);
+              const statusConfig = getStatusConfig(refund.status);
+              const StatusIcon = statusConfig.icon;
+              
               return (
                 <tr
                   key={refund.id}
-                  className="border-b border-border last:border-0 hover:bg-muted/50 transition-colors cursor-pointer group"
+                  className="group border-b border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-200 cursor-pointer"
                   onClick={() => onRowClick(refund)}
                 >
-                  <td className="py-2.5 px-3">
-                    <div className="text-xs font-medium text-foreground">
-                      {date}
+                  <td className="px-6 py-4">
+                    <div className="flex flex-col">
+                      <span className="text-sm font-semibold text-slate-900 dark:text-white">{date}</span>
+                      <span className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">{time}</span>
                     </div>
-                    <div className="text-[10px] text-muted-foreground">{time}</div>
                   </td>
-                  <td className="py-2.5 px-3">
-                    <div className="text-xs font-mono text-foreground">
+                  <td className="px-6 py-4">
+                    <code className="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md">
                       {refund.transaction.id.slice(0, 12)}...
-                    </div>
-                    <div className="text-[10px] text-muted-foreground font-mono">
-                      {refund.id.slice(0, 12)}...
+                    </code>
+                    <div className="text-[10px] text-slate-400 dark:text-slate-500 font-mono mt-1">
+                      Ref: {refund.id.slice(0, 8)}...
                     </div>
                   </td>
-                  <td className="py-2.5 px-3 text-xs font-semibold text-foreground">
-                    {parseFloat(refund.amount).toLocaleString()} {formatCurrency(refund.transaction.currency || "XAF")}
+                  <td className="px-6 py-4">
+                    <span className="text-sm font-bold text-slate-900 dark:text-white">
+                      {parseFloat(refund.amount).toLocaleString()} {formatCurrency(refund.transaction.currency || "XAF")}
+                    </span>
                   </td>
-                  <td className="py-2.5 px-3">
-                    <span className="text-[10px] text-foreground font-medium">
+                  <td className="px-6 py-4">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md">
                       {refund.method}
                     </span>
                   </td>
-                  <td className="py-2.5 px-3 text-[10px] text-foreground max-w-xs truncate">
-                    {refund.reason || "N/A"}
-                  </td>
-                  <td className="py-2.5 px-3">
-                    <span
-                      className={`inline-flex items-center gap-1 text-[10px] font-medium ${getStatusColor(
-                        refund.status
-                      )}`}
-                    >
-                      <span
-                        className={`w-1 h-1 rounded-full ${
-                          refund.status === "SUCCESS"
-                            ? "bg-green-500"
-                            : refund.status === "PENDING"
-                            ? "bg-crimson-red-500"
-                            : refund.status === "PROCESSING"
-                            ? "bg-muted-foreground"
-                            : "bg-red-500"
-                        }`}
-                      />
-                      {refund.status}
+                  <td className="px-6 py-4">
+                    <span className="text-xs text-slate-600 dark:text-slate-400 max-w-xs block truncate">
+                      {refund.reason || "N/A"}
                     </span>
                   </td>
-                  <td className="py-2.5 px-3">
+                  <td className="px-6 py-4">
+                    <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border ${statusConfig.bg} ${statusConfig.text} ${statusConfig.border} shadow-sm`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${
+                        refund.status === "SUCCESS" ? "bg-emerald-500" :
+                        refund.status === "PENDING" ? "bg-amber-500" :
+                        refund.status === "PROCESSING" ? "bg-sky-500" : "bg-rose-500"
+                      } animate-pulse`} />
+                      <StatusIcon className="w-3 h-3" />
+                      {statusConfig.label}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         onRowClick(refund);
                       }}
-                      className="p-1 hover:text-foreground text-muted-foreground hover:bg-muted rounded transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+                      className="p-2 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-all duration-200 opacity-0 group-hover:opacity-100 focus:opacity-100"
                     >
                       <Eye className="w-4 h-4" />
                     </button>
@@ -187,73 +181,54 @@ export function RefundsTable({
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="p-4 border-t border-border flex items-center justify-between">
-          <div className="text-xs text-muted-foreground">
-            Page {currentPage} of {totalPages}
-          </div>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => onPageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="p-2 hover:bg-muted rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+        <div className="p-6 bg-gradient-to-r from-slate-50/30 to-transparent dark:from-slate-800/20 border-t border-slate-200 dark:border-slate-700">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-xs text-slate-500 dark:text-slate-400">
+              Page {currentPage} of {totalPages}
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => onPageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
-              let pageNum;
-              if (totalPages <= 5) {
-                pageNum = i + 1;
-              } else if (currentPage <= 3) {
-                pageNum = i + 1;
-              } else if (currentPage >= totalPages - 2) {
-                pageNum = totalPages - 4 + i;
-              } else {
-                pageNum = currentPage - 2 + i;
-              }
-              return (
-                <button
-                  key={pageNum}
-                  onClick={() => onPageChange(pageNum)}
-                  className={`px-3 py-1 rounded text-xs font-medium ${currentPage === pageNum
-                    ? "bg-crimson-red-500 text-white"
-                    : "hover:bg-muted"
-                    }`}
-                >
-                  {pageNum}
-                </button>
-              );
-            })}
-            <button
-              onClick={() => onPageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="p-2 hover:bg-muted rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+                <ChevronLeft className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+              </button>
+              <div className="flex gap-1.5">
+                {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                  let pageNum;
+                  if (totalPages <= 5) {
+                    pageNum = i + 1;
+                  } else if (currentPage <= 3) {
+                    pageNum = i + 1;
+                  } else if (currentPage >= totalPages - 2) {
+                    pageNum = totalPages - 4 + i;
+                  } else {
+                    pageNum = currentPage - 2 + i;
+                  }
+                  return (
+                    <button
+                      key={pageNum}
+                      onClick={() => onPageChange(pageNum)}
+                      className={`min-w-[36px] h-9 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                        currentPage === pageNum
+                          ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md"
+                          : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700"
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
+                  );
+                })}
+              </div>
+              <button
+                onClick={() => onPageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
+                <ChevronRight className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+              </button>
+            </div>
           </div>
         </div>
       )}

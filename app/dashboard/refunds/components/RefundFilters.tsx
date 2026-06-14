@@ -1,6 +1,6 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { Search, Filter, Layers, RefreshCw } from "lucide-react";
 
 interface RefundFiltersProps {
   searchQuery: string;
@@ -20,38 +20,53 @@ export function RefundFilters({
   onEnvironmentChange,
 }: RefundFiltersProps) {
   return (
-    <div className="bg-background rounded-lg p-3 border border-border flex flex-col md:flex-row md:items-center justify-between gap-4">
-      <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-        <div className="relative flex-1 md:min-w-[250px]">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground" />
-          <input
-            type="text"
-            placeholder="Search ID..."
-            value={searchQuery}
-            onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-9 pr-4 py-1.5 bg-background border border-border rounded-md text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-crimson-red-500 transition-shadow"
-          />
+    <div className="rounded-2xl bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="relative group flex-1 lg:flex-none">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-indigo-500 transition-colors" />
+            <input
+              type="text"
+              placeholder="Search by refund ID, transaction ID, or customer..."
+              value={searchQuery}
+              onChange={(e) => onSearchChange(e.target.value)}
+              className="w-80 pl-10 pr-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all"
+            />
+          </div>
+          
+          <div className="flex items-center gap-2">
+            <Filter className="w-4 h-4 text-slate-400" />
+            <select
+              value={status}
+              onChange={(e) => onStatusChange(e.target.value)}
+              className="px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all cursor-pointer"
+            >
+              <option value="">All Status</option>
+              <option value="PENDING">⏳ Pending</option>
+              <option value="PROCESSING">🔄 Processing</option>
+              <option value="SUCCESS">✓ Successful</option>
+              <option value="FAILED">✗ Failed</option>
+            </select>
+          </div>
+          
+          <div className="flex items-center gap-2">
+            <Layers className="w-4 h-4 text-slate-400" />
+            <select
+              value={environment}
+              onChange={(e) => onEnvironmentChange(e.target.value)}
+              className="px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all cursor-pointer"
+            >
+              <option value="">All Environments</option>
+              <option value="sandbox">🧪 Sandbox</option>
+              <option value="production">🚀 Production</option>
+            </select>
+          </div>
         </div>
-        <select
-          value={environment}
-          onChange={(e) => onEnvironmentChange(e.target.value)}
-          className="px-3 py-1.5 bg-background border border-border rounded-md text-xs font-medium focus:outline-none focus:ring-2 focus:ring-crimson-red-500 transition-shadow"
-        >
-          <option value="">All Environments</option>
-          <option value="sandbox">Sandbox</option>
-          <option value="production">Production</option>
-        </select>
-        <select
-          value={status}
-          onChange={(e) => onStatusChange(e.target.value)}
-          className="px-3 py-1.5 bg-background border border-border rounded-md text-xs font-medium focus:outline-none focus:ring-2 focus:ring-crimson-red-500 transition-shadow"
-        >
-          <option value="">All Status</option>
-          <option value="PENDING">Pending</option>
-          <option value="PROCESSING">Processing</option>
-          <option value="SUCCESS">Success</option>
-          <option value="FAILED">Failed</option>
-        </select>
+        
+        <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <RefreshCw className="w-3.5 h-3.5" />
+          <span>Auto-refreshes</span>
+        </div>
       </div>
     </div>
   );

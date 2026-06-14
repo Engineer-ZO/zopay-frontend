@@ -7,7 +7,7 @@ import ContactInfo from '@/components/marketing/contact/contact.info'
 import ContactFAQ from '@/components/marketing/contact/contact-faq'
 
 export const metadata = {
-  title: 'Contact Us - ZITOPAY',
+  title: 'Contact Us - ZOPAY',
   description: 'Get in touch with our team. We\'re here to help with technical and commercial inquiries.',
 }
 
